@@ -1,6 +1,5 @@
 import React from 'react'
 import Title from './components/common/Title'
-import Main from './components/home/Main'
 import Image from 'next/image'
 const page = () => {
   return (
