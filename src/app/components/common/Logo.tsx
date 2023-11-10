@@ -2,9 +2,10 @@ import logo from "@/../public/logo.svg"
 import React from 'react'
 import Image from "next/image"
 
-const Logo = () => {
+const Logo = ({className}) => {
   return (
-   <Image src={logo} alt="logo" width={258} height={96}/>
+   <Image className={className} 
+   src={logo} alt="logo" />
   )
 }
 

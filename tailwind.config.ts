@@ -1,3 +1,4 @@
+import { Cardo, Inter } from 'next/font/google'
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
@@ -19,6 +20,10 @@ const config: Config = {
       backgroundImage: {
         'bgImg': "url('/public/img/Background.png')",
         
+      },
+      fontFamily: {
+        'cardo': ['Cardo', 'serif'],
+        'inter': ['Inter', 'sans-serif'],
       }
     },
   },
