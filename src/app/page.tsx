@@ -67,7 +67,7 @@ const page = () => {
             dtText="View All Exhibitions &rarr;"
           />
         </div>
-        <div className="mt-5 lg:mt-20 flex justify-between w-full flex-col lg:flex-row">
+        <div className="mt-5 gap-5  lg:mt-20 flex justify-between w-full flex-col lg:flex-row">
           {dummyData.map((data, index) => (
             <Exhibition key={index} {...data} />
           ))}

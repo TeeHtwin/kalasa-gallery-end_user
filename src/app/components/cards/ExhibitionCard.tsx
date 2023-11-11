@@ -21,7 +21,7 @@ const ExhibitionCard = ({
   href,
 }: ExhibitionCardProps) => {
   return (
-    <div className="px-2 pt-2 pb-8 w-full lg:pb-11">
+    <div className="px-2 pt-2 pb-8 w-full lg:pb-11 border border-opacity-20 border-primary">
       <Image
         width={421}
         height={421}
