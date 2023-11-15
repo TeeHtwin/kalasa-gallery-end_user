@@ -6,7 +6,11 @@ import Layout from "./components/common/Layout";
 import Exhibition, {
   ExhibitionCardProps,
 } from "./components/cards/ExhibitionCard";
-
+import Paragraph from "./components/common/Text/Paragraph";
+import Image from "next/image";
+import aboutUs from "@/../public/img/aboutUs.png";
+import PhotoGallery from "./components/photoLayout/PhotoGallery";
+import ContactUs from "./components/contactUs/ContactUs";
 const page = () => {
   const dummyData: ExhibitionCardProps[] = [
     {
@@ -34,6 +38,22 @@ const page = () => {
       href: "/exhibition/3",
     },
   ];
+
+  const dammyImages = [
+    "https://placekitten.com/400/600",
+    "https://placekitten.com/600/800",
+    "https://placekitten.com/800/1200",
+    "https://placekitten.com/700/1000",
+    "https://placekitten.com/400/600",
+    "https://placekitten.com/600/800",
+    "https://placekitten.com/800/1200",
+    "https://placekitten.com/400/1000",
+    "https://placekitten.com/300/600",
+    "https://placekitten.com/600/800",
+    "https://placekitten.com/800/1200",
+    "https://placekitten.com/700/1000",
+  ];
+
   return (
     <>
       <main className="h-screen bg-right w-full bg-[url('../../public/img/Background.png')] bg-cover bg-fixed relative p-0 m-0 flex items-center justify-center flex-col gap-10">
@@ -67,12 +87,42 @@ const page = () => {
             dtText="View All Exhibitions &rarr;"
           />
         </div>
-        <div className="mt-5 gap-5  lg:mt-20 flex justify-between w-full flex-col lg:flex-row">
+        <div className="mt-5 lg:mt-20 flex justify-between w-full gap-2 flex-col lg:flex-row">
           {dummyData.map((data, index) => (
             <Exhibition key={index} {...data} />
           ))}
         </div>
       </Layout>
+      <Layout className="lg:p-20 flex justify-between text-primary lg:text-5xl">
+        <Title>Expolre Our Collection</Title>
+        <LinkBtn
+          href="/collections"
+          dtText="View All Collection"
+          mobileText="See all"
+        />
+      </Layout>
+
+      <Layout className="lg:p-0 grid grid-cols-1 lg:grid-cols-2 bg-primary-light text-primary lg:text-5xl">
+        <div className=" flex justify-center mb-4 lg:mb-0 lg:px-[102px]  flex-col">
+          <Title className="mb-5">What is Kalasa</Title>
+          <Paragraph className="lg:leading-normal leading-6 text-sm">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam quod
+            explicabo repudiandae enim provident. Magni ipsa maiores porro est
+            natus debitis consequuntur nam voluptatibus, recusandae magnam.
+            Perspiciatis sapiente eius atque officiis amet mollitia dolor iure
+            exercitationem inventore aspernatur eaque porro quo omnis, non
+            maxime cumque earum? Ipsa aperiam quos autem?
+          </Paragraph>
+        </div>
+        <Image
+          src={aboutUs}
+          width={756}
+          height={756}
+          className="lg:aspect-square bg-contain bg-neutral-light aspect-[3/2] p-[22px] lg:p-0"
+          alt="about us"
+        />
+      </Layout>
+      <ContactUs />
     </>
   );
 };
