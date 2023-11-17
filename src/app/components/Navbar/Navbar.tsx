@@ -1,8 +1,10 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Logo from "../common/Logo";
 import NavText from "./NavText";
 import { usePathname } from "next/navigation";
+import Title from "../common/Title";
+import { cn } from "@/app/lib/untils";
 
 const Navbar: React.FC = () => {
   const Nav = [
@@ -13,6 +15,34 @@ const Navbar: React.FC = () => {
     { name: "blogs", href: "/blogs" },
   ];
 
+  const mobileNav = [
+    {
+      name: "Home",
+      href: "/",
+    },
+    {
+      name: "Events",
+      href: "/events",
+    },
+    {
+      name: "Collections",
+      href: "/collections",
+    },
+    {
+      name: "Gallery",
+      href: "gallery",
+    },
+
+    {
+      name: "Artists",
+      href: "/artists",
+    },
+    {
+      name: "Contact",
+      href: "#contact",
+    },
+  ];
+
   const pathName = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -20,28 +50,64 @@ const Navbar: React.FC = () => {
     setMenuOpen(!menuOpen);
   };
 
+  useEffect(() => {
+    setMenuOpen((prev) => !prev);
+  }, [pathName]);
+
   const isHomepage = pathName === "/";
-  const homepageClass = isHomepage ? "absolute" : "";
+  const homepageClass = isHomepage ? "absolute" : "shadow-sm";
+
+  const DesktopNavbar = () => (
+    <div className="hidden lg:flex items-center">
+      {Nav?.map((nav) => (
+        <NavText pathName={pathName} key={nav.name} {...nav} />
+      ))}
+    </div>
+  );
+
+  const MobileNavbar = () => (
+    <div
+      className={`flex animate-fade animate-once animate-ease-in animate-alternate animate-fill-both  w-full py-10 flex-col z-10 lg:hidden ${
+        menuOpen
+          ? "text-center bg-neutral-light top-3 w-full pl-4 pr-4"
+          : " hidden"
+      }`}
+    >
+      <Title className="text-xl font-bold text-primary mb-5">Our Menu</Title>
+      <div className=" flex flex-col gap-5 w-1/3 mx-auto">
+        {mobileNav?.map((nav) => (
+          <NavText
+            className="text-sm border-b w-full border-b-primary text-primary font-medium  border-opacity-20"
+            key={nav.name}
+            {...nav}
+          />
+        ))}
+      </div>
+    </div>
+  );
 
   return (
     <nav
-      className={`flex  flex-row gap-2 z-10 py-6 px-4 lg:py-1 justify-between items-center bg-transparent w-full ${homepageClass}`}
+      className={cn(
+        "flex flex-row gap-2 z-10 py-6 px-4 lg:py-1 justify-between items-center bg-transparent w-full",
+        homepageClass,
+        { "px-0 py-0": menuOpen }
+      )}
     >
-      <div className="flex items-center">
+      {/* {menuOpen && createPortal(<MobileNavbar />, document.body)} */}
+      <div
+        className={`flex items-center ${menuOpen ? "hidden lg:flex" : "flex"}`}
+      >
         <Logo className="w-[120px] h-[44px] lg:w-[258px] lg:h-[96px]" />
       </div>
-      <div
-        className={`flex flex-col lg:items-center lg:flex-row ${
-          menuOpen
-            ? "text-center bg-black box-border top-3 w-full "
-            : "hidden lg:block"
-        }`}
+      <DesktopNavbar />
+
+      <MobileNavbar />
+
+      <button
+        className="lg:hidden absolute right-4 top-4 md:hidden z-10 cursor-pointer"
+        onClick={toggleMenu}
       >
-        {Nav?.map((nav) => (
-          <NavText pathName={pathName} key={nav.name} {...nav} />
-        ))}
-      </div>
-      <button className="lg:hidden z-10 cursor-pointer" onClick={toggleMenu}>
         {/* Hamburger icon */}
         {menuOpen ? (
           <svg
@@ -69,7 +135,7 @@ const Navbar: React.FC = () => {
           >
             <path
               d="M6.42864 9.28564H23.5715M6.42578 14.9999H23.5644M6.42864 20.7142H23.5644"
-              stroke="white"
+              stroke={pathName === "/" ? "white" : "#883B0A"}
               strokeLinecap="round"
               strokeLinejoin="round"
             />

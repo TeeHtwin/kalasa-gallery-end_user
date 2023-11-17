@@ -14,7 +14,10 @@ import Form from "./Form";
 const ContactUs = () => {
   return (
     <Layout className="lg:p-0 p-0 pt-10 grid grid-cols-1 lg:grid-cols-2">
-      <div className="py-[120px] px-4 w-full lg:w-[647px]  mx-auto">
+      <div
+        id="contact"
+        className="py-[120px] px-4 w-full lg:w-[647px]  mx-auto"
+      >
         <Title className="text-xl mb-4 lg:text-5xl text-primary">
           Contact Us
         </Title>
