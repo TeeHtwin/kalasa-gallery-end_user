@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { cn } from "@/app/lib/untils";
+import { cn } from "@/app/lib/utils";
 
 interface InputBoxProps {
   placeholder: string;

@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { cn } from "@/app/lib/untils";
+import { cn } from "@/app/lib/utils";
 import Link from "next/link";
 
 interface LinkBtnProps {

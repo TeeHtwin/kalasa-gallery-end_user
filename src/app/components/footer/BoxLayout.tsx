@@ -1,4 +1,4 @@
-import { cn } from "@/app/lib/untils";
+import { cn } from "@/app/lib/utils";
 import React from "react";
 cn;
 
