@@ -4,7 +4,7 @@ import Logo from "../common/Logo";
 import NavText from "./NavText";
 import { usePathname } from "next/navigation";
 import Title from "../common/Title";
-import { cn } from "@/app/lib/untils";
+import { cn } from "@/app/lib/utils";
 
 const Navbar: React.FC = () => {
   const Nav = [
