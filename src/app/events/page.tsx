@@ -1,11 +1,15 @@
-import React from 'react'
+import React from "react";
+import Layout from "../components/common/Layout";
+import SectionHeader from "../components/common/SectionHead";
 
 const page = () => {
   return (
-    <div>
-      This is events
-    </div>
-  )
-}
+    <Layout>
+      <div className="">
+        <SectionHeader />
+      </div>
+    </Layout>
+  );
+};
 
-export default page
+export default page;
