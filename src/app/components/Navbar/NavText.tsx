@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { cn } from "@/app/lib/untils";
+import { cn } from "@/app/lib/utils";
 
 interface NavTextProps {
   href: string;

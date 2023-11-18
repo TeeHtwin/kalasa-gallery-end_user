@@ -7,7 +7,7 @@ interface QuickLinkProps {
 }
 const QuickLink = ({ text, href }: QuickLinkProps) => {
   return (
-    <Link className="text-sm text-[#FFF] font-medium" href={href}>
+    <Link className="text-sm text-[#FFF] font-medium font-inter" href={href}>
       {text}
     </Link>
   );

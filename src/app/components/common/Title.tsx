@@ -1,5 +1,4 @@
 import React, { ReactNode } from "react";
-import { cardo } from "./font";
 import { cn } from "@/app/lib/utils";
 interface TitleProps {
   children: ReactNode;

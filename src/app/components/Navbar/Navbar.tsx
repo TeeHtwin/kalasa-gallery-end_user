@@ -4,7 +4,7 @@ import Logo from "../common/Logo";
 import NavText from "./NavText";
 import { usePathname } from "next/navigation";
 import Title from "../common/Title";
-import { cn } from "@/app/lib/untils";
+import { cn } from "@/app/lib/utils";
 
 const Navbar: React.FC = () => {
   const Nav = [
@@ -51,11 +51,11 @@ const Navbar: React.FC = () => {
   };
 
   useEffect(() => {
-    setMenuOpen((prev) => !prev);
+    setMenuOpen(false);
   }, [pathName]);
 
   const isHomepage = pathName === "/";
-  const homepageClass = isHomepage ? "absolute" : "shadow-sm";
+  const homepageClass = isHomepage ? "absolute bg-transparent" : "shadow-sm";
 
   const DesktopNavbar = () => (
     <div className="hidden lg:flex items-center">
@@ -89,7 +89,7 @@ const Navbar: React.FC = () => {
   return (
     <nav
       className={cn(
-        "flex flex-row gap-2 z-10 py-6 px-4 lg:py-1 justify-between items-center bg-transparent w-full",
+        "flex flex-row bg-neutral-light gap-2 z-10 py-6 px-4 lg:py-1 justify-between items-center w-full",
         homepageClass,
         { "px-0 py-0": menuOpen }
       )}
