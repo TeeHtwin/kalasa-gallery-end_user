@@ -15,7 +15,7 @@ const NavText: React.FC<NavTextProps> = ({
   pathName,
   className,
 }) => {
-  let activeStyle: string;
+  let activeStyle;
   if (pathName === href) {
     if (pathName === "/") {
       activeStyle = "border-b-4 border-b-[#F7E4C3] text-amber-100";
