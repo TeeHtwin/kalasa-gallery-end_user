@@ -6,7 +6,10 @@ const SectionHeader = () => {
   return (
     <div className=" flex justify-between">
       <Title className=" text-primary">Our Events</Title>
-      <SearchBar placeholder="Search Exhibitions ..." />
+      <SearchBar
+        className=" hidden md:inline"
+        placeholder="Search Exhibitions ..."
+      />
     </div>
   );
 };

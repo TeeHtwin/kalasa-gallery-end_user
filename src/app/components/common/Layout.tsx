@@ -9,7 +9,7 @@ const Layout = ({ className, children }: LayoutProps) => {
   return (
     <section
       className={cn(
-        "bg-neutral-light py-10 px-4 lg:py-[120px] lg:px-20",
+        "bg-neutral-light py-10 px-4 lg:py-[100px] lg:px-20",
         className
       )}
     >
