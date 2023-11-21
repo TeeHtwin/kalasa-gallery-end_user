@@ -10,7 +10,7 @@ const Navbar: React.FC = () => {
   const Nav = [
     { name: "home", href: "/" },
     { name: "gallery", href: "/gallery" },
-    { name: "events", href: "/events" },
+    { name: "events", href: "/exhibition" },
     { name: "artists", href: "/artists" },
     { name: "blogs", href: "/blogs" },
   ];
@@ -22,7 +22,7 @@ const Navbar: React.FC = () => {
     },
     {
       name: "Events",
-      href: "/events",
+      href: "/exhibition",
     },
     {
       name: "Collections",
@@ -30,7 +30,7 @@ const Navbar: React.FC = () => {
     },
     {
       name: "Gallery",
-      href: "gallery",
+      href: "/gallery",
     },
 
     {
@@ -89,7 +89,7 @@ const Navbar: React.FC = () => {
   return (
     <nav
       className={cn(
-        "flex flex-row bg-neutral-light gap-2 z-10 py-6 px-4 lg:py-1 justify-between items-center w-full",
+        "flex flex-row bg-neutral-light gap-2 z-10 py-6 px-4 lg:py-1 lg:px-20 justify-between items-center w-full",
         homepageClass,
         { "px-0 py-0": menuOpen }
       )}

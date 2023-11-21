@@ -9,7 +9,7 @@ interface LinkBtnProps {
   icon?: any;
   href: string;
   mobileText: string;
-  dtText: string; //
+  dtText?: string; //
 }
 
 const LinkBtn = ({
@@ -42,7 +42,7 @@ const LinkBtn = ({
       )}
       onClick={onClick}
     >
-      {isMobile ? mobileText : dtText}
+      {isMobile ? mobileText : dtText ? dtText : mobileText}
     </Link>
   );
 };

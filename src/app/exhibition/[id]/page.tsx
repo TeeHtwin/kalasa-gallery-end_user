@@ -1,25 +1,19 @@
-import Layout from "@/app/components/common/Layout";
 import Title from "@/app/components/common/Title";
 import { dummyData } from "@/app/page";
 import { CalendarRange, Clock, Home, MapPin } from "lucide-react";
 import Image from "next/image";
 import Exhibition from "../../components/cards/ExhibitionCard";
 import React from "react";
+import Breadcrumbs from "@/app/components/common/Bredcrumbs";
+import ExhibitionLayout from "@/app/components/exhibition/ExhibitionLayout";
+import MainLayout from "@/app/components/exhibition/MainLayout";
+import RelativeLayout from "@/app/components/exhibition/RelativeLayout";
 
 const ExhibitionDetailPage = () => {
   return (
-    <Layout>
-      <div className=" absolute flex items-center top-30 md:top-44 gap-[16px]">
-        <div className="flex text-primary items-center gap-[8px]">
-          <Home size={19} />
-          Home
-        </div>
-        <span className=" text-primary">{">"}</span>
-        <div className=" text-primary">Our Events</div>
-        <span className=" text-primary">{">"}</span>
-        <div className=" text-primary">Event Detail</div>
-      </div>
-      <div className=" grid grid-cols-1 items-center md:grid-cols-2  mt-20 gap-[60px]">
+    <ExhibitionLayout>
+      <Breadcrumbs breadcrumbs={["Our Events", "Event Detail"]} />
+      <MainLayout className=" grid grid-cols-1 items-center md:grid-cols-2 gap-[60px]">
         <Image
           src={
             "https://d38b044pevnwc9.cloudfront.net/cutout-nuxt/enhancer/2.jpg"
@@ -66,16 +60,20 @@ const ExhibitionDetailPage = () => {
             Inquiry To Come
           </button>
         </div>
-      </div>
-      <div className=" mt-20">
-        <Title className=" text-primary">Related Events</Title>
+      </MainLayout>
+      <RelativeLayout
+        href="/exhibition"
+        title="Related Events"
+        dtText="see more"
+        mobileText="see all"
+      >
         <div className="mt-5 lg:mt-20 flex justify-between w-full gap-[10px] flex-col lg:flex-row">
           {dummyData.map((data, index) => (
             <Exhibition key={index} {...data} />
           ))}
         </div>
-      </div>
-    </Layout>
+      </RelativeLayout>
+    </ExhibitionLayout>
   );
 };
 
