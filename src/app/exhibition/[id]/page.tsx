@@ -1,13 +1,15 @@
 import Layout from "@/app/components/common/Layout";
 import Title from "@/app/components/common/Title";
+import { dummyData } from "@/app/page";
 import { CalendarRange, Clock, Home, MapPin } from "lucide-react";
 import Image from "next/image";
+import Exhibition from "../../components/cards/ExhibitionCard";
 import React from "react";
 
 const ExhibitionDetailPage = () => {
   return (
     <Layout>
-      <div className=" flex items-center gap-[16px]">
+      <div className=" absolute flex items-center top-30 md:top-44 gap-[16px]">
         <div className="flex text-primary items-center gap-[8px]">
           <Home size={19} />
           Home
@@ -18,17 +20,16 @@ const ExhibitionDetailPage = () => {
         <div className=" text-primary">Event Detail</div>
       </div>
       <div className=" grid grid-cols-1 items-center md:grid-cols-2  mt-20 gap-[60px]">
-        <div className="">
-          <Image
-            src={
-              "https://d38b044pevnwc9.cloudfront.net/cutout-nuxt/enhancer/2.jpg"
-            }
-            width={650}
-            height={650}
-            alt="Detail image"
-            className=" md:aspect-square"
-          />
-        </div>
+        <Image
+          src={
+            "https://d38b044pevnwc9.cloudfront.net/cutout-nuxt/enhancer/2.jpg"
+          }
+          width={650}
+          height={650}
+          alt="Detail image"
+          className="aspect-[4/3] md:aspect-square"
+        />
+
         <div className="text-primary flex flex-col gap-y-[24px] my-auto">
           <Title className="">Discovering The Beauty of Bangan</Title>
           <p>
@@ -64,6 +65,14 @@ const ExhibitionDetailPage = () => {
           <button className="text-white p-[8px] bg-primary w-[213px] h-[74px]">
             Inquiry To Come
           </button>
+        </div>
+      </div>
+      <div className=" mt-20">
+        <Title className=" text-primary">Related Events</Title>
+        <div className="mt-5 lg:mt-20 flex justify-between w-full gap-[10px] flex-col lg:flex-row">
+          {dummyData.map((data, index) => (
+            <Exhibition key={index} {...data} />
+          ))}
         </div>
       </div>
     </Layout>
