@@ -1,4 +1,4 @@
-import { url } from "inspector";
+
 import Image from "next/image";
 import img from "@/app/blogs/[id]/blog_img.png";
 import Breadcrumb from "@/app/components/breadcrumb/Breadcrumb";
