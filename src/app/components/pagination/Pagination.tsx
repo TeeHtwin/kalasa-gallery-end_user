@@ -18,7 +18,7 @@ const Pagination = ({ totalPages }: { totalPages: number }) => {
   };
 
   return (
-    <div className="inline-flex">
+    <div className="flex text-primary justify-center pb-10">
       <PaginationArrow
         direction="left"
         href={createPageURL(currentPage - 1)}
@@ -45,10 +45,10 @@ const Pagination = ({ totalPages }: { totalPages: number }) => {
         })}
       </div>
       <PaginationArrow
-          direction="right"
-          href={createPageURL(currentPage + 1)}
-          isDisabled={currentPage >= totalPages}
-        />
+        direction="right"
+        href={createPageURL(currentPage + 1)}
+        isDisabled={currentPage >= totalPages}
+      />
     </div>
   );
 };
@@ -94,7 +94,7 @@ function PaginationArrow({
   isDisabled?: boolean;
 }) {
   const className = clsx(
-    "flex h-10 w-10 items-center justify-center rounded-md border",
+    "flex h-10 w-20 items-center justify-center rounded-md border",
     {
       "pointer-events-none text-gray-300": isDisabled,
       "howver:bg-gray-100": !isDisabled,
@@ -105,23 +105,29 @@ function PaginationArrow({
 
   const icon =
     direction === "left" ? (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        fill="currentColor"
-      >
-        <path d="M15.293 3.293 6.586 12l8.707 8.707 1.414-1.414L9.414 12l7.293-7.293-1.414-1.414z" />
-      </svg>
+      <div className="flex ">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="currentColor"
+        >
+          <path d="M15.293 3.293 6.586 12l8.707 8.707 1.414-1.414L9.414 12l7.293-7.293-1.414-1.414z" />
+        </svg>
+        <p>Prev</p>
+      </div>
     ) : (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        fill="currentColor"
-      >
-        <path d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z" />
-      </svg>
+      <div className="flex">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="currentColor"
+        >
+          <path d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z" />
+        </svg>
+        <p>Next</p>
+      </div>
     );
 
   return isDisabled ? (
