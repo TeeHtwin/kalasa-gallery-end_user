@@ -1,9 +1,9 @@
 "use client";
 
-import { generatePagination } from "@/app/lib/untils";
 import { usePathname, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import clsx from "clsx";
+import { generatePagination } from "@/app/lib/utils";
 
 const Pagination = ({ totalPages }: { totalPages: number }) => {
   const pathname = usePathname();
@@ -45,10 +45,10 @@ const Pagination = ({ totalPages }: { totalPages: number }) => {
         })}
       </div>
       <PaginationArrow
-          direction="right"
-          href={createPageURL(currentPage + 1)}
-          isDisabled={currentPage >= totalPages}
-        />
+        direction="right"
+        href={createPageURL(currentPage + 1)}
+        isDisabled={currentPage >= totalPages}
+      />
     </div>
   );
 };
