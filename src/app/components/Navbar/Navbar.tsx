@@ -105,7 +105,9 @@ const Navbar: React.FC = () => {
       <MobileNavbar />
 
       <button
-        className="lg:hidden absolute right-4 top-4 md:hidden z-10 cursor-pointer"
+        className={` ${
+          menuOpen ? "absolute right-4 top-4" : ""
+        } md:hidden z-10 cursor-pointer`}
         onClick={toggleMenu}
       >
         {/* Hamburger icon */}
