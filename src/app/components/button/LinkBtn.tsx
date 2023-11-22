@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { cn } from "@/app/lib/untils";
+import { cn } from "@/app/lib/utils";
 import Link from "next/link";
 
 interface LinkBtnProps {
@@ -9,7 +9,7 @@ interface LinkBtnProps {
   icon?: any;
   href: string;
   mobileText: string;
-  dtText: string; //
+  dtText?: string; //
 }
 
 const LinkBtn = ({
@@ -42,7 +42,7 @@ const LinkBtn = ({
       )}
       onClick={onClick}
     >
-      {isMobile ? mobileText : dtText}
+      {isMobile ? mobileText : dtText ? dtText : mobileText}
     </Link>
   );
 };

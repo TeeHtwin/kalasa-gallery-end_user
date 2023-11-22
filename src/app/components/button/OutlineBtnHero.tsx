@@ -1,5 +1,5 @@
 import React from "react";
-import { cn } from "@/app/lib/untils";
+import { cn } from "@/app/lib/utils";
 
 interface OutlineBtnHeroProps {
   children: React.ReactNode;

@@ -9,36 +9,36 @@ import Exhibition, {
 import Paragraph from "./components/common/Text/Paragraph";
 import Image from "next/image";
 import aboutUs from "@/../public/img/aboutUs.png";
-import PhotoGallery from "./components/photoLayout/PhotoGallery";
+// import PhotoGallery from "./components/photoLayout/PhotoGallery";
 import ContactUs from "./components/contactUs/ContactUs";
-const page = () => {
-  const dummyData: ExhibitionCardProps[] = [
-    {
-      src: "https://via.placeholder.com/600/92c952",
-      title: "Art Exhibition 1",
-      date: "August 19 to 23, 2023",
-      place: "Art Gallery A",
-      alt: "Artwork 1",
-      href: "/exhibition/1",
-    },
-    {
-      src: "https://via.placeholder.com/600/24f355",
-      title: "Sculpture Showcase",
-      date: "August 19 to 23, 2023",
-      place: "Sculpture Park B",
-      alt: "Sculpture 2",
-      href: "/exhibition/2",
-    },
-    {
-      src: "https://via.placeholder.com/600/f66b97",
-      title: "Photography Expo",
-      date: "August 19 to 23, 2023",
-      place: "Photo Studio C",
-      alt: "Photograph 3",
-      href: "/exhibition/3",
-    },
-  ];
 
+export const dummyData: ExhibitionCardProps[] = [
+  {
+    src: "https://via.placeholder.com/600/92c952",
+    title: "Art Exhibition 1",
+    date: "August 19 to 23, 2023",
+    place: "Art Gallery A",
+    alt: "Artwork 1",
+    href: "/exhibition/1",
+  },
+  {
+    src: "https://via.placeholder.com/600/24f355",
+    title: "Sculpture Showcase",
+    date: "August 19 to 23, 2023",
+    place: "Sculpture Park B",
+    alt: "Sculpture 2",
+    href: "/exhibition/2",
+  },
+  {
+    src: "https://via.placeholder.com/600/f66b97",
+    title: "Photography Expo",
+    date: "August 19 to 23, 2023",
+    place: "Photo Studio C",
+    alt: "Photograph 3",
+    href: "/exhibition/3",
+  },
+];
+const page = () => {
   const dammyImages = [
     "https://placekitten.com/400/600",
     "https://placekitten.com/600/800",

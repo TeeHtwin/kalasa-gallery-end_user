@@ -39,7 +39,7 @@ const Footer = () => {
     },
     {
       text: "Gallery",
-      href: "gallery",
+      href: "/gallery",
     },
     {
       text: "Exhibitions",
@@ -81,23 +81,23 @@ const Footer = () => {
         </BoxLayout>
         <BoxLayout>
           <QuickLinkTitile>get in touch</QuickLinkTitile>
-          <p className="opacity-70 text-white text-sm font-medium">
+          <p className="opacity-70 text-white font-inter text-sm font-medium">
             Contact us:{" "}
           </p>
-          <p className="text-lime-50 text-sm mt-2 font-medium">
+          <p className="text-lime-50 text-sm mt-2 font-inter font-medium">
             +95 976 345 578
           </p>
-          <p className="text-lime-50 text-sm mt-2 font-medium">
+          <p className="text-lime-50 text-sm mt-2 font-inter font-medium">
             admin.kalasa@gmail.com
           </p>
         </BoxLayout>
         <BoxLayout>
           <QuickLinkTitile>Location</QuickLinkTitile>
-          <p className="opacity-70 text-white text-sm font-medium">
+          <p className="opacity-70 text-white font-inter text-sm font-medium">
             Our address:{" "}
           </p>
-          <p className="text-lime-50 text-sm mt-2 font-medium"></p>
-          <p className="text-lime-50 text-sm mt-2 font-medium">
+          <p className="text-lime-50 text-sm mt-2 font-inter font-medium"></p>
+          <p className="text-lime-50 text-sm mt-2 font-medium font-inter">
             No. 91-93, 1st floor(left), Seikkantha Street (Middle Block),
             Kyauktada Township, Yangon.
           </p>
@@ -105,10 +105,10 @@ const Footer = () => {
       </div>
       <div className="inline-flex items-center w-full justify-between pt-10 lg:pt-20 flex-col lg:flex-row">
         <div className="border-solid w-full mb-5 lg:mb-0 border-[1px] border-Eggshell basis-1/3 "></div>
-        <p className="opacity-80 text-lime-50 text-xs lg:text-sm font-medium text-center">
+        <p className="opacity-80 text-lime-50 text-xs lg:text-sm font-medium font-inter text-center">
           © 2019-2023. All Right Reserved by Kalasa Art Space.
         </p>
-        <div className="border-solid border-[1px] border-Eggshell basis-1/3 hidden lg:block"></div>
+        <div className="border-solid border-[1px] border-Eggshell basis-1/3 hidden fontinter lg:block"></div>
       </div>
     </Layout>
   );
