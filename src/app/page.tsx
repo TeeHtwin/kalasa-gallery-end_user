@@ -41,17 +41,17 @@ export const dummyData: ExhibitionCardProps[] = [
 ];
 const page = () => {
   const dammyImages = [
-    "https://placekitten.com/200/600",
-    "https://placekitten.com/600/200",
-    "https://placekitten.com/800/1200",
-    "https://placekitten.com/700/1000",
-    "https://placekitten.com/400/600",
-    "https://placekitten.com/600/800",
+    { title: "Image 1", image: "https://placekitten.com/200/600" },
+    { title: "Image 2", image: "https://placekitten.com/600/200" },
+    { title: "Image 3", image: "https://placekitten.com/800/1200" },
+    { title: "Image 4", image: "https://placekitten.com/700/1000" },
+    { title: "Image 5", image: "https://placekitten.com/400/600" },
+    { title: "Image 6", image: "https://placekitten.com/600/800" },
   ];
 
   return (
     <>
-      <main className="h-screen bg-right w-full bg-[url('../../public/img/Background.png')] bg-cover bg-fixed relative p-0 m-0 flex items-center justify-center flex-col gap-10">
+      <main className="h-screen bg-right w-full bg-[url('../../public/img/smallBackground.jpg')] lg:bg-[url('../../public/img/Background.jpg')] bg-cover bg-fixed relative p-0 m-0 flex items-center justify-center flex-col gap-10">
         <div className=" flex-col justify-start items-center gap-4 lg:gap-10 inline-flex lg:w-[900px]">
           <Title className="text-white text-[32px] lg:text-[88px] font-bold">
             Kalasa Art Space
@@ -97,9 +97,13 @@ const page = () => {
             mobileText="See all"
           />
         </div>
-        <div className="columns-3  w-full">
-          {dammyImages.map((index, data) => (
-            <CollectionCard key={index} img={index} title={"OK"} />
+        <div className="columns-2 lg:columns-3 gap-2 lg:gap-5 mt-5 lg:mt-20 w-full">
+          {dammyImages.map((data) => (
+            <CollectionCard
+              key={data.title}
+              img={data.image}
+              title={data.title}
+            />
           ))}
         </div>
       </Layout>
