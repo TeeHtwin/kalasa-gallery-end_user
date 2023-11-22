@@ -11,6 +11,7 @@ import Image from "next/image";
 import aboutUs from "@/../public/img/aboutUs.png";
 // import PhotoGallery from "./components/photoLayout/PhotoGallery";
 import ContactUs from "./components/contactUs/ContactUs";
+import CollectionCard from "./components/cards/CollectionCard";
 
 export const dummyData: ExhibitionCardProps[] = [
   {
@@ -40,18 +41,12 @@ export const dummyData: ExhibitionCardProps[] = [
 ];
 const page = () => {
   const dammyImages = [
-    "https://placekitten.com/400/600",
-    "https://placekitten.com/600/800",
+    "https://placekitten.com/200/600",
+    "https://placekitten.com/600/200",
     "https://placekitten.com/800/1200",
     "https://placekitten.com/700/1000",
     "https://placekitten.com/400/600",
     "https://placekitten.com/600/800",
-    "https://placekitten.com/800/1200",
-    "https://placekitten.com/400/1000",
-    "https://placekitten.com/300/600",
-    "https://placekitten.com/600/800",
-    "https://placekitten.com/800/1200",
-    "https://placekitten.com/700/1000",
   ];
 
   return (
@@ -93,13 +88,20 @@ const page = () => {
           ))}
         </div>
       </Layout>
-      <Layout className="lg:p-20 flex justify-between text-primary lg:text-5xl">
-        <Title>Expolre Our Collection</Title>
-        <LinkBtn
-          href="/collections"
-          dtText="View All Collection"
-          mobileText="See all"
-        />
+      <Layout className="lg:p-20 text-primary lg:text-5xl">
+        <div className="flex justify-between">
+          <Title>Expolre Our Collection</Title>
+          <LinkBtn
+            href="/collections"
+            dtText="View All Collection"
+            mobileText="See all"
+          />
+        </div>
+        <div className="columns-3  w-full">
+          {dammyImages.map((index, data) => (
+            <CollectionCard key={index} img={index} title={"OK"} />
+          ))}
+        </div>
       </Layout>
 
       <Layout className="lg:p-0 grid grid-cols-1 lg:grid-cols-2 bg-primary-light text-primary lg:text-5xl">
