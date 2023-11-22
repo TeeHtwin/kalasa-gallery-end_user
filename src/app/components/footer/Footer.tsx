@@ -55,7 +55,7 @@ const Footer = () => {
     <Layout className="bg-[#161616] lg:p-20">
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-4">
         <BoxLayout className="justify-between gap-5">
-          <Logo className={"w-[120px] h-auto lg:w-[214px]"} />
+          <Logo className="w-[120px] h-auto lg:w-[214px]" />
           <Paragraph className="text-lime-50 text-sm lg:text-sm font-medium">
             A Space of sharing ART for all generations
           </Paragraph>

@@ -59,7 +59,7 @@ const page = () => {
     },
   ];
   return (
-    <Layout className=" py-2 lg:py-12">
+    <Layout>
       <SectionHeader
         titleText="Our Events"
         searchPlaceholder="Search Exhibition"
