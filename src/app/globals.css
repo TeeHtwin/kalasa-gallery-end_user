@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+  }
+  
+
 .bgImg {
   background-image: url("../../public/img/Background.png");
   background-size: cover;
