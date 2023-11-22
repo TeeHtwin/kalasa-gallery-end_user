@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import Pagination from "@/app/components/pagination/Pagination";
 
 const page = () => {
   const blogs = [
@@ -117,9 +118,8 @@ const page = () => {
         ))}
       </div>
 
-      <div>
-
-      </div>
+      <Pagination totalPages={5} />
+      
     </section>
   );
 };

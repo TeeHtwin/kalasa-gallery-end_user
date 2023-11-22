@@ -2,7 +2,6 @@ import { url } from "inspector";
 import Image from "next/image";
 import img from "@/app/blogs/[id]/blog_img.png";
 import Breadcrumb from "@/app/components/breadcrumb/Breadcrumb";
-import Pagination from "@/app/components/pagination/pagination";
 
 const blogs = [
   {
@@ -102,7 +101,6 @@ const page = () => {
             </div>
           </div>
         </div>
-        <Pagination />
       </section>
     </>
   );
