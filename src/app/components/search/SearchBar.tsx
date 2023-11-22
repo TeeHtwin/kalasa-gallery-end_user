@@ -14,10 +14,10 @@ const SearchBar = ({ placeholder, className }: SearchBarProps) => {
         type="text"
         placeholder={placeholder}
         className={cn(
-          "border-primary w-[666px] h-[58px] border-[1.5px] bg-transparent outline-none px-5 text-primary input"
+          "border-primary text-[12px] md:text-lg w-[328px] h-[40px] md:w-[666px] md:h-[58px] border-[1.5px] bg-transparent outline-none px-5 text-primary input"
         )}
       />
-      <div className=" absolute right-[40px] top-[18px]">
+      <div className=" absolute right-[30px] top-[10px] md:right-[40px] md:top-[18px]">
         <Search className=" text-primary" />
       </div>
     </div>

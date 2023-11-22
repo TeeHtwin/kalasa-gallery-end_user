@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../components/common/Layout";
-import SectionHeader from "../components/common/SectionHead";
+import SectionHeader from "../components/common/SectionHeader";
 import Exhibition from "../components/cards/ExhibitionCard";
 import { ExhibitionCardProps } from "../components/cards/ExhibitionCard";
 import Pagination from "../components/common/pagination";
@@ -59,7 +59,7 @@ const page = () => {
     },
   ];
   return (
-    <Layout className="lg:py-20">
+    <Layout className=" py-2 lg:py-12">
       <SectionHeader
         titleText="Our Events"
         searchPlaceholder="Search Exhibition"

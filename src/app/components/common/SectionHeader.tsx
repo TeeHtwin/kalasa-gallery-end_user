@@ -11,10 +11,10 @@ const SectionHeader = ({
   searchPlaceholder,
 }: SectionHeaderProps) => {
   return (
-    <div className=" flex justify-between">
+    <div className=" flex flex-col-reverse md:flex-row md:justify-between">
       <Title className="lg:text-5xl text-primary">{titleText}</Title>
       <SearchBar
-        className=" hidden md:inline"
+        className=" mb-5 md:mb-0"
         placeholder={`${searchPlaceholder} ...`}
       />
     </div>
