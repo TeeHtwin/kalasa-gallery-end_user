@@ -8,7 +8,10 @@ interface LayoutProps {
 const Layout = ({ className, children }: LayoutProps) => {
   return (
     <section
-      className={cn("bg-neutral-light px-4 py-2 lg:py-12 lg:px-20", className)}
+      className={cn(
+        "bg-neutral-light px-4 overflow-x-hidden py-2 lg:py-12 lg:px-20",
+        className
+      )}
     >
       {children}
     </section>
