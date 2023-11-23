@@ -24,25 +24,50 @@ export const dummyPlaces = [
 const SearchBar = ({ placeholder, className }: SearchBarProps) => {
   const [value, setValue] = useState("");
   const [open, setOpen] = useState(false);
-  const [active, setActive] = useState(0);
-  const formRef = useRef<HTMLFormElement>(null);
+  const [selectedItem, setSelectedItem] = useState(-1);
+  const divRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const searchParams = useSearchParams();
   const pathname = usePathname();
 
   const params = new URLSearchParams(searchParams.toString());
 
-  const onSuggestChange = (place: string, i: number) => {
-    setValue(place);
-    setActive(i);
-    setOpen(false);
+  const onSuggestClick = (place: string) => {
+    try {
+      params.set("q", place);
+      params.set("page", "1");
+      router.push(`${pathname}?${params}`, { scroll: false });
+    } catch (error) {
+      alert(error);
+    } finally {
+      setValue("");
+      setOpen(false);
+    }
   };
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const onSuggestChange = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (selectedItem < dummyPlaces.length) {
+      if (e.key === "ArrowUp" && selectedItem > 0) {
+        setSelectedItem((prev) => prev - 1);
+      }
+      if (e.key === "ArrowDown" && selectedItem < dummyPlaces.length - 1) {
+        setSelectedItem((prev) => prev + 1);
+      }
+      if (e.key === "Enter" && selectedItem >= 0) {
+        params.set("q", dummyPlaces[selectedItem]);
+        params.set("page", "1");
+        router.push(`${pathname}?${params}`, { scroll: false });
+        setValue("");
+        setOpen(false);
+      }
+    } else {
+      setSelectedItem(-1);
+    }
+  };
+
+  const onClick = () => {
     try {
       if (!value) return;
-
       params.set("q", value);
       params.set("page", "1");
       router.push(`${pathname}?${params}`);
@@ -54,7 +79,7 @@ const SearchBar = ({ placeholder, className }: SearchBarProps) => {
   };
 
   window.addEventListener("click", (e) => {
-    if (!formRef.current?.contains(e.target as Node | null)) {
+    if (!divRef.current?.contains(e.target as Node | null)) {
       setOpen(false);
     }
   });
@@ -74,12 +99,7 @@ const SearchBar = ({ placeholder, className }: SearchBarProps) => {
   // });
 
   return (
-    <form
-      className={cn("relative", className)}
-      ref={formRef}
-      onSubmit={onSubmit}
-      autoComplete="off"
-    >
+    <div className={cn("relative", className)} ref={divRef}>
       <div className="">
         <input
           type="text"
@@ -87,13 +107,15 @@ const SearchBar = ({ placeholder, className }: SearchBarProps) => {
           onClick={() => setOpen(true)}
           value={value}
           onChange={(e) => setValue(e.target.value)}
+          onKeyDown={onSuggestChange}
           className={cn(
             "border-primary text-[12px] md:text-lg w-[328px] h-[40px] md:w-[666px] md:h-[58px] border-[1.5px] bg-transparent outline-none px-5 text-primary input"
           )}
         />
         <button
           className=" absolute right-[15%] top-[20%] md:right-[40px] md:top-[18px]"
-          type="submit"
+          type="button"
+          onClick={onClick}
         >
           <Search className=" text-primary" />
         </button>
@@ -113,11 +135,11 @@ const SearchBar = ({ placeholder, className }: SearchBarProps) => {
             .map((place, i) => (
               <button
                 type="button"
-                onClick={() => onSuggestChange(place, i)}
+                onClick={() => onSuggestClick(place)}
                 key={place}
                 className={cn(
                   " h-[40px] md:h-[70px] flex items-center px-10 text-primary hover:bg-primary-light",
-                  active === i && "bg-primary-light"
+                  selectedItem === i && "bg-primary-light"
                 )}
               >
                 {place}
@@ -135,7 +157,7 @@ const SearchBar = ({ placeholder, className }: SearchBarProps) => {
           </button>
         </div>
       )}
-    </form>
+    </div>
   );
 };
 
