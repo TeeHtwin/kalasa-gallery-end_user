@@ -1,6 +1,6 @@
 "use client";
 
-import { Search } from "lucide-react";
+import { Search, X } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
 import { cn } from "@/app/lib/utils";
 import { usePathname, useSearchParams } from "next/navigation";
@@ -65,38 +65,24 @@ const SearchBar = ({ placeholder, className }: SearchBarProps) => {
     }
   };
 
-  const onClick = () => {
-    try {
-      if (!value) return;
-      params.set("q", value);
-      params.set("page", "1");
-      router.push(`${pathname}?${params}`);
-    } catch (error) {
-      alert(error);
-    } finally {
-      setOpen(false);
-    }
-  };
+  // const onClick = () => {
+  //   try {
+  //     if (!value) return;
+  //     params.set("q", value);
+  //     params.set("page", "1");
+  //     router.push(`${pathname}?${params}`);
+  //   } catch (error) {
+  //     alert(error);
+  //   } finally {
+  //     setOpen(false);
+  //   }
+  // };
 
   window.addEventListener("click", (e) => {
     if (!divRef.current?.contains(e.target as Node | null)) {
       setOpen(false);
     }
   });
-
-  // useEffect(() => {
-  //   const onOpenChange = (e: MouseEvent) => {
-  //     if (!searchRef.current?.contains(e.target as Node | null)) {
-  //       setOpen(false);
-  //     }
-  //   };
-
-  //   document.addEventListener("mousedown", onOpenChange);
-
-  //   return () => {
-  //     document.removeEventListener("mousedown", onOpenChange);
-  //   };
-  // });
 
   return (
     <div className={cn("relative", className)} ref={divRef}>
@@ -115,9 +101,18 @@ const SearchBar = ({ placeholder, className }: SearchBarProps) => {
         <button
           className=" absolute right-[15%] top-[20%] md:right-[40px] md:top-[18px]"
           type="button"
-          onClick={onClick}
         >
-          <Search className=" text-primary" />
+          {open ? (
+            <X
+              className=" text-primary hover:scale-110 transition duration-200"
+              onClick={() => setOpen(false)}
+            />
+          ) : (
+            <Search
+              // onClick={onClick}
+              className=" text-primary hover:scale-110 transition duration-200"
+            />
+          )}
         </button>
       </div>
       {open && (
