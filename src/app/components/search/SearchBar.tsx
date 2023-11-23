@@ -11,7 +11,15 @@ interface SearchBarProps {
   className?: string;
 }
 
-export const dummyPlaces = ["Yangoon", "Bagan", "Mandalay", "Yangon"];
+export const dummyPlaces = [
+  "Yangoon",
+  "Bagan",
+  "Mandalay",
+  "Yangon",
+  "China",
+  "NayPyiTaw",
+  "Taungyi",
+];
 
 const SearchBar = ({ placeholder, className }: SearchBarProps) => {
   const [value, setValue] = useState("");
@@ -23,10 +31,6 @@ const SearchBar = ({ placeholder, className }: SearchBarProps) => {
   const pathname = usePathname();
 
   const params = new URLSearchParams(searchParams.toString());
-
-  // const onSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   setValue(e.target.value);
-  // };
 
   const onSuggestChange = (place: string, i: number) => {
     setValue(place);
@@ -89,19 +93,29 @@ const SearchBar = ({ placeholder, className }: SearchBarProps) => {
       </div>
       {open && (
         <div className="text-[12px] bg-neutral-light box-shadow absolute mt-3 border border-neutral-light md:text-lg w-[328px] flex flex-col md:w-[666px] pt-5 shadow-md">
-          {dummyPlaces.map((place, i) => (
-            <button
-              type="button"
-              onClick={() => onSuggestChange(place, i)}
-              key={place}
-              className={cn(
-                " h-[40px] md:h-[70px] flex items-center px-10 text-primary hover:bg-primary-light",
-                active === i && "bg-primary-light"
-              )}
-            >
-              {place}
-            </button>
-          ))}
+          {dummyPlaces
+            .filter((place) => {
+              const searchKey = value.toLowerCase();
+              const suggested_place = place.toLowerCase();
+              return (
+                searchKey &&
+                suggested_place.includes(searchKey) &&
+                suggested_place !== searchKey
+              );
+            })
+            .map((place, i) => (
+              <button
+                type="button"
+                onClick={() => onSuggestChange(place, i)}
+                key={place}
+                className={cn(
+                  " h-[40px] md:h-[70px] flex items-center px-10 text-primary hover:bg-primary-light",
+                  active === i && "bg-primary-light"
+                )}
+              >
+                {place}
+              </button>
+            ))}
           <button
             type="button"
             onClick={() => {}}
