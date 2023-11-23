@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import img from "@/app/blogs/[id]/blog_img.png";
 import Breadcrumb from "@/app/components/breadcrumb/Breadcrumb";
@@ -50,8 +49,8 @@ const page = () => {
   return (
     <>
       <Breadcrumb />
-      <section className="text-primary px-4 sm:px-20">
-        <div className="max-w-screen-2xl m-auto">
+      <section className="text-primary max-w-screen-2xl m-auto">
+        <div className="px-4 sm:px-10 lg:px-18">
           <Image src={img} alt="" width={700} height={475} className="m-auto" />
           <p className="font-sans text-xs sm:text-lg font-extralight text-left sm:text-center py-4 sm:py-16">
             By Sai Tun Oo | Sept 15, 2023
@@ -66,25 +65,25 @@ const page = () => {
           <div className="py-8 sm:py-32">
             <div className="text-Brown flex justify-between">
               <p className="font-bold text-xl md:text-5xl font-serif">
-                Upcoming Events
+              Related Blogs
               </p>
-              <button className="hidden md:block border-[1.5px] font-medium font-serif text-lg px-9 py-4">
-                View All Exhibitions →
+              <button className="hidden md:block border-[1.5px] border-primary font-medium font-serif text-lg px-9 py-4">
+                 See More →
               </button>
-              <button className="block md:hidden">See all</button>
+              <button className="block md:hidden">See More</button>
             </div>
-            <div className="py-4 sm:py-20 flex justify-between gap-5 flex-wrap">
+            <div className="py-4 sm:py-20 flex items-start flex-wrap gap-4">
               {blogs.map((blog) => (
                 <div
                   key={blog.id}
-                  className="border-solid border-[1.5px] border-[#883B0A29] h-auto w-[400px]"
+                  className="border-solid border-[1.5px] border-[#883B0A29] grow basis-80"
                 >
                   <Image
                     src={blog.img}
                     alt="blog poster"
-                    width={400}
-                    height={200}
-                    className="h-[400px]"
+                    width={600}
+                    height={800}
+                    className="w-full object-cover h-[300px] sm:h-[400px]"
                   />
                   <div className="py-3 px-3">
                     <p className="font-sans text-base font-extralight">

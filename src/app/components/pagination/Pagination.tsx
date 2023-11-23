@@ -94,7 +94,7 @@ function PaginationArrow({
   isDisabled?: boolean;
 }) {
   const className = clsx(
-    "flex h-10 w-20 items-center justify-center rounded-md border",
+    "flex h-10 w-20 items-center justify-center rounded-md border border-secondary-dark",
     {
       "pointer-events-none text-gray-300": isDisabled,
       "hover:bg-gray-100": !isDisabled,

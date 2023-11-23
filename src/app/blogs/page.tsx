@@ -62,7 +62,7 @@ const page = () => {
 
   return (
     <>
-      <section className="text-primary px-20 max-w-[1600px] m-auto py-20">
+      <section className="text-primary px-4 sm:px-10 lg:px-18 m-auto py-20">
         <div className="flex justify-between items-center gap-40">
           <p className="font-serif font-light text-xl sm:text-4xl md:text-5xl lg:text-6xl flex-none">
             Our Blogs
@@ -70,7 +70,7 @@ const page = () => {
           <div className="relative hidden md:block max-w-[600px] w-full flex-auto">
             <input
               type="search"
-              className="block w-full p-4 ps-10 text-sm border-primary border placeholder:text-primary outline-none"
+              className="block w-full p-4 ps-10 text-sm border-primary border placeholder:text-primary outline-none bg-neutral-light"
               placeholder="Search Articles..."
               required
               autoComplete="off"
