@@ -44,6 +44,7 @@ const SearchBar = ({ placeholder, className }: SearchBarProps) => {
       if (!value) return;
 
       params.set("q", value);
+      params.set("page", "1");
       router.push(`${pathname}?${params}`);
     } catch (error) {
       alert(error);
