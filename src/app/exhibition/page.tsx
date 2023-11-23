@@ -3,6 +3,7 @@ import Layout from "../components/common/Layout";
 import SectionHeader from "../components/common/SectionHeader";
 import Exhibition from "../components/cards/ExhibitionCard";
 import { ExhibitionCardProps } from "../components/cards/ExhibitionCard";
+import Pagination from "../components/pagination/Pagination";
 // import Pagination from "../components/common/pagination";
 
 const dummyPages = [1, 2, 3];
@@ -70,7 +71,7 @@ const page = () => {
         ))}
       </div>
       {/* pagination */}
-      {/* <Pagination pages={dummyPages} /> */}
+      <Pagination totalPages={10} />
     </Layout>
   );
 };

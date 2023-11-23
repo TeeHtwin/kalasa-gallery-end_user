@@ -18,7 +18,7 @@ const Pagination = ({ totalPages }: { totalPages: number }) => {
   };
 
   return (
-    <div className="flex text-primary justify-center pb-10">
+    <div className="flex text-primary justify-center py-10">
       <PaginationArrow
         direction="left"
         href={createPageURL(currentPage - 1)}
@@ -65,11 +65,11 @@ function PaginationNumber({
   isActive: boolean;
 }) {
   const className = clsx(
-    "flex h-10 w-10 items-center justify-center text-sm border",
+    "flex border-primary gap-[4px] h-10 w-10 items-center justify-center text-sm border",
     {
       "rounded-l-md": position === "first" || position === "single",
       "rounded-r-md": position === "last" || position === "single",
-      "z-10 bg-primary border-primary text-white": isActive,
+      "z-10 bg-primary text-white": isActive,
       "hover:bg-gray-100": !isActive && position !== "middle",
       "text-gray-300": position === "middle",
     }
@@ -97,7 +97,7 @@ function PaginationArrow({
     "flex h-10 w-20 items-center justify-center rounded-md border",
     {
       "pointer-events-none text-gray-300": isDisabled,
-      "howver:bg-gray-100": !isDisabled,
+      "hover:bg-gray-100": !isDisabled,
       "mr-2 md:mr-4": direction === "left",
       "ml-2 md:ml-4": direction === "right",
     }
