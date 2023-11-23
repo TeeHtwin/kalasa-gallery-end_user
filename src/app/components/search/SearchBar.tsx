@@ -25,7 +25,7 @@ const SearchBar = ({ placeholder, className }: SearchBarProps) => {
   const [value, setValue] = useState("");
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(0);
-  const searchRef = useRef<HTMLFormElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
   const router = useRouter();
   const searchParams = useSearchParams();
   const pathname = usePathname();
@@ -52,24 +52,30 @@ const SearchBar = ({ placeholder, className }: SearchBarProps) => {
     }
   };
 
-  useEffect(() => {
-    const onOpenChange = (e: MouseEvent) => {
-      if (!searchRef.current?.contains(e.target as Node | null)) {
-        setOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", onOpenChange);
-
-    return () => {
-      document.removeEventListener("mousedown", onOpenChange);
-    };
+  window.addEventListener("click", (e) => {
+    if (!formRef.current?.contains(e.target as Node | null)) {
+      setOpen(false);
+    }
   });
+
+  // useEffect(() => {
+  //   const onOpenChange = (e: MouseEvent) => {
+  //     if (!searchRef.current?.contains(e.target as Node | null)) {
+  //       setOpen(false);
+  //     }
+  //   };
+
+  //   document.addEventListener("mousedown", onOpenChange);
+
+  //   return () => {
+  //     document.removeEventListener("mousedown", onOpenChange);
+  //   };
+  // });
 
   return (
     <form
       className={cn("relative", className)}
-      ref={searchRef}
+      ref={formRef}
       onSubmit={onSubmit}
       autoComplete="off"
     >
