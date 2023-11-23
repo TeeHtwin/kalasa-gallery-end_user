@@ -65,18 +65,10 @@ const SearchBar = ({ placeholder, className }: SearchBarProps) => {
     }
   };
 
-  // const onClick = () => {
-  //   try {
-  //     if (!value) return;
-  //     params.set("q", value);
-  //     params.set("page", "1");
-  //     router.push(`${pathname}?${params}`);
-  //   } catch (error) {
-  //     alert(error);
-  //   } finally {
-  //     setOpen(false);
-  //   }
-  // };
+  const onClose = () => {
+    setOpen(false);
+    setValue("");
+  };
 
   window.addEventListener("click", (e) => {
     if (!divRef.current?.contains(e.target as Node | null)) {
@@ -98,22 +90,16 @@ const SearchBar = ({ placeholder, className }: SearchBarProps) => {
             "border-primary text-[12px] md:text-lg w-[328px] h-[40px] md:w-[666px] md:h-[58px] border-[1.5px] bg-transparent outline-none px-5 text-primary input"
           )}
         />
-        <button
-          className=" absolute right-[15%] top-[20%] md:right-[40px] md:top-[18px]"
-          type="button"
-        >
+        <div className=" absolute right-[15%] top-[20%] md:right-[40px] md:top-[18px]">
           {open ? (
             <X
-              className=" text-primary hover:scale-110 transition duration-200"
-              onClick={() => setOpen(false)}
+              className=" text-primary hover:scale-110 transition cursor-pointer duration-200"
+              onClick={onClose}
             />
           ) : (
-            <Search
-              // onClick={onClick}
-              className=" text-primary hover:scale-110 transition duration-200"
-            />
+            <Search className=" text-primary" />
           )}
-        </button>
+        </div>
       </div>
       {open && (
         <div className="text-[12px] bg-neutral-light box-shadow absolute mt-3 border border-neutral-light md:text-lg w-[328px] flex flex-col md:w-[666px] pt-5 shadow-md">
