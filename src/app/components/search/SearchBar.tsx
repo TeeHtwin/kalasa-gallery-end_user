@@ -77,8 +77,8 @@ const SearchBar = ({ placeholder, className }: SearchBarProps) => {
   });
 
   return (
-    <div className={cn("relative", className)} ref={divRef}>
-      <div className="">
+    <div className={cn("", className)} ref={divRef}>
+      <div className="flex w-full py-[7px] px-5 lg:py-[17px] lg:px-8 border-[1.5px] border-primary justify-between items-center">
         <input
           type="text"
           placeholder={placeholder}
@@ -87,10 +87,10 @@ const SearchBar = ({ placeholder, className }: SearchBarProps) => {
           onChange={(e) => setValue(e.target.value)}
           onKeyDown={onSuggestChange}
           className={cn(
-            "border-primary text-[12px] md:text-lg w-[328px] h-[40px] md:w-[666px] md:h-[58px] border-[1.5px] bg-transparent outline-none px-5 text-primary input"
+            "text-xs md:text-lg bg-transparent outline-none text-primary input"
           )}
         />
-        <div className=" absolute right-[15%] top-[20%] md:right-[40px] md:top-[18px]">
+        <div className=" ">
           {open ? (
             <X
               className=" text-primary hover:scale-110 transition cursor-pointer duration-200"
@@ -102,7 +102,7 @@ const SearchBar = ({ placeholder, className }: SearchBarProps) => {
         </div>
       </div>
       {open && (
-        <div className="text-[12px] bg-neutral-light box-shadow absolute mt-3 border border-neutral-light md:text-lg w-[328px] flex flex-col md:w-[666px] pt-5 shadow-md">
+        <div className="text-[12px] z-20 bg-neutral-light box-shadow absolute mt-3 border border-neutral-light md:text-lg w-[328px] flex flex-col md:w-[666px] pt-5 shadow-md">
           {dummyPlaces
             .filter((place) => {
               const searchKey = value.toLowerCase();

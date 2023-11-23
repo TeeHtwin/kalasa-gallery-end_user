@@ -4,6 +4,7 @@ import Title from "../components/common/Title";
 import SearchBar from "../components/search/SearchBar";
 import ArtistsCard from "../components/cards/artists/ArtistsCard";
 import ArtistsClientLayout from "../components/cards/artists/ArtistsClientLayout";
+import SectionHeader from "../components/common/SectionHeader";
 
 const page = () => {
   const dummyData = [
@@ -58,13 +59,10 @@ const page = () => {
   ];
   return (
     <Layout className="lg:py-20">
-      <div className="flex justify-between">
-        <Title className="lg:text-5xl text-primary">Our Artists</Title>
-        <SearchBar
-          className="hidden lg:block"
-          placeholder="Search Artists ..."
-        />
-      </div>
+      <SectionHeader
+        titleText="Our Artists"
+        searchPlaceholder="Search Artists"
+      />
       <div className="grid grid-rows-4 mt-5 grid-cols-2 lg:grid-rows-2 lg:grid-cols-4 gap-2 lg:gap-5">
         {dummyData.map((data) => (
           <ArtistsClientLayout {...data} key={data.name}>

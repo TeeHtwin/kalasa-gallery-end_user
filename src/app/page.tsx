@@ -12,6 +12,7 @@ import aboutUs from "@/../public/img/aboutUs.png";
 // import PhotoGallery from "./components/photoLayout/PhotoGallery";
 import ContactUs from "./components/contactUs/ContactUs";
 import CollectionCard from "./components/cards/CollectionCard";
+import Collection from "./components/collection/Collection";
 
 export const dummyData: ExhibitionCardProps[] = [
   {
@@ -41,12 +42,36 @@ export const dummyData: ExhibitionCardProps[] = [
 ];
 const page = () => {
   const dammyImages = [
-    { title: "Image 1", image: "https://placekitten.com/200/600" },
-    { title: "Image 2", image: "https://placekitten.com/600/200" },
-    { title: "Image 3", image: "https://placekitten.com/800/1200" },
-    { title: "Image 4", image: "https://placekitten.com/700/1000" },
-    { title: "Image 5", image: "https://placekitten.com/400/600" },
-    { title: "Image 6", image: "https://placekitten.com/600/800" },
+    {
+      title: "Image 1",
+      image: "https://placekitten.com/200/600",
+      href: "/collections/image1",
+    },
+    {
+      title: "Image 2",
+      image: "https://placekitten.com/600/200",
+      href: "/collections/image2",
+    },
+    {
+      title: "Image 3",
+      image: "https://placekitten.com/800/1200",
+      href: "/collections/image3",
+    },
+    {
+      title: "Image 4",
+      image: "https://placekitten.com/700/1000",
+      href: "/collections/image4",
+    },
+    {
+      title: "Image 5",
+      image: "https://placekitten.com/400/600",
+      href: "/collections/image5",
+    },
+    {
+      title: "Image 6",
+      image: "https://placekitten.com/600/800",
+      href: "/collections/image6",
+    },
   ];
 
   return (
@@ -97,15 +122,7 @@ const page = () => {
             mobileText="See all"
           />
         </div>
-        <div className="columns-2 lg:columns-3 gap-2 lg:gap-5 mt-5 lg:mt-20 w-full">
-          {dammyImages.map((data) => (
-            <CollectionCard
-              key={data.title}
-              img={data.image}
-              title={data.title}
-            />
-          ))}
-        </div>
+        <Collection data={dammyImages} />
       </Layout>
 
       <Layout className="lg:p-0 grid grid-cols-1 lg:grid-cols-2 bg-primary-light text-primary lg:text-5xl">
