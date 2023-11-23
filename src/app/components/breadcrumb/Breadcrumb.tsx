@@ -9,7 +9,7 @@ const Breadcrumb = () => {
     const capitalized = pathNames.charAt(0).toUpperCase()+ pathNames.slice(1)
   
   return (
-    <nav className="hidden md:flex text-primary pl-10 py-10 max-w-screen-2xl" aria-label="Breadcrumb">
+    <nav className="hidden md:flex text-primary pl-10 py-10 bg-neutral-light w-full" aria-label="Breadcrumb">
       <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
         <li className="inline-flex items-center">
           <a

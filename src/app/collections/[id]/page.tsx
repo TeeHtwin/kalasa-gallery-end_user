@@ -38,8 +38,8 @@ const page = () => {
     <>
       <Breadcrumb />
 
-      <section className="m-auto text-primary px-4 sm:px-20 max-w-screen-2xl">
-        <div className="flex flex-col md:flex-row gap-10 items-center max-w-7xl m-auto px-10">
+      <section className="m-auto text-primary px-4 sm:px-10 lg:px-18 max-w-screen-2xl">
+        <div className="flex flex-col md:flex-row gap-10 items-center grow">
           <Image
             src={img}
             width={600}
@@ -65,18 +65,18 @@ const page = () => {
         <div className="py-8 sm:py-32 px-4">
           <div className="text-Brown flex justify-between">
             <p className="font-bold text-xl md:text-5xl font-serif">
-              Upcoming Events
+              Related Collections
             </p>
-            <button className="hidden md:block border-[1.5px] font-medium font-serif text-lg px-9 py-4">
-              View All Exhibitions →
+            <button className="hidden md:block border-[1.5px] border-primary font-medium font-serif text-lg px-9 py-4">
+              See More →
             </button>
             <button className="block md:hidden">See all</button>
           </div>
-          <div className="py-4 sm:py-20 block md:grid grid-cols-3 gap-4">
+          <div className="py-4 sm:py-20 flex items-start flex-wrap gap-4">
             {collections.map((collection) => (
               <div
                 key={collection.id}
-                className="border-solid border-[1.5px] border-[#883B0A29] h-auto bg-neutral-light mb-4 sm:mb-0"
+                className="border-solid border-[1.5px] border-[#883B0A29] h-auto bg-neutral-light mb-4 sm:mb-0 grow basis-80"
               >
                 <Image
                   src={collection.img}
