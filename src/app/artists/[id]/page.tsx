@@ -26,7 +26,7 @@ const page = () => {
           <p className="text-[#BA5006] text-xs font-medium mt-[10px] lg:mt-6 lg:text-2">
             Traditional Artist
           </p>
-          <Paragraph className="text-[#BA5006] text-sm font-normal leading-relaxed mt-5 lg:mt-6 lg:font-base">
+          <Paragraph className="text-[#BA5006] text-sm font-normal leading-relaxed mt-5 lg:mt-6  lg:text-2xl lg:font-base">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias minus
             vel a optio soluta asperiores dolorem nobis perspiciatis, quis
             consequatur reprehenderit officiis sapiente facilis eveniet? Tempore
