@@ -32,6 +32,16 @@ const SearchBar = ({ placeholder, className }: SearchBarProps) => {
 
   const params = new URLSearchParams(searchParams.toString());
 
+  const suggested_places = dummyPlaces.filter((place) => {
+    const searchKey = value.toLowerCase();
+    const suggested_place = place.toLowerCase();
+    return (
+      searchKey &&
+      suggested_place.includes(searchKey) &&
+      suggested_place !== searchKey
+    );
+  });
+
   const onSuggestClick = (place: string) => {
     try {
       params.set("q", place);
@@ -46,15 +56,15 @@ const SearchBar = ({ placeholder, className }: SearchBarProps) => {
   };
 
   const onSuggestChange = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (selectedItem < dummyPlaces.length) {
+    if (selectedItem < suggested_places.length) {
       if (e.key === "ArrowUp" && selectedItem > 0) {
         setSelectedItem((prev) => prev - 1);
       }
-      if (e.key === "ArrowDown" && selectedItem < dummyPlaces.length - 1) {
+      if (e.key === "ArrowDown" && selectedItem < suggested_places.length - 1) {
         setSelectedItem((prev) => prev + 1);
       }
       if (e.key === "Enter" && selectedItem >= 0) {
-        params.set("q", dummyPlaces[selectedItem]);
+        params.set("q", suggested_places[selectedItem]);
         params.set("page", "1");
         router.push(`${pathname}?${params}`, { scroll: false });
         setValue("");
@@ -68,6 +78,11 @@ const SearchBar = ({ placeholder, className }: SearchBarProps) => {
   const onClose = () => {
     setOpen(false);
     setValue("");
+  };
+
+  const onOpen = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+    setOpen(true);
   };
 
   window.addEventListener("click", (e) => {
@@ -84,7 +99,7 @@ const SearchBar = ({ placeholder, className }: SearchBarProps) => {
           placeholder={placeholder}
           onClick={() => setOpen(true)}
           value={value}
-          onChange={(e) => setValue(e.target.value)}
+          onChange={onOpen}
           onKeyDown={onSuggestChange}
           className={cn(
             "text-xs md:text-lg bg-transparent outline-none text-primary input"
@@ -103,29 +118,19 @@ const SearchBar = ({ placeholder, className }: SearchBarProps) => {
       </div>
       {open && (
         <div className="text-[12px] z-20 bg-neutral-light box-shadow absolute mt-3 border border-neutral-light md:text-lg w-[328px] flex flex-col md:w-[666px] pt-5 shadow-md">
-          {dummyPlaces
-            .filter((place) => {
-              const searchKey = value.toLowerCase();
-              const suggested_place = place.toLowerCase();
-              return (
-                searchKey &&
-                suggested_place.includes(searchKey) &&
-                suggested_place !== searchKey
-              );
-            })
-            .map((place, i) => (
-              <button
-                type="button"
-                onClick={() => onSuggestClick(place)}
-                key={place}
-                className={cn(
-                  " h-[40px] md:h-[70px] flex items-center px-10 text-primary hover:bg-primary-light",
-                  selectedItem === i && "bg-primary-light"
-                )}
-              >
-                {place}
-              </button>
-            ))}
+          {suggested_places.map((place, i) => (
+            <button
+              type="button"
+              onClick={() => onSuggestClick(place)}
+              key={place}
+              className={cn(
+                " h-[40px] md:h-[70px] flex items-center px-10 text-primary hover:bg-primary-light",
+                selectedItem === i && "bg-primary-light"
+              )}
+            >
+              {place}
+            </button>
+          ))}
           <button
             type="button"
             onClick={() => {}}
