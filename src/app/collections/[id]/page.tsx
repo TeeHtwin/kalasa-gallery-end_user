@@ -1,6 +1,7 @@
 import img from "@/app/collections/[id]/collection_poster.png";
 import Breadcrumb from "@/app/components/breadcrumb/Breadcrumb";
 import Image from "next/image";
+import FullscreenImage from '@/app/components/fullscreenImage/fullscreenImage'
 
 const collections = [
   {
@@ -40,13 +41,7 @@ const page = () => {
 
       <section className="m-auto text-primary px-4 sm:px-10 lg:px-18 max-w-screen-2xl">
         <div className="flex flex-col md:flex-row gap-10 items-center grow">
-          <Image
-            src={img}
-            width={600}
-            height={400}
-            alt="collection poster"
-            className="object-cover w-full"
-          />
+          <FullscreenImage src={img}/>
           <div className="w-full">
             <p className="font-serif text-xl sm:text-5xl font-normal">
               Fine China Tea-cup
