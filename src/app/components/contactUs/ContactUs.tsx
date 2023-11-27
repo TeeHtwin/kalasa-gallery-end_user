@@ -16,7 +16,7 @@ const ContactUs = () => {
     <Layout className="lg:p-0 p-0 pt-10 grid grid-cols-1 lg:grid-cols-2">
       <div
         id="contact"
-        className="py-[120px] px-4 w-full lg:w-[647px]  mx-auto"
+        className="lg:py-[120px] px-4 w-full lg:w-[647px]  mx-auto"
       >
         <Title className="text-xl mb-4 lg:text-5xl text-primary">
           Contact Us
@@ -35,13 +35,27 @@ const ContactUs = () => {
           <Title className="text-5xl text-primary">Info</Title>
         </div>
         <div className="lg:py-[60px] py-10 lg:pl-12 lg:pr-20 bg-primary pl-8 pr-5 flex gap-5 lg:gap-12 flex-col ">
-          <IconText icon={phonIcon} text="+959 425285590" />
-          <IconText icon={mailIcon} text="kalasaartspace@gmail.com" />
+          <IconText
+            icon={phonIcon}
+            href="tel:+959
+          425285590"
+            text="+959 425285590"
+          />
+          <IconText
+            icon={mailIcon}
+            text="kalasaartspace@gmail.com"
+            href="mailto:kalasaartspace@gmail.com"
+          />
           <IconText
             icon={locationIcon}
             text="No. 91-93, 1st floor (left), Seikkantha Street (Middle Block), Kyauktada Township, Yangon."
+            href="https://maps.app.goo.gl/py3Wb3H1DSEL6Rj9A"
           />
-          <IconText icon={clockIcon} text="Wed to Sun 10:00 AM to 6:00 PM" />
+          <IconText
+            icon={clockIcon}
+            href="https://maps.app.goo.gl/py3Wb3H1DSEL6Rj9A"
+            text="Wed to Sun 10:00 AM to 6:00 PM"
+          />
         </div>
         <div className="h-[83px] lg:h-[230px] flex pb-3 lg:pb-10 justify-center ml-auto w-[216px] lg:w-[403px] bg-primary-light">
           <SocialLink />

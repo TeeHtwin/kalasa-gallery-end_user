@@ -65,7 +65,7 @@ const page = () => {
         titleText="Our Events"
         searchPlaceholder="Search Exhibition"
       />
-      <div className="mt-5 lg:mt-20 grid grid-cols-3 lg:gap-5 w-full gap-[10px] ">
+      <div className="mt-5 lg:mt-20 grid grid-cols-1 lg:grid-cols-3 lg:gap-5 w-full gap-[10px] ">
         {dummyData.map((data, index) => (
           <Exhibition key={index} {...data} />
         ))}

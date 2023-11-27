@@ -1,17 +1,22 @@
 import React from "react";
-import Paragraph from "../common/Text/Paragraph";
 import Image from "next/image";
 
 interface IconTextProps {
-  text: string;
+  href: string;
   icon: string;
+  text: string;
 }
 
-const IconText = ({ text, icon }: IconTextProps) => {
+const IconText = ({ href, text, icon }: IconTextProps) => {
   return (
     <div className="flex gap-6">
       <Image src={icon} alt="icon" width={24} height={24} />
-      <Paragraph className="text-xs lg:text-xl text-white">{text}</Paragraph>
+      <a
+        href={href}
+        className="text-xs lg:text-xl text-white font-medium font-inter"
+      >
+        {text}
+      </a>
     </div>
   );
 };
