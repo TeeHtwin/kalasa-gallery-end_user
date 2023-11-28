@@ -63,8 +63,8 @@ const SearchBar = ({ placeholder, className }: SearchBarProps) => {
       if (e.key === "ArrowDown" && selectedItem < suggested_places.length - 1) {
         setSelectedItem((prev) => prev + 1);
       }
-      if (e.key === "Enter" && selectedItem >= 0) {
-        params.set("q", suggested_places[selectedItem]);
+      if (e.key === "Enter") {
+        params.set("q", suggested_places[selectedItem] || value);
         params.set("page", "1");
         router.push(`${pathname}?${params}`, { scroll: false });
         setValue("");
