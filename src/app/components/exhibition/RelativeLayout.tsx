@@ -20,7 +20,11 @@ const RelativeLayout = ({
     <div className="lg:mt-[120px] mt-10">
       <div className="flex mb-5 lg:mb-10 justify-between">
         <Title className="text-lg text-primary lg:text-[40px]">{title}</Title>
-        <LinkBtn href={href} dtText={`${dtText} →`} mobileText={mobileText} />
+        {dtText ? (
+          <LinkBtn href={href} dtText={`${dtText} →`} mobileText={mobileText} />
+        ) : (
+          mobileText && <LinkBtn href={href} mobileText={mobileText} />
+        )}
       </div>
       {children}
     </div>

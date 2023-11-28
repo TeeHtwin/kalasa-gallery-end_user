@@ -16,6 +16,8 @@ const config: Config = {
         "secondary-light": "#F5F0E6",
         "neutral-dark": "#32312F",
         "neutral-light": "#F5EEDC",
+        "success" : "#3B9702",
+        "error": "#BF3232"
       },
       fontFamily: {
         cardo: ["Cardo", "serif"],

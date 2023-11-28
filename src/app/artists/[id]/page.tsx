@@ -5,10 +5,50 @@ import React from "react";
 import Image from "next/image";
 import Title from "@/app/components/common/Title";
 import Paragraph from "@/app/components/common/Text/Paragraph";
-import ExhibitionLayout from "@/app/components/exhibition/ExhibitionLayout";
+import RelativeLayout from "@/app/components/exhibition/RelativeLayout";
+import GalleryList from "@/app/components/gallery/GalleryList";
+import Pagination from "@/app/components/pagination/Pagination";
 const page = () => {
+  const artworkList = [
+    {
+      id: 1,
+      title: "Art of Mother by Wood",
+      artist: "Khin Maung Yin",
+      size: "(18 x 24) inches AC",
+      isAvailable: true,
+      thumbnail:
+        "https://plus.unsplash.com/premium_photo-1668104454442-a251cc42ee58?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      id: 2,
+      title: "Art of Mother by Wood",
+      artist: "Khin Maung Yin",
+      size: "(18 x 24) inches AC",
+      isAvailable: false,
+      thumbnail:
+        "https://images.unsplash.com/photo-1682686580186-b55d2a91053c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8",
+    },
+    {
+      id: 3,
+      title: "Art of Mother by Wood",
+      artist: "Khin Maung Yin",
+      size: "(18 x 24) inches AC",
+      isAvailable: false,
+      thumbnail:
+        "https://images.unsplash.com/photo-1700744228339-03c725f5ee57?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzNHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      id: 4,
+      title: "Art of Mother by Wood",
+      artist: "Khin Maung Yin",
+      size: "(18 x 24) inches AC",
+      isAvailable: false,
+      thumbnail:
+        "https://images.unsplash.com/photo-1700902741852-ecf2bd2c26eb?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHx8",
+    },
+  ];
   return (
-    <Layout className="lg:px-16">
+    <Layout className="lg:px-16 pb-10">
       <Breadcrumbs breadcrumbs={["Our Artists", "Artists Detail"]} />
 
       <MainLayout className="flex  flex-col lg:flex-row items-starts lg:items-center lg:gap-[60px]">
@@ -38,6 +78,17 @@ const page = () => {
           </button>
         </div>
       </MainLayout>
+      <hr />
+      <RelativeLayout
+        href="/collection"
+        mobileText="See all"
+        title="Her Artworks"
+      >
+        <GalleryList data={artworkList} />
+        <div className="mt-10 hidden lg:block lg:mt-20">
+          <Pagination totalPages={5} />
+        </div>
+      </RelativeLayout>
     </Layout>
   );
 };
