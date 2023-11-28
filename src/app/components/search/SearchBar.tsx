@@ -80,7 +80,7 @@ const SearchBar = ({ placeholder, className }: SearchBarProps) => {
     setValue("");
   };
 
-  const onOpen = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onOpenChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
     setOpen(true);
   };
@@ -99,7 +99,7 @@ const SearchBar = ({ placeholder, className }: SearchBarProps) => {
           placeholder={placeholder}
           onClick={() => setOpen(true)}
           value={value}
-          onChange={onOpen}
+          onChange={onOpenChange}
           onKeyDown={onSuggestChange}
           className={cn(
             "text-xs md:text-lg bg-transparent outline-none text-primary input"
