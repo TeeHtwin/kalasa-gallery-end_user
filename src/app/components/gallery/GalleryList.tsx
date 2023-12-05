@@ -7,8 +7,9 @@ interface GalleryListProps {
     title: string;
     artist: string;
     size: string;
-    isAvailable: boolean;
+    isAvailable?: boolean;
     thumbnail: string;
+    routeUrl?: string;
   }[];
 }
 

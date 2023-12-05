@@ -1,15 +1,16 @@
 import React from 'react'
 import Image from 'next/image'
 import Paragraph from "../common/Text/Paragraph";
-
+import LinkBtn from "@/app/components/button/LinkBtn"
 interface GalleryCardProps {
     info: {
         id: number,
         title: string,
         artist: string,
         size: string,
-        isAvailable: boolean,
+        isAvailable?: boolean,
         thumbnail: string,
+        routeUrl?: string
     }
 }
 
@@ -31,9 +32,14 @@ const GalleryCard = ({ info }: Props) => {
                     <p className="text-xs text-primary mb-2">by Artist {info?.artist}</p>
                     <p className="text-xs text-primary leading-tight">{info?.size}</p>
                 </div>
-                <div className={`py-4 px-7 ${info?.isAvailable ? 'bg-success' :'bg-error'} text-white text-xs tracking-wider`}>
-                    {info?.isAvailable ? "Available" : "Sold out"}
-                </div>
+                {
+                    info?.available && (
+                        <div className={`py-4 px-7 ${info?.isAvailable ? 'bg-success' :'bg-error'} text-white text-xs tracking-wider`}>
+                            {info?.isAvailable ? "Available" : "Sold out"}
+                        </div>
+                    )
+                }
+                <LinkBtn className="text-primary text-xs tracking-wider" href={`/gallery/${info?.id}`} mobileText="More Detail" dtText="More Detail" />
             </div>
         </div>
     </div>
