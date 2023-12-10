@@ -11,6 +11,7 @@ interface CollectionCardProps {
 const CollectionCard = ({ title, image, href }: CollectionCardProps) => {
   return (
     <Link
+      role="listitem"
       href={href}
       className="border-solid px-1 pt-1 pb-4 border border-primary border-opacity-20 aspect-auto bg-neutral-light lg:pt-2 lg:px-2 "
     >
