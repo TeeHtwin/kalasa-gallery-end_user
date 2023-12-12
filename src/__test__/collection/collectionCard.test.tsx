@@ -9,8 +9,12 @@ test("renders CollectionCard component correctly", () => {
     href: "/test-link",
   };
 
-  const { getByText, getByAltText } = render(<CollectionCard {...testData} />);
+  const { getByText, getByAltText, getByTestId } = render(
+    <CollectionCard {...testData} />
+  );
+  const collectionLink = getByTestId("collection-link");
 
   expect(getByAltText("collection poster")).toBeInTheDocument();
   expect(getByText("Test Title")).toBeInTheDocument();
+  expect(collectionLink).toHaveAttribute("href", "/test-link");
 });
