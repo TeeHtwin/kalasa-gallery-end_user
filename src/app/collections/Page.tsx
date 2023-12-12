@@ -4,7 +4,7 @@ import SectionHeader from "../components/common/SectionHeader";
 import Collection from "../components/collection/Collection";
 import Pagination from "../components/pagination/Pagination";
 
-const page = () => {
+const Page = () => {
   const dammyImages = [
     {
       title: "Image 1",
@@ -53,8 +53,6 @@ const page = () => {
     },
   ];
 
-  console.log;
-
   return (
     <Layout className="lg:py-20">
       <SectionHeader
@@ -69,4 +67,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
