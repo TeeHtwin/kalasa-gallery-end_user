@@ -27,6 +27,7 @@ test("renders a title", () => {
   const header = screen.getByText("Our Collections");
 
   expect(header).toBeInTheDocument();
+  expect(header).toHaveTextContent("Our Collections");
 });
 
 test("renders empty page when data is empty", () => {
