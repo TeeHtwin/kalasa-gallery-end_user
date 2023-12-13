@@ -1,6 +1,6 @@
-import { render, screen } from "@testing-library/react"
-import CollectionPage from '@/app/collections/page'
-import Collection from '@/app/components/collection/Collection'
+import { render, screen } from "@testing-library/react";
+import CollectionPage from "@/app/collections/page";
+import Collection from "@/app/components/collection/Collection";
 
 // Mock useRouter, useSearchParams, usePathname:
 jest.mock("next/navigation", () => ({
@@ -22,21 +22,20 @@ jest.mock("next/navigation", () => ({
 }));
 
 test("renders a title", () => {
+  render(<CollectionPage />);
 
-    render(<CollectionPage />)
+  const header = screen.getByText("Our Collections");
 
-    const header = screen.getByText('Our Collections');
-
-    expect(header).toBeInTheDocument();
-})
+  expect(header).toBeInTheDocument();
+});
 
 test("renders empty page when data is empty", () => {
-  render(<Collection data={[]} />)
+  render(<Collection data={[]} />);
 
   const emptyText = screen.getByText("No Results Found.");
 
   expect(emptyText).toBeInTheDocument();
-})
+});
 
 test("renders collection data when there is data.", () => {
   const collectionData = [
@@ -87,10 +86,9 @@ test("renders collection data when there is data.", () => {
     },
   ];
 
-  render(<Collection data={collectionData} />)
+  render(<Collection data={collectionData} />);
 
-  const renderedItems = screen.getAllByRole('listitem');
+  const renderedItems = screen.getAllByTestId("collection-link");
 
   expect(renderedItems?.length).toEqual(collectionData?.length);
-
-})
+});
