@@ -26,7 +26,7 @@ const NavText: React.FC<NavTextProps> = ({
   return (
     <Link
       className={cn(
-        "uppercase mx-auto py-3 px-6 font-semibold font-inter text-lg leading-none",
+        "uppercase mx-auto py-3 px-6 font-semibold font-inter leading-none",
         activeStyle,
 
         { "text-white": pathName === "/", "text-[#151515]": pathName !== "/" },

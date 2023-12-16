@@ -32,7 +32,7 @@ const ContactUs = () => {
       </div>
       <div className="flex pl-4 lg:pl-0 flex-col">
         <div className="h-[83px] lg:h-[230px] flex justify-center items-center ml-auto w-[216px] lg:w-[403px] bg-primary-light">
-          <Title className="text-5xl text-primary">Info</Title>
+          <Title className="text-3xl lg:text-5xl text-primary">Info</Title>
         </div>
         <div className="lg:py-[60px] py-10 lg:pl-12 lg:pr-20 bg-primary pl-8 pr-5 flex gap-5 lg:gap-12 flex-col ">
           <IconText

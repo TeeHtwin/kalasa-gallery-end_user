@@ -89,7 +89,7 @@ const Navbar: React.FC = () => {
   return (
     <nav
       className={cn(
-        "flex flex-row bg-neutral-light gap-2 z-10 py-6 px-4 lg:py-1 lg:px-20 justify-between items-center w-full",
+        "flex flex-row bg-neutral-light drop-shadow-nav gap-2 z-10 py-6 px-4 lg:py-1.5 lg:px-20 justify-between items-center w-full",
         homepageClass,
         { "px-0 py-0": menuOpen }
       )}
@@ -98,7 +98,7 @@ const Navbar: React.FC = () => {
       <div
         className={`flex items-center ${menuOpen ? "hidden lg:flex" : "flex"}`}
       >
-        <Logo className="w-[120px] h-[44px] lg:w-[258px] lg:h-[96px]" />
+        <Logo />
       </div>
       <DesktopNavbar />
 

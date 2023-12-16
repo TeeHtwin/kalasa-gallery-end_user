@@ -1,13 +1,13 @@
 import React from "react";
 import CollectionCard from "../cards/CollectionCard";
 
-const Collection = ({ data }) => {
+const Collection = ({ data }:any) => {
   return (
     <div
       data-testid="mocked-collection-card"
       className="columns-2 lg:columns-3 gap-2 lg:gap-5 mt-5 lg:mt-20 w-full"
     >
-      {data.map((singleData) => (
+      {data.map((singleData:any) => (
         <CollectionCard key={singleData.image} {...singleData} />
       ))}
     </div>

@@ -13,19 +13,20 @@ const ExhibitionDetailPage = () => {
   return (
     <ExhibitionLayout>
       <Breadcrumbs breadcrumbs={["Our Events", "Event Detail"]} />
-      <MainLayout className=" grid grid-cols-1 items-center md:grid-cols-2 gap-[60px]">
+      <MainLayout className=" grid grid-cols-1 items-center md:grid-cols-2 gap-10">
         <Image
           src={
             "https://d38b044pevnwc9.cloudfront.net/cutout-nuxt/enhancer/2.jpg"
           }
-          width={650}
-          height={650}
+          width={1024}
+          height={1024}
           alt="Detail image"
-          className="aspect-[4/3] md:aspect-square"
+          quality={100}
+          className="w-full h-full object-cover"
         />
 
         <div className="text-primary flex flex-col gap-y-[24px] my-auto">
-          <Title className="">Discovering The Beauty of Bangan</Title>
+          <Title>Discovering The Beauty <br /> of Bangan</Title>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis
             voluptatem repudiandae optio quo iste non nulla illum nisi qui eum
@@ -56,7 +57,7 @@ const ExhibitionDetailPage = () => {
               <span>At Kalasa Art Space</span>
             </div>
           </div>
-          <button className="text-white p-[8px] bg-primary w-[213px] h-[74px]">
+          <button className="text-white p-[8px] bg-primary w-[220px] py-2.5">
             Inquiry To Come
           </button>
         </div>

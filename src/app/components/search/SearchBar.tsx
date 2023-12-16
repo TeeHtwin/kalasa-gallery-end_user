@@ -92,8 +92,8 @@ const SearchBar = ({ placeholder, className }: SearchBarProps) => {
   });
 
   return (
-    <div className={cn("", className)} ref={divRef}>
-      <div className="flex w-full py-[7px] px-5 lg:py-[17px] lg:px-8 border-[1.5px] border-primary justify-between items-center">
+    <div className={cn("relative", className)} ref={divRef}>
+      <div className="flex w-[80%] ml-auto py-[7px] px-5 lg:px-3 border border-0.5 border-primary justify-between items-center">
         <input
           type="text"
           placeholder={placeholder}
@@ -102,7 +102,7 @@ const SearchBar = ({ placeholder, className }: SearchBarProps) => {
           onChange={onOpenChange}
           onKeyDown={onSuggestChange}
           className={cn(
-            "text-xs md:text-lg bg-transparent outline-none text-primary input"
+            "text-md bg-transparent outline-none text-primary input w-full py-1 placeholder:text-sm"
           )}
         />
         <div className=" ">
@@ -117,7 +117,7 @@ const SearchBar = ({ placeholder, className }: SearchBarProps) => {
         </div>
       </div>
       {open && (
-        <div className="text-[12px] z-20 bg-neutral-light box-shadow absolute mt-3 border border-neutral-light md:text-lg w-[328px] flex flex-col md:w-[666px] pt-5 shadow-md">
+        <div className="text-[12px] z-20 bg-neutral-light box-shadow absolute right-0 mt-3 border border-neutral-light md:text-lg w-[80%] mr-auto flex flex-col pt-5 shadow-md">
           {suggested_places.map((place, i) => (
             <button
               type="button"

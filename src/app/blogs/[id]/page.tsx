@@ -64,10 +64,10 @@ const page = () => {
           <hr className="block sm:hidden" />
           <div className="py-8 sm:py-32">
             <div className="text-Brown flex justify-between">
-              <p className="font-bold text-xl md:text-5xl font-serif">
+              <p className="font-bold text-xl md:text-3xl font-serif">
               Related Blogs
               </p>
-              <button className="hidden md:block border-[1.5px] border-primary font-medium font-serif text-lg px-9 py-4">
+              <button className="hidden md:block border-[1.5px] border-primary font-medium font-serif text-lg px-5 py-1">
                  See More →
               </button>
               <button className="block md:hidden">See More</button>
