@@ -154,7 +154,7 @@ const page = () => {
         <div className="flex items-center justify-between">
           <Title className="text-primary lg:text-5xl">Upcoming Events</Title>
           <LinkBtn
-            href="/events"
+            href="/exhibition"
             mobileText="See all"
             dtText="View All Exhibitions &rarr;"
           />
