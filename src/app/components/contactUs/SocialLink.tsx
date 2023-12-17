@@ -9,21 +9,21 @@ const SocialLink = () => {
   const sociallink = [
     {
       icon: fbLinkIcon,
-      href: "/",
+      href: "https://www.facebook.com/KALASAARTSPACE?mibextid=ZbWKwL",
     },
     {
       icon: messengerLinkIcon,
-      href: "/",
+      href: "https://www.facebook.com/KALASAARTSPACE?mibextid=ZbWKwL",
     },
     {
       icon: instaLinkIcon,
-      href: "/",
+      href: "https://www.instagram.com/kalasa_art_space?igshid=OGQ5ZDc2ODk2ZA==",
     },
   ];
   return (
     <div className="flex items-center gap-8">
       {sociallink.map((link) => (
-        <Link href={link.href} key={link.icon}>
+        <Link href={link.href} target="_blank" key={link.icon}>
           <Image
             src={link.icon}
             className="w-5 h-5 lg:w-8 lg:h-8"
