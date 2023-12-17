@@ -89,7 +89,7 @@ const page = () => {
     },
   ];
   return (
-    <Layout className="lg:py-20">
+    <Layout>
       <SectionHeader
         titleText={"Our Artworks"}
         searchPlaceholder="Search Arkwork"
