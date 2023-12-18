@@ -4,7 +4,7 @@ import SectionHeader from "../components/common/SectionHeader";
 import Collection from "../components/collection/Collection";
 import Pagination from "../components/pagination/Pagination";
 
-const Page = () => {
+const page = () => {
   const dammyImages = [
     {
       title: "Image 1",
@@ -67,4 +67,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default page;

@@ -20,11 +20,11 @@ const Footer = () => {
   const sociallink = [
     {
       icon: fbOutlineIcon,
-      href: "/",
+      href: "https://www.facebook.com/KALASAARTSPACE?mibextid=ZbWKwL",
     },
     {
       icon: igOutlineIcon,
-      href: "/",
+      href: "https://www.instagram.com/kalasa_art_space?igshid=OGQ5ZDc2ODk2ZA==",
     },
     {
       icon: locationOutlineIcon,
@@ -61,7 +61,7 @@ const Footer = () => {
           </Paragraph>
           <div className="flex items-center gap-6">
             {sociallink.map((link) => (
-              <Link href={link.href} key={link.icon}>
+              <Link href={link.href} target="_blank" key={link.icon}>
                 <Image
                   src={link.icon}
                   className="w-[30px] lg:w-[40px] h-auto"
