@@ -4,15 +4,15 @@ import { CalendarRange, Clock, Home, MapPin } from "lucide-react";
 import Image from "next/image";
 import Exhibition from "../../components/cards/ExhibitionCard";
 import React from "react";
-import Breadcrumbs from "@/app/components/common/Bredcrumbs";
 import ExhibitionLayout from "@/app/components/exhibition/ExhibitionLayout";
 import MainLayout from "@/app/components/exhibition/MainLayout";
 import RelativeLayout from "@/app/components/exhibition/RelativeLayout";
+import Breadcrumb from "@/app/components/breadcrumb/Breadcrumb";
 
 const ExhibitionDetailPage = () => {
   return (
     <ExhibitionLayout>
-      <Breadcrumbs breadcrumbs={["Our Events", "Event Detail"]} />
+      <Breadcrumb />
       <MainLayout className=" grid grid-cols-1 items-center md:grid-cols-2 gap-[60px]">
         <Image
           src={
