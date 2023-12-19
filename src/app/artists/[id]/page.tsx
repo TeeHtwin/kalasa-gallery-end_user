@@ -1,4 +1,3 @@
-import Breadcrumbs from "@/app/components/common/Bredcrumbs";
 import Layout from "@/app/components/common/Layout";
 import MainLayout from "@/app/components/exhibition/MainLayout";
 import React from "react";
@@ -8,6 +7,7 @@ import Paragraph from "@/app/components/common/Text/Paragraph";
 import RelativeLayout from "@/app/components/exhibition/RelativeLayout";
 import GalleryList from "@/app/components/gallery/GalleryList";
 import Pagination from "@/app/components/pagination/Pagination";
+import Breadcrumb from "@/app/components/breadcrumb/Breadcrumb";
 const page = () => {
   const artworkList = [
     {
@@ -49,7 +49,7 @@ const page = () => {
   ];
   return (
     <Layout className="lg:px-16 pb-10">
-      <Breadcrumbs breadcrumbs={["Our Artists", "Artists Detail"]} />
+      <Breadcrumb />
 
       <MainLayout className="flex  flex-col lg:flex-row items-starts lg:items-center lg:gap-[60px]">
         <Image
