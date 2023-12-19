@@ -8,11 +8,14 @@ import Pagination from "@/app/components/pagination/Pagination";
 import Loading from "../common/Loading";
 
 const GalleryPage = () => {
-  const { data: artworkList } = useQuery({
+  const { isLoading, data: artworkList } = useQuery({
     queryKey: ["gallery"],
     queryFn: () => fetchGallery(),
   });
 
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <div>
       <GalleryList data={artworkList} />
