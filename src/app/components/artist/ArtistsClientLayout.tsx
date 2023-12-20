@@ -1,13 +1,14 @@
 "use client";
+import { Artist } from "@/types";
 import Link from "next/link";
 import React, { Children } from "react";
 import { useState, useEffect } from "react";
 
 interface ArtistsClientLayoutProps {
   children: React.ReactNode;
-  href: string;
+  info: Artist;
 }
-const ArtistsClientLayout = ({ children, href }: ArtistsClientLayoutProps) => {
+const ArtistsClientLayout = ({ children, info }: ArtistsClientLayoutProps) => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -31,7 +32,7 @@ const ArtistsClientLayout = ({ children, href }: ArtistsClientLayoutProps) => {
   return (
     <>
       {isMobile ? (
-        <Link href={href} className={style}>
+        <Link href={`/artists/${info?.id}`} className={style}>
           {children}
         </Link>
       ) : (

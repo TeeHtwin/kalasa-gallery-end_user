@@ -1,6 +1,6 @@
 "use client";
 
-import fetchGallery from "@/fetchers";
+import { fetchGallery } from "@/fetchers";
 import React from "react";
 import { useQuery } from "react-query";
 import GalleryList from "@/app/components/gallery/GalleryList";

@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "title": "Image 1",
+    "image": "https://placekitten.com/200/600",
+    "href": "/collections/image1"
+  },
+  {
+    "id": 2,
+    "title": "Image 2",
+    "image": "https://placekitten.com/600/200",
+    "href": "/collections/image2"
+  },
+  {
+    "id": 3,
+    "title": "Image 3",
+    "image": "https://placekitten.com/800/1200",
+    "href": "/collections/image3"
+  },
+  {
+    "id": 4,
+    "title": "Image 4",
+    "image": "https://placekitten.com/700/1000",
+    "href": "/collections/image4"
+  },
+  {
+    "id": 5,
+    "title": "Image 5",
+    "image": "https://placekitten.com/400/600",
+    "href": "/collections/image5"
+  },
+  {
+    "id": 6,
+    "title": "Image 6",
+    "image": "https://placekitten.com/600/800",
+    "href": "/collections/image6"
+  },
+  {
+    "id": 7,
+    "title": "Image 7",
+    "image": "https://placekitten.com/300/500",
+    "href": "/collections/image7"
+  },
+  {
+    "id": 8,
+    "title": "Image 8",
+    "image": "https://placekitten.com/500/300",
+    "href": "/collections/image8"
+  },
+  {
+    "id": 9,
+    "title": "Image 9",
+    "image": "https://placekitten.com/700/700",
+    "href": "/collections/image9"
+  }
+]
