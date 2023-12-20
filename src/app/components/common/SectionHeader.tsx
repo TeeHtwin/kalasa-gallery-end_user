@@ -16,7 +16,7 @@ const SectionHeader = ({
         {titleText}
       </Title>
       <SearchBar
-        className=" mb-5 md:mb-0 order-1 lg:order-2"
+        className=" mb-5 lg:mb-0 order-1 lg:order-2"
         placeholder={`${searchPlaceholder} ...`}
       />
     </div>

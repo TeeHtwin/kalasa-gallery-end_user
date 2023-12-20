@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import Pagination from "@/app/components/pagination/Pagination";
 
-const page = async() => {
+const page = async () => {
   const blogs = [
     {
       id: 11,

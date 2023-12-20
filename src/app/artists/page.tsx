@@ -1,9 +1,7 @@
 import React from "react";
 import Layout from "../components/common/Layout";
-import Title from "../components/common/Title";
-import SearchBar from "../components/search/SearchBar";
 import ArtistsCard from "../components/cards/artists/ArtistsCard";
-import ArtistsClientLayout from "../components/cards/artists/ArtistsClientLayout";
+import ArtistsCardLayout from "../components/cards/artists/ArtistsCardLayout";
 import SectionHeader from "../components/common/SectionHeader";
 
 const page = () => {
@@ -58,16 +56,16 @@ const page = () => {
     },
   ];
   return (
-    <Layout className="lg:py-20">
+    <Layout>
       <SectionHeader
         titleText="Our Artists"
         searchPlaceholder="Search Artists"
       />
-      <div className="grid grid-rows-4 mt-5 grid-cols-2 lg:grid-rows-2 lg:grid-cols-4 gap-2 lg:gap-5">
+      <div className="mt-10 lg:mt-20 grid grid-rows-4 grid-cols-2 lg:grid-rows-2 lg:grid-cols-4 gap-2 lg:gap-5">
         {dummyData.map((data) => (
-          <ArtistsClientLayout {...data} key={data.name}>
+          <ArtistsCardLayout {...data} key={data.name}>
             <ArtistsCard {...data} />
-          </ArtistsClientLayout>
+          </ArtistsCardLayout>
         ))}
       </div>
     </Layout>
