@@ -2,14 +2,16 @@ import React from "react";
 import GalleryCard from "../cards/GalleryCard";
 
 interface GalleryListProps {
-  data: {
-    id: number;
-    title: string;
-    artist: string;
-    size: string;
-    isAvailable: boolean;
-    thumbnail: string;
-  }[];
+  data:
+    | {
+        id: number;
+        title: string;
+        artist: string;
+        size: string;
+        isAvailable: boolean;
+        thumbnail: string;
+      }[]
+    | null;
 }
 
 const GalleryList = ({ data }: GalleryListProps) => {
