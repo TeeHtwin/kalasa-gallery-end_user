@@ -1,20 +1,14 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Paragraph from "../../common/Text/Paragraph";
-import LinkBtn from "../../button/LinkBtn";
+import Paragraph from "../common/Text/Paragraph";
+import { Artist } from "@/types";
 
-interface ArtistsCardProps {
-  src: string;
-  href: string;
-  name: string;
-  job: string;
-}
-const ArtistsCard = ({ src, href, name, job }: ArtistsCardProps) => {
+const ArtistsCard = ({ image, id, name, career }: Artist) => {
   return (
     <>
       <Image
-        src={src}
+        src={image}
         className="aspect-square w-auto h-auto"
         alt="artist"
         width={300}
@@ -23,9 +17,9 @@ const ArtistsCard = ({ src, href, name, job }: ArtistsCardProps) => {
 
       <div className="flex text-center flex-col mt-5 lg:mt-9 ">
         <Paragraph className="font-semibold lg:text-2xl">{name}</Paragraph>
-        <Paragraph className="text-[10px] lg:text-sm">{job}</Paragraph>
+        <Paragraph className="text-[10px] lg:text-sm">{career}</Paragraph>
         <Link
-          href={href}
+          href={`/artists/${id}`}
           className="text-primary font-inter mt-5 px-[36px] mx-auto py-3 border border-primary text-base font-medium hidden lg:block"
         >
           View Profile

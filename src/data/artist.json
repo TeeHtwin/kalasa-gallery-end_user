@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "image": "https://via.placeholder.com/600/92c952",
+    "name": "John Doe",
+    "career": "Painter"
+  },
+  {
+    "id": 2,
+    "image": "https://via.placeholder.com/600/24f355",
+    "name": "Jane Smith",
+    "career": "Sculptor"
+  },
+  {
+    "id": 3,
+    "image": "https://via.placeholder.com/600/f66b97",
+    "name": "Bob Johnson",
+    "career": "Photographer"
+  },
+  {
+    "id": 4,
+    "image": "https://via.placeholder.com/600/3fd15c",
+    "name": "Alice Brown",
+    "career": "Illustrator"
+  },
+  {
+    "id": 5,
+    "image": "https://via.placeholder.com/600/aa437a",
+    "name": "Charlie White",
+    "career": "Graphic Designer"
+  },
+  {
+    "id": 6,
+    "image": "https://via.placeholder.com/600/c2b67d",
+    "name": "Eva Black",
+    "career": "Mixed Media Artist"
+  },
+  {
+    "id": 7,
+    "image": "https://via.placeholder.com/600/e0443b",
+    "name": "David Gray",
+    "career": "Digital Artist"
+  },
+  {
+    "id": 8,
+    "image": "https://via.placeholder.com/600/466685",
+    "name": "Sophie Green",
+    "career": "Printmaker"
+  }
+]
