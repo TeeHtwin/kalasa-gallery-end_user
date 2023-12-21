@@ -1,4 +1,5 @@
 import React from "react";
+import BlogPage from "../components/blog/BlogPage";
 
 const page = async () => {
   return (
@@ -36,6 +37,7 @@ const page = async () => {
             </div>
           </div>
         </div>
+        <BlogPage />
       </section>
     </>
   );
