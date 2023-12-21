@@ -1,5 +1,5 @@
 import data from "@/data/index";
-import { Artist, Collection, Gallery } from "@/types";
+import { Artist, Blog, Collection, Gallery } from "@/types";
 
 export async function fetchGallery(url?: string) {
   return await new Promise<Array<Gallery>>((resolve) => {
@@ -26,6 +26,18 @@ export async function fetchArtist(id?: number) {
       if (data.artists?.length > 0) {
         resolve(data.artists);
       }
+      reject(new Error("Cannot fetch data"));
+    }, 2000);
+  });
+}
+
+export async function fetchBlog(id?: number) {
+  return await new Promise<Array<Blog>>((resolve, reject) => {
+    setTimeout(() => {
+      if (data.blogs?.length > 0) {
+        resolve(data.blogs);
+      }
+
       reject(new Error("Cannot fetch data"));
     }, 2000);
   });

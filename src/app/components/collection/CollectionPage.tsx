@@ -5,14 +5,18 @@ import Pagination from "@/app/components/pagination/Pagination";
 import Collection from "./Collection";
 import { useQuery } from "react-query";
 import { fetchCollection } from "@/fetchers";
+import Loading from "../common/Loading";
 
 type Props = {};
 
 const CollectionPage = (props: Props) => {
-  const { data: collections } = useQuery({
+  const { data: collections, isLoading } = useQuery({
     queryKey: ["collections"],
     queryFn: () => fetchCollection(),
   });
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <div>
       <Collection data={collections ?? null} />

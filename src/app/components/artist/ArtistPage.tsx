@@ -5,12 +5,18 @@ import { useQuery } from "react-query";
 import Pagination from "@/app/components/pagination/Pagination";
 import { fetchArtist } from "@/fetchers";
 import ArtistList from "./ArtistList";
+import Loading from "../common/Loading";
 
 const ArtistPage = () => {
-  const { data: artists } = useQuery({
-    queryKey: "artists",
+  const { data: artists, isLoading } = useQuery({
+    queryKey: ["artists"],
     queryFn: () => fetchArtist(),
   });
+  if (isLoading) {
+    return <Loading />;
+  }
+
+  console.log("artists::", artists);
   return (
     <div>
       <ArtistList data={artists ?? null} />

@@ -20,3 +20,12 @@ export interface Artist {
   name: string;
   career: string;
 }
+
+export interface Blog {
+  id: number;
+  image: string;
+  title: string;
+  content: string;
+  author: string;
+  date: string;
+}
