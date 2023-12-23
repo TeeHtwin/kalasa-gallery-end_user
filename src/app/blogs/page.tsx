@@ -3,7 +3,7 @@ import React from "react";
 import Pagination from "@/app/components/pagination/Pagination";
 import SectionHeader from "../components/common/SectionHeader";
 
-const page = async() => {
+const page = async () => {
   const blogs = [
     {
       id: 11,
