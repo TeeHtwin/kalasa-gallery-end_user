@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import Pagination from "@/app/components/pagination/Pagination";
-import SectionHeader from "../components/common/SectionHeader";
+import HeroSearch from "../components/HeroSearch/HeroSearch";
 
 const page = async () => {
   const blogs = [
@@ -64,9 +64,7 @@ const page = async () => {
   return (
     <>
       <section className="text-primary px-4 sm:px-10 lg:px-20 m-auto py-12">
-        
-          <SectionHeader titleText="Our Blogs" searchPlaceholder="Search Articles" />
-        
+        <HeroSearch />
 
         <div className="flex gap-5 pt-20 flex-wrap justify-center">
           {blogs.map((blog) => (
