@@ -1,6 +1,7 @@
 import img from "@/app/gallery/[id]/artwork_poster.png";
 import Image from "next/image";
 import profile from "@/app/gallery/[id]/artist_profile.png";
+import Breadcrumb from "@/app/components/breadcrumb/Breadcrumb";
 
 const artworks = [
   {
@@ -30,6 +31,7 @@ const artworks = [
 const page = () => {
   return (
     <section className="m-auto text-primary px-4 sm:px-10 lg:px-18 max-w-screen-2xl">
+      <Breadcrumb />
       <div className="flex flex-col md:flex-row gap-10 items-center grow">
         <Image
           src={img}

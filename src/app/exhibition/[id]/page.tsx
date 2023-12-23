@@ -4,16 +4,16 @@ import { CalendarRange, Clock, Home, MapPin } from "lucide-react";
 import Image from "next/image";
 import Exhibition from "../../components/cards/ExhibitionCard";
 import React from "react";
-import Breadcrumbs from "@/app/components/common/Bredcrumbs";
 import ExhibitionLayout from "@/app/components/exhibition/ExhibitionLayout";
 import MainLayout from "@/app/components/exhibition/MainLayout";
 import RelativeLayout from "@/app/components/exhibition/RelativeLayout";
+import Breadcrumb from "@/app/components/breadcrumb/Breadcrumb";
 
 const ExhibitionDetailPage = () => {
   return (
     <ExhibitionLayout>
-      <Breadcrumbs breadcrumbs={["Our Events", "Event Detail"]} />
-      <MainLayout className=" grid grid-cols-1 items-center md:grid-cols-2 gap-10">
+      <Breadcrumb />
+      <MainLayout className="grid grid-cols-1 items-center md:grid-cols-2 gap-10">
         <Image
           src={
             "https://d38b044pevnwc9.cloudfront.net/cutout-nuxt/enhancer/2.jpg"
@@ -26,7 +26,9 @@ const ExhibitionDetailPage = () => {
         />
 
         <div className="text-primary flex flex-col gap-y-[24px] my-auto">
-          <Title>Discovering The Beauty <br /> of Bangan</Title>
+          <Title>
+            Discovering The Beauty <br /> of Bangan
+          </Title>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis
             voluptatem repudiandae optio quo iste non nulla illum nisi qui eum
