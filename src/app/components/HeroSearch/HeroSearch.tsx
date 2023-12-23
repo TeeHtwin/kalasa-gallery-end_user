@@ -3,59 +3,59 @@
 const languages = [
   {
     name: "C",
-    location: 'Yangon',
+    location: "Yangon",
   },
   {
     name: "C#",
-    location: 'Yanngon',
+    location: "Yanngon",
   },
   {
     name: "C++",
-    location: 'Mandalay',
+    location: "Mandalay",
   },
   {
     name: "Clojure",
-    location: 'Mandalay',
+    location: "Mandalay",
   },
   {
     name: "Elm",
-    location: 'Pathein',
+    location: "Pathein",
   },
   {
     name: "Go",
-    location: 'Pathein',
+    location: "Pathein",
   },
   {
     name: "Haskell",
-    location: 'Bago',
+    location: "Bago",
   },
   {
     name: "Java",
-    location: 'Bago',
+    location: "Bago",
   },
   {
     name: "Javascript",
-    location: 'Yangon',
+    location: "Yangon",
   },
   {
     name: "Perl",
-    location: 'Yangon',
+    location: "Yangon",
   },
   {
     name: "PHP",
-    location: 'Yangon',
+    location: "Yangon",
   },
   {
     name: "Python",
-    location: 'Mandalay',
+    location: "Mandalay",
   },
   {
     name: "Ruby",
-    location: 'Pathien',
+    location: "Pathien",
   },
   {
     name: "Scala",
-    location: 'Bago',
+    location: "Bago",
   },
 ];
 
@@ -90,12 +90,6 @@ const HeroSearch = () => {
         );
   };
 
-  function renderSectionTitle(section) {
-    return (
-      <strong>{section.location}</strong>
-    );
-  }
-
   const handleChange = (event, { newValue }) => {
     setValue(newValue); // Update value state on user input
     const params = new URLSearchParams(searchParams);
@@ -114,41 +108,39 @@ const HeroSearch = () => {
   };
 
   return (
-    <div className="flex justify-between items-center gap-40">
+    <div className="block sm:flex  justify-between items-center gap-40">
       <p className="font-serif font-light text-xl sm:text-4xl md:text-5xl lg:text-6xl flex-none">
         Our {capitalized}
       </p>
-      <div className="relative hidden md:block max-w-[600px] w-full flex-auto">
+      <div className="relative pt-6 sm:pt-0 max-w-[600px] w-full flex-auto">
         <Autosuggest
           multiSection={false}
           suggestions={suggestions} // Pass current suggestions to Autosuggest
           onSuggestionsFetchRequested={onSuggestionsFetchRequested} // Required prop for react-autosuggest
           getSuggestionValue={getSuggestionValue} // Function to return the value for each suggestion
           renderSuggestion={renderSuggestion} // Function to render each suggestion
-          renderSectionTitle={renderSectionTitle} // Function to render reach section
           inputProps={{
             placeholder: `Search ${capitalized}`,
             value, // Pass current value to the input field
             onChange: handleChange, // Update value state on input change
           }}
-          
           onSuggestionsClearRequested={onSuggestionsClearRequested} // Required prop for react-autosuggest
         />
-        <div className="absolute inset-y-0 end-0 flex items-center ps-3 pointer-events-none pr-6">
+        <div className="absolute bottom-1/4 right-0 pointer-events-none pr-3 pt-5 sm:pt-0">
           <svg
-            className="w-6 h-6 text-primary"
-            aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
             fill="none"
-            viewBox="0 0 20 20"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="text-primary"
           >
-            <path
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-            />
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.3-4.3"></path>
           </svg>
         </div>
       </div>
