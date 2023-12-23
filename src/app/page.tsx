@@ -139,10 +139,10 @@ const page = () => {
           <Title className="text-white text-[32px] lg:text-[88px] font-bold">
             Kalasa Art Space
           </Title>
-          <Title className=" text-center text-amber-100 text-lg lg:text-5xl font-bold">
+          <Title className="text-center text-amber-100 text-lg lg:text-4xl font-bold">
             A Space where there is Heart, there is Art
           </Title>
-          <p className="text-center w-full text-white text-sm  lg:text-xl font-medium font-inter leading-[26px] lg:leading-10 px-[14px]">
+          <p className="text-center w-full text-white text-sm  lg:text-lg font-medium font-inter leading-[26px] lg:leading-10 px-[14px]">
             We need to work then give time for Heart. If you would love to feed
             your soul and heart, don’t forget to visit Kalasa Art. You can enjoy
             various art works for your soul and fresh healthy juice for your
@@ -158,7 +158,7 @@ const page = () => {
       </main>
       <Layout>
         <div className="flex items-center justify-between">
-          <Title className="text-primary lg:text-5xl">Upcoming Events</Title>
+          <Title className="text-primary">Upcoming Events</Title>
           <LinkBtn
             href="/events"
             mobileText="See all"

@@ -37,7 +37,7 @@ const LinkBtn = ({
     <Link
       href={href}
       className={cn(
-        "text-[12px] lg:text-lg font-inter font-medium lg:border lg:px-9 lg:py-[18px] lg:border-primary py-3 text-primary underline lg:no-underline hover:bg-primary hover:text-white duration-300 ease-in",
+        "text-[12px] lg:text-lg font-inter font-medium lg:border lg:px-7 lg:py-2 lg:border-primary py-3 text-primary underline lg:no-underline hover:bg-primary hover:text-white duration-300 ease-in",
         className
       )}
       onClick={onClick}

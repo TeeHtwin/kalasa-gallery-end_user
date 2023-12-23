@@ -19,9 +19,12 @@ const config: Config = {
         "success" : "#3B9702",
         "error": "#BF3232"
       },
+      dropShadow:{
+        nav:"0 4px 24px rgba(136, 59, 10, 0.08)"
+      },
       fontFamily: {
-        cardo: ["Cardo", "serif"],
-        inter: ["Inter", "sans-serif"],
+        cardo: ["var(--font-cardo)"],
+        inter: ["var(--font-inter)", "sans-serif"],
       },
     },
   },

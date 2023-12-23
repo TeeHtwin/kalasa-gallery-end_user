@@ -10,7 +10,7 @@ const TitleInter = ({ className, children }: TitleInterProps) => {
   return (
     <h1
       className={cn(
-        "text-primary font-inter text-base font-semibold lg:text-2xl lg:leading-[33px]",
+        "text-primary font-inter text-base font-semibold lg:text-xl lg:leading-[33px]",
         className
       )}
     >

@@ -31,16 +31,19 @@ const ExhibitionCard = ({
       />
       <TitleInter className="mt-4">{title}</TitleInter>
       <div className="mt-4 flex justify-between">
-        <div className="flex flex-col gap-2 lg:gap-4">
+        <div className="flex flex-col gap-2">
           <Paragraph>{date}</Paragraph>
           <Paragraph>{place}</Paragraph>
         </div>
+
+        <div className="py-2">
         <LinkBtn
-          className="px-7 py-[14px] text-xs lg:text-base"
+          className="lg:w-[220px] text-xs lg:text-base flex justify-center items-center"
           href={href}
           mobileText="More Detail"
           dtText="View Detail"
-        />
+          />
+          </div>
       </div>
     </div>
   );

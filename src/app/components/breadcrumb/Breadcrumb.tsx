@@ -5,8 +5,8 @@ import { usePathname } from "next/navigation";
 const Breadcrumb = () => {
 
     const paths = usePathname()
-    const pathNames = paths.split('/').filter( path => path )[0]
-    const capitalized = pathNames.charAt(0).toUpperCase()+ pathNames.slice(1)
+    const pageName = paths.split('/').filter( path => path )[0]
+    const capitalized = pageName.charAt(0).toUpperCase()+ pageName.slice(1)
   
   return (
     <nav className="hidden md:flex text-primary pl-10 py-10 bg-neutral-light w-full" aria-label="Breadcrumb">

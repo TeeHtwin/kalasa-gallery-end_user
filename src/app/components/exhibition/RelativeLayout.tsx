@@ -3,7 +3,7 @@ import Title from "../common/Title";
 import LinkBtn from "../button/LinkBtn";
 
 interface RelativeLayoutProps {
-  dtText: string;
+  dtText?: string;
   mobileText: string;
   href: string;
   title: string;

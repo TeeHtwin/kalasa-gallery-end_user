@@ -13,7 +13,7 @@ interface GalleryCardProps {
     }
 }
 
-const GalleryCard = ({ info }: Props) => {
+const GalleryCard = ({ info }: GalleryCardProps) => {
   return (
     <div className="relative border p-2">
         <Image 
@@ -22,7 +22,7 @@ const GalleryCard = ({ info }: Props) => {
             height={500} 
             alt={info?.title} 
             priority={true}
-            className={'bg-indigo-100 object-cover object-center flex items-center justify-center mx-auto'} 
+            className={'w-full bg-indigo-100 object-cover object-center flex items-center justify-center mx-auto'} 
         />
         <div className="py-8 px-3">
             <h2 className="text-primary text-xl font-semibold mb-4">{info?.title}</h2>

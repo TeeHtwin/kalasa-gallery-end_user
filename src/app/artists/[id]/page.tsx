@@ -51,22 +51,22 @@ const page = () => {
     <Layout className="lg:px-16 pb-10">
       <Breadcrumbs breadcrumbs={["Our Artists", "Artists Detail"]} />
 
-      <MainLayout className="flex  flex-col lg:flex-row items-starts lg:items-center lg:gap-[60px]">
+      <MainLayout className="flex  flex-col lg:flex-row items-starts lg:gap-[60px]">
         <Image
           src={
             "https://d38b044pevnwc9.cloudfront.net/cutout-nuxt/enhancer/2.jpg"
           }
           alt="Profile image"
-          width={437}
-          height={437}
+          width={400}
+          height={400}
           className="aspect-square w-1/2 lg:w-full mb-6 border-[0.5px] border-primary border-opacity-20 p-1"
         />
-        <div>
-          <Title className="text-primary lg:text-5xl">Sandra Khaing</Title>
-          <p className="text-[#BA5006] text-xs font-medium mt-[10px] lg:mt-6 lg:text-2">
+        <div className="translate-y-12">
+          <Title className="text-primary">Sandra Khaing</Title>
+          <p className="text-[#BA5006] text-xs mt-[10px] lg:text-lg font-medium ">
             Traditional Artist
           </p>
-          <Paragraph className="text-[#BA5006] text-sm font-normal leading-relaxed mt-5 lg:mt-6  lg:text-2xl lg:font-base">
+          <Paragraph className="text-[#BA5006] text-sm font-normal leading-relaxed mt-5 lg:mt-6 lg:font-base">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias minus
             vel a optio soluta asperiores dolorem nobis perspiciatis, quis
             consequatur reprehenderit officiis sapiente facilis eveniet? Tempore

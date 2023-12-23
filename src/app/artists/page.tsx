@@ -5,7 +5,7 @@ import ArtistPage from "../components/artist/ArtistPage";
 
 const page = () => {
   return (
-    <Layout className="lg:py-20">
+    <Layout>
       <SectionHeader
         titleText="Our Artists"
         searchPlaceholder="Search Artists"

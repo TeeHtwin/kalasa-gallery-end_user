@@ -69,7 +69,7 @@ const Navbar: React.FC = () => {
       )}
     >
       <div className={cn("items-center flex", { hidden: menuOpen })}>
-        <Logo className="w-[120px] h-auto lg:w-[220px]" />
+        <Logo />
       </div>
       <div
         className={cn("w-full lg:w-fit lg:mx-0", {
