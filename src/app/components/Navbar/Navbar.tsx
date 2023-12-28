@@ -44,6 +44,7 @@ const Navbar: React.FC = () => {
 
   const pathName = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const startingRoute = (pathname: string) => `/${pathname.split("/")[1]}`;
   const currentStartingRoute = startingRoute(pathName);
@@ -58,13 +59,27 @@ const Navbar: React.FC = () => {
 
   const isHomepage = pathName === "/";
 
+  const handleScroll = () => {
+    const offset = window.scrollY;
+    if (offset > window.innerHeight - 100) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <nav
       className={cn(
         "flex flex-row bg-neutral-light sticky gap-2 py-6 px-4 lg:py-1 lg:px-20 justify-between items-center w-full z-10 top-0",
         {
           "fixed bg-transparent": isHomepage && !menuOpen,
-          "bg-neutral-light": !isHomepage || menuOpen,
+          "bg-neutral-light text-primary": !isHomepage || menuOpen || scrolled,
         }
       )}
     >
@@ -80,7 +95,12 @@ const Navbar: React.FC = () => {
         {/* Desktop */}
         <div className="hidden lg:flex items-center">
           {Nav?.map((nav) => (
-            <NavText pathName={currentStartingRoute} key={nav.name} {...nav} />
+            <NavText
+              scrolled={scrolled}
+              pathName={currentStartingRoute}
+              key={nav.name}
+              {...nav}
+            />
           ))}
         </div>
 
@@ -117,7 +137,7 @@ const Navbar: React.FC = () => {
               >
                 <path
                   d="M6.42864 9.28564H23.5715M6.42578 14.9999H23.5644M6.42864 20.7142H23.5644"
-                  stroke={pathName === "/" ? "white" : "#883B0A"}
+                  stroke="#883B0A"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />

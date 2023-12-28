@@ -5,15 +5,14 @@ import Image from "next/image";
 import Exhibition from "../../components/cards/ExhibitionCard";
 import React from "react";
 import Breadcrumbs from "@/app/components/common/Bredcrumbs";
-import ExhibitionLayout from "@/app/components/exhibition/ExhibitionLayout";
-import MainLayout from "@/app/components/exhibition/MainLayout";
+import Layout from "@/app/components/common/Layout";
 import RelativeLayout from "@/app/components/exhibition/RelativeLayout";
 
 const ExhibitionDetailPage = () => {
   return (
-    <ExhibitionLayout>
+    <Layout>
       <Breadcrumbs breadcrumbs={["Our Events", "Event Detail"]} />
-      <MainLayout className=" grid grid-cols-1 items-center md:grid-cols-2 gap-[60px]">
+      <div className=" grid grid-cols-1 items-center md:grid-cols-2 gap-[60px]">
         <Image
           src={
             "https://d38b044pevnwc9.cloudfront.net/cutout-nuxt/enhancer/2.jpg"
@@ -60,7 +59,7 @@ const ExhibitionDetailPage = () => {
             Inquiry To Come
           </button>
         </div>
-      </MainLayout>
+      </div>
       <RelativeLayout
         href="/exhibition"
         title="Related Events"
@@ -73,7 +72,7 @@ const ExhibitionDetailPage = () => {
           ))}
         </div>
       </RelativeLayout>
-    </ExhibitionLayout>
+    </Layout>
   );
 };
 

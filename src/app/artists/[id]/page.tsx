@@ -1,6 +1,5 @@
 import Breadcrumbs from "@/app/components/common/Bredcrumbs";
 import Layout from "@/app/components/common/Layout";
-import MainLayout from "@/app/components/exhibition/MainLayout";
 import React from "react";
 import Image from "next/image";
 import Title from "@/app/components/common/Title";
@@ -51,7 +50,7 @@ const page = () => {
     <Layout className="lg:px-16 pb-10">
       <Breadcrumbs breadcrumbs={["Our Artists", "Artists Detail"]} />
 
-      <MainLayout className="flex  flex-col lg:flex-row items-starts lg:items-center lg:gap-[60px]">
+      <div className="flex lg:mt-5 flex-col lg:flex-row items-starts lg:items-center lg:gap-[60px]">
         <Image
           src={
             "https://d38b044pevnwc9.cloudfront.net/cutout-nuxt/enhancer/2.jpg"
@@ -77,7 +76,7 @@ const page = () => {
             Contact Now
           </button>
         </div>
-      </MainLayout>
+      </div>
       <hr />
       <RelativeLayout
         href="/collection"

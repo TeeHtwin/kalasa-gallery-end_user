@@ -1,7 +1,16 @@
 import React from "react";
 import CollectionCard from "../cards/CollectionCard";
+import { memo } from "react";
 
-const Collection = ({ data }) => {
+interface CollectionProps {
+  data: Array<{
+    title: string;
+    image: string;
+    href?: string;
+  }>;
+}
+
+const Collection: React.FC<CollectionProps> = ({ data }) => {
   return (
     <div
       data-testid="mocked-collection-card"
@@ -14,4 +23,4 @@ const Collection = ({ data }) => {
   );
 };
 
-export default Collection;
+export default memo(Collection);
