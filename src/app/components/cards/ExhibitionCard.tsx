@@ -18,6 +18,9 @@ const ExhibitionCard = ({ info }: { info: Event }) => {
     image,
     related,
   } = info;
+
+  console.log(image);
+  
   return (
     <div className="px-2 pt-2 pb-8 w-full lg:pb-11 border border-opacity-20 border-primary">
       <Image

@@ -1,16 +1,14 @@
 import React from "react";
 import Layout from "../components/common/Layout";
-import SectionHeader from "../components/common/SectionHeader";
-import Collection from "../components/collection/Collection";
-import Pagination from "../components/pagination/Pagination";
+import HeroSearch from "../components/HeroSearch/HeroSearch";
+import CollectionPage from "../components/collection/CollectionPage";
+
 
 const page = () => {
   return (
-    <Layout className="lg:py-20">
-      <SectionHeader
-        titleText="Our Collections"
-        searchPlaceholder="Search Collections"
-      />
+    <Layout className="lg:py-12">
+      <HeroSearch name='Our Collections' placeholder="Search Collection..."/>
+      <CollectionPage />
     </Layout>
   );
 };

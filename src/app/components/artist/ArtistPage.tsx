@@ -16,14 +16,13 @@ const ArtistPage = () => {
     return <Loading />;
   }
 
-  console.log("artists::", artists);
   return (
-    <div>
+    <>
       <ArtistList data={artists ?? null} />
       <div className="mt-10 lg:mt-20">
         <Pagination totalPages={5} />
       </div>
-    </div>
+    </>
   );
 };
 

@@ -1,15 +1,12 @@
 import React from "react";
 import Layout from "../components/common/Layout";
-import SectionHeader from "../components/common/SectionHeader";
 import GalleryPage from "../components/gallery/GalleryPage";
+import HeroSearch from "../components/HeroSearch/HeroSearch";
 
 const page = () => {
   return (
     <Layout>
-      <SectionHeader
-        titleText={"Our Artworks"}
-        searchPlaceholder="Search Arkwork"
-      />
+      <HeroSearch name='Our Artworks' placeholder="Search Artwork..."/>
       <GalleryPage />
     </Layout>
   );

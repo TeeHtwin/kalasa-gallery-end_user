@@ -17,12 +17,12 @@ const GalleryPage = () => {
     return <Loading />;
   }
   return (
-    <div>
+    <>
       <GalleryList data={artworkList ?? null} />
       <div className="mt-10 lg:mt-20">
         <Pagination totalPages={5} />
       </div>
-    </div>
+    </>
   );
 };
 

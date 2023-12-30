@@ -18,6 +18,11 @@ body {
   background-color: #f5eedc;
 }
 
+.wrapper {
+  @apply max-w-[2000px] min-[2000px]:mx-auto w-full;
+}
+
+
 /* search styles */
 
 .react-autosuggest__container {

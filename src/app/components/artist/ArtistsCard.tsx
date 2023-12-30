@@ -15,7 +15,7 @@ const ArtistsCard = ({ image, id, name, career }: Artist) => {
         height={300}
       />
 
-      <div className="flex text-center flex-col mt-5 lg:mt-9 ">
+      <div className="flex text-center flex-col mt-5 lg:mt-10 ">
         <Paragraph className="font-semibold lg:text-2xl">{name}</Paragraph>
         <Paragraph className="text-[10px] lg:text-sm">{career}</Paragraph>
         <Link
