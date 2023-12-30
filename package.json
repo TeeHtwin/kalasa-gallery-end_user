@@ -11,9 +11,11 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
+    "@types/luxon": "^3.3.7",
     "@types/react-autosuggest": "^10.1.10",
     "clsx": "^2.0.0",
     "lucide-react": "^0.292.0",
+    "luxon": "^3.4.4",
     "next": "14.0.1",
     "react": "^18",
     "react-autosuggest": "^10.1.0",
