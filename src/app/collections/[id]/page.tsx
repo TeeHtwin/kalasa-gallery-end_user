@@ -34,10 +34,14 @@ const collections = [
   },
 ];
 
-const page = () => {
+const page = ({params}: { params: { id:string } }) => {
   return (
     <>
-      <Breadcrumb />
+      <Breadcrumb items={[
+        {name: 'Home', url: '/'},
+        {name: 'Collection', url: '/collections'},
+        {name: 'Collection Details', url: `/collection/${params.id}`},
+      ]}/>
 
       <section className="m-auto text-primary px-4 sm:px-10 lg:px-18 max-w-screen-2xl">
         <div className="flex flex-col md:flex-row gap-10 items-center grow">

@@ -9,10 +9,14 @@ import MainLayout from "@/app/components/exhibition/MainLayout";
 import RelativeLayout from "@/app/components/exhibition/RelativeLayout";
 import Breadcrumb from "@/app/components/breadcrumb/Breadcrumb";
 
-const ExhibitionDetailPage = () => {
+const ExhibitionDetailPage = ({params}: { params: { id:string }}) => {
   return (
     <ExhibitionLayout>
-      <Breadcrumb />
+      <Breadcrumb items={[
+        {name: 'Home', url: '/'},
+        {name: 'Our Events', url: '/exhibition'},
+        {name: 'Event Details', url: `/exhibition/${params.id}`},
+      ]}/>
       <MainLayout className="grid grid-cols-1 items-center md:grid-cols-2 gap-10">
         <Image
           src={

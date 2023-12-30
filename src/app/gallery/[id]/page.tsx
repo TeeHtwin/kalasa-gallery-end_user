@@ -28,10 +28,15 @@ const artworks = [
   },
 ];
 
-const page = () => {
+const page = ({params}: { params: { id:string }}) => {
   return (
     <section className="m-auto text-primary px-4 sm:px-10 lg:px-18 max-w-screen-2xl">
-      <Breadcrumb />
+      <Breadcrumb items={[
+        {name: 'Home', url: '/'},
+        {name: 'Our Gallery', url: '/gallery'},
+        {name: 'Gallery Details', url: `/gallery/${params.id}`},
+      ]}/>
+
       <div className="flex flex-col md:flex-row gap-10 items-center grow">
         <Image
           src={img}

@@ -8,7 +8,8 @@ import RelativeLayout from "@/app/components/exhibition/RelativeLayout";
 import GalleryList from "@/app/components/gallery/GalleryList";
 import Pagination from "@/app/components/pagination/Pagination";
 import Breadcrumb from "@/app/components/breadcrumb/Breadcrumb";
-const page = () => {
+
+const page = ({params}: { params: { id:string }}) => {
   const artworkList = [
     {
       id: 1,
@@ -49,7 +50,11 @@ const page = () => {
   ];
   return (
     <Layout className="lg:px-16 pb-10">
-      <Breadcrumb />
+      <Breadcrumb items={[
+        {name: 'Home', url: '/'},
+        {name: 'Our Artists', url: '/artists'},
+        {name: 'Artist Details', url: `/artists/${params.id}`},
+      ]}/>
 
       <MainLayout className="flex  flex-col lg:flex-row items-starts lg:gap-[60px]">
         <Image
