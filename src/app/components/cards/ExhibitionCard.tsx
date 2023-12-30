@@ -37,7 +37,7 @@ const ExhibitionCard = ({
         </div>
         <LinkBtn
           className="px-7 py-[14px] text-xs lg:text-base"
-          href={href}
+          href={`/events${href}`}
           mobileText="More Detail"
           dtText="View Detail"
         />

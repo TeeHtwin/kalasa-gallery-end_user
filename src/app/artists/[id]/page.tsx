@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Title from "@/app/components/common/Title";
 import Paragraph from "@/app/components/common/Text/Paragraph";
-import RelativeLayout from "@/app/components/exhibition/RelativeLayout";
+import RelativeLayout from "@/app/components/events/RelativeLayout";
 import GalleryList from "@/app/components/gallery/GalleryList";
 import Pagination from "@/app/components/pagination/Pagination";
 const page = () => {

@@ -14,6 +14,7 @@ import ContactUs from "./components/contactUs/ContactUs";
 import CollectionCard from "./components/cards/CollectionCard";
 import Collection from "./components/collection/Collection";
 import GalleryList from "./components/gallery/GalleryList";
+import ExhibitionCard from "./components/cards/ExhibitionCard";
 
 export const dummyData: ExhibitionCardProps[] = [
   {
@@ -22,7 +23,7 @@ export const dummyData: ExhibitionCardProps[] = [
     date: "August 19 to 23, 2023",
     place: "Art Gallery A",
     alt: "Artwork 1",
-    href: "/exhibition/1",
+    href: "/1",
   },
   {
     src: "https://via.placeholder.com/600/24f355",
@@ -30,7 +31,7 @@ export const dummyData: ExhibitionCardProps[] = [
     date: "August 19 to 23, 2023",
     place: "Sculpture Park B",
     alt: "Sculpture 2",
-    href: "/exhibition/2",
+    href: "/2",
   },
   {
     src: "https://via.placeholder.com/600/f66b97",
@@ -38,7 +39,7 @@ export const dummyData: ExhibitionCardProps[] = [
     date: "August 19 to 23, 2023",
     place: "Photo Studio C",
     alt: "Photograph 3",
-    href: "/exhibition/3",
+    href: "/3",
   },
 ];
 
@@ -152,8 +153,8 @@ const page = () => {
         </div>
 
         <div className="flex items-center gap-4">
-          <OutlineBtnHero>Upcoming Exhibitions</OutlineBtnHero>
-          <OutlineBtnHero>This is a right arrow: &rarr;</OutlineBtnHero>
+          <OutlineBtnHero>Upcoming Events</OutlineBtnHero>
+          <OutlineBtnHero>Learn More &rarr;</OutlineBtnHero>
         </div>
       </main>
       <Layout>
@@ -162,12 +163,12 @@ const page = () => {
           <LinkBtn
             href="/events"
             mobileText="See all"
-            dtText="View All Exhibitions &rarr;"
+            dtText="View All Events &rarr;"
           />
         </div>
         <div className="mt-5 lg:mt-20 flex justify-between w-full gap-2 flex-col lg:flex-row">
           {dummyData.map((data, index) => (
-            <Exhibition key={index} {...data} />
+            <ExhibitionCard key={index} {...data} />
           ))}
         </div>
       </Layout>

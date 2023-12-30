@@ -6,7 +6,7 @@ import Exhibition from "../../components/cards/ExhibitionCard";
 import React from "react";
 import Breadcrumbs from "@/app/components/common/Bredcrumbs";
 import Layout from "@/app/components/common/Layout";
-import RelativeLayout from "@/app/components/exhibition/RelativeLayout";
+import RelativeLayout from "@/app/components/events/RelativeLayout";
 
 const ExhibitionDetailPage = () => {
   return (
