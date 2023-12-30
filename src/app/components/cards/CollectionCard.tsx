@@ -2,17 +2,13 @@ import Image from "next/image";
 import React from "react";
 import Paragraph from "../common/Text/Paragraph";
 import Link from "next/link";
+import { Collection } from "@/types";
 
-interface CollectionCardProps {
-  image: string;
-  title: string;
-  href: string;
-}
-const CollectionCard = ({ title, image, href }: CollectionCardProps) => {
+const CollectionCard = ({ title, id, image }: Collection) => {
   return (
     <Link
       data-testid="collection-link"
-      href={href ? href : "/"}
+      href={`/gallery/${id}`}
       className="border-solid px-1 pt-1 pb-4 border border-primary border-opacity-20 aspect-auto bg-neutral-light lg:pt-2 lg:px-2 "
     >
       <Image

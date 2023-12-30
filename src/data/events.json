@@ -1,0 +1,476 @@
+[
+  {
+    "id": 1,
+    "title": "Discovering The Beauty of Bagan",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "from_date": "2023-08-19",
+    "to_date": "2023-08-23",
+    "start_time": "12:00",
+    "end_time": "16:30",
+    "gallery": "Kalasa Art Space",
+    "image": "http://localhost:3000/img/events/event1.png",
+    "related": [
+      {
+        "id": 2,
+        "title": "Discovering The Beauty of Bagan",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "from_date": "2023-08-19",
+        "to_date": "2023-08-23",
+        "start_time": "12:00",
+        "end_time": "16:30",
+        "gallery": "Kalasa Art Space",
+        "image": "http://localhost:3000/img/events/event1.png"
+      },
+      {
+        "id": 3,
+        "title": "Exhausted in Yangon Event",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "from_date": "2023-08-19",
+        "to_date": "2023-08-23",
+        "start_time": "12:00",
+        "end_time": "16:30",
+        "gallery": "Kalasa Art Space",
+        "image": "http://localhost:3000/img/events/event2.png"
+      },
+      {
+        "id": 4,
+        "title": "Yangoon And Go Event",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "from_date": "2023-08-19",
+        "to_date": "2023-08-23",
+        "start_time": "12:00",
+        "end_time": "16:30",
+        "gallery": "Kalasa Art Space",
+        "image": "http://localhost:3000/img/events/event3.png"
+      },
+      {
+        "id": 5,
+        "title": "Discovering The Beauty of Bagan",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "from_date": "2023-08-19",
+        "to_date": "2023-08-23",
+        "start_time": "12:00",
+        "end_time": "16:30",
+        "gallery": "Kalasa Art Space",
+        "image": "http://localhost:3000/img/events/event1.png"
+      },
+      {
+        "id": 6,
+        "title": "Exhausted in Yangon Event",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "from_date": "2023-08-19",
+        "to_date": "2023-08-23",
+        "start_time": "12:00",
+        "end_time": "16:30",
+        "gallery": "Kalasa Art Space",
+        "image": "http://localhost:3000/img/events/event2.png"
+      },
+      {
+        "id": 7,
+        "title": "Yangoon And Go Event",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "from_date": "2023-08-19",
+        "to_date": "2023-08-23",
+        "start_time": "12:00",
+        "end_time": "16:30",
+        "gallery": "Kalasa Art Space",
+        "image": "http://localhost:3000/img/events/event3.png"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Discovering The Beauty of Bagan",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "from_date": "2023-08-19",
+    "to_date": "2023-08-23",
+    "start_time": "12:00",
+    "end_time": "16:30",
+    "gallery": "Kalasa Art Space",
+    "image": "http://localhost:3000/img/events/event2.png",
+    "related": [
+      {
+        "id": 1,
+        "title": "Discovering The Beauty of Bagan",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "from_date": "2023-08-19",
+        "to_date": "2023-08-23",
+        "start_time": "12:00",
+        "end_time": "16:30",
+        "gallery": "Kalasa Art Space",
+        "image": "http://localhost:3000/img/events/event1.png"
+      },
+      {
+        "id": 3,
+        "title": "Exhausted in Yangon Event",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "from_date": "2023-08-19",
+        "to_date": "2023-08-23",
+        "start_time": "12:00",
+        "end_time": "16:30",
+        "gallery": "Kalasa Art Space",
+        "image": "http://localhost:3000/img/events/event2.png"
+      },
+      {
+        "id": 4,
+        "title": "Yangoon And Go Event",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "from_date": "2023-08-19",
+        "to_date": "2023-08-23",
+        "start_time": "12:00",
+        "end_time": "16:30",
+        "gallery": "Kalasa Art Space",
+        "image": "http://localhost:3000/img/events/event3.png"
+      },
+      {
+        "id": 5,
+        "title": "Discovering The Beauty of Bagan",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "from_date": "2023-08-19",
+        "to_date": "2023-08-23",
+        "start_time": "12:00",
+        "end_time": "16:30",
+        "gallery": "Kalasa Art Space",
+        "image": "http://localhost:3000/img/events/event1.png"
+      },
+      {
+        "id": 6,
+        "title": "Exhausted in Yangon Event",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "from_date": "2023-08-19",
+        "to_date": "2023-08-23",
+        "start_time": "12:00",
+        "end_time": "16:30",
+        "gallery": "Kalasa Art Space",
+        "image": "http://localhost:3000/img/events/event2.png"
+      },
+      {
+        "id": 7,
+        "title": "Yangoon And Go Event",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "from_date": "2023-08-19",
+        "to_date": "2023-08-23",
+        "start_time": "12:00",
+        "end_time": "16:30",
+        "gallery": "Kalasa Art Space",
+        "image": "http://localhost:3000/img/events/event3.png"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Exhausted in Yangon Event",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "from_date": "2023-08-19",
+    "to_date": "2023-08-23",
+    "start_time": "12:00",
+    "end_time": "16:30",
+    "gallery": "Kalasa Art Space",
+    "image": "http://localhost:3000/img/events/event3.png",
+    "related": [
+      {
+        "id": 1,
+        "title": "Discovering The Beauty of Bagan",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "from_date": "2023-08-19",
+        "to_date": "2023-08-23",
+        "start_time": "12:00",
+        "end_time": "16:30",
+        "gallery": "Kalasa Art Space",
+        "image": "http://localhost:3000/img/events/event1.png"
+      },
+      {
+        "id": 2,
+        "title": "Exhausted in Yangon Event",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "from_date": "2023-08-19",
+        "to_date": "2023-08-23",
+        "start_time": "12:00",
+        "end_time": "16:30",
+        "gallery": "Kalasa Art Space",
+        "image": "http://localhost:3000/img/events/event2.png"
+      },
+      {
+        "id": 4,
+        "title": "Yangoon And Go Event",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "from_date": "2023-08-19",
+        "to_date": "2023-08-23",
+        "start_time": "12:00",
+        "end_time": "16:30",
+        "gallery": "Kalasa Art Space",
+        "image": "http://localhost:3000/img/events/event3.png"
+      },
+      {
+        "id": 5,
+        "title": "Discovering The Beauty of Bagan",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "from_date": "2023-08-19",
+        "to_date": "2023-08-23",
+        "start_time": "12:00",
+        "end_time": "16:30",
+        "gallery": "Kalasa Art Space",
+        "image": "http://localhost:3000/img/events/event1.png"
+      },
+      {
+        "id": 6,
+        "title": "Exhausted in Yangon Event",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "from_date": "2023-08-19",
+        "to_date": "2023-08-23",
+        "start_time": "12:00",
+        "end_time": "16:30",
+        "gallery": "Kalasa Art Space",
+        "image": "http://localhost:3000/img/events/event2.png"
+      },
+      {
+        "id": 7,
+        "title": "Yangoon And Go Event",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "from_date": "2023-08-19",
+        "to_date": "2023-08-23",
+        "start_time": "12:00",
+        "end_time": "16:30",
+        "gallery": "Kalasa Art Space",
+        "image": "http://localhost:3000/img/events/event3.png"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Exhausted in Yangon Event",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "from_date": "2023-08-19",
+    "to_date": "2023-08-23",
+    "start_time": "12:00",
+    "end_time": "16:30",
+    "gallery": "Kalasa Art Space",
+    "image": "http://localhost:3000/img/events/event1.png",
+    "related": [
+      {
+        "id": 1,
+        "title": "Discovering The Beauty of Bagan",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "from_date": "2023-08-19",
+        "to_date": "2023-08-23",
+        "start_time": "12:00",
+        "end_time": "16:30",
+        "gallery": "Kalasa Art Space",
+        "image": "http://localhost:3000/img/events/event1.png"
+      },
+      {
+        "id": 2,
+        "title": "Exhausted in Yangon Event",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "from_date": "2023-08-19",
+        "to_date": "2023-08-23",
+        "start_time": "12:00",
+        "end_time": "16:30",
+        "gallery": "Kalasa Art Space",
+        "image": "http://localhost:3000/img/events/event2.png"
+      },
+      {
+        "id": 3,
+        "title": "Yangoon And Go Event",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "from_date": "2023-08-19",
+        "to_date": "2023-08-23",
+        "start_time": "12:00",
+        "end_time": "16:30",
+        "gallery": "Kalasa Art Space",
+        "image": "http://localhost:3000/img/events/event3.png"
+      },
+      {
+        "id": 5,
+        "title": "Discovering The Beauty of Bagan",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "from_date": "2023-08-19",
+        "to_date": "2023-08-23",
+        "start_time": "12:00",
+        "end_time": "16:30",
+        "gallery": "Kalasa Art Space",
+        "image": "http://localhost:3000/img/events/event1.png"
+      },
+      {
+        "id": 6,
+        "title": "Exhausted in Yangon Event",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "from_date": "2023-08-19",
+        "to_date": "2023-08-23",
+        "start_time": "12:00",
+        "end_time": "16:30",
+        "gallery": "Kalasa Art Space",
+        "image": "http://localhost:3000/img/events/event2.png"
+      },
+      {
+        "id": 7,
+        "title": "Yangoon And Go Event",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "from_date": "2023-08-19",
+        "to_date": "2023-08-23",
+        "start_time": "12:00",
+        "end_time": "16:30",
+        "gallery": "Kalasa Art Space",
+        "image": "http://localhost:3000/img/events/event3.png"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Exhausted in Yangon Event",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "from_date": "2023-08-19",
+    "to_date": "2023-08-23",
+    "start_time": "12:00",
+    "end_time": "16:30",
+    "gallery": "Kalasa Art Space",
+    "image": "http://localhost:3000/img/events/event1.png",
+    "related": [
+      {
+        "id": 1,
+        "title": "Discovering The Beauty of Bagan",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "from_date": "2023-08-19",
+        "to_date": "2023-08-23",
+        "start_time": "12:00",
+        "end_time": "16:30",
+        "gallery": "Kalasa Art Space",
+        "image": "http://localhost:3000/img/events/event1.png"
+      },
+      {
+        "id": 2,
+        "title": "Exhausted in Yangon Event",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "from_date": "2023-08-19",
+        "to_date": "2023-08-23",
+        "start_time": "12:00",
+        "end_time": "16:30",
+        "gallery": "Kalasa Art Space",
+        "image": "http://localhost:3000/img/events/event2.png"
+      },
+      {
+        "id": 3,
+        "title": "Yangoon And Go Event",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "from_date": "2023-08-19",
+        "to_date": "2023-08-23",
+        "start_time": "12:00",
+        "end_time": "16:30",
+        "gallery": "Kalasa Art Space",
+        "image": "http://localhost:3000/img/events/event3.png"
+      },
+      {
+        "id": 4,
+        "title": "Discovering The Beauty of Bagan",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "from_date": "2023-08-19",
+        "to_date": "2023-08-23",
+        "start_time": "12:00",
+        "end_time": "16:30",
+        "gallery": "Kalasa Art Space",
+        "image": "http://localhost:3000/img/events/event1.png"
+      },
+      {
+        "id": 6,
+        "title": "Exhausted in Yangon Event",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "from_date": "2023-08-19",
+        "to_date": "2023-08-23",
+        "start_time": "12:00",
+        "end_time": "16:30",
+        "gallery": "Kalasa Art Space",
+        "image": "http://localhost:3000/img/events/event2.png"
+      },
+      {
+        "id": 7,
+        "title": "Yangoon And Go Event",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "from_date": "2023-08-19",
+        "to_date": "2023-08-23",
+        "start_time": "12:00",
+        "end_time": "16:30",
+        "gallery": "Kalasa Art Space",
+        "image": "http://localhost:3000/img/events/event3.png"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Exhausted in Yangon Event",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "from_date": "2023-08-19",
+    "to_date": "2023-08-23",
+    "start_time": "12:00",
+    "end_time": "16:30",
+    "gallery": "Kalasa Art Space",
+    "image": "http://localhost:3000/img/events/event1.png",
+    "related": [
+      {
+        "id": 1,
+        "title": "Discovering The Beauty of Bagan",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "from_date": "2023-08-19",
+        "to_date": "2023-08-23",
+        "start_time": "12:00",
+        "end_time": "16:30",
+        "gallery": "Kalasa Art Space",
+        "image": "http://localhost:3000/img/events/event1.png"
+      },
+      {
+        "id": 2,
+        "title": "Exhausted in Yangon Event",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "from_date": "2023-08-19",
+        "to_date": "2023-08-23",
+        "start_time": "12:00",
+        "end_time": "16:30",
+        "gallery": "Kalasa Art Space",
+        "image": "http://localhost:3000/img/events/event2.png"
+      },
+      {
+        "id": 3,
+        "title": "Yangoon And Go Event",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "from_date": "2023-08-19",
+        "to_date": "2023-08-23",
+        "start_time": "12:00",
+        "end_time": "16:30",
+        "gallery": "Kalasa Art Space",
+        "image": "http://localhost:3000/img/events/event3.png"
+      },
+      {
+        "id": 4,
+        "title": "Discovering The Beauty of Bagan",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "from_date": "2023-08-19",
+        "to_date": "2023-08-23",
+        "start_time": "12:00",
+        "end_time": "16:30",
+        "gallery": "Kalasa Art Space",
+        "image": "http://localhost:3000/img/events/event1.png"
+      },
+      {
+        "id": 5,
+        "title": "Exhausted in Yangon Event",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "from_date": "2023-08-19",
+        "to_date": "2023-08-23",
+        "start_time": "12:00",
+        "end_time": "16:30",
+        "gallery": "Kalasa Art Space",
+        "image": "http://localhost:3000/img/events/event2.png"
+      },
+      {
+        "id": 7,
+        "title": "Yangoon And Go Event",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "from_date": "2023-08-19",
+        "to_date": "2023-08-23",
+        "start_time": "12:00",
+        "end_time": "16:30",
+        "gallery": "Kalasa Art Space",
+        "image": "http://localhost:3000/img/events/event3.png"
+      }
+    ]
+  }
+]

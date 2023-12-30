@@ -1,16 +1,18 @@
-'use client'
+"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const Breadcrumb = () => {
+  const paths = usePathname();
+  const pageName = paths.split("/").filter((path) => path)[0];
+  const capitalized = pageName.charAt(0).toUpperCase() + pageName.slice(1);
 
-    const paths = usePathname()
-    const pageName = paths.split('/').filter( path => path )[0]
-    const capitalized = pageName.charAt(0).toUpperCase()+ pageName.slice(1)
-  
   return (
-    <nav className="hidden md:flex text-primary pl-10 py-10 bg-neutral-light w-full" aria-label="Breadcrumb">
+    <nav
+      className="hidden md:flex text-primary pl-10 py-10 bg-neutral-light w-full"
+      aria-label="Breadcrumb"
+    >
       <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
         <li className="inline-flex items-center">
           <Link
@@ -46,10 +48,7 @@ const Breadcrumb = () => {
                 d="m1 9 4-4-4-4"
               />
             </svg>
-            <Link
-              href={`/${pathNames}`}
-              className="ms-1 text-sm font-medium  md:ms-2 "
-            >
+            <Link href={`/`} className="ms-1 text-sm font-medium  md:ms-2 ">
               Ours {capitalized}
             </Link>
           </div>
@@ -72,7 +71,7 @@ const Breadcrumb = () => {
               />
             </svg>
             <span className="ms-1 text-sm font-medium  md:ms-2 ">
-                {capitalized} Details
+              {capitalized} Details
             </span>
           </div>
         </li>

@@ -11,7 +11,6 @@ export interface Collection {
   id: number;
   title: string;
   image: string;
-  href: string;
 }
 
 export interface Artist {
@@ -28,4 +27,23 @@ export interface Blog {
   content: string;
   author: string;
   date: string;
+}
+
+export interface Event {
+  id: number;
+  title: string;
+  description: string;
+  from_date: string;
+  to_date: string;
+  start_time: string;
+  end_time: string;
+  gallery: string;
+  image: string;
+  related: Event[];
+}
+
+export interface Home {
+  events: Event[];
+  collections: Collection[];
+  galleries: Gallery[];
 }
