@@ -2,6 +2,7 @@ import img from "@/app/gallery/[id]/artwork_poster.png";
 import Image from "next/image";
 import profile from "@/app/gallery/[id]/artist_profile.png";
 import Breadcrumb from "@/app/components/breadcrumb/Breadcrumb";
+import Link from "next/link";
 
 const artworks = [
   {
@@ -74,12 +75,14 @@ const page = ({params}: { params: { id:string }}) => {
           >
             Available
           </button>
+          <Link href={`/gallery/${params.id}/contact`}>
           <button
             type="button"
             className="text-white bg-primary px-7 py-3 block w-fit"
           >
             Inquiry To Buy
           </button>
+          </Link>
         </div>
       </div>
       <div className="py-8 sm:py-32 px-4">

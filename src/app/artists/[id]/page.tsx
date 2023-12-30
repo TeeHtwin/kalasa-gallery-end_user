@@ -8,6 +8,7 @@ import RelativeLayout from "@/app/components/exhibition/RelativeLayout";
 import GalleryList from "@/app/components/gallery/GalleryList";
 import Pagination from "@/app/components/pagination/Pagination";
 import Breadcrumb from "@/app/components/breadcrumb/Breadcrumb";
+import Link from "next/link";
 
 const page = ({params}: { params: { id:string }}) => {
   const artworkList = [
@@ -53,7 +54,7 @@ const page = ({params}: { params: { id:string }}) => {
       <Breadcrumb items={[
         {name: 'Home', url: '/'},
         {name: 'Our Artists', url: '/artists'},
-        {name: 'Artist Details', url: `/artists/${params.id}`},
+        {name: 'Artist Details', url: ''},
       ]}/>
 
       <MainLayout className="flex  flex-col lg:flex-row items-starts lg:gap-[60px]">
@@ -78,9 +79,11 @@ const page = ({params}: { params: { id:string }}) => {
             aspernatur ex omnis iste deleniti debitis consectetur, mollitia
             provident quam quaerat asperiores commodi dolores.
           </Paragraph>
+          <Link href={`/artists/${params.id}/contact`}>
           <button className="text-white py-[14px] mt-10 px-6 lg:mt-6 bg-primary text-xs lg:text-lg lg:px-[36px] lg:py-[18px]">
             Contact Now
           </button>
+          </Link>
         </div>
       </MainLayout>
       <hr />
