@@ -2,13 +2,14 @@ import img from "@/app/gallery/[id]/artwork_poster.png";
 import Image from "next/image";
 import profile from "@/app/gallery/[id]/artist_profile.png";
 import Breadcrumb from "@/app/components/breadcrumb/Breadcrumb";
+import Link from "next/link";
 
 const artworks = [
   {
     id: 11,
     img: "https://placekitten.com/400/600",
     title: "Art of Mother by Wood",
-    info: '(18 x 24)inches A/c',
+    info: "(18 x 24)inches A/c",
     author: "Sai Tun Oo",
   },
 
@@ -16,26 +17,28 @@ const artworks = [
     id: 13,
     img: "https://placekitten.com/800/1200",
     title: "Art of Mother by Wood",
-    info: '(18 x 24)inches A/c',
+    info: "(18 x 24)inches A/c",
     author: "Sai Tun Oo",
   },
   {
     id: 12,
     img: "https://placekitten.com/600/800",
     title: "Art of Mother by Wood",
-    info: '(18 x 24)inches A/C',
+    info: "(18 x 24)inches A/C",
     author: "Sai Tun Oo",
   },
 ];
 
-const page = ({params}: { params: { id:string }}) => {
+const page = ({ params }: { params: { id: string } }) => {
   return (
     <section className="m-auto text-primary px-4 sm:px-10 lg:px-18 max-w-screen-2xl">
-      <Breadcrumb items={[
-        {name: 'Home', url: '/'},
-        {name: 'Our Gallery', url: '/gallery'},
-        {name: 'Gallery Details', url: `/gallery/${params.id}`},
-      ]}/>
+      <Breadcrumb
+        items={[
+          { name: "Home", url: "/" },
+          { name: "Our Gallery", url: "/gallery" },
+          { name: "Gallery Details", url: `/gallery/${params.id}` },
+        ]}
+      />
 
       <div className="flex flex-col md:flex-row gap-10 items-center grow">
         <Image
@@ -105,15 +108,20 @@ const page = ({params}: { params: { id:string }}) => {
                 height={200}
                 className="object-cover w-full h-96 p-1"
               />
-              <p className="pb-8 font-semibold text-2xl pl-3">{artwork.title}</p>
+              <p className="pb-8 font-semibold text-2xl pl-3">
+                {artwork.title}
+              </p>
               <div className="flex justify-between p-3">
                 <div>
                   <p className="">By {artwork.author}</p>
                   <p>{artwork.info}</p>
                 </div>
-                <button className="border-solid border-[1.5px] border-primary py-3 px-7">
+                <Link
+                  href={artwork.id.toString()}
+                  className="border-solid border-[1.5px] border-primary py-3 px-7"
+                >
                   View Details
-                </button>
+                </Link>
               </div>
             </div>
           ))}

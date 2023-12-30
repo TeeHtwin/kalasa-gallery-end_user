@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { Blog } from "@/types";
+import Link from "next/link";
 
 const BlogCard = (blog: Blog) => {
   return (
@@ -21,9 +22,12 @@ const BlogCard = (blog: Blog) => {
         </p>
         <p className="py-4 font-semibold text-2xl">{blog.title}</p>
         <p>{blog.content.slice(0, 130)}...</p>
-        <button className="pt-5 text-lg font-sans font-medium">
+        <Link
+          href={`blogs/${blog.id.toString()}`}
+          className="pt-5 text-lg font-sans font-medium"
+        >
           Read more →
-        </button>
+        </Link>
       </div>
     </div>
   );

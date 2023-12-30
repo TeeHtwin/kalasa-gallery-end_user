@@ -1,6 +1,7 @@
 import Image from "next/image";
 import img from "@/app/blogs/[id]/blog_img.png";
 import Breadcrumb from "@/app/components/breadcrumb/Breadcrumb";
+import Link from "next/link";
 
 const blogs = [
   {
@@ -45,7 +46,7 @@ Mollit anim id est laborum perspiciatis unde omnis iste natus error sit voluptat
 
 Mollit anim id est laborum perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo enim ipsam volupe.`;
 
-const page = ({params}: { params: { id:string }}) => {
+const page = ({ params }: { params: { id: string } }) => {
   return (
     <>
       <Breadcrumb
@@ -97,9 +98,12 @@ const page = ({params}: { params: { id:string }}) => {
                     </p>
                     <p className="py-4 font-semibold text-2xl">{blog.title}</p>
                     <p>{blog.content.slice(0, 130)}...</p>
-                    <button className="pt-5 text-lg font-sans font-medium">
+                    <Link
+                      href={blog.id.toString()}
+                      className="pt-5 text-lg font-sans font-medium"
+                    >
                       Read more →
-                    </button>
+                    </Link>
                   </div>
                 </div>
               ))}
