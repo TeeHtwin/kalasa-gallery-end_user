@@ -1,5 +1,4 @@
 import Title from "@/app/components/common/Title";
-import { dummyData } from "@/app/page";
 import { CalendarRange, Clock, Home, MapPin } from "lucide-react";
 import Image from "next/image";
 import Exhibition from "../../components/cards/ExhibitionCard";
@@ -9,10 +8,16 @@ import MainLayout from "@/app/components/exhibition/MainLayout";
 import RelativeLayout from "@/app/components/exhibition/RelativeLayout";
 import Breadcrumb from "@/app/components/breadcrumb/Breadcrumb";
 
-const ExhibitionDetailPage = () => {
+const ExhibitionDetailPage = ({ params }: { params: { id: string } }) => {
   return (
     <ExhibitionLayout>
-      <Breadcrumb />
+      <Breadcrumb
+        items={[
+          { name: "Home", url: "/" },
+          { name: "Our Events", url: "/exhibition" },
+          { name: "Event Details", url: `/exhibition/${params.id}` },
+        ]}
+      />
       <MainLayout className="grid grid-cols-1 items-center md:grid-cols-2 gap-10">
         <Image
           src={
@@ -71,9 +76,9 @@ const ExhibitionDetailPage = () => {
         mobileText="see all"
       >
         <div className="mt-5 lg:mt-20 flex justify-between w-full gap-[10px] flex-col lg:flex-row">
-          {dummyData.map((data, index) => (
-            <Exhibition key={index} {...data} />
-          ))}
+          {/* {response?.data.map((info: Event, index: number) => (
+            <Exhibition key={index} info={info} />
+          ))} */}
         </div>
       </RelativeLayout>
     </ExhibitionLayout>
