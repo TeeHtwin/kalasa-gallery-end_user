@@ -15,9 +15,11 @@ import ExhibitionCard from "@/app/components/cards/ExhibitionCard";
 import { Event } from "@/types";
 
 export default async function page() {
-  const { data } = await fetch("http://localhost:3000/home").then((data) => {
-    return data.json();
-  });
+  const { data } = await fetch("http://localhost:3000/api/home").then(
+    (data) => {
+      return data.json();
+    }
+  );
 
   return (
     <>

@@ -4,6 +4,7 @@ import TitleInter from "../common/Text/TitleInter";
 import Paragraph from "../common/Text/Paragraph";
 import LinkBtn from "../button/LinkBtn";
 import { Event } from "@/types";
+import { DateTime } from "luxon";
 
 const ExhibitionCard = ({ info }: { info: Event }) => {
   const {
@@ -18,9 +19,10 @@ const ExhibitionCard = ({ info }: { info: Event }) => {
     image,
     related,
   } = info;
-
-  console.log(image);
-  
+  const eventTime = DateTime.fromFormat(from_date, "yyyy-MM-dd").toFormat(
+    "MMMM dd"
+  );
+  console.log("event time::", eventTime);
   return (
     <div className="px-2 pt-2 pb-8 w-full lg:pb-11 border border-opacity-20 border-primary">
       <Image
