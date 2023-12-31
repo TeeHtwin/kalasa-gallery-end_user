@@ -42,8 +42,8 @@ const Footer = () => {
       href: "/gallery",
     },
     {
-      text: "Exhibitions",
-      href: "/exhibitions",
+      text: "Events",
+      href: "/events",
     },
     {
       text: "Collections",

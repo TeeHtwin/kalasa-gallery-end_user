@@ -1,7 +1,6 @@
 import Title from "@/app/components/common/Title";
 import { CalendarRange, Clock, Home, MapPin } from "lucide-react";
 import Image from "next/image";
-import Exhibition from "../../components/cards/ExhibitionCard";
 import React from "react";
 import ExhibitionLayout from "@/app/components/exhibition/ExhibitionLayout";
 import MainLayout from "@/app/components/exhibition/MainLayout";
@@ -15,8 +14,8 @@ const ExhibitionDetailPage = ({ params }: { params: { id: string } }) => {
       <Breadcrumb
         items={[
           { name: "Home", url: "/" },
-          { name: "Our Events", url: "/exhibition" },
-          { name: "Event Details", url: `/exhibition/${params.id}` },
+          { name: "Our Events", url: "/events" },
+          { name: "Event Details", url: `/events/${params.id}` },
         ]}
       />
       <MainLayout className="grid grid-cols-1 items-center md:grid-cols-2 gap-10">
@@ -65,7 +64,7 @@ const ExhibitionDetailPage = ({ params }: { params: { id: string } }) => {
               <span>At Kalasa Art Space</span>
             </div>
           </div>
-          <Link href={`/exhibition/${params.id}/contact`}>
+          <Link href={`/events/${params.id}/contact`}>
             <button className="text-white p-[8px] bg-primary w-[220px] py-2.5">
               Inquiry To Come
             </button>
@@ -73,7 +72,7 @@ const ExhibitionDetailPage = ({ params }: { params: { id: string } }) => {
         </div>
       </MainLayout>
       <RelativeLayout
-        href="/exhibition"
+        href="/events"
         title="Related Events"
         dtText="see more"
         mobileText="see all"
