@@ -5,7 +5,7 @@
     "artist": "Khin Maung Yin",
     "size": "(18 x 24) inches AC",
     "isAvailable": true,
-    "image": "http://localhost:3000/img/artworks/artwork.png"
+    "image": "https://kalasa-gallery-end-user-website-8c6wfdzc7-teehtwin.vercel.app/img/artworks/artwork.png"
   },
   {
     "id": 2,
@@ -13,7 +13,7 @@
     "artist": "Khin Maung Yin",
     "size": "(18 x 24) inches AC",
     "isAvailable": false,
-    "image": "http://localhost:3000/img/artworks/artwork1.png"
+    "image": "https://kalasa-gallery-end-user-website-8c6wfdzc7-teehtwin.vercel.app/img/artworks/artwork1.png"
   },
   {
     "id": 3,
@@ -21,7 +21,7 @@
     "artist": "Khin Maung Yin",
     "size": "(18 x 24) inches AC",
     "isAvailable": false,
-    "image": "http://localhost:3000/img/artworks/artwork2.png"
+    "image": "https://kalasa-gallery-end-user-website-8c6wfdzc7-teehtwin.vercel.app/img/artworks/artwork2.png"
   },
   {
     "id": 4,
@@ -29,7 +29,7 @@
     "artist": "Khin Maung Yin",
     "size": "(18 x 24) inches AC",
     "isAvailable": false,
-    "image": "http://localhost:3000/img/artworks/artwork3.png"
+    "image": "https://kalasa-gallery-end-user-website-8c6wfdzc7-teehtwin.vercel.app/img/artworks/artwork3.png"
   },
   {
     "id": 5,
@@ -37,7 +37,7 @@
     "artist": "Khin Maung Yin",
     "size": "(18 x 24) inches AC",
     "isAvailable": true,
-    "image": "http://localhost:3000/img/artworks/artwork4.png"
+    "image": "https://kalasa-gallery-end-user-website-8c6wfdzc7-teehtwin.vercel.app/img/artworks/artwork4.png"
   },
   {
     "id": 6,
@@ -45,7 +45,7 @@
     "artist": "Khin Maung Yin",
     "size": "(18 x 24) inches AC",
     "isAvailable": false,
-    "image": "http://localhost:3000/img/artworks/artwork5.png"
+    "image": "https://kalasa-gallery-end-user-website-8c6wfdzc7-teehtwin.vercel.app/img/artworks/artwork5.png"
   },
   {
     "id": 7,
@@ -53,7 +53,7 @@
     "artist": "Khin Maung Yin",
     "size": "(18 x 24) inches AC",
     "isAvailable": true,
-    "image": "http://localhost:3000/img/artworks/artwork.png"
+    "image": "https://kalasa-gallery-end-user-website-8c6wfdzc7-teehtwin.vercel.app/img/artworks/artwork.png"
   },
   {
     "id": 8,
@@ -61,7 +61,7 @@
     "artist": "Khin Maung Yin",
     "size": "(18 x 24) inches AC",
     "isAvailable": false,
-    "image": "http://localhost:3000/img/artworks/artwork1.png"
+    "image": "https://kalasa-gallery-end-user-website-8c6wfdzc7-teehtwin.vercel.app/img/artworks/artwork1.png"
   },
   {
     "id": 9,
@@ -69,6 +69,6 @@
     "artist": "Khin Maung Yin",
     "size": "(18 x 24) inches AC",
     "isAvailable": false,
-    "image": "http://localhost:3000/img/artworks/artwork2.png"
+    "image": "https://kalasa-gallery-end-user-website-8c6wfdzc7-teehtwin.vercel.app/img/artworks/artwork2.png"
   }
 ]
