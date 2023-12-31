@@ -2,31 +2,37 @@
   {
     "id": 1,
     "title": "Antique Clock",
-    "image": "http://localhost:3000/img/collections/collection1.png"
+    "image": "http://localhost:3000/img/collections/collection1.png",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   },
   {
     "id": 2,
     "title": "Vintage Staff",
-    "image": "http://localhost:3000/img/collections/collection4.png"
+    "image": "http://localhost:3000/img/collections/collection4.png",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   },
   {
     "id": 3,
     "title": "Vintage Typewriter",
-    "image": "http://localhost:3000/img/collections/collection2.png"
+    "image": "http://localhost:3000/img/collections/collection2.png",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   },
   {
     "id": 4,
     "title": "Fine China Tea-cup",
-    "image": "http://localhost:3000/img/collections/collection5.png"
+    "image": "http://localhost:3000/img/collections/collection5.png",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   },
   {
     "id": 5,
     "title": "Vintage Art",
-    "image": "http://localhost:3000/img/collections/collection3.png"
+    "image": "http://localhost:3000/img/collections/collection3.png",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   },
   {
     "id": 6,
     "title": "Antique Furniture",
-    "image": "http://localhost:3000/img/collections/collection6.png"
+    "image": "http://localhost:3000/img/collections/collection6.png",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   }
 ]

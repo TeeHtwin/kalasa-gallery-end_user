@@ -3,48 +3,36 @@
     "id": 11,
     "image": "https://placekitten.com/400/600",
     "title": "The Whispers of Legend",
-    "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis dolorem quod aut placeat exercitationem, explicabo, labore nulla repudiandae aspernatur, aperiam recusandae neque quas sit cupiditate velit provident maxime sequi in.",
-    "author": "Sai Tun Oo",
-    "date": "Sept 15, 2023"
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis dolorem quod aut placeat exercitationem, explicabo, labore nulla repudiandae aspernatur, aperiam recusandae neque quas sit cupiditate velit provident maxime sequi in."
   },
   {
     "id": 12,
     "image": "https://placekitten.com/600/800",
     "title": "Perception",
-    "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis dolorem quod aut placeat exercitationem, explicabo, labore nulla repudiandae aspernatur, aperiam recusandae neque quas sit cupiditate velit provident maxime sequi in.",
-    "author": "Sai Tun Oo",
-    "date": "Sept 15, 2023"
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis dolorem quod aut placeat exercitationem, explicabo, labore nulla repudiandae aspernatur, aperiam recusandae neque quas sit cupiditate velit provident maxime sequi in."
   },
   {
     "id": 13,
     "image": "https://placekitten.com/800/1200",
     "title": "The squares of balance in society",
-    "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis dolorem quod aut placeat exercitationem, explicabo, labore nulla repudiandae aspernatur, aperiam recusandae neque quas sit cupiditate velit provident maxime sequi in.",
-    "author": "Sai Tun Oo",
-    "date": "Sept 15, 2023"
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis dolorem quod aut placeat exercitationem, explicabo, labore nulla repudiandae aspernatur, aperiam recusandae neque quas sit cupiditate velit provident maxime sequi in."
   },
   {
     "id": 14,
     "image": "https://placekitten.com/700/1000",
     "title": "Portrait of Singer Htoo Eain Thin",
-    "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis dolorem quod aut placeat exercitationem, explicabo, labore nulla repudiandae aspernatur, aperiam recusandae neque quas sit cupiditate velit provident maxime sequi in.",
-    "author": "Sai Tun Oo",
-    "date": "Sept 15, 2023"
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis dolorem quod aut placeat exercitationem, explicabo, labore nulla repudiandae aspernatur, aperiam recusandae neque quas sit cupiditate velit provident maxime sequi in."
   },
   {
     "id": 15,
     "image": "https://placekitten.com/400/600",
     "title": "Perception",
-    "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis dolorem quod aut placeat exercitationem, explicabo, labore nulla repudiandae aspernatur, aperiam recusandae neque quas sit cupiditate velit provident maxime sequi in.",
-    "author": "Sai Tun Oo",
-    "date": "Sept 15, 2023"
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis dolorem quod aut placeat exercitationem, explicabo, labore nulla repudiandae aspernatur, aperiam recusandae neque quas sit cupiditate velit provident maxime sequi in."
   },
   {
     "id": 16,
     "image": "https://placekitten.com/600/800",
     "title": "The squares of balance in society",
-    "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis dolorem quod aut placeat exercitationem, explicabo, labore nulla repudiandae aspernatur, aperiam recusandae neque quas sit cupiditate velit provident maxime sequi in.",
-    "author": "Sai Tun Oo",
-    "date": "Sept 15, 2023"
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis dolorem quod aut placeat exercitationem, explicabo, labore nulla repudiandae aspernatur, aperiam recusandae neque quas sit cupiditate velit provident maxime sequi in."
   }
 ]

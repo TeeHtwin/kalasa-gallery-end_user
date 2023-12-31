@@ -1,4 +1,4 @@
-export interface Gallery {
+export interface Artwork {
   id: number;
   title: string;
   artist: string;
@@ -11,39 +11,41 @@ export interface Collection {
   id: number;
   title: string;
   image: string;
+  description: string;
 }
 
 export interface Artist {
   id: number;
-  image: string;
+  profile: string;
   name: string;
-  career: string;
+  description: string;
+  total_artwork: number;
+  sold_artwork: number;
 }
 
 export interface Blog {
   id: number;
-  image: string;
   title: string;
-  content: string;
-  author: string;
-  date: string;
+  image: string;
+  description: string;
+  // author: string;
+  // date: string;
 }
 
 export interface Event {
   id: number;
   title: string;
-  description: string;
-  from_date: string;
-  to_date: string;
-  start_time: string;
-  end_time: string;
-  gallery: string;
   image: string;
-  related: Event[];
+  status: string;
+  location: string;
+  description: string;
+  opening_datetime: string;
+  closing_datetime: string;
+  related?: Event[];
 }
 
 export interface Home {
   events: Event[];
   collections: Collection[];
-  galleries: Gallery[];
+  galleries: Artwork[];
 }

@@ -6,7 +6,7 @@ import { Collection } from "@/types";
 
 const CollectionCard = ({ title, id, image }: Collection) => {
   return (
-    <Link data-testid="collection-link" href={`/gallery/${id}`}>
+    <Link data-testid="collection-link" href={`/collections/${id}`}>
       <div className="border-solid px-1 pt-1 pb-4 border border-primary border-opacity-20 aspect-auto bg-neutral-light lg:pt-2 lg:px-2 mb-8">
         <Image
           src={image ? image : "https://via.placeholder.com/150/771796"}

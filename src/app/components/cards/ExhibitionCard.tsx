@@ -11,18 +11,24 @@ const ExhibitionCard = ({ info }: { info: Event }) => {
     id,
     title,
     description,
-    from_date,
-    to_date,
-    start_time,
-    end_time,
-    gallery,
     image,
+    status,
+    location,
+    opening_datetime,
+    closing_datetime,
     related,
   } = info;
-  const eventTime = DateTime.fromFormat(from_date, "yyyy-MM-dd").toFormat(
-    "MMMM dd"
-  );
-  console.log("event time::", eventTime);
+  console.log("date time::", opening_datetime);
+  const startTime = DateTime.fromFormat(
+    opening_datetime,
+    "yyyy-MM-dd HH:mm:ss"
+  ).toFormat("MMMM dd");
+  console.log("event time::", startTime);
+  const endTime = DateTime.fromFormat(
+    closing_datetime,
+    "yyyy-MM-dd HH:mm:ss"
+  ).toFormat("dd");
+  const year = closing_datetime?.split("-")[0];
   return (
     <div className="px-2 pt-2 pb-8 w-full lg:pb-11 border border-opacity-20 border-primary">
       <Image
@@ -35,8 +41,10 @@ const ExhibitionCard = ({ info }: { info: Event }) => {
       <TitleInter className="mt-4">{title}</TitleInter>
       <div className="mt-4 flex justify-between">
         <div className="flex flex-col gap-2">
-          <Paragraph>{from_date}</Paragraph>
-          <Paragraph>At {gallery}</Paragraph>
+          <Paragraph>
+            {startTime} to {endTime}, {year}
+          </Paragraph>
+          <Paragraph>At {location}</Paragraph>
         </div>
 
         <div className="py-2">

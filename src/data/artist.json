@@ -1,50 +1,68 @@
 [
   {
     "id": 1,
-    "image": "https://via.placeholder.com/600/92c952",
+    "profile": "https://via.placeholder.com/600/92c952",
     "name": "John Doe",
     "career": "Painter"
   },
   {
     "id": 2,
-    "image": "https://via.placeholder.com/600/24f355",
+    "profile": "https://via.placeholder.com/600/24f355",
     "name": "Jane Smith",
     "career": "Sculptor"
   },
   {
     "id": 3,
-    "image": "https://via.placeholder.com/600/f66b97",
+    "profile": "https://via.placeholder.com/600/f66b97",
     "name": "Bob Johnson",
-    "career": "Photographer"
+    "career": "Photographer",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "total_artwork": 0,
+    "sold_artwork": 0
   },
   {
     "id": 4,
-    "image": "https://via.placeholder.com/600/3fd15c",
+    "profile": "https://via.placeholder.com/600/3fd15c",
     "name": "Alice Brown",
-    "career": "Illustrator"
+    "career": "Illustrator",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "total_artwork": 0,
+    "sold_artwork": 0
   },
   {
     "id": 5,
-    "image": "https://via.placeholder.com/600/aa437a",
+    "profile": "https://via.placeholder.com/600/aa437a",
     "name": "Charlie White",
-    "career": "Graphic Designer"
+    "career": "Graphic Designer",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "total_artwork": 0,
+    "sold_artwork": 0
   },
   {
     "id": 6,
-    "image": "https://via.placeholder.com/600/c2b67d",
+    "profile": "https://via.placeholder.com/600/c2b67d",
     "name": "Eva Black",
-    "career": "Mixed Media Artist"
+    "career": "Mixed Media Artist",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "total_artwork": 0,
+    "sold_artwork": 0
   },
   {
     "id": 7,
-    "image": "https://via.placeholder.com/600/e0443b",
+    "profile": "https://via.placeholder.com/600/e0443b",
     "name": "David Gray",
-    "career": "Digital Artist"
+    "career": "Digital Artist",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "total_artwork": 0,
+    "sold_artwork": 0
   },
   {
     "id": 8,
-    "image": "https://via.placeholder.com/600/466685",
+    "profile": "https://via.placeholder.com/600/466685",
     "name": "Sophie Green",
-    "career": "Printmaker"
+    "career": "Printmaker",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "total_artwork": 0,
+    "sold_artwork": 0
   }
 ]
