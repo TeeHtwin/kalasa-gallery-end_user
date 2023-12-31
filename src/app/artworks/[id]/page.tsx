@@ -1,6 +1,6 @@
-import img from "@/app/gallery/[id]/artwork_poster.png";
+import img from "@/app/artworks/[id]/artwork_poster.png";
 import Image from "next/image";
-import profile from "@/app/gallery/[id]/artist_profile.png";
+import profile from "@/app/artworks/[id]/artist_profile.png";
 import Breadcrumb from "@/app/components/breadcrumb/Breadcrumb";
 import Link from "next/link";
 

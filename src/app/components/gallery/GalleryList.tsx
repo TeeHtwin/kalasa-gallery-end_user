@@ -1,9 +1,9 @@
 import React from "react";
 import GalleryCard from "../cards/GalleryCard";
-import { Gallery } from "@/types";
+import { Artwork } from "@/types";
 
 interface GalleryListProps {
-  data: Gallery[] | null;
+  data: Artwork[] | null;
 }
 
 const GalleryList = ({ data }: GalleryListProps) => {

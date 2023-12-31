@@ -17,11 +17,11 @@ const BlogCard = (blog: Blog) => {
         className="aspect-[4/3] h-auto lg:aspect-square bg-cover bg-center w-full"
       />
       <div className="py-3 px-3">
-        <p className="font-sans text-base font-extralight">
+        {/* <p className="font-sans text-base font-extralight">
           By {blog.author} | {blog.date}
-        </p>
+        </p> */}
         <p className="py-4 font-semibold text-2xl">{blog.title}</p>
-        <p>{blog.content.slice(0, 130)}...</p>
+        <p>{blog.description.slice(0, 130)}...</p>
         <Link
           href={`blogs/${blog.id.toString()}`}
           className="pt-5 text-lg font-sans font-medium"
