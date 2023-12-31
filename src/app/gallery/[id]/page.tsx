@@ -77,12 +77,14 @@ const page = ({ params }: { params: { id: string } }) => {
           >
             Available
           </button>
+          <Link href={`/gallery/${params.id}/contact`}>
           <button
             type="button"
             className="text-white bg-primary px-7 py-3 block w-fit"
           >
             Inquiry To Buy
           </button>
+          </Link>
         </div>
       </div>
       <div className="py-8 sm:py-32 px-4">

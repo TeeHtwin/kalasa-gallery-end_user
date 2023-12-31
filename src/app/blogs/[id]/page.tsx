@@ -53,7 +53,7 @@ const page = ({ params }: { params: { id: string } }) => {
         items={[
           { name: "Home", url: "/" },
           { name: "Our Blogs", url: "/blogs" },
-          { name: "Blog Details", url: `/blogs/${params.id}` },
+          { name: "Blog Details", url: ''},
         ]}
       />
       <section className="text-primary max-w-screen-2xl m-auto">

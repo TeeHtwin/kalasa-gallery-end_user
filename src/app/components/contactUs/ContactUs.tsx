@@ -48,7 +48,8 @@ const ContactUs = () => {
           />
           <IconText
             icon={locationIcon}
-            text="No. 91-93, 1st floor (left), Seikkantha Street (Middle Block), Kyauktada Township, Yangon."
+            text="No. 91-93, 1st floor (left), Seikkantha Street (Middle Block),"
+            text2="Kyauktada Township, Yangon."
             href="https://maps.app.goo.gl/py3Wb3H1DSEL6Rj9A"
           />
           <IconText

@@ -7,6 +7,7 @@ import ExhibitionLayout from "@/app/components/exhibition/ExhibitionLayout";
 import MainLayout from "@/app/components/exhibition/MainLayout";
 import RelativeLayout from "@/app/components/exhibition/RelativeLayout";
 import Breadcrumb from "@/app/components/breadcrumb/Breadcrumb";
+import Link from "next/link";
 
 const ExhibitionDetailPage = ({ params }: { params: { id: string } }) => {
   return (
@@ -64,9 +65,11 @@ const ExhibitionDetailPage = ({ params }: { params: { id: string } }) => {
               <span>At Kalasa Art Space</span>
             </div>
           </div>
-          <button className="text-white p-[8px] bg-primary w-[220px] py-2.5">
-            Inquiry To Come
-          </button>
+          <Link href={`/exhibition/${params.id}/contact`}>
+            <button className="text-white p-[8px] bg-primary w-[220px] py-2.5">
+              Inquiry To Come
+            </button>
+          </Link>
         </div>
       </MainLayout>
       <RelativeLayout
