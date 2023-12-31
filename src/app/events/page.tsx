@@ -9,11 +9,11 @@ import { Event } from "@/types";
 // import Pagination from "../components/common/pagination";
 
 export default async function page() {
-  const response = await fetch("http://localhost:3000/api/events").then(
-    (data) => {
-      return data.json();
-    }
-  );
+  const response = await fetch(
+    "https://kalasa-gallery-end-user-website-he17lzhyp-teehtwin.vercel.app/api/events"
+  ).then((data) => {
+    return data.json();
+  });
   return (
     <Layout>
       <HeroSearch name="Our Events" placeholder="Search Event..." />

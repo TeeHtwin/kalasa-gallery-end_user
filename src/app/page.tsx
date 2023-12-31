@@ -15,11 +15,11 @@ import ExhibitionCard from "@/app/components/cards/ExhibitionCard";
 import { Event } from "@/types";
 
 export default async function page() {
-  const { data } = await fetch("http://localhost:3000/api/home").then(
-    (data) => {
-      return data.json();
-    }
-  );
+  const { data } = await fetch(
+    "https://kalasa-gallery-end-user-website-he17lzhyp-teehtwin.vercel.app/api/home"
+  ).then((data) => {
+    return data.json();
+  });
 
   console.log("home data::", data);
   return (
