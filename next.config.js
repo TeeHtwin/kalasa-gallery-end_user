@@ -19,8 +19,8 @@ const nextConfig = {
         hostname: "unsplash.com",
       },
       {
-        protocol: "http",
-        hostname: "localhost",
+        protocol: "https",
+        hostname: "kalasa-gallery-end-user-website-8c6wfdzc7-teehtwin",
       },
     ],
   },
