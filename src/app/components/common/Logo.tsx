@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const Logo = () => {
+const Logo = ({ className }: { className?: string }) => {
   return (
     <Link href={"/"}>
       <Image
@@ -12,7 +12,7 @@ const Logo = () => {
         width={600}
         height={600}
         priority
-        className="w-full h-[44px] lg:h-[80px]"
+        className={className ?? "w-full h-[44px] lg:h-[80px]"}
       />
     </Link>
   );

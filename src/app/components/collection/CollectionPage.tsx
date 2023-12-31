@@ -18,12 +18,12 @@ const CollectionPage = (props: Props) => {
     return <Loading />;
   }
   return (
-    <div>
+    <>
       <Collection data={collections ?? null} />
-      <div className="mt-10 lg:mt-20">
+      <div className="mt-5 lg:mt-10">
         <Pagination totalPages={5} />
       </div>
-    </div>
+    </>
   );
 };
 

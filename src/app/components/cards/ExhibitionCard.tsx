@@ -30,7 +30,7 @@ const ExhibitionCard = ({ info }: { info: Event }) => {
   ).toFormat("dd");
   const year = closing_datetime?.split("-")[0];
   return (
-    <div className="px-2 pt-2 pb-8 w-full lg:pb-11 border border-opacity-20 border-primary">
+    <div className="px-4 pt-2 pb-8 w-full lg:pb-11 border border-opacity-20 border-primary">
       <Image
         width={421}
         height={421}
@@ -50,7 +50,7 @@ const ExhibitionCard = ({ info }: { info: Event }) => {
         <div className="py-2">
           <LinkBtn
             className="lg:px6 text-xs lg:text-base flex justify-center items-center"
-            href={image}
+            href={`/events/${id}`}
             mobileText="More Detail"
             dtText="More Detail"
           />

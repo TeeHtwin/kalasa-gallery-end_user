@@ -5,8 +5,8 @@ import HeroSearch from "../components/HeroSearch/HeroSearch";
 const page = async () => {
   return (
     <>
-      <section className="text-primary px-4 sm:px-10 lg:px-18 m-auto py-20">
-        <HeroSearch />
+      <section className="text-primary py-2 lg:py-12 lg:px-20 wrapper">
+        <HeroSearch name="Our Blogs" placeholder="Search Blog..." />
         <BlogPage />
       </section>
     </>

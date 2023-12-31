@@ -1,15 +1,12 @@
 import React from "react";
 import Layout from "../components/common/Layout";
-import SectionHeader from "../components/common/SectionHeader";
 import ArtistPage from "../components/artist/ArtistPage";
+import HeroSearch from "../components/HeroSearch/HeroSearch";
 
 const page = () => {
   return (
-    <Layout>
-      <SectionHeader
-        titleText="Our Artists"
-        searchPlaceholder="Search Artists"
-      />
+    <Layout className="wrapper">
+      <HeroSearch name='Our Artists' placeholder="Search Artist..."/>
       <ArtistPage />
     </Layout>
   );

@@ -63,8 +63,14 @@ import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
 import Autosuggest from "react-autosuggest";
 import { useState } from "react";
+import Image from "next/image";
 
-const HeroSearch = () => {
+type HeroSearchProps = {
+  name: string;
+  placeholder: string;
+};
+
+const HeroSearch = ({ name, placeholder }: HeroSearchProps) => {
   const [value, setValue] = useState("");
   const [suggestions, setSuggestions] = useState(languages);
 
@@ -72,14 +78,13 @@ const HeroSearch = () => {
   const pathname = usePathname();
   const { replace } = useRouter();
 
-  const pageName = pathname.split("/").filter((path) => path)[0];
-  const capitalized = pageName.charAt(0).toUpperCase() + pageName.slice(1);
+  const getSuggestionValue = (suggestion: { name: string }) => suggestion.name;
 
-  const getSuggestionValue = (suggestion) => suggestion.name;
+  const renderSuggestion = (suggestion: { name: string }) => (
+    <div>{suggestion.name}</div>
+  );
 
-  const renderSuggestion = (suggestion) => <div>{suggestion.name}</div>;
-
-  const getSuggestions = (value) => {
+  const getSuggestions = (value: string) => {
     const inputValue = value.trim().toLowerCase();
     const inputLength = inputValue.length;
 
@@ -90,7 +95,10 @@ const HeroSearch = () => {
         );
   };
 
-  const handleChange = (event, { newValue }) => {
+  const handleChange = (
+    event: React.FormEvent<HTMLElement>,
+    { newValue }: { newValue: string }
+  ) => {
     setValue(newValue); // Update value state on user input
     const params = new URLSearchParams(searchParams);
     // when the user types a new search query, reset the page number to 1.
@@ -99,7 +107,7 @@ const HeroSearch = () => {
     replace(`${pathname}?${params.toString()}`);
   };
 
-  const onSuggestionsFetchRequested = ({ value }) => {
+  const onSuggestionsFetchRequested = ({ value }: { value: string }) => {
     setSuggestions(getSuggestions(value)); // Update suggestions state based on user input
   };
 
@@ -108,11 +116,11 @@ const HeroSearch = () => {
   };
 
   return (
-    <div className="block sm:flex  justify-between items-center gap-40">
-      <p className="font-serif font-light text-xl sm:text-4xl md:text-5xl lg:text-6xl flex-none">
-        Our {capitalized}
+    <div className="block sm:flex  justify-between items-center gap-40 pb-8">
+      <p className="font-serif font-light text-xl sm:text-2xl md:text-3xl lg:text-4xl flex-none text-primary">
+        {name}
       </p>
-      <div className="relative pt-6 sm:pt-0 max-w-[600px] w-full flex-auto">
+      <div className="relative mt-6 sm:mt-0 max-w-[600px] w-full flex-auto">
         <Autosuggest
           multiSection={false}
           suggestions={suggestions} // Pass current suggestions to Autosuggest
@@ -120,28 +128,14 @@ const HeroSearch = () => {
           getSuggestionValue={getSuggestionValue} // Function to return the value for each suggestion
           renderSuggestion={renderSuggestion} // Function to render each suggestion
           inputProps={{
-            placeholder: `Search ${capitalized}`,
+            placeholder: placeholder,
             value, // Pass current value to the input field
             onChange: handleChange, // Update value state on input change
           }}
           onSuggestionsClearRequested={onSuggestionsClearRequested} // Required prop for react-autosuggest
         />
-        <div className="absolute bottom-1/4 right-0 pointer-events-none pr-3 pt-5 sm:pt-0">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="text-primary"
-          >
-            <circle cx="11" cy="11" r="8"></circle>
-            <path d="m21 21-4.3-4.3"></path>
-          </svg>
+        <div className="absolute top-1/2 right-0 transform -translate-y-1/2 pointer-events-none pr-3">
+          <Image src="/icons/search.svg" width={25} height={25} alt="icon" />
         </div>
       </div>
     </div>

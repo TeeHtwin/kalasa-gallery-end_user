@@ -1,8 +1,10 @@
 import React from "react";
 import Layout from "../components/common/Layout";
 import SectionHeader from "../components/common/SectionHeader";
-import Exhibition from "../components/cards/ExhibitionCard";
+
+import ExhibitionCard from "../components/cards/ExhibitionCard";
 import Pagination from "../components/pagination/Pagination";
+import HeroSearch from "../components/HeroSearch/HeroSearch";
 import { Event } from "@/types";
 // import Pagination from "../components/common/pagination";
 
@@ -14,13 +16,11 @@ export default async function page() {
   );
   return (
     <Layout>
-      <SectionHeader
-        titleText="Our Events"
-        searchPlaceholder="Search Exhibition"
-      />
+      <HeroSearch name="Our Events" placeholder="Search Event..." />
+
       <div className="mt-5 lg:mt-10 grid grid-cols-1 lg:grid-cols-3 lg:gap-5 w-full gap-[10px] ">
         {response?.data.map((info: Event, index: number) => (
-          <Exhibition key={index} info={info} />
+          <ExhibitionCard key={index} info={info} />
         ))}
       </div>
       {/* pagination */}

@@ -20,10 +20,10 @@ const BlogPage = (props: Props) => {
   }
 
   return (
-    <div>
+    <>
       <BlogList blogs={blogs ?? null} />
       <Pagination totalPages={5} />
-    </div>
+    </>
   );
 };
 

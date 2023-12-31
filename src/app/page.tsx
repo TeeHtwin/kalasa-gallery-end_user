@@ -75,7 +75,7 @@ export default async function page() {
         <div className="flex justify-between">
           <Title className="text-primary">Our Artwork Collection</Title>
           <LinkBtn
-            href="/collections"
+            href="/gallery"
             dtText="View All Collection"
             mobileText="See all"
           />

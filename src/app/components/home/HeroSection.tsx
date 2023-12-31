@@ -24,8 +24,8 @@ const HeroSection = (props: Props) => {
       </div>
 
       <div className="flex items-center gap-4">
-        <OutlineBtnHero>Upcoming Exhibitions</OutlineBtnHero>
-        <OutlineBtnHero>This is a right arrow: &rarr;</OutlineBtnHero>
+        <OutlineBtnHero>Upcoming Events</OutlineBtnHero>
+        <OutlineBtnHero>Learn More &rarr;</OutlineBtnHero>
       </div>
     </main>
   );
