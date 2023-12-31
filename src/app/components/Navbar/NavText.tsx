@@ -23,8 +23,9 @@ const NavText: React.FC<NavTextProps> = ({
         "uppercase mx-auto py-3 px-6 font-semibold font-inter leading-none",
         {
           "text-primary border-b-4 border-b-[#FF9540]":
-            pathName === "/" && pathName === href && scrolled,
-          "text-primary border-b-4 border-b-[#FF9540]": pathName === href,
+            pathName === "/" && pathName === href && scrolled
+              ? "text-primary border-b-4 border-b-[#FF9540]"
+              : pathName === href,
 
           "text-white ": pathName === "/",
 

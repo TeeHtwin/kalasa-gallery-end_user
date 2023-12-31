@@ -18,4 +18,6 @@ const SubmitBtn = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   );
 });
 
+SubmitBtn.displayName = "SubmitBtn";
+
 export default SubmitBtn;

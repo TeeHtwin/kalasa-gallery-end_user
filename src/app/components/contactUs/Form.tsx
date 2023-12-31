@@ -8,13 +8,13 @@ const Form = () => {
   const emailRef = useRef(null);
   const messageRef = useRef(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     // Access the input values using refs
-    const nameValue = nameRef.current.value;
-    const emailValue = emailRef.current.value;
-    const messageValue = messageRef.current.value;
+    const nameValue = nameRef.current;
+    const emailValue = emailRef.current;
+    const messageValue = messageRef.current;
 
     // Handle the form submission logic here
     console.log("Form submitted with data:", {
@@ -22,9 +22,9 @@ const Form = () => {
       email: emailValue,
       message: messageValue,
     });
-    nameRef.current.value = "";
-    emailRef.current.value = "";
-    messageRef.current.value = "";
+    nameRef.current = null;
+    emailRef.current = null;
+    messageRef.current = null;
 
     // You can perform further actions like sending data to a server
   };

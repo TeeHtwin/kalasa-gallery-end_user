@@ -22,7 +22,6 @@ const ExhibitionCard = ({ info }: { info: Event }) => {
   const eventTime = DateTime.fromFormat(from_date, "yyyy-MM-dd").toFormat(
     "MMMM dd"
   );
-  console.log("event time::", eventTime);
   return (
     <div className="px-4 pt-2 pb-8 w-full lg:pb-11 border border-opacity-20 border-primary">
       <Image

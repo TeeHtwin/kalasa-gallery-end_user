@@ -78,11 +78,13 @@ const HeroSearch = ({ name, placeholder }: HeroSearchProps) => {
   const pathname = usePathname();
   const { replace } = useRouter();
 
-  const getSuggestionValue = (suggestion) => suggestion.name;
+  const getSuggestionValue = (suggestion: { name: string }) => suggestion.name;
 
-  const renderSuggestion = (suggestion) => <div>{suggestion.name}</div>;
+  const renderSuggestion = (suggestion: { name: string }) => (
+    <div>{suggestion.name}</div>
+  );
 
-  const getSuggestions = (value) => {
+  const getSuggestions = (value: string) => {
     const inputValue = value.trim().toLowerCase();
     const inputLength = inputValue.length;
 
@@ -93,7 +95,10 @@ const HeroSearch = ({ name, placeholder }: HeroSearchProps) => {
         );
   };
 
-  const handleChange = (event, { newValue }) => {
+  const handleChange = (
+    event: React.FormEvent<HTMLElement>,
+    { newValue }: { newValue: string }
+  ) => {
     setValue(newValue); // Update value state on user input
     const params = new URLSearchParams(searchParams);
     // when the user types a new search query, reset the page number to 1.
@@ -102,7 +107,7 @@ const HeroSearch = ({ name, placeholder }: HeroSearchProps) => {
     replace(`${pathname}?${params.toString()}`);
   };
 
-  const onSuggestionsFetchRequested = ({ value }) => {
+  const onSuggestionsFetchRequested = ({ value }: { value: string }) => {
     setSuggestions(getSuggestions(value)); // Update suggestions state based on user input
   };
 
