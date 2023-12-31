@@ -13,15 +13,14 @@ import GalleryList from "./components/gallery/GalleryList";
 import HeroSection from "./components/home/HeroSection";
 import ExhibitionCard from "@/app/components/cards/ExhibitionCard";
 import { Event } from "@/types";
+import data from "@/data/index";
 
 export default async function page() {
-  const { data } = await fetch(
-    "https://kalasa-gallery-end-user-website-he17lzhyp-teehtwin.vercel.app/api/home"
-  ).then((data) => {
-    return data.json();
-  });
-
-  console.log("home data::", data);
+  const homeData = {
+    events: data.events?.slice(0, 3),
+    collections: data.collections.slice(0, 6),
+    galleries: data.galleries.slice(0, 6),
+  };
   return (
     <>
       <HeroSection />
@@ -35,7 +34,7 @@ export default async function page() {
           />
         </div>
         <div className="mt-5 lg:mt-20 flex justify-between w-full gap-2 flex-col lg:flex-row">
-          {data.events.map((info: Event, index: number) => (
+          {homeData.events.map((info: Event, index: number) => (
             <ExhibitionCard key={index} info={info} />
           ))}
         </div>
@@ -49,7 +48,7 @@ export default async function page() {
             mobileText="See all"
           />
         </div>
-        <Collection data={data?.collections} />
+        <Collection data={homeData?.collections} />
       </Layout>
 
       <Layout className="lg:p-0 grid grid-cols-1 lg:grid-cols-2 bg-primary-light text-primary lg:text-5xl">
@@ -81,7 +80,7 @@ export default async function page() {
             mobileText="See all"
           />
         </div>
-        <GalleryList data={data?.galleries} />
+        <GalleryList data={homeData?.galleries} />
       </Layout>
       <ContactUs />
     </>
