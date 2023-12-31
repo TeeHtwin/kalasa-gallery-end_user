@@ -9,7 +9,7 @@ import Loading from "../common/Loading";
 
 const GalleryPage = () => {
   const { isLoading, data: artworkList } = useQuery({
-    queryKey: ["gallery"],
+    queryKey: ["artworks"],
     queryFn: () => fetchGallery(),
   });
 

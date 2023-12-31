@@ -17,7 +17,7 @@ interface GalleryCardProps {
 const GalleryCard = ({ info }: GalleryCardProps) => {
   const hrefId = info.id.toString();
   return (
-    <Link href={`/gallery/${hrefId}`}>
+    <Link href={`/artworks/${hrefId}`}>
       <div className="relative border p-2">
         <Image
           src={info?.thumbnail}

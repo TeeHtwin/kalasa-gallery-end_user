@@ -10,7 +10,7 @@ import Pagination from "@/app/components/pagination/Pagination";
 import Breadcrumb from "@/app/components/breadcrumb/Breadcrumb";
 import Link from "next/link";
 
-const page = ({params}: { params: { id:string }}) => {
+const page = ({ params }: { params: { id: string } }) => {
   const artworkList = [
     {
       id: 1,
@@ -51,11 +51,13 @@ const page = ({params}: { params: { id:string }}) => {
   ];
   return (
     <Layout className="lg:px-16 pb-10">
-      <Breadcrumb items={[
-        {name: 'Home', url: '/'},
-        {name: 'Our Artists', url: '/artists'},
-        {name: 'Artist Details', url: ''},
-      ]}/>
+      <Breadcrumb
+        items={[
+          { name: "Home", url: "/" },
+          { name: "Our Artists", url: "/artists" },
+          { name: "Artist Details", url: "" },
+        ]}
+      />
 
       <MainLayout className="flex  flex-col lg:flex-row items-starts lg:gap-[60px]">
         <Image
@@ -80,9 +82,9 @@ const page = ({params}: { params: { id:string }}) => {
             provident quam quaerat asperiores commodi dolores.
           </Paragraph>
           <Link href={`/artists/${params.id}/contact`}>
-          <button className="text-white py-[14px] mt-10 px-6 lg:mt-6 bg-primary text-xs lg:text-lg lg:px-[36px] lg:py-[18px]">
-            Contact Now
-          </button>
+            <button className="text-white py-[14px] mt-10 px-6 lg:mt-6 bg-primary text-xs lg:text-lg lg:px-[36px] lg:py-[18px]">
+              Contact Now
+            </button>
           </Link>
         </div>
       </MainLayout>

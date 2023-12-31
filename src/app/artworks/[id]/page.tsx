@@ -35,8 +35,8 @@ const page = ({ params }: { params: { id: string } }) => {
       <Breadcrumb
         items={[
           { name: "Home", url: "/" },
-          { name: "Our Gallery", url: "/gallery" },
-          { name: "Gallery Details", url: `/gallery/${params.id}` },
+          { name: "Our Artworks", url: "/artworks" },
+          { name: "Artwork Details", url: `/artworks/${params.id}` },
         ]}
       />
 
@@ -77,13 +77,13 @@ const page = ({ params }: { params: { id: string } }) => {
           >
             Available
           </button>
-          <Link href={`/gallery/${params.id}/contact`}>
-          <button
-            type="button"
-            className="text-white bg-primary px-7 py-3 block w-fit"
-          >
-            Inquiry To Buy
-          </button>
+          <Link href={`/artworks/${params.id}/contact`}>
+            <button
+              type="button"
+              className="text-white bg-primary px-7 py-3 block w-fit"
+            >
+              Inquiry To Buy
+            </button>
           </Link>
         </div>
       </div>

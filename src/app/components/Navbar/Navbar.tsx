@@ -8,7 +8,7 @@ import { cn } from "@/app/lib/utils";
 const Navbar: React.FC = () => {
   const Nav = [
     { name: "home", href: "/" },
-    { name: "gallery", href: "/gallery" },
+    { name: "gallery", href: "/artworks" },
     { name: "events", href: "/events" },
     { name: "artists", href: "/artists" },
     { name: "blogs", href: "/blogs" },
@@ -29,7 +29,7 @@ const Navbar: React.FC = () => {
     },
     {
       name: "Gallery",
-      href: "/gallery",
+      href: "/artworks",
     },
 
     {

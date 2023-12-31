@@ -1,8 +1,8 @@
 import data from "@/data/index";
-import { Artist, Blog, Collection, Gallery, Home } from "@/types";
+import { Artist, Blog, Collection, Artwork, Home } from "@/types";
 
 export async function fetchGallery(url?: string) {
-  return await new Promise<Array<Gallery>>((resolve) => {
+  return await new Promise<Array<Artwork>>((resolve) => {
     setTimeout(() => {
       resolve(data.galleries);
     }, 2000);

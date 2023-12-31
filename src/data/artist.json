@@ -3,13 +3,19 @@
     "id": 1,
     "profile": "https://via.placeholder.com/600/92c952",
     "name": "John Doe",
-    "career": "Painter"
+    "career": "Painter",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "total_artwork": 0,
+    "sold_artwork": 0
   },
   {
     "id": 2,
     "profile": "https://via.placeholder.com/600/24f355",
     "name": "Jane Smith",
-    "career": "Sculptor"
+    "career": "Sculptor",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "total_artwork": 0,
+    "sold_artwork": 0
   },
   {
     "id": 3,
