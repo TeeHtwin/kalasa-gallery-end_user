@@ -6,11 +6,13 @@ import { useQuery } from "react-query";
 import GalleryList from "@/app/components/gallery/GalleryList";
 import Pagination from "@/app/components/pagination/Pagination";
 import Loading from "../common/Loading";
+import fetchApi from "@/fetchers/api";
+import NoResult from "../common/NoResult";
 
 const GalleryPage = () => {
   const { isLoading, data: artworkList } = useQuery({
     queryKey: ["artworks"],
-    queryFn: () => fetchGallery(),
+    queryFn: () => fetchApi("enduser/artwork/list"),
   });
 
   if (isLoading) {
@@ -18,10 +20,11 @@ const GalleryPage = () => {
   }
   return (
     <>
-      <GalleryList data={artworkList ?? null} />
-      <div className="mt-10 lg:mt-20">
-        <Pagination totalPages={5} />
-      </div>
+      {artworkList?.data?.length > 0 ? (
+        <GalleryList data={artworkList ?? null} />
+      ) : (
+        <NoResult />
+      )}
     </>
   );
 };
