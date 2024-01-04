@@ -34,9 +34,9 @@ const page = ({ params }: { params: { id: string } }) => {
     <section className="m-auto text-primary px-4 sm:px-10 lg:px-18 max-w-screen-2xl">
       <Breadcrumb
         items={[
-          { name: "Home", url: "/" },
-          { name: "Our Gallery", url: "/gallery" },
-          { name: "Gallery Details", url: `/gallery/${params.id}` },
+          { name: "Home", url: "/", active: true },
+          { name: "Our Gallery", url: "/gallery", active: true },
+          { name: "Gallery Details", url: `/gallery/${params.id}`, active: false },
         ]}
       />
 

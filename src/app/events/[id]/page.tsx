@@ -13,9 +13,9 @@ const ExhibitionDetailPage = ({ params }: { params: { id: string } }) => {
     <ExhibitionLayout>
       <Breadcrumb
         items={[
-          { name: "Home", url: "/" },
-          { name: "Our Events", url: "/events" },
-          { name: "Event Details", url: `/events/${params.id}` },
+          { name: "Home", url: "/", active: true },
+          { name: "Our Events", url: "/events", active: true },
+          { name: "Event Details", url: `/events/${params.id}`, active: false },
         ]}
       />
       <MainLayout className="grid grid-cols-1 items-center md:grid-cols-2 gap-10">
