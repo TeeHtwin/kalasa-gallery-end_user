@@ -14,7 +14,7 @@ const CollectionCard = ({
   const { id, title, image } = info;
   return (
     <div
-      className={`px-1 pt-1 pb-4 border border-primary border-opacity-20 aspect-auto bg-purple-100 lg:pt-2 lg:px-2 mb-8 h-fit`}
+      className={`px-1 pt-1 pb-4 border border-primary border-opacity-20 aspect-auto lg:pt-2 lg:px-2 mb-8 h-fit`}
     >
       <Link data-testid="collection-link" href={`/collections/${id}`}>
         <Image
