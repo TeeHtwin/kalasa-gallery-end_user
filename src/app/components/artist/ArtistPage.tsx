@@ -1,29 +1,40 @@
 "use client";
 
 import React from "react";
-import { useQuery } from "react-query";
+import { useInfiniteQuery, useQuery } from "react-query";
 import Pagination from "@/app/components/pagination/Pagination";
 import { fetchArtist } from "@/fetchers";
 import ArtistList from "./ArtistList";
 import Loading from "../common/Loading";
+import fetchApi from "@/fetchers/api";
 
 const ArtistPage = () => {
-  const { data: artists, isLoading } = useQuery({
+  const {
+    data: response,
+    isSuccess,
+    hasNextPage,
+    hasPreviousPage,
+  } = useInfiniteQuery({
     queryKey: ["artists"],
-    queryFn: () => fetchArtist(),
+    queryFn: ({ pageParam = 1 }) =>
+      fetchApi(`enduser/artist/list?page=${pageParam}`),
+    getNextPageParam: (lastPage, allPages) => {
+      const { data: pagination } = lastPage;
+      return pagination?.last_page > pagination?.current_page;
+    },
+    getPreviousPageParam: (firstPage, allPages) => {
+      const { data: pagination } = firstPage;
+      return pagination?.from < pagination?.current_page;
+    },
   });
-  if (isLoading) {
+  if (!isSuccess) {
     return <Loading />;
   }
 
-  return (
-    <>
-      <ArtistList data={artists ?? null} />
-      <div className="mt-10 lg:mt-20">
-        <Pagination totalPages={5} />
-      </div>
-    </>
-  );
+  const apiResponse = response?.pages[0]["data"];
+  const artists = apiResponse ? apiResponse?.data : [];
+
+  return <ArtistList data={artists} />;
 };
 
 export default ArtistPage;
