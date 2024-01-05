@@ -2,24 +2,36 @@
 
 import { fetchBlog } from "@/fetchers";
 import React from "react";
-import { useQuery } from "react-query";
+import { useInfiniteQuery, useQuery } from "react-query";
 import Loading from "../common/Loading";
 import BlogList from "./BlogList";
-import Pagination from "@/app/components/pagination/Pagination";
 import fetchApi from "@/fetchers/api";
 
-type Props = {};
-
-const BlogPage = (props: Props) => {
-  const { data: response, isLoading } = useQuery({
+const BlogPage = () => {
+  const {
+    data: response,
+    isSuccess,
+    hasNextPage,
+    hasPreviousPage,
+  } = useInfiniteQuery({
     queryKey: ["blogs"],
-    queryFn: () => fetchApi("enduser/blog/list"),
+    queryFn: ({ pageParam = 1 }) =>
+      fetchApi(`enduser/blog/list?page=${pageParam}`),
+    getNextPageParam: (lastPage, allPages) => {
+      const { data: pagination } = lastPage;
+      return pagination?.last_page > pagination?.current_page;
+    },
+    getPreviousPageParam: (firstPage, allPages) => {
+      const { data: pagination } = firstPage;
+      return pagination?.from < pagination?.current_page;
+    },
   });
 
-  if (isLoading) {
+  if (!isSuccess) {
     return <Loading />;
   }
-  const blogs = response ? response?.data : [];
+  const apiResponse = response?.pages[0]["data"];
+  const blogs = apiResponse ? apiResponse?.data : [];
 
   return <BlogList blogs={blogs} />;
 };

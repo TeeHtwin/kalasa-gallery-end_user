@@ -18,12 +18,10 @@ const ExhibitionCard = ({ info }: { info: Event }) => {
     closing_datetime,
     related,
   } = info;
-  console.log("date time::", opening_datetime);
   const startTime = DateTime.fromFormat(
     opening_datetime,
     "yyyy-MM-dd HH:mm:ss"
   ).toFormat("MMMM dd");
-  console.log("event time::", startTime);
   const endTime = DateTime.fromFormat(
     closing_datetime,
     "yyyy-MM-dd HH:mm:ss"
