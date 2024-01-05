@@ -21,7 +21,6 @@ export default async function page() {
     }
   );
 
-  console.log("home data::", data);
   return (
     <>
       <HeroSection />
