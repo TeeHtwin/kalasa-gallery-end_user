@@ -41,7 +41,7 @@ export default async function page() {
       </Layout>
       <Layout className="lg:p-20 text-primary lg:text-5xl">
         <div className="flex justify-between">
-          <Title>Expolre Our Collection</Title>
+          <Title>Explore Our Collection</Title>
           <LinkBtn
             href="/collections"
             dtText="View All Collection"

@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import CollectionCard from "../cards/CollectionCard";
 import { Collection } from "@/types";
@@ -8,7 +10,7 @@ interface CollectionsProps {
 const Collection = ({ data }: CollectionsProps) => {
   const getColumnCount = (partition: number) =>
     data
-      ? data?.length % partition === 0
+      ? data?.length >= partition
         ? partition
         : data?.length % partition
       : 1;
