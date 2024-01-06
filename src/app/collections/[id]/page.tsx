@@ -1,7 +1,10 @@
 import img from "@/app/collections/[id]/collection_poster.png";
 import Breadcrumb from "@/app/components/breadcrumb/Breadcrumb";
 import Image from "next/image";
-import FullscreenImage from '@/app/components/fullscreenImage/fullscreenImage'
+import FullscreenImage from "@/app/components/fullscreenImage/fullscreenImage";
+import Layout from "@/app/components/common/Layout";
+import MainLayout from "@/app/components/exhibition/MainLayout";
+import RelativeLayout from "@/app/components/exhibition/RelativeLayout";
 
 const collections = [
   {
@@ -34,18 +37,23 @@ const collections = [
   },
 ];
 
-const page = ({params}: { params: { id:string } }) => {
+const page = ({ params }: { params: { id: string } }) => {
   return (
-    <>
-      <Breadcrumb items={[
-        {name: 'Home', url: '/', active: true},
-        {name: 'Collection', url: '/collections', active: true},
-        {name: 'Collection Details', url: `/collection/${params.id}`, active: false},
-      ]}/>
-
-      <section className="m-auto text-primary px-4 sm:px-10 lg:px-18 max-w-screen-2xl">
+    <Layout className="lg:px-16 pb-10">
+      <Breadcrumb
+        items={[
+          { name: "Home", url: "/", active: true },
+          { name: "Collection", url: "/collections", active: true },
+          {
+            name: "Collection Details",
+            url: `/collection/${params.id}`,
+            active: false,
+          },
+        ]}
+      />
+      <MainLayout className="flex  flex-col lg:flex-row items-starts lg:gap-[60px]">
         <div className="flex flex-col md:flex-row gap-10 items-center grow">
-          <FullscreenImage src={img}/>
+          <FullscreenImage src={img} />
           <div className="w-full">
             <p className="font-serif text-xl sm:text-5xl font-normal">
               Fine China Tea-cup
@@ -61,38 +69,36 @@ const page = ({params}: { params: { id:string } }) => {
             </p>
           </div>
         </div>
-        <div className="py-8 sm:py-32 px-4">
-          <div className="text-Brown flex justify-between">
-            <p className="font-bold text-xl md:text-5xl font-serif">
-              Related Collections
-            </p>
-            <button className="hidden md:block border-[1.5px] border-primary font-medium font-serif text-lg px-9 py-4">
-              See More →
-            </button>
-            <button className="block md:hidden">See all</button>
-          </div>
-          <div className="py-4 sm:py-20 flex items-start flex-wrap gap-4">
-            {collections.map((collection) => (
-              <div
-                key={collection.id}
-                className="border-solid border-[1.5px] border-[#883B0A29] h-auto bg-neutral-light mb-4 sm:mb-0 grow basis-80"
-              >
-                <Image
-                  src={collection.img}
-                  alt="collection poster"
-                  width={400}
-                  height={200}
-                  className="object-cover w-full h-96 p-1"
-                />
-                <p className="font-sans px-4 py-8 font-medium text-2xl">
-                  {collection.title}
-                </p>
-              </div>
-            ))}
-          </div>
+      </MainLayout>
+      <RelativeLayout
+        href="/collection"
+        mobileText="See all"
+        title="Related Collections"
+      >
+        <div className="py-4 sm:py-20 flex items-start flex-wrap gap-4">
+          {collections.map((collection) => (
+            <div
+              key={collection.id}
+              className="border-solid border-[1.5px] border-[#883B0A29] h-auto bg-neutral-light mb-4 sm:mb-0 grow basis-80"
+            >
+              <Image
+                src={collection.img}
+                alt="collection poster"
+                width={400}
+                height={200}
+                className="object-cover w-full h-96 p-1"
+              />
+              <p className="font-sans px-4 py-8 font-medium text-2xl">
+                {collection.title}
+              </p>
+            </div>
+          ))}
         </div>
-      </section>
-    </>
+      </RelativeLayout>
+      {/* <section className="m-auto text-primary px-4 sm:px-10 lg:px-18 max-w-screen-2xl"> */}
+
+      {/* </section> */}
+    </Layout>
   );
 };
 export default page;
