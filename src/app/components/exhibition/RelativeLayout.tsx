@@ -4,8 +4,8 @@ import LinkBtn from "../button/LinkBtn";
 
 interface RelativeLayoutProps {
   dtText?: string;
-  mobileText: string;
-  href: string;
+  mobileText?: string;
+  href?: string;
   title: string;
   children: React.ReactNode;
 }
@@ -20,11 +20,17 @@ const RelativeLayout = ({
     <div className="lg:mt-[120px] mt-10">
       <div className="flex mb-5 lg:mb-10 justify-between">
         <Title className="text-lg text-primary lg:text-[40px]">{title}</Title>
-        {dtText ? (
-          <LinkBtn href={href} dtText={`${dtText} →`} mobileText={mobileText} />
-        ) : (
-          mobileText && <LinkBtn href={href} mobileText={mobileText} />
-        )}
+        {href && mobileText ? (
+          dtText ? (
+            <LinkBtn
+              href={href}
+              dtText={`${dtText} →`}
+              mobileText={mobileText}
+            />
+          ) : (
+            <LinkBtn href={href} mobileText={mobileText} />
+          )
+        ) : null}
       </div>
       {children}
     </div>

@@ -71,12 +71,7 @@ const ExhibitionDetailPage = ({ params }: { params: { id: string } }) => {
           </Link>
         </div>
       </MainLayout>
-      <RelativeLayout
-        href="/events"
-        title="Related Events"
-        dtText="see more"
-        mobileText="see all"
-      >
+      <RelativeLayout title="Related Events">
         <div className="mt-5 lg:mt-20 flex justify-between w-full gap-[10px] flex-col lg:flex-row">
           {/* {response?.data.map((info: Event, index: number) => (
             <Exhibition key={index} info={info} />

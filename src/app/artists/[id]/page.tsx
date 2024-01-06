@@ -99,9 +99,6 @@ const page = ({ params }: { params: { id: string } }) => {
         title="Her Artworks"
       >
         <GalleryList data={artworkList} />
-        <div className="mt-10 hidden lg:block lg:mt-20">
-          <Pagination totalPages={5} />
-        </div>
       </RelativeLayout>
     </Layout>
   );
