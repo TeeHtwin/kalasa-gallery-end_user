@@ -37,15 +37,15 @@ const BlogDetailedPage = ({ blogId }: { blogId: string }) => {
   const blogDetailed: Blog = !isError ? response?.data : null;
   return (
     <div>
-      <Breadcrumb
-        items={[
-          { name: "Home", url: "/" },
-          { name: "Our Blogs", url: "/blogs" },
-          { name: "Blog Details", url: "" },
-        ]}
-      />
-      {blogDetailed && (
-        <section className="text-primary max-w-screen-2xl m-auto">
+      <section className="text-primary max-w-screen-2xl lg:px-20 lg:py-12 wrapper">
+        <Breadcrumb
+          items={[
+            { name: "Home", url: "/", active: true },
+            { name: "Our Blogs", url: "/blogs", active: true },
+            { name: "Blog Details", url: `/blogs/${blogId}`, active: false },
+          ]}
+        />
+        {blogDetailed && (
           <div className="px-4 sm:px-10 lg:px-18">
             <Image
               src={img}
@@ -107,8 +107,8 @@ const BlogDetailedPage = ({ blogId }: { blogId: string }) => {
             </div> */}
             </div>
           </div>
-        </section>
-      )}
+        )}
+      </section>
     </div>
   );
 };

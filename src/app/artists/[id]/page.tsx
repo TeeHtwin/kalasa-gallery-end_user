@@ -53,9 +53,13 @@ const page = ({ params }: { params: { id: string } }) => {
     <Layout className="lg:px-16 pb-10">
       <Breadcrumb
         items={[
-          { name: "Home", url: "/" },
-          { name: "Our Artists", url: "/artists" },
-          { name: "Artist Details", url: "" },
+          { name: "Home", url: "/", active: true },
+          { name: "Our Artists", url: "/artists", active: true },
+          {
+            name: "Artist Details",
+            url: `/artist/${params.id}`,
+            active: false,
+          },
         ]}
       />
 
