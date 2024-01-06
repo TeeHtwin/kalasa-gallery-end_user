@@ -49,14 +49,14 @@ Mollit anim id est laborum perspiciatis unde omnis iste natus error sit voluptat
 const page = ({ params }: { params: { id: string } }) => {
   return (
     <>
-      <Breadcrumb
-        items={[
-          { name: "Home", url: "/", active: true },
-          { name: "Our Blogs", url: "/blogs", active: true },
-          { name: "Blog Details", url: `/blogs/${params.id}`, active: false},
-        ]}
-      />
-      <section className="text-primary max-w-screen-2xl m-auto">
+      <section className="text-primary max-w-screen-2xl lg:px-20 lg:py-12 wrapper">
+        <Breadcrumb
+          items={[
+            { name: "Home", url: "/", active: true },
+            { name: "Our Blogs", url: "/blogs", active: true },
+            { name: "Blog Details", url: `/blogs/${params.id}`, active: false },
+          ]}
+        />
         <div className="px-4 sm:px-10 lg:px-18">
           <Image src={img} alt="" width={700} height={475} className="m-auto" />
           <p className="font-sans text-xs sm:text-lg font-extralight text-left sm:text-center py-4 sm:py-16">
