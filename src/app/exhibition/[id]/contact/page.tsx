@@ -6,10 +6,10 @@ const page = ({ params }: { params: { id: string } }) => {
     <>
       <Breadcrumb
         items={[
-          { name: "Home", url: "/" },
-          { name: "Our Events", url: "/events" },
-          { name: "Event Details", url: `/events/${params.id}` },
-          { name: "Contact", url: "" },
+          { name: "Home", url: "/", active: true },
+          { name: "Our Events", url: "/events", active: true },
+          { name: "Event Details", url: `/events/${params.id}`, active: true },
+          { name: "Contact", url: "", active: false },
         ]}
       />
       <ContactUs />
