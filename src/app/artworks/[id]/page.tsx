@@ -12,7 +12,7 @@ const artworks = [
     id: 11,
     img: "https://placekitten.com/400/600",
     title: "Art of Mother by Wood",
-    info: "(18 x 24)inches A/c",
+    info: "(18 x 24)inches A/C",
     author: "Sai Tun Oo",
   },
 
@@ -20,7 +20,7 @@ const artworks = [
     id: 13,
     img: "https://placekitten.com/800/1200",
     title: "Art of Mother by Wood",
-    info: "(18 x 24)inches A/c",
+    info: "(18 x 24)inches A/C",
     author: "Sai Tun Oo",
   },
   {
@@ -47,7 +47,7 @@ const page = ({ params }: { params: { id: string } }) => {
         ]}
       />
 
-      <MainLayout className="flex  flex-col lg:flex-row items-starts lg:gap-[60px]">
+      <MainLayout className="flex flex-col lg:flex-row items-starts gap-5 sm:gap-[60px]  text-primary">
         <Image
           src={img}
           width={600}
@@ -55,11 +55,21 @@ const page = ({ params }: { params: { id: string } }) => {
           alt="collection poster"
           className="object-cover w-full"
         />
-        <div className="w-full">
-          <p className="font-serif text-xl sm:text-5xl font-normal pb-4">
-            Lake Life Artwork
-          </p>
-          <div className="inline-flex items-center gap-4 pb-4">
+        <div className="w-full flex flex-col justify-center content-center gap-7">
+          <div className="flex justify-start items-center gap-4">
+            <p className="font-serif text-2xl sm:text-5xl font-normal inline-flex">
+              Lake Life Artwork
+            </p>
+            <div className="inline-flex items-center text-xs font-medium px-2.5 py-0.5 rounded-full bg-green-900 text-green-300 h-5 sm:h-6">
+              <span className="w-2 h-2 me-1 bg-green-500 rounded-full "></span>
+              Available
+            </div>
+            {/* <div className="inline-flex items-center text-xs font-medium px-2.5 py-0.5 rounded-full bg-red-900 text-red-300 h-5 sm:h-6">
+                <span className="w-2 h-2 me-1 bg-red-500 rounded-full"></span>
+                Sold Out
+            </div> */}
+          </div>
+          <div className="inline-flex items-center gap-4">
             <Image
               width={300}
               height={100}
@@ -67,23 +77,18 @@ const page = ({ params }: { params: { id: string } }) => {
               src={profile}
               alt="Rounded avatar"
             />
-            <p className="font-sans text-xs sm:text-2xl text-[#BA5006] pb-4">
+            <p className="font-sans text-xs sm:text-2xl text-[#BA5006]">
               Artist Khin Maung Yin
             </p>
           </div>
 
-          <p className="max-w-md font-sans text-sm sm:text-base text-[#BA5006] pb-4">
+          <p className="max-w-md font-sans text-sm sm:text-base text-[#BA5006] ">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
             adipisci quia hic nulla illo dolore accusantium, enim nostrum
             tenetur numquam amet accusamus, rerum asperiores, sit est
             consequatur ea voluptas saepe!
           </p>
-          <button
-            type="button"
-            className="text-white bg-green-600 px-7 py-3 block w-fit mb-4"
-          >
-            Available
-          </button>
+
           <Link href={`/artworks/${params.id}/contact`}>
             <button
               type="button"
@@ -94,9 +99,9 @@ const page = ({ params }: { params: { id: string } }) => {
           </Link>
         </div>
       </MainLayout>
-      <hr />
+
       <RelativeLayout title="Artworks">
-        <div className="py-4 sm:py-20 flex items-start flex-wrap gap-4">
+        <div className=" text-primary py-4 flex items-start flex-wrap gap-4">
           {artworks.map((artwork) => (
             <div
               key={artwork.id}
@@ -109,13 +114,13 @@ const page = ({ params }: { params: { id: string } }) => {
                 height={200}
                 className="object-cover w-full h-96 p-1"
               />
-              <p className="pb-8 font-semibold text-2xl pl-3">
+              <p className="p-4 font-semibold text-2xl">
                 {artwork.title}
               </p>
               <div className="flex justify-between p-3">
                 <div>
-                  <p className="">By {artwork.author}</p>
-                  <p>{artwork.info}</p>
+                  <p className="pb-1">By {artwork.author}</p>
+                  <p className="text-sm">{artwork.info}</p>
                 </div>
                 <Link
                   href={artwork.id.toString()}
