@@ -24,8 +24,6 @@ const ArtistsCard = ({
       <div className="flex text-center flex-col mt-5 sm:mt-4 mb-4 gap-3">
         <Paragraph className="font-semibold lg:text-2xl">{name}</Paragraph>
         {/* <Paragraph className="text-[10px] lg:text-sm">{career ?? ""}</Paragraph> */}
-        <p className="text-[#BA5006] text-sm">Traditional Artist</p>
-
         <Link
           href={`/artists/${id}`}
           className="text-primary font-inter px-[36px] mx-auto py-3 border border-primary text-base font-medium hidden sm:block"

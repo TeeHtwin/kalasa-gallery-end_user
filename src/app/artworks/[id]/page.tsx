@@ -6,6 +6,7 @@ import Link from "next/link";
 import MainLayout from "@/app/components/exhibition/MainLayout";
 import RelativeLayout from "@/app/components/exhibition/RelativeLayout";
 import Layout from "@/app/components/common/Layout";
+import clsx from "clsx";
 
 const artworks = [
   {
@@ -33,6 +34,10 @@ const artworks = [
 ];
 
 const page = ({ params }: { params: { id: string } }) => {
+
+  // status for the artwork is available or not
+  const status = false 
+
   return (
     <Layout className="lg:px-16 pb-10">
       <Breadcrumb
@@ -42,7 +47,7 @@ const page = ({ params }: { params: { id: string } }) => {
           {
             name: "Artwork Details",
             url: `/artworks/${params.id}`,
-            active: true,
+            active: false,
           },
         ]}
       />
@@ -60,14 +65,10 @@ const page = ({ params }: { params: { id: string } }) => {
             <p className="font-serif text-2xl sm:text-5xl font-normal inline-flex">
               Lake Life Artwork
             </p>
-            <div className="inline-flex items-center text-xs font-medium px-2.5 py-0.5 rounded-full bg-green-900 text-green-300 h-5 sm:h-6">
-              <span className="w-2 h-2 me-1 bg-green-500 rounded-full "></span>
-              Available
+            <div className={`inline-flex items-center text-xs font-medium px-2.5 py-0.5 rounded-full ${clsx(status? 'bg-green-900 text-green-300' : 'bg-red-900 text-red-100')}  h-5 sm:h-6`}>
+              <span className={`w-2 h-2 me-1 ${clsx(status? 'bg-green-500' : 'bg-red-500')}  rounded-full `}></span>
+              {clsx(status? 'Available' : 'Sold Out')}
             </div>
-            {/* <div className="inline-flex items-center text-xs font-medium px-2.5 py-0.5 rounded-full bg-red-900 text-red-300 h-5 sm:h-6">
-                <span className="w-2 h-2 me-1 bg-red-500 rounded-full"></span>
-                Sold Out
-            </div> */}
           </div>
           <div className="inline-flex items-center gap-4">
             <Image
@@ -92,7 +93,7 @@ const page = ({ params }: { params: { id: string } }) => {
           <Link href={`/artworks/${params.id}/contact`}>
             <button
               type="button"
-              className="text-white bg-primary px-7 py-3 block w-fit"
+              className={`text-white bg-primary px-7 py-3 block w-fit ${clsx( status? 'block' : 'hidden' )}`}
             >
               Inquiry To Buy
             </button>
