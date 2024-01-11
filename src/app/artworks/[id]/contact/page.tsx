@@ -1,7 +1,19 @@
+'use client'
+
+
 import Breadcrumb from "@/app/components/breadcrumb/Breadcrumb";
 import ContactUs from "@/app/components/contactUs/ContactUs";
+import { useSearchParams } from 'next/navigation';
 
-const page = ({ params }: { params: { id: string } }) => {
+
+
+const Page = ({ params }: { params: { id: string } }) => {
+
+
+  const searchParams = useSearchParams();
+  const title = searchParams.get('name')
+  const message = `Hi, pls let me know about this ${title}Art. I'm interested!`
+  
   return (
     <>
       <Breadcrumb
@@ -16,8 +28,8 @@ const page = ({ params }: { params: { id: string } }) => {
           { name: "Contact", url: "", active: false },
         ]}
       />
-      <ContactUs />
+      <ContactUs message={message}/>
     </>
   );
 };
-export default page;
+export default Page;

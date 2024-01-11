@@ -1,3 +1,5 @@
+
+
 import React from "react";
 import Layout from "../common/Layout";
 import Title from "../common/Title";
@@ -11,7 +13,11 @@ import InputBox from "./InputBox";
 import SocialLink from "./SocialLink";
 import Form from "./Form";
 
-const ContactUs = () => {
+
+
+const ContactUs = (message: {message:string}) => {
+
+
   return (
     <Layout className="lg:p-0 p-0 pt-10 grid grid-cols-1 lg:grid-cols-2">
       <div
@@ -24,11 +30,11 @@ const ContactUs = () => {
         <Paragraph>
           Feel Free to contact us anytime.
           <span className="block">
-            Feel Free to contact us anytime. We will get back to you as soon as
+            We will get back to you as soon as
             we can !
           </span>
         </Paragraph>
-        <Form />
+        <Form message={message.message} />
       </div>
       <div className="flex pl-4 lg:pl-0 flex-col">
         <div className="h-[83px] lg:h-[230px] flex justify-center items-center ml-auto w-[216px] lg:w-[403px] bg-primary-light">

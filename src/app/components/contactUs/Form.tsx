@@ -1,12 +1,13 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import InputBox from "./InputBox";
 import SubmitBtn from "./SubmitBtn";
 
-const Form = () => {
+const Form = ({message}: {message: string}) => {
   const nameRef = useRef(null);
   const emailRef = useRef(null);
-  const messageRef = useRef(null);
+  let messageRef = useRef(null);
+
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -47,7 +48,7 @@ const Form = () => {
         ref={messageRef}
         type="text"
         name="message"
-        placeholder="Your Message Here ..."
+        placeholder=''
         className="lg:pr-[427px] w-full pt-5 pb-[134px]"
       />
       <SubmitBtn>Send Message</SubmitBtn>

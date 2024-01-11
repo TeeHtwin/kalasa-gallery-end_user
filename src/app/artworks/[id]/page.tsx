@@ -36,7 +36,8 @@ const artworks = [
 const page = ({ params }: { params: { id: string } }) => {
 
   // status for the artwork is available or not
-  const status = false 
+  const status = true 
+  const name = 'Like life Artwork'
 
   return (
     <Layout className="lg:px-16 pb-10">
@@ -63,7 +64,7 @@ const page = ({ params }: { params: { id: string } }) => {
         <div className="w-full flex flex-col justify-center content-center gap-7">
           <div className="flex justify-start items-center gap-4">
             <p className="font-serif text-2xl sm:text-5xl font-normal inline-flex">
-              Lake Life Artwork
+              {name}
             </p>
             <div className={`inline-flex items-center text-xs font-medium px-2.5 py-0.5 rounded-full ${clsx(status? 'bg-green-900 text-green-300' : 'bg-red-900 text-red-100')}  h-5 sm:h-6`}>
               <span className={`w-2 h-2 me-1 ${clsx(status? 'bg-green-500' : 'bg-red-500')}  rounded-full `}></span>
@@ -75,7 +76,7 @@ const page = ({ params }: { params: { id: string } }) => {
               width={300}
               height={100}
               className="w-10 h-10 rounded-full"
-              src={profile}
+              src={profile} 
               alt="Rounded avatar"
             />
             <p className="font-sans text-xs sm:text-2xl text-[#BA5006]">
@@ -90,7 +91,10 @@ const page = ({ params }: { params: { id: string } }) => {
             consequatur ea voluptas saepe!
           </p>
 
-          <Link href={`/artworks/${params.id}/contact`}>
+          <Link href={{ 
+            pathname: `/artworks/${params.id}/contact`,
+            query: {name: name },
+            }}>
             <button
               type="button"
               className={`text-white bg-primary px-7 py-3 block w-fit ${clsx( status? 'block' : 'hidden' )}`}
