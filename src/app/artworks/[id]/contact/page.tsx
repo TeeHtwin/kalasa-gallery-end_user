@@ -10,10 +10,6 @@ import { useSearchParams } from 'next/navigation';
 const Page = ({ params }: { params: { id: string } }) => {
 
 
-  const searchParams = useSearchParams();
-  const title = searchParams.get('name')
-  const message = `Hi, pls let me know about this ${title}Art. I'm interested!`
-  
   return (
     <>
       <Breadcrumb
@@ -28,7 +24,7 @@ const Page = ({ params }: { params: { id: string } }) => {
           { name: "Contact", url: "", active: false },
         ]}
       />
-      <ContactUs message={message}/>
+      <ContactUs />
     </>
   );
 };

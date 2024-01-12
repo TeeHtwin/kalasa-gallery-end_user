@@ -19,7 +19,6 @@ const InputBox = forwardRef<HTMLInputElement, InputBoxProps>(
         type={type}
         name={name}
         required
-        ref={ref}
         placeholder={placeholder}
       />
     );

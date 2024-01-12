@@ -15,8 +15,12 @@ import Form from "./Form";
 
 
 
-const ContactUs = (message: {message:string}) => {
+const ContactUs = () => {
 
+  // Fetch api and get the artwork title or artist name here and pass it to title
+
+  let title = 'howy';
+  const message =  title ? `Hi, pls let me know about the "${title}". I'm interested!` : ''
 
   return (
     <Layout className="lg:p-0 p-0 pt-10 grid grid-cols-1 lg:grid-cols-2">
@@ -34,7 +38,7 @@ const ContactUs = (message: {message:string}) => {
             we can !
           </span>
         </Paragraph>
-        <Form message={message.message} />
+        <Form message={message} />
       </div>
       <div className="flex pl-4 lg:pl-0 flex-col">
         <div className="h-[83px] lg:h-[230px] flex justify-center items-center ml-auto w-[216px] lg:w-[403px] bg-primary-light">
