@@ -19,7 +19,7 @@ const ContactUs = () => {
 
   // Fetch api and get the artwork title or artist name here and pass it to title
 
-  let title = 'howy';
+  let title = 'howdy';
   const message =  title ? `Hi, pls let me know about the "${title}". I'm interested!` : ''
 
   return (

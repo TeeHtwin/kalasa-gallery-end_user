@@ -4,6 +4,8 @@ import ContactUs from "@/app/components/contactUs/ContactUs";
 const page = ({ params }: { params: { id: string } }) => {
   return (
     <>
+      <div className="wrapper px-4 sm:px-20">
+
       <Breadcrumb
         items={[
           { name: "Home", url: "/", active: true },
@@ -16,6 +18,7 @@ const page = ({ params }: { params: { id: string } }) => {
           { name: "Contact", url: "", active: true },
         ]}
       />
+      </div>
       <ContactUs />
     </>
   );

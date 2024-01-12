@@ -40,7 +40,7 @@ const page = ({ params }: { params: { id: string } }) => {
   const name = 'Like life Artwork'
 
   return (
-    <Layout className="lg:px-16 pb-10">
+    <Layout className="lg:px-20 pb-10">
       <Breadcrumb
         items={[
           { name: "Home", url: "/", active: true },
