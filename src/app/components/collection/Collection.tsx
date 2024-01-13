@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useMemo } from "react";
 import CollectionCard from "../cards/CollectionCard";
 import { Collection } from "@/types";
 
@@ -15,12 +15,12 @@ const Collection = ({ data }: CollectionsProps) => {
         : data?.length % partition
       : 1;
 
+  const columnCount = useMemo(() => getColumnCount(3), [data?.length]);
+
   return (
     <div
       data-testid="mocked-collection-card"
-      className={`columns-${getColumnCount(2)} lg:columns-${getColumnCount(
-        3
-      )} gap-2 lg:gap-5 mt-5 lg:mt-10 w-full`}
+      className={`columns-2 lg:columns-${columnCount} gap-2 lg:gap-5 mt-5 lg:mt-10 w-full`}
     >
       {data?.map((singleData: Collection, index: number) => (
         <CollectionCard key={index} info={singleData} index={index} />
