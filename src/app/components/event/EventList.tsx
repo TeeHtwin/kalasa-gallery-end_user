@@ -3,7 +3,7 @@
 import React from "react";
 import ExhibitionCard from "../cards/ExhibitionCard";
 import { useInfiniteQuery } from "react-query";
-import fetchApi from "@/fetchers/api";
+import {fetchApi} from "@/fetchers/api";
 import Loading from "../common/Loading";
 import { Event } from "@/types";
 type Props = {};

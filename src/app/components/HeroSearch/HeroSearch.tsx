@@ -1,69 +1,19 @@
 "use client";
 
-const languages = [
-  {
-    name: "C",
-    location: "Yangon",
-  },
-  {
-    name: "C#",
-    location: "Yanngon",
-  },
-  {
-    name: "C++",
-    location: "Mandalay",
-  },
-  {
-    name: "Clojure",
-    location: "Mandalay",
-  },
-  {
-    name: "Elm",
-    location: "Pathein",
-  },
-  {
-    name: "Go",
-    location: "Pathein",
-  },
-  {
-    name: "Haskell",
-    location: "Bago",
-  },
-  {
-    name: "Java",
-    location: "Bago",
-  },
-  {
-    name: "Javascript",
-    location: "Yangon",
-  },
-  {
-    name: "Perl",
-    location: "Yangon",
-  },
-  {
-    name: "PHP",
-    location: "Yangon",
-  },
-  {
-    name: "Python",
-    location: "Mandalay",
-  },
-  {
-    name: "Ruby",
-    location: "Pathien",
-  },
-  {
-    name: "Scala",
-    location: "Bago",
-  },
-];
-
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
 import Autosuggest from "react-autosuggest";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
+
+import { useMutation } from "react-query";
+import { searchListApi } from "@/fetchers/api";
+
+export function useSearchListMutation() {
+  return useMutation(({ url, query }: { url: string; query: string }) =>
+    searchListApi(url, query)
+  );
+}
 
 type HeroSearchProps = {
   name: string;
@@ -71,49 +21,93 @@ type HeroSearchProps = {
 };
 
 const HeroSearch = ({ name, placeholder }: HeroSearchProps) => {
+  const { mutate, data, isLoading, isError, error } = useSearchListMutation();
+  const url = `enduser/event/list-for-searchbox`;
+  let query: string;
+
   const [value, setValue] = useState("");
-  const [suggestions, setSuggestions] = useState(languages);
+  const [suggestions, setSuggestions] = useState([]);
+
+  // Store the timeout ID for clearing on the next input event
+  const [typingTimeout, setTypingTimeout] = useState<NodeJS.Timeout | null>(
+    null
+  );
 
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
 
-  const getSuggestionValue = (suggestion: { name: string }) => suggestion.name;
+  const getSuggestionValue = (suggestion: { title: string; key: string }) =>
+    suggestion.title;
 
-  const renderSuggestion = (suggestion: { name: string }) => (
-    <div>{suggestion.name}</div>
+  const renderSuggestion = (suggestion: { title: string; key: string }) => (
+    <div>
+      {suggestion.title} - {suggestion.key}
+    </div>
   );
 
-  const getSuggestions = (value: string) => {
-    const inputValue = value.trim().toLowerCase();
-    const inputLength = inputValue.length;
+  // const getSuggestions = (value: string) => {
+  //   const inputValue = value.trim().toLowerCase();
+  //   const inputLength = inputValue.length;
 
-    return inputLength === 0
-      ? []
-      : languages.filter(
-          (lang) => lang.name.toLowerCase().slice(0, inputLength) === inputValue
-        );
-  };
+  //   return inputLength === 0
+  //     ? []
+  //     : data.filter(
+  //         (data) => data.title.toLowerCase().slice(0, inputLength) === inputValue
+  //       );
+  // };
 
   const handleChange = (
     event: React.FormEvent<HTMLElement>,
     { newValue }: { newValue: string }
   ) => {
+
     setValue(newValue); // Update value state on user input
-    const params = new URLSearchParams(searchParams);
-    // when the user types a new search query, reset the page number to 1.
-    params.set("page", "1");
-    newValue ? params.set("query", newValue) : params.delete("query");
-    replace(`${pathname}?${params.toString()}`);
+
+    // Clear the previous timeout if there's one
+    if (typingTimeout) clearTimeout(typingTimeout);
+
+    // Set a new timeout
+    const newTimeout = setTimeout(() => {
+      const params = new URLSearchParams(searchParams);
+      params.set("page", "1");
+      mutate({ url, query: newValue.toLowerCase() });
+      newValue ? params.set("query", newValue) : params.delete("query");
+      replace(`${pathname}?${params.toString()}`);
+    }, 300); // Delay of 300ms
+
+    // Save the new timeout ID
+    setTypingTimeout(newTimeout);
+
+    // const params = new URLSearchParams(searchParams);
+    // // when the user types a new search query, reset the page number to 1.
+    // params.set("page", "1");
+    // mutate({ url, query: newValue.toLowerCase() });
+    // // newValue ? params.set("query", newValue) : params.delete("query");
+    // // replace(`${pathname}?${params.toString()}`);
   };
 
+  useEffect(() => {
+    if (data) {
+      setSuggestions(data?.data);
+    }
+  }, [data]);
+
+  useEffect(() => {
+    return () => {
+      if (typingTimeout) clearTimeout(typingTimeout);
+    };
+  }, []); // Empty dependency array to run only on component unmount
+
   const onSuggestionsFetchRequested = ({ value }: { value: string }) => {
-    setSuggestions(getSuggestions(value)); // Update suggestions state based on user input
+    setSuggestions(data.data || []); // Update suggestions state based on user input
   };
 
   const onSuggestionsClearRequested = () => {
     setSuggestions([]); // Clear suggestions state when needed
   };
+
+  console.log(suggestions);
 
   return (
     <div className="block sm:flex  justify-between items-center gap-40 pb-8">
