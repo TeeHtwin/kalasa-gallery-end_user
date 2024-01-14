@@ -3,7 +3,7 @@
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
 import Autosuggest from "react-autosuggest";
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import Image from "next/image";
 
 import { useMutation } from "react-query";
@@ -18,9 +18,10 @@ export function useSearchListMutation() {
 type HeroSearchProps = {
   name: string;
   placeholder: string;
+  setKeyword: Dispatch<SetStateAction<string>>;
 };
 
-const HeroSearch = ({ name, placeholder }: HeroSearchProps) => {
+const HeroSearch = ({ name, placeholder, setKeyword }: HeroSearchProps) => {
   const { mutate, data, isLoading, isError, error } = useSearchListMutation();
   const url = `enduser/event/list-for-searchbox`;
   let query: string;
@@ -41,7 +42,7 @@ const HeroSearch = ({ name, placeholder }: HeroSearchProps) => {
     suggestion.title;
 
   const renderSuggestion = (suggestion: { title: string; key: string }) => (
-    <div>
+    <div onClick={() => setKeyword(suggestion.title)}>
       {suggestion.title} - {suggestion.key}
     </div>
   );
@@ -61,7 +62,6 @@ const HeroSearch = ({ name, placeholder }: HeroSearchProps) => {
     event: React.FormEvent<HTMLElement>,
     { newValue }: { newValue: string }
   ) => {
-
     setValue(newValue); // Update value state on user input
 
     // Clear the previous timeout if there's one
