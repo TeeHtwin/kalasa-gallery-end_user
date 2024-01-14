@@ -12,6 +12,9 @@ export interface Collection {
   title: string;
   image: string;
   description: string;
+  created_at: string;
+  updated_at: string;
+  related: Collection[];
 }
 
 export interface Artist {

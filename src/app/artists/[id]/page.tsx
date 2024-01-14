@@ -9,8 +9,18 @@ import GalleryList from "@/app/components/gallery/GalleryList";
 import Pagination from "@/app/components/pagination/Pagination";
 import Breadcrumb from "@/app/components/breadcrumb/Breadcrumb";
 import Link from "next/link";
+import { API } from "@/utils/domain";
+import { Artist } from "@/types";
 
-const page = ({ params }: { params: { id: string } }) => {
+export default async function page({ params }: { params: { id: string } }) {
+  let artistInfo: Artist | null = null;
+  const response = await fetch(`${API}/api/enduser/artist/${params?.id}`)
+    .then((res) => res.json())
+    .catch((error) => console.log("artist detail error", error));
+
+  if (response?.success) {
+    artistInfo = response?.data;
+  }
   const artworkList = [
     {
       id: 1,
@@ -66,6 +76,7 @@ const page = ({ params }: { params: { id: string } }) => {
       <MainLayout className="flex  flex-col lg:flex-row items-starts lg:gap-[60px]">
         <Image
           src={
+            artistInfo?.profile ??
             "https://d38b044pevnwc9.cloudfront.net/cutout-nuxt/enhancer/2.jpg"
           }
           alt="Profile image"
@@ -74,16 +85,12 @@ const page = ({ params }: { params: { id: string } }) => {
           className="aspect-square w-1/2 lg:w-full mb-6 border-[0.5px] border-primary border-opacity-20 p-1"
         />
         <div className="translate-y-12">
-          <Title className="text-primary">Sandra Khaing</Title>
+          <Title className="text-primary">{artistInfo?.name}</Title>
           <p className="text-[#BA5006] text-xs mt-[10px] lg:text-lg font-medium ">
-            Traditional Artist
+            {/* {artistInfo?.name} */}
           </p>
           <Paragraph className="text-[#BA5006] text-sm font-normal leading-relaxed mt-5 lg:mt-6 lg:font-base">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias minus
-            vel a optio soluta asperiores dolorem nobis perspiciatis, quis
-            consequatur reprehenderit officiis sapiente facilis eveniet? Tempore
-            aspernatur ex omnis iste deleniti debitis consectetur, mollitia
-            provident quam quaerat asperiores commodi dolores.
+            {artistInfo?.description}
           </Paragraph>
           <Link href={`/artists/${params.id}/contact`}>
             <button className="text-white py-[14px] mt-10 px-6 lg:mt-6 bg-primary text-xs lg:text-lg lg:px-[36px] lg:py-[18px]">
@@ -102,6 +109,4 @@ const page = ({ params }: { params: { id: string } }) => {
       </RelativeLayout>
     </Layout>
   );
-};
-
-export default page;
+}

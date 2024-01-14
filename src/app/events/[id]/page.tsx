@@ -7,8 +7,18 @@ import MainLayout from "@/app/components/exhibition/MainLayout";
 import RelativeLayout from "@/app/components/exhibition/RelativeLayout";
 import Breadcrumb from "@/app/components/breadcrumb/Breadcrumb";
 import Link from "next/link";
+import { API } from "@/utils/domain";
+import { Event } from "@/types";
 
-const ExhibitionDetailPage = ({ params }: { params: { id: string } }) => {
+export default async function page({ params }: { params: { id: string } }) {
+  let eventInfo: Event | null = null;
+  const response = await fetch(`${API}/api/enduser/event/${params?.id}`)
+    .then((res) => res.json())
+    .catch((error) => console.log("event detail error", error));
+  if (response?.success) {
+    eventInfo = response?.data;
+  }
+  console.log("event::", eventInfo);
   return (
     <ExhibitionLayout>
       <Breadcrumb
@@ -80,6 +90,4 @@ const ExhibitionDetailPage = ({ params }: { params: { id: string } }) => {
       </RelativeLayout>
     </ExhibitionLayout>
   );
-};
-
-export default ExhibitionDetailPage;
+}
