@@ -1,14 +1,12 @@
 "use client";
 
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState } from "react";
 import { useInfiniteQuery, useQuery } from "react-query";
 import { fetchApi } from "@/fetchers/api";
 import Loading from "../common/Loading";
 import Layout from "../common/Layout";
 import HeroSearch from "../HeroSearch/HeroSearch";
 import EventList from "./EventList";
-import { API } from "@/utils/domain";
-import { Event } from "@/types";
 
 type Props = {};
 
@@ -51,6 +49,18 @@ const EventPage = (props: Props) => {
         placeholder="Search Event..."
         setKeyword={setKeyword}
       />
+      {keyword ? (
+        searchData?.data ? (
+          <div>
+            Showing {searchData?.data?.total} results for{" "}
+            <strong>{keyword}</strong>
+          </div>
+        ) : (
+          <div>
+            Showing 0 result for <strong>{keyword}</strong>
+          </div>
+        )
+      ) : null}
       {keyword && !searchFetching ? (
         <EventList data={searchData?.data?.data} />
       ) : (

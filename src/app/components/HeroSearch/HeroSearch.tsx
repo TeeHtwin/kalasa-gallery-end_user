@@ -10,8 +10,9 @@ import { useMutation } from "react-query";
 import { searchListApi } from "@/fetchers/api";
 
 export function useSearchListMutation() {
-  return useMutation(({ url, query }: { url: string; query: string }) =>
-    searchListApi(url, query)
+  return useMutation(
+    ({ url, payload }: { url: string; payload: { key: string } }) =>
+      searchListApi(url, payload)
   );
 }
 
@@ -71,9 +72,7 @@ const HeroSearch = ({ name, placeholder, setKeyword }: HeroSearchProps) => {
     const newTimeout = setTimeout(() => {
       const params = new URLSearchParams(searchParams);
       params.set("page", "1");
-      mutate({ url, query: newValue.toLowerCase() });
-      newValue ? params.set("query", newValue) : params.delete("query");
-      replace(`${pathname}?${params.toString()}`);
+      mutate({ url, payload: { key: newValue.toLowerCase() } });
     }, 300); // Delay of 300ms
 
     // Save the new timeout ID

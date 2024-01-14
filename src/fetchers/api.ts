@@ -1,7 +1,6 @@
 const base_url = process.env.NEXT_PUBLIC_BASE_URL ?? "";
 
 export async function fetchApi(url: string) {
-  
   return await fetch(`${base_url}/api/${url}`, {
     headers: {
       Accept: "application/json",
@@ -12,7 +11,7 @@ export async function fetchApi(url: string) {
     .catch((error) => Promise.reject(error));
 }
 
-export async function searchListApi(url: string, query: string) {
+export async function searchListApi(url: string, query: { key: string }) {
   const response = await fetch(`${base_url}/api/${url}`, {
     method: "POST",
     headers: {
@@ -25,7 +24,7 @@ export async function searchListApi(url: string, query: string) {
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }
-  console.log('searh apiiiiiii', query);
-  
+  console.log("searh apiiiiiii", query);
+
   return response.json();
 }
