@@ -5,6 +5,10 @@ import FullscreenImage from "@/app/components/fullscreenImage/fullscreenImage";
 import Layout from "@/app/components/common/Layout";
 import MainLayout from "@/app/components/exhibition/MainLayout";
 import RelativeLayout from "@/app/components/exhibition/RelativeLayout";
+import { API } from "@/utils/domain";
+import { error } from "console";
+import Loading from "@/app/components/common/Loading";
+import { Collection } from "@/types";
 
 const collections = [
   {
@@ -37,7 +41,19 @@ const collections = [
   },
 ];
 
-const page = ({ params }: { params: { id: string } }) => {
+export default async function page({ params }: { params: { id: string } }) {
+  let collection: Collection | null = null;
+  const response = await fetch(`${API}/api/enduser/collection/${params?.id}`)
+    .then((res) => res.json())
+    .catch((error) => console.log(error));
+  if (response?.success) {
+    collection = response?.data;
+  }
+
+  if (!collection) {
+    return <Loading />;
+  }
+
   return (
     <Layout className="lg:px-16 pb-10">
       <Breadcrumb
@@ -53,19 +69,16 @@ const page = ({ params }: { params: { id: string } }) => {
       />
       <MainLayout className="flex  flex-col lg:flex-row items-starts lg:gap-[60px]">
         <div className="flex flex-col md:flex-row gap-10 items-center grow">
-          <FullscreenImage src={img} />
+          <FullscreenImage src={collection?.image} />
           <div className="w-full">
             <p className="font-serif text-xl sm:text-5xl font-normal">
-              Fine China Tea-cup
+              {collection?.title}
             </p>
             <p className="font-sans text-xs sm:text-2xl text-[#BA5006] py-3 sm:py-10">
               Early 1890 - 1900
             </p>
             <p className="max-w-md font-sans text-sm sm:text-base text-[#BA5006]">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
-              adipisci quia hic nulla illo dolore accusantium, enim nostrum
-              tenetur numquam amet accusamus, rerum asperiores, sit est
-              consequatur ea voluptas saepe!
+              {collection.description}
             </p>
           </div>
         </div>
@@ -76,13 +89,13 @@ const page = ({ params }: { params: { id: string } }) => {
         title="Related Collections"
       >
         <div className="py-4 sm:py-20 flex items-start flex-wrap gap-4">
-          {collections.map((collection) => (
+          {collection.related.map((collection) => (
             <div
               key={collection.id}
               className="border-solid border-[1.5px] border-[#883B0A29] h-auto bg-neutral-light mb-4 sm:mb-0 grow basis-80"
             >
               <Image
-                src={collection.img}
+                src={collection.image}
                 alt="collection poster"
                 width={400}
                 height={200}
@@ -100,5 +113,4 @@ const page = ({ params }: { params: { id: string } }) => {
       {/* </section> */}
     </Layout>
   );
-};
-export default page;
+}
