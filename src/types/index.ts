@@ -1,10 +1,9 @@
 export interface Artwork {
-  id: number;
-  title: string;
-  artist: string;
+  name: string;
+  image: string;
   size: string;
-  isAvailable: boolean;
-  thumbnail: string;
+  status: boolean;
+  artist_name: string;
 }
 
 export interface Collection {
