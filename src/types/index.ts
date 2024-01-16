@@ -49,5 +49,5 @@ export interface Event {
 export interface Home {
   events: Event[];
   collections: Collection[];
-  galleries: Artwork[];
+  artworks: Artwork[];
 }

@@ -9,16 +9,23 @@ import Breadcrumb from "@/app/components/breadcrumb/Breadcrumb";
 import Link from "next/link";
 import { API } from "@/utils/domain";
 import { Event } from "@/types";
+import { getEventDate } from "@/utils";
+import ExhibitionCard from "@/app/components/cards/ExhibitionCard";
 
 export default async function page({ params }: { params: { id: string } }) {
   let eventInfo: Event | null = null;
+  let eventTime = "";
   const response = await fetch(`${API}/api/enduser/event/${params?.id}`)
     .then((res) => res.json())
     .catch((error) => console.log("event detail error", error));
   if (response?.success) {
     eventInfo = response?.data;
+    if (eventInfo) {
+      const { opening_datetime, closing_datetime } = eventInfo;
+      eventTime = getEventDate(opening_datetime, closing_datetime);
+    }
   }
-  console.log("event::", eventInfo);
+
   return (
     <ExhibitionLayout>
       <Breadcrumb
@@ -30,9 +37,7 @@ export default async function page({ params }: { params: { id: string } }) {
       />
       <MainLayout className="grid grid-cols-1 items-center md:grid-cols-2 gap-10">
         <Image
-          src={
-            "https://d38b044pevnwc9.cloudfront.net/cutout-nuxt/enhancer/2.jpg"
-          }
+          src={eventInfo?.image ?? ""}
           width={1024}
           height={1024}
           alt="Detail image"
@@ -41,29 +46,12 @@ export default async function page({ params }: { params: { id: string } }) {
         />
 
         <div className="text-primary flex flex-col gap-y-[24px] my-auto">
-          <Title>
-            Discovering The Beauty <br /> of Bangan
-          </Title>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis
-            voluptatem repudiandae optio quo iste non nulla illum nisi qui eum
-            neque harum, modi ipsum provident iusto rerum ullam ratione quasi
-            animi accusamus molestiae voluptas reiciendis. Esse quasi placeat
-            incidunt animi laborum, maxime error nulla quisquam sit veritatis
-            ipsa sequi ea vero temporibus dignissimos minima excepturi dolorem
-            quas vel adipisci itaque eius. Laboriosam asperiores et at amet
-            corporis aliquid reiciendis vitae, iure cumque alias, provident
-            distinctio soluta possimus ab? Illum harum accusantium accusamus aut
-            praesentium porro earum id quod facere itaque enim maxime sequi, non
-            adipisci excepturi obcaecati ipsum nesciunt atque. Provident
-            blanditiis explicabo numquam, optio iure debitis nihil placeat. Vel
-            qui saepe adipisci exercitationntium ducimus laborum mollitia cumque
-            obcaeca
-          </p>
+          <Title>{eventInfo?.title}</Title>
+          <p>{eventInfo?.description}</p>
           <div className="flex flex-col gap-y-[16px]">
             <div className="flex items-center gap-[16px]">
               <CalendarRange />
-              <span className="">August 19 to 23,2023</span>
+              <span className="">{eventTime}</span>
             </div>
             <div className="flex items-center gap-[16px]">
               <Clock />
@@ -71,21 +59,24 @@ export default async function page({ params }: { params: { id: string } }) {
             </div>
             <div className="flex items-center gap-[16px]">
               <MapPin />
-              <span>At Kalasa Art Space</span>
+              <span>At {eventInfo?.location}</span>
             </div>
           </div>
-          <Link href={`/events/${params.id}/contact`}>
-            <button className="text-white p-[8px] bg-primary w-[220px] py-2.5">
-              Inquiry To Come
-            </button>
-          </Link>
+          {eventInfo?.status && (
+            <Link href={`/events/${params.id}/contact`}>
+              <button className="text-white p-[8px] bg-primary w-[220px] py-2.5">
+                Inquiry To Come
+              </button>
+            </Link>
+          )}
         </div>
       </MainLayout>
       <RelativeLayout title="Related Events">
         <div className="mt-5 lg:mt-20 flex justify-between w-full gap-[10px] flex-col lg:flex-row">
-          {/* {response?.data.map((info: Event, index: number) => (
-            <Exhibition key={index} info={info} />
-          ))} */}
+          {eventInfo?.related &&
+            eventInfo?.related.map((info: Event, index: number) => (
+              <ExhibitionCard key={index} info={info} />
+            ))}
         </div>
       </RelativeLayout>
     </ExhibitionLayout>
