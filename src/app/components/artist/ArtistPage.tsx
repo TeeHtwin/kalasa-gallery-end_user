@@ -1,17 +1,18 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useInfiniteQuery, useQuery } from "react-query";
-import Pagination from "@/app/components/pagination/Pagination";
-import { fetchArtist } from "@/fetchers";
 import ArtistList from "./ArtistList";
 import Loading from "../common/Loading";
-import fetchApi from "@/fetchers/api";
+import { fetchApi } from "@/fetchers/api";
+import Layout from "../common/Layout";
+import HeroSearch from "../HeroSearch/HeroSearch";
 
 const ArtistPage = () => {
+  const [keyword, setKeyword] = useState("");
   const {
     data: response,
-    isSuccess,
+    isFetching,
     hasNextPage,
     hasPreviousPage,
   } = useInfiniteQuery({
@@ -27,14 +28,43 @@ const ArtistPage = () => {
       return pagination?.from < pagination?.current_page;
     },
   });
-  if (!isSuccess) {
+  const { data: searchData, isFetching: searchFetching } = useQuery({
+    queryKey: ["artists", keyword],
+    queryFn: () => fetchApi(`enduser/artist/search-by-name?q=${keyword}`),
+  });
+  if (isFetching) {
     return <Loading />;
   }
 
   const apiResponse = response?.pages[0]["data"];
   const artists = apiResponse ? apiResponse?.data : [];
 
-  return <ArtistList data={artists} />;
+  return (
+    <Layout>
+      <HeroSearch
+        name="Our Artists"
+        placeholder="Search Artist..."
+        setKeyword={setKeyword}
+      />
+      {keyword ? (
+        searchData?.data ? (
+          <div>
+            Showing {searchData?.data?.total} results for{" "}
+            <strong>{keyword}</strong>
+          </div>
+        ) : (
+          <div>
+            Showing 0 result for <strong>{keyword}</strong>
+          </div>
+        )
+      ) : null}
+      {keyword && !searchFetching ? (
+        <ArtistList data={searchData?.data?.data} />
+      ) : (
+        <ArtistList data={artists} />
+      )}
+    </Layout>
+  );
 };
 
 export default ArtistPage;

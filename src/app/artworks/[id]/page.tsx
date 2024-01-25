@@ -1,4 +1,3 @@
-import img from "@/app/artworks/[id]/artwork_poster.png";
 import Image from "next/image";
 import profile from "@/app/artworks/[id]/artist_profile.png";
 import Breadcrumb from "@/app/components/breadcrumb/Breadcrumb";
@@ -10,42 +9,14 @@ import clsx from "clsx";
 import { API } from "@/utils/domain";
 import { Artwork } from "@/types";
 
-const artworks = [
-  {
-    id: 11,
-    img: "https://placekitten.com/400/600",
-    title: "Art of Mother by Wood",
-    info: "(18 x 24)inches A/C",
-    author: "Sai Tun Oo",
-  },
-
-  {
-    id: 13,
-    img: "https://placekitten.com/800/1200",
-    title: "Art of Mother by Wood",
-    info: "(18 x 24)inches A/C",
-    author: "Sai Tun Oo",
-  },
-  {
-    id: 12,
-    img: "https://placekitten.com/600/800",
-    title: "Art of Mother by Wood",
-    info: "(18 x 24)inches A/C",
-    author: "Sai Tun Oo",
-  },
-];
-
 export default async function page({ params }: { params: { id: string } }) {
-  const response: Artwork = await fetch(
+  const { data: artwork }: { data: Artwork } = await fetch(
     `${API}/api/enduser/artwork/${params?.id}`
   )
     .then((res) => res.json())
     .catch((error) => console.log("artwork detail error", error));
 
-  console.log("response::", response);
   // status for the artwork is available or not
-  const status = true;
-  const name = "Like life Artwork";
 
   return (
     <Layout className="lg:px-20 pb-10">
@@ -63,7 +34,7 @@ export default async function page({ params }: { params: { id: string } }) {
 
       <MainLayout className="flex flex-col lg:flex-row items-starts gap-5 sm:gap-[60px]  text-primary">
         <Image
-          src={response?.image}
+          src={artwork?.image}
           width={600}
           height={400}
           alt="collection poster"
@@ -72,21 +43,21 @@ export default async function page({ params }: { params: { id: string } }) {
         <div className="w-full flex flex-col justify-center content-center gap-7">
           <div className="flex justify-start items-center gap-4">
             <p className="font-serif text-2xl sm:text-5xl font-normal inline-flex">
-              {response?.name}
+              {artwork?.name}
             </p>
             <div
               className={`inline-flex items-center text-xs font-medium px-2.5 py-0.5 rounded-full ${clsx(
-                status
+                artwork?.status
                   ? "bg-green-900 text-green-300"
                   : "bg-red-900 text-red-100"
               )}  h-5 sm:h-6`}
             >
               <span
                 className={`w-2 h-2 me-1 ${clsx(
-                  status ? "bg-green-500" : "bg-red-500"
+                  artwork?.status ? "bg-green-500" : "bg-red-500"
                 )}  rounded-full `}
               ></span>
-              {clsx(response?.status ? "Available" : "Sold Out")}
+              {clsx(artwork?.status ? "Available" : "Sold Out")}
             </div>
           </div>
           <div className="inline-flex items-center gap-4">
@@ -98,28 +69,25 @@ export default async function page({ params }: { params: { id: string } }) {
               alt="Rounded avatar"
             />
             <p className="font-sans text-xs sm:text-2xl text-[#BA5006]">
-              Artist {response?.artist_name}
+              Artist {artwork?.artist_name}
             </p>
           </div>
 
           <p className="max-w-md font-sans text-sm sm:text-base text-[#BA5006] ">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
-            adipisci quia hic nulla illo dolore accusantium, enim nostrum
-            tenetur numquam amet accusamus, rerum asperiores, sit est
-            consequatur ea voluptas saepe!
+            {artwork?.description}
           </p>
 
-          {response?.status && (
+          {artwork?.status && (
             <Link
               href={{
                 pathname: `/artworks/${params.id}/contact`,
-                query: { name: name },
+                query: { name: artwork?.name },
               }}
             >
               <button
                 type="button"
                 className={`text-white bg-primary px-7 py-3 block w-fit ${clsx(
-                  status ? "block" : "hidden"
+                  artwork?.status ? "block" : "hidden"
                 )}`}
               >
                 Inquiry To Buy
@@ -131,26 +99,26 @@ export default async function page({ params }: { params: { id: string } }) {
 
       <RelativeLayout title="Artworks">
         <div className=" text-primary py-4 flex items-start flex-wrap gap-4">
-          {artworks.map((artwork) => (
+          {artwork?.related?.map((artwork, index) => (
             <div
-              key={artwork.id}
+              key={index}
               className="border-solid border-[1.5px] border-[#883B0A29] h-auto bg-neutral-light mb-4 sm:mb-0 grow basis-80"
             >
               <Image
-                src={artwork.img}
+                src={artwork.image}
                 alt="artwork poster"
                 width={400}
                 height={200}
                 className="object-cover w-full h-96 p-1"
               />
-              <p className="p-4 font-semibold text-2xl">{artwork.title}</p>
+              <p className="p-4 font-semibold text-2xl">{artwork.name}</p>
               <div className="flex justify-between p-3">
                 <div>
-                  <p className="pb-1">By {artwork.author}</p>
-                  <p className="text-sm">{artwork.info}</p>
+                  <p className="pb-1">By {artwork.artist_name}</p>
+                  {/* <p className="text-sm">{artwork.info}</p> */}
                 </div>
                 <Link
-                  href={artwork.id.toString()}
+                  href={`/artworks`}
                   className="border-solid border-[1.5px] border-primary py-3 px-7"
                 >
                   View Details
