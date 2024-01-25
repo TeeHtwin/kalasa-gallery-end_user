@@ -7,6 +7,8 @@ import MainLayout from "@/app/components/exhibition/MainLayout";
 import RelativeLayout from "@/app/components/exhibition/RelativeLayout";
 import Layout from "@/app/components/common/Layout";
 import clsx from "clsx";
+import { API } from "@/utils/domain";
+import { Artwork } from "@/types";
 
 const artworks = [
   {
@@ -33,11 +35,17 @@ const artworks = [
   },
 ];
 
-const page = ({ params }: { params: { id: string } }) => {
+export default async function page({ params }: { params: { id: string } }) {
+  const response: Artwork = await fetch(
+    `${API}/api/enduser/artwork/${params?.id}`
+  )
+    .then((res) => res.json())
+    .catch((error) => console.log("artwork detail error", error));
 
+  console.log("response::", response);
   // status for the artwork is available or not
-  const status = true 
-  const name = 'Like life Artwork'
+  const status = true;
+  const name = "Like life Artwork";
 
   return (
     <Layout className="lg:px-20 pb-10">
@@ -55,7 +63,7 @@ const page = ({ params }: { params: { id: string } }) => {
 
       <MainLayout className="flex flex-col lg:flex-row items-starts gap-5 sm:gap-[60px]  text-primary">
         <Image
-          src={img}
+          src={response?.image}
           width={600}
           height={400}
           alt="collection poster"
@@ -64,11 +72,21 @@ const page = ({ params }: { params: { id: string } }) => {
         <div className="w-full flex flex-col justify-center content-center gap-7">
           <div className="flex justify-start items-center gap-4">
             <p className="font-serif text-2xl sm:text-5xl font-normal inline-flex">
-              {name}
+              {response?.name}
             </p>
-            <div className={`inline-flex items-center text-xs font-medium px-2.5 py-0.5 rounded-full ${clsx(status? 'bg-green-900 text-green-300' : 'bg-red-900 text-red-100')}  h-5 sm:h-6`}>
-              <span className={`w-2 h-2 me-1 ${clsx(status? 'bg-green-500' : 'bg-red-500')}  rounded-full `}></span>
-              {clsx(status? 'Available' : 'Sold Out')}
+            <div
+              className={`inline-flex items-center text-xs font-medium px-2.5 py-0.5 rounded-full ${clsx(
+                status
+                  ? "bg-green-900 text-green-300"
+                  : "bg-red-900 text-red-100"
+              )}  h-5 sm:h-6`}
+            >
+              <span
+                className={`w-2 h-2 me-1 ${clsx(
+                  status ? "bg-green-500" : "bg-red-500"
+                )}  rounded-full `}
+              ></span>
+              {clsx(response?.status ? "Available" : "Sold Out")}
             </div>
           </div>
           <div className="inline-flex items-center gap-4">
@@ -76,11 +94,11 @@ const page = ({ params }: { params: { id: string } }) => {
               width={300}
               height={100}
               className="w-10 h-10 rounded-full"
-              src={profile} 
+              src={profile}
               alt="Rounded avatar"
             />
             <p className="font-sans text-xs sm:text-2xl text-[#BA5006]">
-              Artist Khin Maung Yin
+              Artist {response?.artist_name}
             </p>
           </div>
 
@@ -91,17 +109,23 @@ const page = ({ params }: { params: { id: string } }) => {
             consequatur ea voluptas saepe!
           </p>
 
-          <Link href={{ 
-            pathname: `/artworks/${params.id}/contact`,
-            query: {name: name },
-            }}>
-            <button
-              type="button"
-              className={`text-white bg-primary px-7 py-3 block w-fit ${clsx( status? 'block' : 'hidden' )}`}
+          {response?.status && (
+            <Link
+              href={{
+                pathname: `/artworks/${params.id}/contact`,
+                query: { name: name },
+              }}
             >
-              Inquiry To Buy
-            </button>
-          </Link>
+              <button
+                type="button"
+                className={`text-white bg-primary px-7 py-3 block w-fit ${clsx(
+                  status ? "block" : "hidden"
+                )}`}
+              >
+                Inquiry To Buy
+              </button>
+            </Link>
+          )}
         </div>
       </MainLayout>
 
@@ -119,9 +143,7 @@ const page = ({ params }: { params: { id: string } }) => {
                 height={200}
                 className="object-cover w-full h-96 p-1"
               />
-              <p className="p-4 font-semibold text-2xl">
-                {artwork.title}
-              </p>
+              <p className="p-4 font-semibold text-2xl">{artwork.title}</p>
               <div className="flex justify-between p-3">
                 <div>
                   <p className="pb-1">By {artwork.author}</p>
@@ -140,5 +162,4 @@ const page = ({ params }: { params: { id: string } }) => {
       </RelativeLayout>
     </Layout>
   );
-};
-export default page;
+}

@@ -9,11 +9,12 @@ import Breadcrumb from "@/app/components/breadcrumb/Breadcrumb";
 import Link from "next/link";
 import { API } from "@/utils/domain";
 import { Event } from "@/types";
-import { getEventDate } from "@/utils";
+import { getEventDate, getEventTime } from "@/utils";
 import ExhibitionCard from "@/app/components/cards/ExhibitionCard";
 
 export default async function page({ params }: { params: { id: string } }) {
   let eventInfo: Event | null = null;
+  let eventDate = "";
   let eventTime = "";
   const response = await fetch(`${API}/api/enduser/event/${params?.id}`)
     .then((res) => res.json())
@@ -22,7 +23,8 @@ export default async function page({ params }: { params: { id: string } }) {
     eventInfo = response?.data;
     if (eventInfo) {
       const { opening_datetime, closing_datetime } = eventInfo;
-      eventTime = getEventDate(opening_datetime, closing_datetime);
+      eventDate = getEventDate(opening_datetime, closing_datetime);
+      eventTime = getEventTime(opening_datetime, closing_datetime);
     }
   }
 
@@ -51,11 +53,11 @@ export default async function page({ params }: { params: { id: string } }) {
           <div className="flex flex-col gap-y-[16px]">
             <div className="flex items-center gap-[16px]">
               <CalendarRange />
-              <span className="">{eventTime}</span>
+              <span className="">{eventDate}</span>
             </div>
             <div className="flex items-center gap-[16px]">
               <Clock />
-              <span>12 AM to 4:30 PM</span>
+              <span>{eventTime}</span>
             </div>
             <div className="flex items-center gap-[16px]">
               <MapPin />

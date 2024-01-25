@@ -17,5 +17,13 @@ export function getEventTime(startDate: string, endDate: string) {
   const startTime = DateTime.fromFormat(
     startDate,
     "yyyy-MM-dd HH:mm:ss"
-  ).toFormat("");
+  ).toLocaleString({
+    hour: "numeric",
+    minute: "2-digit",
+  });
+  const endTime = DateTime.fromFormat(
+    endDate,
+    "yyyy-MM-dd HH:mm:ss"
+  ).toLocaleString({ hour: "numeric", minute: "2-digit" });
+  return `${startTime} to ${endTime}`;
 }
