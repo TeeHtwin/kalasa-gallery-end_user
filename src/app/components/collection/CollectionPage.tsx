@@ -1,19 +1,20 @@
 "use client";
 
-import React from "react";
-import Pagination from "@/app/components/pagination/Pagination";
+import React, { useState } from "react";
 import Collection from "./Collection";
 import { useInfiniteQuery, useQuery } from "react-query";
-import { fetchCollection } from "@/fetchers";
 import Loading from "../common/Loading";
-import fetchApi from "@/fetchers/api";
+import { fetchApi } from "@/fetchers/api";
+import Layout from "../common/Layout";
+import HeroSearch from "../HeroSearch/HeroSearch";
 
 type Props = {};
 
 const CollectionPage = (props: Props) => {
+  const [keyword, setKeyword] = useState("");
   const {
     data: response,
-    isSuccess,
+    isFetching,
     hasNextPage,
     hasPreviousPage,
   } = useInfiniteQuery({
@@ -29,13 +30,42 @@ const CollectionPage = (props: Props) => {
       return pagination.from < pagination?.current_page;
     },
   });
-  if (!isSuccess) {
+  const { data: searchData, isFetching: searchFetching } = useQuery({
+    queryKey: ["collections", keyword],
+    queryFn: () => fetchApi(`enduser/collection/search-by-name?q=${keyword}`),
+  });
+  if (isFetching) {
     return <Loading />;
   }
 
   const apiResponse = response?.pages[0]["data"];
   const collections = apiResponse ? apiResponse?.data : [];
-  return <Collection data={collections ?? null} />;
+  return (
+    <Layout>
+      <HeroSearch
+        name="Our Collections"
+        placeholder="Search Collection..."
+        setKeyword={setKeyword}
+      />
+      {keyword ? (
+        searchData?.data ? (
+          <div>
+            Showing {searchData?.data?.total} results for{" "}
+            <strong>{keyword}</strong>
+          </div>
+        ) : (
+          <div>
+            Showing 0 result for <strong>{keyword}</strong>
+          </div>
+        )
+      ) : null}
+      {keyword && !searchFetching ? (
+        <Collection data={searchData?.data?.data} />
+      ) : (
+        <Collection data={collections ?? null} />
+      )}
+    </Layout>
+  );
 };
 
 export default CollectionPage;
