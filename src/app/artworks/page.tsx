@@ -6,7 +6,7 @@ import HeroSearch from "../components/HeroSearch/HeroSearch";
 const page = () => {
   return (
     <Layout>
-      <HeroSearch name='Our Artworks' placeholder="Search Artwork..."/>
+      <HeroSearch name="Our Artworks" placeholder="Search Artwork..." />
       <GalleryPage />
     </Layout>
   );

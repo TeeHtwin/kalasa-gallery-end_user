@@ -6,7 +6,7 @@ import { useQuery } from "react-query";
 import GalleryList from "@/app/components/gallery/GalleryList";
 import Pagination from "@/app/components/pagination/Pagination";
 import Loading from "../common/Loading";
-import fetchApi from "@/fetchers/api";
+import { fetchApi } from "@/fetchers/api";
 import NoResult from "../common/NoResult";
 
 const GalleryPage = () => {
@@ -15,13 +15,15 @@ const GalleryPage = () => {
     queryFn: () => fetchApi("enduser/artwork/list"),
   });
 
+  console.log(artworkList?.data?.data);
+
   if (isLoading) {
     return <Loading />;
   }
   return (
     <>
-      {artworkList?.data?.length > 0 ? (
-        <GalleryList data={artworkList ?? null} />
+      {artworkList?.data?.data.length > 0 ? (
+        <GalleryList data={artworkList.data.data ?? null} />
       ) : (
         <NoResult />
       )}
