@@ -15,11 +15,8 @@ const HeroSection = (props: Props) => {
           A Space where there is Heart, there is Art
         </Title>
         <p className="text-center w-full text-white text-sm  lg:text-lg font-medium font-inter leading-[26px] lg:leading-10 px-[14px]">
-          We need to work then give time for Heart. If you would love to feed
-          your soul and heart, don’t forget to visit Kalasa Art. You can enjoy
-          various art works for your soul and fresh healthy juice for your body
-          here. Don’t miss it out, my dear all. We open daily 9:30 Am to 9:00 Pm
-          daily.
+          Where art meets heart. Founded by Ma Su Htwe and Htoo Aung Kyaw, we showcase the works of Aung Myint and other Myanmar artists. 
+          We also offer art healing workshops and rare book collections. Come and join us at KALASA, the home for Myanmar’s art and healing.
         </p>
       </div>
 
