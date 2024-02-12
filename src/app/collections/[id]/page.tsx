@@ -6,40 +6,8 @@ import Layout from "@/app/components/common/Layout";
 import MainLayout from "@/app/components/exhibition/MainLayout";
 import RelativeLayout from "@/app/components/exhibition/RelativeLayout";
 import { API } from "@/utils/domain";
-import { error } from "console";
 import Loading from "@/app/components/common/Loading";
 import { Collection } from "@/types";
-
-const collections = [
-  {
-    id: 11,
-    img: "https://placekitten.com/400/600",
-    title: "The Whispers of Legend",
-    content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis dolorem quod aut placeat exercitationem, explicabo, labore nulla repudiandae aspernatur, aperiam recusandae neque quas sit cupiditate velit provident maxime sequi in.",
-    author: "Sai Tun Oo",
-    date: "Sept 15, 2023",
-  },
-
-  {
-    id: 13,
-    img: "https://placekitten.com/800/1200",
-    title: "The squares of balance in society",
-    content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis dolorem quod aut placeat exercitationem, explicabo, labore nulla repudiandae aspernatur, aperiam recusandae neque quas sit cupiditate velit provident maxime sequi in.",
-    author: "Sai Tun Oo",
-    date: "Sept 15, 2023",
-  },
-  {
-    id: 12,
-    img: "https://placekitten.com/600/800",
-    title: "Perception",
-    content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis dolorem quod aut placeat exercitationem, explicabo, labore nulla repudiandae aspernatur, aperiam recusandae neque quas sit cupiditate velit provident maxime sequi in.",
-    author: "Sai Tun Oo",
-    date: "Sept 15, 2023",
-  },
-];
 
 export default async function page({ params }: { params: { id: string } }) {
   let collection: Collection | null = null;
