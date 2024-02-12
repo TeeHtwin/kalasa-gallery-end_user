@@ -6,10 +6,11 @@ import img from "@/app/blogs/[id]/blog_img.png";
 import Breadcrumb from "@/app/components/breadcrumb/Breadcrumb";
 import Link from "next/link";
 import { useQuery } from "react-query";
-import fetchApi from "@/fetchers/api";
+import { fetchApi } from "@/fetchers/api";
 import Loading from "../common/Loading";
 import { Blog } from "@/types";
 import { useRouter } from "next/navigation";
+import { DateTime } from "luxon";
 
 type Props = {};
 
@@ -22,10 +23,11 @@ const BlogDetailedPage = ({ blogId }: { blogId: string }) => {
     isError,
     error,
   } = useQuery({
-    queryKey: ["blog"],
+    queryKey: ["blog", blogId],
     queryFn: () => fetchApi(`enduser/blog/${blogId}`),
   });
 
+  console.log("blog detail::", response);
   if (isLoading) {
     return <Loading />;
   }
@@ -49,13 +51,15 @@ const BlogDetailedPage = ({ blogId }: { blogId: string }) => {
           <div className="px-4 sm:px-10 lg:px-18">
             <Image
               src={img}
-              alt=""
+              alt={blogDetailed?.title}
               width={700}
               height={475}
               className="m-auto"
             />
             <p className="font-sans text-xs sm:text-lg font-extralight text-left sm:text-center py-4 sm:py-16">
-              By Sai Tun Oo | Sept 15, 2023
+              {DateTime.fromISO(blogDetailed.created_at).toFormat(
+                "LLLL dd, yyyy"
+              )}
             </p>
             <div className="max-w-screen-xl m-auto">
               <p className="font-serif font-semibold text-xl sm:text-5xl text-left sm:text-center ">
@@ -76,35 +80,39 @@ const BlogDetailedPage = ({ blogId }: { blogId: string }) => {
                 </button>
                 <button className="block md:hidden">See More</button>
               </div>
-              {/* <div className="py-4 sm:py-20 flex items-start flex-wrap gap-4">
-              {blogs.map((blog) => (
-                <div
-                  key={blog.id}
-                  className="border-solid border-[1.5px] border-[#883B0A29] grow basis-80"
-                >
-                  <Image
-                    src={blog.img}
-                    alt="blog poster"
-                    width={600}
-                    height={800}
-                    className="w-full object-cover h-[300px] sm:h-[400px]"
-                  />
-                  <div className="py-3 px-3">
-                    <p className="font-sans text-base font-extralight">
-                      By {blog.author} | {blog.date}
-                    </p>
-                    <p className="py-4 font-semibold text-2xl">{blog.title}</p>
-                    <p>{blog.content.slice(0, 130)}...</p>
-                    <Link
-                      href={blog.id.toString()}
-                      className="pt-5 text-lg font-sans font-medium"
-                    >
-                      Read more →
-                    </Link>
+              <div className="py-4 sm:py-20 flex items-start flex-wrap gap-4">
+                {blogDetailed?.related?.map((blog) => (
+                  <div
+                    key={blog.id}
+                    className="border-solid border-[1.5px] border-[#883B0A29] grow basis-80"
+                  >
+                    <Image
+                      src={img}
+                      alt="blog poster"
+                      width={600}
+                      height={800}
+                      className="w-full object-cover h-[300px] sm:h-[400px]"
+                    />
+                    <div className="py-3 px-3">
+                      <p className="font-sans text-base font-extralight">
+                        {DateTime.fromISO(blog.created_at).toFormat(
+                          "LLLL dd, yyyy"
+                        )}
+                      </p>
+                      <p className="py-4 font-semibold text-2xl">
+                        {blog.title}
+                      </p>
+                      <p>{blog.description.slice(0, 130)}...</p>
+                      <Link
+                        href={blog.id.toString()}
+                        className="pt-5 text-lg font-sans font-medium"
+                      >
+                        Read more →
+                      </Link>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div> */}
+                ))}
+              </div>
             </div>
           </div>
         )}

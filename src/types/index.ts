@@ -1,10 +1,16 @@
 export interface Artwork {
   id: number;
   name: string;
-  artist_name: string;
-  size: string;
-  status: boolean;
   image: string;
+  artist_id: number;
+  year: number;
+  category_id: number;
+  size: string;
+  description: string;
+  price: number;
+  status: boolean;
+  artist_name: string;
+  related: Artwork[];
 }
 
 export interface Collection {
@@ -31,6 +37,9 @@ export interface Blog {
   title: string;
   image: string;
   description: string;
+  created_at: string;
+  updated_at: string;
+  related: Blog[];
   // author: string;
   // date: string;
 }
@@ -50,5 +59,5 @@ export interface Event {
 export interface Home {
   events: Event[];
   collections: Collection[];
-  galleries: Artwork[];
+  artworks: Artwork[];
 }

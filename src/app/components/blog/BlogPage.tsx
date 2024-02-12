@@ -1,16 +1,18 @@
 "use client";
 
-import { fetchBlog } from "@/fetchers";
-import React from "react";
+import React, { useState } from "react";
 import { useInfiniteQuery, useQuery } from "react-query";
 import Loading from "../common/Loading";
 import BlogList from "./BlogList";
-import fetchApi from "@/fetchers/api";
+import { fetchApi } from "@/fetchers/api";
+import Layout from "../common/Layout";
+import HeroSearch from "../HeroSearch/HeroSearch";
 
 const BlogPage = () => {
+  const [keyword, setKeyword] = useState("");
   const {
     data: response,
-    isSuccess,
+    isFetching,
     hasNextPage,
     hasPreviousPage,
   } = useInfiniteQuery({
@@ -27,13 +29,43 @@ const BlogPage = () => {
     },
   });
 
-  if (!isSuccess) {
+  const { data: searchData, isFetching: searchFetching } = useQuery({
+    queryKey: ["blogs", keyword],
+    queryFn: () => fetchApi(`enduser/blog/search-by-name?q=${keyword}`),
+  });
+
+  if (isFetching) {
     return <Loading />;
   }
   const apiResponse = response?.pages[0]["data"];
   const blogs = apiResponse ? apiResponse?.data : [];
 
-  return <BlogList blogs={blogs} />;
+  return (
+    <Layout>
+      <HeroSearch
+        name="Our Blogs"
+        placeholder="Search Blogs..."
+        setKeyword={setKeyword}
+      />
+      {keyword ? (
+        searchData?.data ? (
+          <div>
+            Showing {searchData?.data?.total} results for{" "}
+            <strong>{keyword}</strong>
+          </div>
+        ) : (
+          <div>
+            Showing 0 result for <strong>{keyword}</strong>
+          </div>
+        )
+      ) : null}
+      {keyword && !searchFetching ? (
+        <BlogList blogs={searchData?.data?.data} />
+      ) : (
+        <BlogList blogs={blogs} />
+      )}
+    </Layout>
+  );
 };
 
 export default BlogPage;

@@ -4,12 +4,7 @@ import GalleryPage from "../components/gallery/GalleryPage";
 import HeroSearch from "../components/HeroSearch/HeroSearch";
 
 const page = () => {
-  return (
-    <Layout>
-      <HeroSearch name="Our Artworks" placeholder="Search Artwork..." />
-      <GalleryPage />
-    </Layout>
-  );
+  return <GalleryPage />;
 };
 
 export default page;

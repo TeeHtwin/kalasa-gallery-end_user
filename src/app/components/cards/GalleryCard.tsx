@@ -2,22 +2,12 @@ import React from "react";
 import Image from "next/image";
 import Paragraph from "../common/Text/Paragraph";
 import Link from "next/link";
+import { Artwork } from "@/types";
 
-interface GalleryCardProps {
-  info: {
-    id: number;
-    name: string;
-    artist_name: string;
-    size: string;
-    status: boolean;
-    image: string;
-  };
-}
-
-const GalleryCard = ({ info }: GalleryCardProps) => {
+const GalleryCard = ({ info }: { info: Artwork }) => {
   const hrefId = info.id.toString();
   return (
-    <Link href={`/artworks/${hrefId}`}>
+    <Link href={`/artworks/${info?.id}`}>
       <div className="relative border p-2">
         <Image
           src={info?.image}

@@ -12,15 +12,16 @@ import Collection from "./components/collection/Collection";
 import GalleryList from "./components/gallery/GalleryList";
 import HeroSection from "./components/home/HeroSection";
 import ExhibitionCard from "@/app/components/cards/ExhibitionCard";
-import { Event } from "@/types";
+import { Event, Home } from "@/types";
 import data from "@/data/index";
+import { API } from "@/utils/domain";
 
 export default async function page() {
-  const homeData = {
-    events: data.events?.slice(0, 3),
-    collections: data.collections.slice(0, 6),
-    galleries: data.galleries.slice(0, 6),
-  };
+  const response = await fetch(`${API}/api/enduser/home`)
+    .then((res) => res.json())
+    .catch((error) => console.log("error::", error));
+
+  const homeData: Home = response?.data;
   return (
     <>
       <HeroSection />
@@ -80,7 +81,7 @@ export default async function page() {
             mobileText="See all"
           />
         </div>
-        <GalleryList data={homeData?.galleries} />
+        <GalleryList data={homeData?.artworks} />
       </Layout>
       <ContactUs />
     </>

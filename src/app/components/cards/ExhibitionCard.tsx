@@ -5,6 +5,7 @@ import Paragraph from "../common/Text/Paragraph";
 import LinkBtn from "../button/LinkBtn";
 import { Event } from "@/types";
 import { DateTime } from "luxon";
+import { getEventDate } from "@/utils";
 
 const ExhibitionCard = ({ info }: { info: Event }) => {
   const {
@@ -18,15 +19,7 @@ const ExhibitionCard = ({ info }: { info: Event }) => {
     closing_datetime,
     related,
   } = info;
-  const startTime = DateTime.fromFormat(
-    opening_datetime,
-    "yyyy-MM-dd HH:mm:ss"
-  ).toFormat("MMMM dd");
-  const endTime = DateTime.fromFormat(
-    closing_datetime,
-    "yyyy-MM-dd HH:mm:ss"
-  ).toFormat("dd");
-  const year = closing_datetime?.split("-")[0];
+  const eventTime = getEventDate(opening_datetime, closing_datetime);
   return (
     <div className="px-4 pt-2 pb-8 w-full lg:pb-11 border border-opacity-20 border-primary">
       <Image
@@ -39,9 +32,7 @@ const ExhibitionCard = ({ info }: { info: Event }) => {
       <TitleInter className="mt-4">{title}</TitleInter>
       <div className="mt-4 flex justify-between">
         <div className="flex flex-col gap-2">
-          <Paragraph>
-            {startTime} to {endTime}, {year}
-          </Paragraph>
+          <Paragraph>{eventTime}</Paragraph>
           <Paragraph>At {location}</Paragraph>
         </div>
 
