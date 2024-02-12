@@ -6,12 +6,12 @@ import Pagination from "@/app/components/pagination/Pagination";
 import { fetchArtist } from "@/fetchers";
 import ArtistList from "./ArtistList";
 import Loading from "../common/Loading";
-import fetchApi from "@/fetchers/api";
+import { fetchApi } from "@/fetchers/api";
 
 const ArtistPage = () => {
   const {
     data: response,
-    isSuccess,
+    isFetching,
     hasNextPage,
     hasPreviousPage,
   } = useInfiniteQuery({
@@ -27,7 +27,7 @@ const ArtistPage = () => {
       return pagination?.from < pagination?.current_page;
     },
   });
-  if (!isSuccess) {
+  if (isFetching) {
     return <Loading />;
   }
 
