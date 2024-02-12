@@ -10,6 +10,7 @@ export interface Artwork {
   price: number;
   status: boolean;
   artist_name: string;
+  isAvailable: boolean;
   related: Artwork[];
 }
 
