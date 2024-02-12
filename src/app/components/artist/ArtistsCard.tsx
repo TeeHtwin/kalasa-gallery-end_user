@@ -5,7 +5,7 @@ import Paragraph from "../common/Text/Paragraph";
 import { Artist } from "@/types";
 
 const ArtistsCard = ({
-  profile,
+  profile_image,
   id,
   name,
   description,
@@ -15,7 +15,7 @@ const ArtistsCard = ({
   return (
     <div className="border-solid border-[1.5px] border-[#883B0A29]">
       <Image
-        src={profile}
+        src={profile_image}
         className="aspect-square w-auto h-auto"
         alt="artist"
         width={300}

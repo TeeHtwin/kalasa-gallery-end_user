@@ -39,7 +39,7 @@ export default async function page({ params }: { params: { id: string } }) {
       <MainLayout className="flex  flex-col lg:flex-row items-starts lg:gap-[60px]">
         <Image
           src={
-            artistInfo?.profile ??
+            artistInfo?.profile_image ??
             "https://d38b044pevnwc9.cloudfront.net/cutout-nuxt/enhancer/2.jpg"
           }
           alt="Profile image"

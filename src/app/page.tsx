@@ -40,16 +40,16 @@ export default async function page() {
           ))}
         </div>
       </Layout>
-      <Layout className="lg:p-20 text-primary lg:text-5xl">
+      <Layout>
         <div className="flex justify-between">
-          <Title>Explore Our Collection</Title>
+          <Title className="text-primary">Our Artwork Collection</Title>
           <LinkBtn
-            href="/collections"
+            href="/artworks"
             dtText="View All Collection"
             mobileText="See all"
           />
         </div>
-        <Collection data={homeData?.collections} />
+        <GalleryList data={homeData?.artworks} />
       </Layout>
 
       <Layout className="lg:p-0 grid grid-cols-1 lg:grid-cols-2 bg-primary-light text-primary lg:text-5xl">
@@ -72,16 +72,17 @@ export default async function page() {
           alt="about us"
         />
       </Layout>
-      <Layout>
+      {/* collection */}
+      <Layout className="lg:p-20 text-primary lg:text-5xl">
         <div className="flex justify-between">
-          <Title className="text-primary">Our Artwork Collection</Title>
+          <Title>Explore Our Collection</Title>
           <LinkBtn
-            href="/artworks"
+            href="/collections"
             dtText="View All Collection"
             mobileText="See all"
           />
         </div>
-        <GalleryList data={homeData?.artworks} />
+        <Collection data={homeData?.collections} />
       </Layout>
       <ContactUs />
     </>

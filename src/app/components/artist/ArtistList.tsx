@@ -8,6 +8,8 @@ interface ArtistListProps {
 }
 
 const ArtistList = ({ data }: ArtistListProps) => {
+  console.log(data);
+
   return (
     <div className="grid grid-rows-4 mt-5 lg:mt-10 grid-cols-2 lg:grid-rows-2 lg:grid-cols-4 gap-2 lg:gap-5">
       {data?.map((info) => (

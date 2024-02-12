@@ -28,7 +28,7 @@ const Footer = () => {
     },
     {
       icon: locationOutlineIcon,
-      href: "/",
+      href: "https://maps.app.goo.gl/Gvbh15eQSUFA8c4j8",
     },
   ];
 

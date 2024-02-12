@@ -26,7 +26,7 @@ export interface Collection {
 
 export interface Artist {
   id: number;
-  profile: string;
+  profile_image: string;
   name: string;
   description: string;
   total_artwork: number;
