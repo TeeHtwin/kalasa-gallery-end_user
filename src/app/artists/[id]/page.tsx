@@ -21,44 +21,7 @@ export default async function page({ params }: { params: { id: string } }) {
   if (response?.success) {
     artistInfo = response?.data;
   }
-  const artworkList = [
-    {
-      id: 1,
-      title: "Art of Mother by Wood",
-      artist: "Khin Maung Yin",
-      size: "(18 x 24) inches AC",
-      isAvailable: true,
-      thumbnail:
-        "https://plus.unsplash.com/premium_photo-1668104454442-a251cc42ee58?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-      id: 2,
-      title: "Art of Mother by Wood",
-      artist: "Khin Maung Yin",
-      size: "(18 x 24) inches AC",
-      isAvailable: false,
-      thumbnail:
-        "https://images.unsplash.com/photo-1682686580186-b55d2a91053c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8",
-    },
-    {
-      id: 3,
-      title: "Art of Mother by Wood",
-      artist: "Khin Maung Yin",
-      size: "(18 x 24) inches AC",
-      isAvailable: false,
-      thumbnail:
-        "https://images.unsplash.com/photo-1700744228339-03c725f5ee57?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzNHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-      id: 4,
-      title: "Art of Mother by Wood",
-      artist: "Khin Maung Yin",
-      size: "(18 x 24) inches AC",
-      isAvailable: false,
-      thumbnail:
-        "https://images.unsplash.com/photo-1700902741852-ecf2bd2c26eb?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHx8",
-    },
-  ];
+
   return (
     <Layout className="lg:px-16 pb-10">
       <Breadcrumb
@@ -100,13 +63,13 @@ export default async function page({ params }: { params: { id: string } }) {
         </div>
       </MainLayout>
       <hr />
-      <RelativeLayout
+      {/* <RelativeLayout
         href="/collection"
         mobileText="See all"
         title="Her Artworks"
       >
-        <GalleryList data={artworkList} />
-      </RelativeLayout>
+        <GalleryList data={artistInfo?.} />
+      </RelativeLayout> */}
     </Layout>
   );
 }
