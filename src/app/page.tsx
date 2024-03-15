@@ -18,7 +18,7 @@ import { API } from "@/utils/domain";
 
 export default async function page() {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/enduser/home`
+    `${API}/api/enduser/home`
   )
   const result = await response.json()
   const homeData = result.data
@@ -85,7 +85,7 @@ export default async function page() {
         </div>
         <Collection data={homeData?.collections} />
       </Layout>
-      <ContactUs />
+      <ContactUs name={null}/>
     </>
   );
 }
