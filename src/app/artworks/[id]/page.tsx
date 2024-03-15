@@ -69,7 +69,7 @@ export default async function page({ params }: { params: { id: string } }) {
               alt="Rounded avatar"
             />
             <p className="font-sans text-xs sm:text-2xl text-[#BA5006]">
-              Artist {artwork?.artist_name}
+              Artist {artwork?.artist.name}
             </p>
           </div>
 
@@ -113,11 +113,11 @@ export default async function page({ params }: { params: { id: string } }) {
               <p className="p-4 font-semibold text-2xl">{artwork.name}</p>
               <div className="flex justify-between p-3">
                 <div>
-                  <p className="pb-1">By {artwork.artist_name}</p>
+                  <p className="pb-1">By {artwork.artist.name}</p>
                   {/* <p className="text-sm">{artwork.info}</p> */}
                 </div>
                 <Link
-                  href={`/artworks`}
+                  href={`/artworks/${artwork.id}`}
                   className="border-solid border-[1.5px] border-primary py-3 px-7"
                 >
                   View Details

@@ -1,3 +1,7 @@
+interface Rel_Artist {
+  name: string;
+  id: number;
+}
 export interface Artwork {
   id: number;
   name: string;
@@ -9,7 +13,7 @@ export interface Artwork {
   description: string;
   price: number;
   status: boolean;
-  artist_name: string;
+  artist: Rel_Artist;
   isAvailable: boolean;
   related: Artwork[];
 }
