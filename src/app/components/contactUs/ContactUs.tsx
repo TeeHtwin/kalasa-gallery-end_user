@@ -15,11 +15,9 @@ import Form from "./Form";
 
 
 
-const ContactUs = () => {
+const ContactUs = ({name}:{name: string}) => {
 
-  // Fetch api and get the artwork title or artist name here and pass it to title
-
-  let title = 'howdy';
+  const title = name;
   const message =  title ? `Hi, pls let me know about the "${title}". I'm interested!` : ''
 
   return (

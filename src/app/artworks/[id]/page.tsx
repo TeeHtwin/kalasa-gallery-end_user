@@ -80,8 +80,7 @@ export default async function page({ params }: { params: { id: string } }) {
           {artwork?.status && (
             <Link
               href={{
-                pathname: `/artworks/${params.id}/contact`,
-                query: { name: artwork?.name },
+                pathname: `/artworks/${params.id}/contact`
               }}
             >
               <button
