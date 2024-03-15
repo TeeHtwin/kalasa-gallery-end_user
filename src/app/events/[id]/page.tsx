@@ -64,13 +64,6 @@ export default async function page({ params }: { params: { id: string } }) {
               <span>At {eventInfo?.location}</span>
             </div>
           </div>
-          {eventInfo?.status && (
-            <Link href={`/events/${params.id}/contact`}>
-              <button className="text-white p-[8px] bg-primary w-[220px] py-2.5">
-                Inquiry To Come
-              </button>
-            </Link>
-          )}
         </div>
       </MainLayout>
       <RelativeLayout title="Related Events">

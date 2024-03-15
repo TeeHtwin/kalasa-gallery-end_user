@@ -17,11 +17,14 @@ import data from "@/data/index";
 import { API } from "@/utils/domain";
 
 export default async function page() {
-  const response = await fetch(`${API}/api/enduser/home`)
-    .then((res) => res.json())
-    .catch((error) => console.log("error::", error));
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/enduser/home`
+  )
+  const result = await response.json()
 
-  const homeData: Home = response?.data;
+  const homeData = result.data
+  console.log(homeData);
+
   return (
     <>
       <HeroSection />
