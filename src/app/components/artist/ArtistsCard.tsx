@@ -16,7 +16,7 @@ const ArtistsCard = ({
     <div className="border-solid border-[1.5px] border-[#883B0A29]">
       <Image
         src={profile_image}
-        className="aspect-square w-auto h-auto"
+        className="aspect-square object-cover"
         alt="artist"
         width={300}
         height={300}

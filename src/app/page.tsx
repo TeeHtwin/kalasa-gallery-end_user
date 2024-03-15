@@ -21,9 +21,7 @@ export default async function page() {
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/enduser/home`
   )
   const result = await response.json()
-
   const homeData = result.data
-  console.log(homeData);
 
   return (
     <>

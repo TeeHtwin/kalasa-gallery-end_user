@@ -55,11 +55,6 @@ export default async function page({ params }: { params: { id: string } }) {
           <Paragraph className="text-[#BA5006] text-sm font-normal leading-relaxed mt-5 lg:mt-6 lg:font-base">
             {artistInfo?.description}
           </Paragraph>
-          <Link href={`/artists/${params.id}/contact`}>
-            <button className="text-white py-[14px] mt-10 px-6 lg:mt-6 bg-primary text-xs lg:text-lg lg:px-[36px] lg:py-[18px]">
-              Contact Now
-            </button>
-          </Link>
         </div>
       </MainLayout>
       <hr />
