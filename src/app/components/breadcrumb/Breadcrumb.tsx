@@ -5,13 +5,13 @@ import Image from "next/image";
 import clsx from "clsx";
 
 type BreadcrumbProps = {
-  items: Array<{ name: string; url: string; active: boolean;}>;
+  items: Array<{ name: string; url: string; active: boolean }>;
 };
 
 const Breadcrumb = ({ items }: BreadcrumbProps) => {
   return (
     <nav
-      className="hidden md:flex text-primary py-10 bg-neutral-light w-full"
+      className="hidden md:flex text-primary py-2 bg-neutral-light w-full"
       aria-label="Breadcrumb"
     >
       <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
@@ -29,7 +29,9 @@ const Breadcrumb = ({ items }: BreadcrumbProps) => {
 
               <Link
                 href={item.url}
-                className={`ms-1 text-sm font-medium  md:ms-2 ${ item.active ? '': 'pointer-events-none'}`}
+                className={`ms-1 text-sm font-medium  md:ms-2 ${
+                  item.active ? "" : "pointer-events-none"
+                }`}
                 aria-disabled={!item.active}
               >
                 {item.name}
