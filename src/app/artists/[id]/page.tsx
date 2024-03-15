@@ -23,7 +23,7 @@ export default async function page({ params }: { params: { id: string } }) {
   }
 
   return (
-    <Layout className="lg:px-16 pb-10">
+    <Layout className="">
       <Breadcrumb
         items={[
           { name: "Home", url: "/", active: true },
@@ -36,16 +36,16 @@ export default async function page({ params }: { params: { id: string } }) {
         ]}
       />
 
-      <MainLayout className="flex  flex-col lg:flex-row items-starts lg:gap-[60px]">
+      <MainLayout className="grid grid-cols-1 lg:grid-cols-2 lg:gap-[60px]">
         <Image
           src={
             artistInfo?.profile_image ??
             "https://d38b044pevnwc9.cloudfront.net/cutout-nuxt/enhancer/2.jpg"
           }
           alt="Profile image"
-          width={400}
-          height={400}
-          className="aspect-square w-1/2 lg:w-full mb-6 border-[0.5px] border-primary border-opacity-20 p-1"
+          width={600}
+          height={600}
+          className="aspect-square w-1/2 lg:w-full mb-2 border-[0.5px] border-primary object-cover border-opacity-20 p-1"
         />
         <div className="translate-y-12">
           <Title className="text-primary">{artistInfo?.name}</Title>
