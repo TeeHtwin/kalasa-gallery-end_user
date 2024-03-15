@@ -15,7 +15,7 @@ import Form from "./Form";
 
 
 
-const ContactUs = ({name}:{name: string}) => {
+const ContactUs = ({name}:{name: string | null}) => {
 
   const title = name;
   const message =  title ? `Hi, pls let me know about the "${title}". I'm interested!` : ''
