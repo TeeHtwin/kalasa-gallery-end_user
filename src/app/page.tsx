@@ -15,19 +15,17 @@ import ExhibitionCard from "@/app/components/cards/ExhibitionCard";
 import { Event, Home } from "@/types";
 import data from "@/data/index";
 import { base_url } from "@/fetchers/api";
-
+import { getHomeData } from "@/data/data";
 
 export default async function page() {
-  const response = await fetch(`${base_url}/api/enduser/home`);
-  const result = await response.json();
-  const homeData = result.data;
+  const homeData = await getHomeData();
 
   return (
     <>
       <HeroSection />
       <Layout>
         <div className="flex items-center justify-between">
-          <Title className="text-primary">Upcoming Events</Title>
+          <Title className="text-primary">Events</Title>
           <LinkBtn
             href="/events"
             mobileText="See all"
@@ -35,9 +33,10 @@ export default async function page() {
           />
         </div>
         <div className="mt-5 lg:mt-20 flex justify-between w-full gap-2 flex-col lg:flex-row">
-          {homeData.events.map((info: Event, index: number) => (
-            <ExhibitionCard key={index} info={info} />
-          ))}
+          {homeData &&
+            homeData.events.map((info: Event, index: number) => (
+              <ExhibitionCard key={info.id} info={info} />
+            ))}
         </div>
       </Layout>
       <Layout>
@@ -49,7 +48,7 @@ export default async function page() {
             mobileText="See all"
           />
         </div>
-        <GalleryList data={homeData?.artworks} />
+        {homeData && <GalleryList data={homeData?.artworks} />}
       </Layout>
 
       <Layout className="lg:p-0 grid grid-cols-1 lg:grid-cols-2 bg-primary-light text-primary lg:text-5xl">
@@ -82,7 +81,8 @@ export default async function page() {
             mobileText="See all"
           />
         </div>
-        <Collection data={homeData?.collections} />
+
+        {homeData && <Collection data={homeData?.collections} />}
       </Layout>
       <ContactUs name={null} />
     </>

@@ -15,14 +15,15 @@ const HeroSection = (props: Props) => {
           A Space where there is Heart, there is Art
         </Title>
         <p className="text-center w-full text-white text-sm  lg:text-lg font-medium font-inter leading-[26px] lg:leading-10 px-[14px]">
-          Where art meets heart. Founded by Ma Su Htwe and Htoo Aung Kyaw, we showcase the works of Aung Myint and other Myanmar artists. 
-          We also offer art healing workshops and rare book collections. Come and join us at KALASA, the home for Myanmar’s art and healing.
+          Where art meets heart. Founded by Ma Su Htwe and Htoo Aung Kyaw, we
+          showcase the works of Aung Myint and other Myanmar artists. We also
+          offer art healing workshops and rare book collections. Come and join
+          us at KALASA, the home for Myanmar’s art and healing.
         </p>
       </div>
 
-      <div className="flex items-center gap-4">
-        <OutlineBtnHero>Upcoming Events</OutlineBtnHero>
-        <OutlineBtnHero>Learn More &rarr;</OutlineBtnHero>
+      <div>
+        <OutlineBtnHero>Upcoming Events &rarr;</OutlineBtnHero>
       </div>
     </main>
   );
