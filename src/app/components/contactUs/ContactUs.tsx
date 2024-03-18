@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import Layout from "../common/Layout";
 import Title from "../common/Title";

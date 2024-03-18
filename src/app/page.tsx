@@ -14,14 +14,13 @@ import HeroSection from "./components/home/HeroSection";
 import ExhibitionCard from "@/app/components/cards/ExhibitionCard";
 import { Event, Home } from "@/types";
 import data from "@/data/index";
-import { API } from "@/utils/domain";
+import { base_url } from "@/fetchers/api";
+
 
 export default async function page() {
-  const response = await fetch(
-    `${API}/api/enduser/home`
-  )
-  const result = await response.json()
-  const homeData = result.data
+  const response = await fetch(`${base_url}/api/enduser/home`);
+  const result = await response.json();
+  const homeData = result.data;
 
   return (
     <>
@@ -85,7 +84,7 @@ export default async function page() {
         </div>
         <Collection data={homeData?.collections} />
       </Layout>
-      <ContactUs name={null}/>
+      <ContactUs name={null} />
     </>
   );
 }
