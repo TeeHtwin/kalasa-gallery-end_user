@@ -48,6 +48,7 @@ const EventPage = (props: Props) => {
         name="Our Events"
         placeholder="Search Event..."
         setKeyword={setKeyword}
+        page="event"
       />
       {keyword ? (
         searchData?.data ? (
