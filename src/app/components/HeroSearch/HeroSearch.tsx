@@ -20,11 +20,12 @@ type HeroSearchProps = {
   name: string;
   placeholder: string;
   setKeyword: Dispatch<SetStateAction<string>>;
+  page: string;
 };
 
-const HeroSearch = ({ name, placeholder, setKeyword }: HeroSearchProps) => {
+const HeroSearch = ({ name, placeholder, setKeyword, page}: HeroSearchProps) => {
   const { mutate, data, isLoading, isError, error } = useSearchListMutation();
-  const url = `enduser/event/list-for-searchbox`;
+  const url = `enduser/${page}/list-for-searchbox`;
   let query: string;
 
   const [value, setValue] = useState("");

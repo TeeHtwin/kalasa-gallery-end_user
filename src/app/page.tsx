@@ -17,8 +17,11 @@ import data from "@/data/index";
 import { base_url } from "@/fetchers/api";
 import { getHomeData } from "@/data/data";
 
+
 export default async function page() {
-  const homeData = await getHomeData();
+
+  const homeData = await getHomeData()
+  
 
   return (
     <>
@@ -33,10 +36,9 @@ export default async function page() {
           />
         </div>
         <div className="mt-5 lg:mt-20 flex justify-between w-full gap-2 flex-col lg:flex-row">
-          {homeData &&
-            homeData.events.map((info: Event, index: number) => (
-              <ExhibitionCard key={info.id} info={info} />
-            ))}
+          {homeData && homeData.events.map((info: Event, index: number) => (
+            <ExhibitionCard key={info.id} info={info} />
+          ))}
         </div>
       </Layout>
       <Layout>
