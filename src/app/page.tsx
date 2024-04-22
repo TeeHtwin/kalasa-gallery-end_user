@@ -53,14 +53,11 @@ export default async function page() {
 
       <Layout className="lg:p-0 grid grid-cols-1 lg:grid-cols-2 bg-primary-light text-primary lg:text-5xl mt-2">
         <div className=" flex justify-center mb-4 lg:mb-0 lg:px-[102px]  flex-col">
-          <Title className="mb-5 mt-5">What is Kalasa</Title>
+          <Title className="mb-5 mt-5 lg:mt-0">What is Kalasa</Title>
           <Paragraph className="lg:leading-normal leading-6 text-sm">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam quod
-            explicabo repudiandae enim provident. Magni ipsa maiores porro est
-            natus debitis consequuntur nam voluptatibus, recusandae magnam.
-            Perspiciatis sapiente eius atque officiis amet mollitia dolor iure
-            exercitationem inventore aspernatur eaque porro quo omnis, non
-            maxime cumque earum? Ipsa aperiam quos autem?
+            We showcase the works of Aung Myint and other Myanmar artists. We
+            also offer art healing workshops and rare book collections. Come and
+            join us at KALASA, the home for Myanmar’s art and healing.
           </Paragraph>
         </div>
         <Image
