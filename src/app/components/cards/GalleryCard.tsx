@@ -11,8 +11,8 @@ const GalleryCard = ({ info }: { info: Artwork }) => {
       <div className="relative border p-2">
         <Image
           src={info?.image}
-          width={500}
-          height={500}
+          width={100}
+          height={100}
           alt={info?.name}
           priority={true}
           className={

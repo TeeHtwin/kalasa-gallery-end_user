@@ -46,6 +46,7 @@ const CollectionPage = (props: Props) => {
         name="Our Collections"
         placeholder="Search Collection..."
         setKeyword={setKeyword}
+        page="collection"
       />
       {keyword ? (
         searchData?.data ? (
