@@ -9,10 +9,10 @@ const Logo = ({ className }: { className?: string }) => {
       <Image
         src={logo}
         alt="logo"
-        width={600}
-        height={600}
+        width={300}
+        height={300}
         priority
-        className={className ?? "w-full h-[44px] lg:h-[80px]"}
+        className={className ?? "w-[150px] h-auto lg:h-[80px]"}
       />
     </Link>
   );

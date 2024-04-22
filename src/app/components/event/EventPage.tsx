@@ -35,7 +35,7 @@ const EventPage = (props: Props) => {
     queryKey: ["events", keyword],
     queryFn: () => fetchApi(`enduser/event/search-by-name?q=${keyword}`),
   });
-
+  console.log(searchData?.data?.data);
   if (isFetching) {
     return <Loading />;
   }
@@ -43,7 +43,7 @@ const EventPage = (props: Props) => {
   const apiResponse = response?.pages[0]["data"];
   const events = apiResponse ? apiResponse?.data : [];
   return (
-    <Layout>
+    <Layout className="mb-6">
       <HeroSearch
         name="Our Events"
         placeholder="Search Event..."
