@@ -46,6 +46,7 @@ const BlogPage = () => {
         name="Our Blogs"
         placeholder="Search Blogs..."
         setKeyword={setKeyword}
+        page="blog"
       />
       {keyword ? (
         searchData?.data ? (

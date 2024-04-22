@@ -47,6 +47,7 @@ const GalleryPage = () => {
         name="Our Artworks"
         placeholder="Search Artwork..."
         setKeyword={setKeyword}
+        page="artwork"
       />
       {keyword ? (
         searchData?.data ? (

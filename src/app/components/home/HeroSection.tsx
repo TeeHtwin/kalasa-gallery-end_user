@@ -22,9 +22,8 @@ const HeroSection = (props: Props) => {
         </p>
       </div>
 
-      <div className="flex items-center gap-4">
-        <OutlineBtnHero>Upcoming Events</OutlineBtnHero>
-        <OutlineBtnHero>Learn More &rarr;</OutlineBtnHero>
+      <div>
+        <OutlineBtnHero>Upcoming Events &rarr;</OutlineBtnHero>
       </div>
     </main>
   );

@@ -39,12 +39,15 @@ const ArtistPage = () => {
   const apiResponse = response?.pages[0]["data"];
   const artists = apiResponse ? apiResponse?.data : [];
 
+  console.log("artist search- ", searchData.data);
+
   return (
     <Layout>
       <HeroSearch
         name="Our Artists"
         placeholder="Search Artist..."
         setKeyword={setKeyword}
+        page="artist"
       />
       {keyword ? (
         searchData?.data ? (
