@@ -13,7 +13,7 @@ type EventListProps = {
 const EventList = ({ data }: EventListProps) => {
   return (
     <div className="mt-5 lg:mt-10 grid grid-cols-1 lg:grid-cols-3 lg:gap-5 w-full gap-[10px]">
-      {data.map((event: Event, index: number) => (
+      {data?.map((event: Event, index: number) => (
         <ExhibitionCard key={index} info={event} />
       ))}
     </div>

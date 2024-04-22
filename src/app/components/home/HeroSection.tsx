@@ -6,7 +6,7 @@ type Props = {};
 
 const HeroSection = (props: Props) => {
   return (
-    <main className="h-screen bg-right w-full bg-[url('../../public/img/smallBackground.jpg')] lg:bg-[url('../../public/img/Background.jpg')] bg-cover bg-fixed relative p-0 m-0 flex items-center justify-center flex-col gap-10">
+    <main className="h-screen bg-right w-full bg-[url('../../public/img/smallBackground.jpeg')] bg-cover bg-fixed relative p-0 m-0 flex items-center justify-center flex-col gap-10">
       <div className=" flex-col justify-start items-center gap-4 lg:gap-10 inline-flex lg:w-[900px]">
         <Title className="text-white text-[32px] lg:text-[88px] font-bold">
           Kalasa Art Space

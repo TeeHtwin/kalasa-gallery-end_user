@@ -93,7 +93,7 @@ const SearchBar = ({ placeholder, className }: SearchBarProps) => {
 
   return (
     <div className={cn("relative", className)} ref={divRef}>
-      <div className="flex w-[80%] ml-auto py-[7px] px-5 lg:px-3 border border-0.5 border-primary justify-between items-center">
+      <div className="flex w-[80%] ml-auto py-1 lg:py-[7px] px-5 lg:px-3 border border-0.5 border-primary justify-between items-center">
         <input
           type="text"
           placeholder={placeholder}

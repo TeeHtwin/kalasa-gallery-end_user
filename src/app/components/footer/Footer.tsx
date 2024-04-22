@@ -52,7 +52,7 @@ const Footer = () => {
   ];
 
   return (
-    <div className="bg-[#161616] lg:p-20">
+    <div className="bg-[#161616] p-4 lg:p-20">
       <div className="wrapper">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-4">
           <BoxLayout className="justify-between gap-5">

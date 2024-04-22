@@ -12,16 +12,11 @@ import Collection from "./components/collection/Collection";
 import GalleryList from "./components/gallery/GalleryList";
 import HeroSection from "./components/home/HeroSection";
 import ExhibitionCard from "@/app/components/cards/ExhibitionCard";
-import { Event, Home } from "@/types";
-import data from "@/data/index";
-import { base_url } from "@/fetchers/api";
+import { Event } from "@/types";
 import { getHomeData } from "@/data/data";
 
-
 export default async function page() {
-
-  const homeData = await getHomeData()
-  
+  const homeData = await getHomeData();
 
   return (
     <>
@@ -36,9 +31,10 @@ export default async function page() {
           />
         </div>
         <div className="mt-5 lg:mt-20 flex justify-between w-full gap-2 flex-col lg:flex-row">
-          {homeData && homeData.events.map((info: Event, index: number) => (
-            <ExhibitionCard key={info.id} info={info} />
-          ))}
+          {homeData &&
+            homeData.events.map((info: Event, index: number) => (
+              <ExhibitionCard key={info.id} info={info} />
+            ))}
         </div>
       </Layout>
       <Layout>
@@ -53,16 +49,13 @@ export default async function page() {
         {homeData && <GalleryList data={homeData?.artworks} />}
       </Layout>
 
-      <Layout className="lg:p-0 grid grid-cols-1 lg:grid-cols-2 bg-primary-light text-primary lg:text-5xl">
+      <Layout className="lg:p-0 grid grid-cols-1 lg:grid-cols-2 bg-primary-light text-primary lg:text-5xl mt-2">
         <div className=" flex justify-center mb-4 lg:mb-0 lg:px-[102px]  flex-col">
-          <Title className="mb-5">What is Kalasa</Title>
+          <Title className="mb-5 mt-5 lg:mt-0">What is Kalasa</Title>
           <Paragraph className="lg:leading-normal leading-6 text-sm">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam quod
-            explicabo repudiandae enim provident. Magni ipsa maiores porro est
-            natus debitis consequuntur nam voluptatibus, recusandae magnam.
-            Perspiciatis sapiente eius atque officiis amet mollitia dolor iure
-            exercitationem inventore aspernatur eaque porro quo omnis, non
-            maxime cumque earum? Ipsa aperiam quos autem?
+            We showcase the works of Aung Myint and other Myanmar artists. We
+            also offer art healing workshops and rare book collections. Come and
+            join us at KALASA, the home for Myanmar’s art and healing.
           </Paragraph>
         </div>
         <Image
@@ -74,7 +67,7 @@ export default async function page() {
         />
       </Layout>
       {/* collection */}
-      <Layout className="lg:p-20 text-primary lg:text-5xl">
+      <Layout className="lg:p-20 mt-6 text-primary lg:text-5xl">
         <div className="flex justify-between">
           <Title>Explore Our Collection</Title>
           <LinkBtn

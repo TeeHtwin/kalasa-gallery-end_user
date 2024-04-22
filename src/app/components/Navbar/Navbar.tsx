@@ -5,69 +5,89 @@ import NavText from "./NavText";
 import { usePathname } from "next/navigation";
 import Title from "../common/Title";
 import { cn } from "@/app/lib/utils";
+
+const Nav = [
+  { name: "home", href: "/" },
+  { name: "gallery", href: "/artworks" },
+  { name: "events", href: "/events" },
+  { name: "artists", href: "/artists" },
+  { name: "blogs", href: "/blogs" },
+];
+
+const mobileNav = [
+  {
+    name: "Home",
+    href: "/",
+  },
+  {
+    name: "Events",
+    href: "/events",
+  },
+  {
+    name: "Collections",
+    href: "/collections",
+  },
+  {
+    name: "Gallery",
+    href: "/artworks",
+  },
+
+  {
+    name: "Artists",
+    href: "/artists",
+  },
+  {
+    name: "Contact",
+    href: "/contact",
+  },
+];
+
 const Navbar: React.FC = () => {
-  const Nav = [
-    { name: "home", href: "/" },
-    { name: "gallery", href: "/artworks" },
-    { name: "events", href: "/events" },
-    { name: "artists", href: "/artists" },
-    { name: "blogs", href: "/blogs" },
-  ];
-
-  const mobileNav = [
-    {
-      name: "Home",
-      href: "/",
-    },
-    {
-      name: "Events",
-      href: "/events",
-    },
-    {
-      name: "Collections",
-      href: "/collections",
-    },
-    {
-      name: "Gallery",
-      href: "/artworks",
-    },
-
-    {
-      name: "Artists",
-      href: "/artists",
-    },
-    {
-      name: "Contact",
-      href: "/contact",
-    },
-  ];
-
   const pathName = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  const startingRoute = (pathname: string) => `/${pathname.split("/")[1]}`;
-  const currentStartingRoute = startingRoute(pathName);
+  const currentStartingRoute = `/${pathName.split("/")[1]}`;
 
   const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
+    setMenuOpen((prevMenuOpen) => !prevMenuOpen);
   };
 
   const isHomepage = pathName === "/";
 
   const handleScroll = () => {
-    const offset = window.scrollY;
-    if (offset > window.innerHeight - 100) {
-      setScrolled(true);
-    } else {
-      setScrolled(false);
-    }
+    let ticking = false;
+
+    const scrollHandler = () => {
+      const offset = window.scrollY;
+      if (offset > window.innerHeight - 100) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+      ticking = false;
+    };
+
+    const requestTick = () => {
+      if (!ticking) {
+        requestAnimationFrame(scrollHandler);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", requestTick);
+
+    return () => {
+      window.removeEventListener("scroll", requestTick);
+    };
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    if (isHomepage) {
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    }
+  }, [isHomepage]);
 
   useEffect(() => {
     setMenuOpen(false);
