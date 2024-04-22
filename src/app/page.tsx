@@ -17,11 +17,9 @@ import data from "@/data/index";
 import { API } from "@/utils/domain";
 
 export default async function page() {
-  const response = await fetch(
-    `${API}/api/enduser/home`
-  )
-  const result = await response.json()
-  const homeData = result.data
+  const response = await fetch(`${API}/api/enduser/home`);
+  const result = await response.json();
+  const homeData = result.data;
 
   return (
     <>
@@ -53,9 +51,9 @@ export default async function page() {
         <GalleryList data={homeData?.artworks} />
       </Layout>
 
-      <Layout className="lg:p-0 grid grid-cols-1 lg:grid-cols-2 bg-primary-light text-primary lg:text-5xl">
+      <Layout className="lg:p-0 grid grid-cols-1 lg:grid-cols-2 bg-primary-light text-primary lg:text-5xl mt-2">
         <div className=" flex justify-center mb-4 lg:mb-0 lg:px-[102px]  flex-col">
-          <Title className="mb-5">What is Kalasa</Title>
+          <Title className="mb-5 mt-5">What is Kalasa</Title>
           <Paragraph className="lg:leading-normal leading-6 text-sm">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam quod
             explicabo repudiandae enim provident. Magni ipsa maiores porro est
@@ -74,7 +72,7 @@ export default async function page() {
         />
       </Layout>
       {/* collection */}
-      <Layout className="lg:p-20 text-primary lg:text-5xl">
+      <Layout className="lg:p-20 mt-6 text-primary lg:text-5xl">
         <div className="flex justify-between">
           <Title>Explore Our Collection</Title>
           <LinkBtn
@@ -85,7 +83,7 @@ export default async function page() {
         </div>
         <Collection data={homeData?.collections} />
       </Layout>
-      <ContactUs name={null}/>
+      <ContactUs name={null} />
     </>
   );
 }

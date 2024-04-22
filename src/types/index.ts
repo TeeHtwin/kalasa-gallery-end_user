@@ -1,6 +1,7 @@
 interface Rel_Artist {
   name: string;
   id: number;
+  profile_image: any;
 }
 export interface Artwork {
   id: number;
@@ -16,6 +17,7 @@ export interface Artwork {
   artist: Rel_Artist;
   isAvailable: boolean;
   related: Artwork[];
+  artist_name: string;
 }
 
 export interface Collection {

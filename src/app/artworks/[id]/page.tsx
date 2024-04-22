@@ -65,11 +65,11 @@ export default async function page({ params }: { params: { id: string } }) {
               width={300}
               height={100}
               className="w-10 h-10 rounded-full"
-              src={profile}
+              src={artwork?.artist?.profile_image}
               alt="Rounded avatar"
             />
             <p className="font-sans text-xs sm:text-2xl text-[#BA5006]">
-              Artist {artwork?.artist.name}
+              Artist {artwork?.artist?.name}
             </p>
           </div>
 
@@ -80,7 +80,7 @@ export default async function page({ params }: { params: { id: string } }) {
           {artwork?.status && (
             <Link
               href={{
-                pathname: `/artworks/${params.id}/contact`
+                pathname: `/artworks/${params.id}/contact`,
               }}
             >
               <button
