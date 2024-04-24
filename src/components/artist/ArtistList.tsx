@@ -1,7 +1,7 @@
 import { Artist } from "@/types";
 import React from "react";
-import ArtistsCard from "@/app/components/artist/ArtistsCard";
-import ArtistsCardLayout from "@/app/components/artist/ArtistsCardLayout";
+import ArtistsCard from "@/components/artist/ArtistsCard";
+import ArtistsCardLayout from "@/components/artist/ArtistsCardLayout";
 
 interface ArtistListProps {
   data: Artist[] | null;

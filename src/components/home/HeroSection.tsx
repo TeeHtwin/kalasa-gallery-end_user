@@ -1,6 +1,6 @@
 import React from "react";
-import Title from "@/app/components/common/Title";
-import OutlineBtnHero from "@/app/components/button/OutlineBtnHero";
+import Title from "@/components/common/Title";
+import OutlineBtnHero from "@/components/button/OutlineBtnHero";
 
 type Props = {};
 

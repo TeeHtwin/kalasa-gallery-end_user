@@ -1,10 +1,10 @@
 import Image from "next/image";
 import profile from "@/app/artworks/[id]/artist_profile.png";
-import Breadcrumb from "@/app/components/breadcrumb/Breadcrumb";
+import Breadcrumb from "@/components/breadcrumb/Breadcrumb";
 import Link from "next/link";
-import MainLayout from "@/app/components/exhibition/MainLayout";
-import RelativeLayout from "@/app/components/exhibition/RelativeLayout";
-import Layout from "@/app/components/common/Layout";
+import MainLayout from "@/components/exhibition/MainLayout";
+import RelativeLayout from "@/components/exhibition/RelativeLayout";
+import Layout from "@/components/common/Layout";
 import clsx from "clsx";
 import { API } from "@/utils/domain";
 import { Artwork } from "@/types";

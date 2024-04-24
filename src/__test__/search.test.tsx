@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import SearchBar from "@/app/components/search/SearchBar";
+import SearchBar from "@/components/search/SearchBar";
 import { debug } from "console";
 import { userEvent } from "@testing-library/user-event";
 

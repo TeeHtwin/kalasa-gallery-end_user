@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import img from "@/app/blogs/[id]/blog_img.png";
-import Breadcrumb from "@/app/components/breadcrumb/Breadcrumb";
+import Breadcrumb from "@/components/breadcrumb/Breadcrumb";
 import Link from "next/link";
 import { useQuery } from "react-query";
 import { fetchApi } from "@/fetchers/api";

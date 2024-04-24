@@ -1,17 +1,17 @@
 import React from "react";
-import Title from "./components/common/Title";
-import LinkBtn from "./components/button/LinkBtn";
-import Layout from "./components/common/Layout";
-import Paragraph from "./components/common/Text/Paragraph";
+import Title from "../components/common/Title";
+import LinkBtn from "../components/button/LinkBtn";
+import Layout from "../components/common/Layout";
+import Paragraph from "../components/common/Text/Paragraph";
 import Image from "next/image";
 import aboutUs from "@/../public/img/aboutUs.png";
 // import PhotoGallery from "./components/photoLayout/PhotoGallery";
-import ContactUs from "./components/contactUs/ContactUs";
-import CollectionCard from "./components/cards/CollectionCard";
-import Collection from "./components/collection/Collection";
-import GalleryList from "./components/gallery/GalleryList";
-import HeroSection from "./components/home/HeroSection";
-import ExhibitionCard from "@/app/components/cards/ExhibitionCard";
+import ContactUs from "../components/contactUs/ContactUs";
+import CollectionCard from "../components/cards/CollectionCard";
+import Collection from "../components/collection/Collection";
+import GalleryList from "../components/gallery/GalleryList";
+import HeroSection from "../components/home/HeroSection";
+import ExhibitionCard from "@/components/cards/ExhibitionCard";
 import { Event } from "@/types";
 import { getHomeData } from "@/data/data";
 

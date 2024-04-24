@@ -1,6 +1,6 @@
 import React from "react";
-import BlogPage from "../components/blog/BlogPage";
-import HeroSearch from "../components/HeroSearch/HeroSearch";
+import BlogPage from "../../components/blog/BlogPage";
+import HeroSearch from "../../components/HeroSearch/HeroSearch";
 
 const page = async () => {
   return (
