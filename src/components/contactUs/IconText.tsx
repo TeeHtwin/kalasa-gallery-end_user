@@ -5,10 +5,11 @@ interface IconTextProps {
   href: string;
   icon: string;
   text: string;
-  text2?: string
+  text2?: string;
+  text3?: string;
 }
 
-const IconText = ({ href, text, icon, text2 }: IconTextProps) => {
+const IconText = ({ href, text, icon, text2, text3 }: IconTextProps) => {
   return (
     <div className="flex gap-6">
       <Image src={icon} alt="icon" width={24} height={24} />
@@ -18,6 +19,7 @@ const IconText = ({ href, text, icon, text2 }: IconTextProps) => {
       >
         <p>{text}</p>
         <p>{text2}</p>
+        <p>{text3}</p>
       </a>
     </div>
   );

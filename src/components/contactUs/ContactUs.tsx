@@ -43,9 +43,8 @@ const ContactUs = ({name}:{name: string | null}) => {
         <div className="lg:py-[60px] py-10 lg:pl-12 lg:pr-20 bg-primary pl-8 pr-5 flex gap-5 lg:gap-12 flex-col ">
           <IconText
             icon={phonIcon}
-            href="tel:+959
-          425285590"
-            text="+959 425285590"
+            href="phone icon"
+            text="+959 79809 4145"
           />
           <IconText
             icon={mailIcon}
@@ -54,14 +53,16 @@ const ContactUs = ({name}:{name: string | null}) => {
           />
           <IconText
             icon={locationIcon}
-            text="No. 91-93, 1st floor (left), Seikkantha Street (Middle Block),"
-            text2="Kyauktada Township, Yangon."
+            text="No. 91-93, 1st floor (left),"
+            text2="Seikkantha Street (Lower Block),"
+            text3="Kyauktada Township, Yangon."
             href="https://maps.app.goo.gl/py3Wb3H1DSEL6Rj9A"
           />
           <IconText
             icon={clockIcon}
-            href="https://maps.app.goo.gl/py3Wb3H1DSEL6Rj9A"
-            text="Wed to Sun 10:00 AM to 6:00 PM"
+            href="Time icon"
+            text="Tuesday to Sunday (Monday closed)"
+            text2=" 10:00 AM to 5:30 PM "
           />
         </div>
         <div className="h-[83px] lg:h-[230px] flex pb-3 lg:pb-10 justify-center ml-auto w-[216px] lg:w-[403px] bg-primary-light">
