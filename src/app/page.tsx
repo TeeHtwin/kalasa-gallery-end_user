@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from "react";
 import Title from "../components/common/Title";
 import LinkBtn from "../components/button/LinkBtn";
