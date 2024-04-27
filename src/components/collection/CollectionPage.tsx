@@ -42,12 +42,12 @@ const CollectionPage = (props: Props) => {
   const collections = apiResponse ? apiResponse?.data : [];
   return (
     <Layout>
-      <HeroSearch
+      {/* <HeroSearch
         name="Our Collections"
         placeholder="Search Collection..."
         setKeyword={setKeyword}
         page="collection"
-      />
+      /> */}
       {keyword ? (
         searchData?.data ? (
           <div>
