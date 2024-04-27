@@ -1,20 +1,14 @@
-"use client";
-
 import React from "react";
 import ExhibitionCard from "../cards/ExhibitionCard";
-import { useInfiniteQuery } from "react-query";
-import { fetchApi } from "@/fetchers/api";
-import Loading from "../common/Loading";
-import { Event } from "@/types";
-type EventListProps = {
-  data: Event[];
-};
+import { Event, ListPage } from "@/types";
+import { fetchData } from "@/data/data";
 
-const EventList = ({ data }: EventListProps) => {
+const EventList = async ({ query, currentPage }: ListPage) => {
+  const eventData = await fetchData(currentPage, query, "event");
   return (
     <div className="mt-5 lg:mt-10 grid grid-cols-1 lg:grid-cols-3 lg:gap-5 w-full gap-[10px]">
-      {data?.map((event: Event, index: number) => (
-        <ExhibitionCard key={index} info={event} />
+      {eventData?.map((event: Event, index: number) => (
+        <ExhibitionCard key={event.id} info={event} />
       ))}
     </div>
   );

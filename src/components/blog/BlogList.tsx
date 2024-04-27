@@ -1,12 +1,15 @@
-import { Blog } from "@/types";
+import { Blog, ListPage } from "@/types";
 import React from "react";
 import BlogCard from "./BlogCard";
+import { fetchData } from "@/data/data";
 
-const BlogList = ({ blogs }: { blogs: Blog[] | null }) => {
+const BlogList = async ({ query, currentPage }: ListPage) => {
+  const blogsData = await fetchData(currentPage, query, "blog");
+
   return (
-    <div className="flex gap-5 flex-wrap justify-center mt-5 lg:mt-10">
-      {blogs?.map((blog, index) => (
-        <BlogCard key={index} {...blog} />
+    <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-3 mt-5 lg:mt-10">
+      {blogsData?.map((blog: any) => (
+        <BlogCard key={blog?.id} {...blog} />
       ))}
     </div>
   );

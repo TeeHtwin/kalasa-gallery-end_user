@@ -9,7 +9,7 @@ const Paragraph = ({ className, children }: ParagraphProps) => {
   return (
     <p
       className={cn(
-        "text-primary font-medium lg:text-base font-inter",
+        "text-primary lg:leading-normal leading-2 text-sm font-medium lg:text-base font-inter",
         className
       )}
     >

@@ -1,3 +1,8 @@
+
+export interface ListPage {
+  query: string;
+  currentPage: number;
+}
 interface Rel_Artist {
   name: string;
   id: number;
@@ -68,3 +73,4 @@ export interface Home {
   collections: Collection[];
   artworks: Artwork[];
 }
+

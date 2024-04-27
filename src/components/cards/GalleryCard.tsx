@@ -5,14 +5,14 @@ import Link from "next/link";
 import { Artwork } from "@/types";
 
 const GalleryCard = ({ info }: { info: Artwork }) => {
-  const hrefId = info.id.toString();
+  const hrefId = info.id;
   return (
     <Link href={`/artworks/${info?.id}`}>
-      <div className="relative border p-2">
+      <div className="relative break-inside-avoid border p-2">
         <Image
           src={info?.image}
-          width={100}
-          height={100}
+          width={300}
+          height={300}
           alt={info?.name}
           priority={true}
           className={
@@ -31,9 +31,11 @@ const GalleryCard = ({ info }: { info: Artwork }) => {
               <p className="text-xs text-primary leading-tight">{info?.size}</p>
             </div>
             <div
-              className={`py-4 px-7 ${
-                info?.status ? "bg-success" : "bg-error"
-              } text-white text-xs tracking-wider`}
+              className={`py-3 border-[1.5px] px-7 ${
+                info?.status
+                  ? "border-success text-success"
+                  : "border-error text-error"
+              } text-xs tracking-wider`}
             >
               {info?.status ? "Available" : "Sold out"}
             </div>

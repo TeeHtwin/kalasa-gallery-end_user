@@ -38,7 +38,7 @@ const ExhibitionCard = ({ info }: { info: Event }) => {
 
         <div className="py-2">
           <LinkBtn
-            className="lg:px6 text-xs lg:text-base flex justify-center items-center"
+            className="lg:px-6 whitespace-nowrap text-xs lg:text-base flex justify-center items-center"
             href={`/events/${id}`}
             mobileText="More Detail"
             dtText="More Detail"

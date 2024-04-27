@@ -1,18 +1,16 @@
-import { Artist } from "@/types";
+import { Artist, ListPage } from "@/types";
 import React from "react";
 import ArtistsCard from "@/components/artist/ArtistsCard";
 import ArtistsCardLayout from "@/components/artist/ArtistsCardLayout";
+import { fetchData } from "@/data/data";
 
-interface ArtistListProps {
-  data: Artist[] | null;
-}
+const ArtistList = async ({ query,
+  currentPage }: ListPage) => {
 
-const ArtistList = ({ data }: ArtistListProps) => {
-  console.log(data);
-
+    const artistData = await fetchData(currentPage, query, 'artist');
   return (
     <div className="grid grid-rows-4 mt-5 lg:mt-10 grid-cols-2 lg:grid-rows-2 lg:grid-cols-4 gap-2 lg:gap-5">
-      {data?.map((info) => (
+      {artistData?.map((info : {info: any}) => (
         <ArtistsCardLayout artistId={info?.id} key={info?.id}>
           <ArtistsCard {...info} />
         </ArtistsCardLayout>

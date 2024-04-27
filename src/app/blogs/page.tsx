@@ -1,15 +1,39 @@
-import React from "react";
-import BlogPage from "../../components/blog/BlogPage";
-import HeroSearch from "../../components/HeroSearch/HeroSearch";
+import Layout from "../../components/common/Layout";
+import { Suspense } from "react";
+import HeroSearch from "@/components/HeroSearch/HeroSearch";
+import { fetchTotalData } from "@/data/data";
+import Pagination from "@/components/pagination/Pagination";
+import Loading from "@/components/common/Loading";
+import BlogList from "@/components/blog/BlogList";
 
-const page = async () => {
+const page = async ({
+  searchParams,
+}: {
+  searchParams?: {
+    query?: string;
+    page?: string;
+  };
+}) => {
+  const query = searchParams?.query || "";
+  const currentPage = Number(searchParams?.page) || 1;
+  // const totalPages = await fetchTotalData(query, 'artist');
+
   return (
     <>
-      {/* <section className="text-primary py-2 lg:py-12 lg:px-20 wrapper">
-        <HeroSearch name="Our Blogs" placeholder="Search Blog..." />
-        <BlogPage />
-      </section> */}
-      <BlogPage />
+      <Layout>
+        <HeroSearch
+          name="Our Blogs"
+          placeholder="Search Blog..."
+          setKeyword={query}
+          page="blog"
+        />
+        <Suspense fallback={<Loading />}>
+          <BlogList query={query} currentPage={currentPage} />
+        </Suspense>
+        <div className="mt-5 flex w-full justify-center">
+          <Pagination totalPages={3} />
+        </div>
+      </Layout>
     </>
   );
 };

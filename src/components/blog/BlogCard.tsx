@@ -21,11 +21,15 @@ const BlogCard = (blog: Blog) => {
           {/* <p className="font-sans text-base font-extralight">
           By {blog.author} | {blog.date}
         </p> */}
-          <p className="py-4 font-semibold text-2xl">{blog.title}</p>
-          <p>{blog.description.slice(0, 130)}...</p>
+          <p className="py-4 font-inter text-primary font-semibold text-2xl">
+            {blog.title}
+          </p>
+          <p className="font-inter text-primary/80">
+            {blog.description.slice(0, 130)}...
+          </p>
           <Link
             href={`blogs/${blog.id.toString()}`}
-            className="pt-5 text-lg font-sans font-medium"
+            className="pt-5 mt-5 text-lg font-inter text-zinc-800 font-medium"
           >
             Read more →
           </Link>

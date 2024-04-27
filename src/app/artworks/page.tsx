@@ -2,7 +2,7 @@ import Layout from "../../components/common/Layout";
 import { Suspense } from "react";
 import HeroSearch from "@/components/HeroSearch/HeroSearch";
 import GalleryList from "@/components/gallery/GalleryList";
-import { fetchArtworksTotal } from "@/data/data";
+import { fetchTotalData } from "@/data/data";
 import Pagination from "@/components/pagination/Pagination";
 import Loading from "@/components/common/Loading";
 
@@ -16,7 +16,7 @@ const page = async ({
 }) => {
   const query = searchParams?.query || "";
   const currentPage = Number(searchParams?.page) || 1;
-  const totalPages = await fetchArtworksTotal(query);  
+  const totalPages = await fetchTotalData(query, 'artwork');  
 
   return (
     <>

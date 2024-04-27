@@ -14,9 +14,11 @@ import HeroSection from "../components/home/HeroSection";
 import ExhibitionCard from "@/components/cards/ExhibitionCard";
 import { Event } from "@/types";
 import { getHomeData } from "@/data/data";
+import GalleryCard from "@/components/cards/GalleryCard";
 
 export default async function page() {
   const homeData = await getHomeData();
+  const { artworks } = await homeData;
 
   return (
     <>
@@ -46,17 +48,47 @@ export default async function page() {
             mobileText="See all"
           />
         </div>
-        {homeData && <GalleryList data={homeData?.artworks} />}
+        <div className="columns-1 xl:columns-3 md:columns-2 sm:columns-2 gap-3 space-y-4 mt-5 lg:mt-10">
+          {homeData &&
+            artworks?.map((artwork: any) => (
+              <GalleryCard info={artwork} key={artwork.id} />
+            ))}
+        </div>
       </Layout>
 
       <Layout className="lg:p-0 grid grid-cols-1 lg:grid-cols-2 bg-primary-light text-primary lg:text-5xl mt-2">
         <div className=" flex justify-center mb-4 lg:mb-0 lg:px-[102px]  flex-col">
           <Title className="mb-5 mt-5 lg:mt-0">What is Kalasa</Title>
-          <Paragraph className="lg:leading-normal leading-6 text-sm">
-            We showcase the works of Aung Myint and other Myanmar artists. We
-            also offer art healing workshops and rare book collections. Come and
-            join us at KALASA, the home for Myanmar’s art and healing.
-          </Paragraph>
+          <div className="flex flex-col gap-3">
+            <Paragraph>
+              Kalasa Art Space is started home studio in 2016 and founded as a
+              public space in 2019 by Ma Su Htwe and her spouse, artist Htoo
+              Aung Kyaw.
+            </Paragraph>
+            <Paragraph>
+              Ma Su Htwe is found of sharing and does art healing workshops to
+              support the community according to her art space motto, " Art Is
+              Sharing ".
+            </Paragraph>
+            <Paragraph>
+              KALASA is the name of the pot-like pregnant lady mother's womb,
+              which translates as 'to prosper. Aim to prosper Burmese artsense,
+              it became the name of art space.
+            </Paragraph>
+            <Paragraph>
+              KALASA art space mainly features the artwork of famous
+              internationally renowned artist, Aung Myint, in addition to
+              displaying various artworks of promising Myanmar artists.
+            </Paragraph>
+            <Paragraph>
+              Kalasa also keeps rare book collections as a small archive for all
+              researchers. The historic antique stuffs in the colonial building
+              is very harmonious with the architecture.
+            </Paragraph>
+            <Paragraph>
+              KALASA Art Space is a space where there are arts and the hearts.
+            </Paragraph>
+          </div>
         </div>
         <Image
           src={aboutUs}

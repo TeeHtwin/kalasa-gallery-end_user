@@ -23,7 +23,7 @@ const HeroSection = (props: Props) => {
       </div>
 
       <div>
-        <OutlineBtnHero>Upcoming Events &rarr;</OutlineBtnHero>
+        <OutlineBtnHero href="/events">Upcoming Events &rarr;</OutlineBtnHero>
       </div>
     </main>
   );

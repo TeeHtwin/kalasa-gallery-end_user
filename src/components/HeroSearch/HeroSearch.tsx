@@ -39,13 +39,13 @@ const HeroSearch = ({
   }, 300);
 
   return (
-    <div className="block sm:flex  justify-between items-center gap-40 pb-8">
+    <div className="block sm:flex justify-between items-center gap-40 pb-8">
       <p className="font-serif font-light text-xl sm:text-2xl md:text-3xl lg:text-4xl flex-none text-primary">
         {name}
       </p>
-      <div className="relative mt-6 sm:mt-0 max-w-[600px] w-full flex-auto">
+      <div className="relative border py-2 rounded-sm border-primary mt-6 sm:mt-0 max-w-[600px] w-full flex-auto">
         <input
-          className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
+          className="peer block bg-transparent w-full rounded-md border pl-10 text-sm lg:text-base text-primary focus-visible:outline-none  placeholder:text-primary/50 font-medium"
           placeholder={placeholder}
           onChange={(e) => {
             handleSearch(e.target.value);

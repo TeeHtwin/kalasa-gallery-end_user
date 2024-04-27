@@ -17,6 +17,7 @@ export default async function page({ params }: { params: { id: string } }) {
     .catch((error) => console.log("artwork detail error", error));
 
   // status for the artwork is available or not
+  console.log(artwork)
 
   return (
     <Layout className="lg:px-20 pb-10">
@@ -74,7 +75,7 @@ export default async function page({ params }: { params: { id: string } }) {
           </div>
 
           <p className="max-w-md font-sans text-sm sm:text-base text-[#BA5006] ">
-            {artwork?.description}
+            {artwork.description}
           </p>
 
           {artwork?.status && (
