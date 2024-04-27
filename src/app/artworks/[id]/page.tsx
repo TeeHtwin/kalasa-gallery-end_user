@@ -8,6 +8,7 @@ import Layout from "@/components/common/Layout";
 import clsx from "clsx";
 import { API } from "@/utils/domain";
 import { Artwork } from "@/types";
+import GalleryCard from "@/components/cards/GalleryCard";
 
 export default async function page({ params }: { params: { id: string } }) {
   const { data: artwork }: { data: Artwork } = await fetch(
@@ -17,7 +18,7 @@ export default async function page({ params }: { params: { id: string } }) {
     .catch((error) => console.log("artwork detail error", error));
 
   // status for the artwork is available or not
-  console.log(artwork)
+  console.log(artwork);
 
   return (
     <Layout className="lg:px-20 pb-10">
@@ -49,7 +50,7 @@ export default async function page({ params }: { params: { id: string } }) {
             <div
               className={`inline-flex items-center text-xs font-medium px-2.5 py-0.5 rounded-full ${clsx(
                 artwork?.status
-                  ? "bg-green-900 text-green-300"
+                  ? "bg-green-800/70 text-white"
                   : "bg-red-900 text-red-100"
               )}  h-5 sm:h-6`}
             >
@@ -97,34 +98,35 @@ export default async function page({ params }: { params: { id: string } }) {
         </div>
       </MainLayout>
 
-      <RelativeLayout title="Artworks">
-        <div className=" text-primary py-4 flex items-start flex-wrap gap-4">
+      <RelativeLayout title="Related Artworks">
+        <div className=" text-primary columns-1 xl:columns-3 md:columns-2 sm:columns-2 gap-2 space-y-4 mt-5 lg:mt-10">
           {artwork?.related?.map((artwork, index) => (
-            <div
-              key={index}
-              className="border-solid border-[1.5px] border-[#883B0A29] h-auto bg-neutral-light mb-4 sm:mb-0 grow basis-80"
-            >
-              <Image
-                src={artwork.image}
-                alt="artwork poster"
-                width={400}
-                height={200}
-                className="object-cover w-full h-96 p-1"
-              />
-              <p className="p-4 font-semibold text-2xl">{artwork.name}</p>
-              <div className="flex justify-between p-3">
-                <div>
-                  <p className="pb-1">By {artwork.artist.name}</p>
-                  {/* <p className="text-sm">{artwork.info}</p> */}
-                </div>
-                <Link
-                  href={`/artworks/${artwork.id}`}
-                  className="border-solid border-[1.5px] border-primary py-3 px-7"
-                >
-                  View Details
-                </Link>
-              </div>
-            </div>
+            <GalleryCard key={artwork.id} info={artwork} />
+            // <div
+            //   key={index}
+            //   className="border-solid border-[1.5px] border-[#883B0A29] h-auto bg-neutral-light mb-4 sm:mb-0 grow basis-80"
+            // >
+            //   <Image
+            //     src={artwork.image}
+            //     alt="artwork poster"
+            //     width={400}
+            //     height={200}
+            //     className="object-cover w-full h-96 p-1"
+            //   />
+            //   <p className="p-4 font-semibold text-2xl">{artwork.name}</p>
+            //   <div className="flex justify-between p-3">
+            //     <div>
+            //       <p className="pb-1">By {artwork.artist.name}</p>
+            //       {/* <p className="text-sm">{artwork.info}</p> */}
+            //     </div>
+            //     <Link
+            //       href={`/artworks/${artwork.id}`}
+            //       className="border-solid border-[1.5px] border-primary py-3 px-7"
+            //     >
+            //       View Details
+            //     </Link>
+            //   </div>
+            // </div>
           ))}
         </div>
       </RelativeLayout>

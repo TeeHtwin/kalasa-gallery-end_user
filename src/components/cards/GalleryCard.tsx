@@ -26,7 +26,7 @@ const GalleryCard = ({ info }: { info: Artwork }) => {
           <div className="flex justify-between w-full items-center">
             <div>
               <p className="text-xs text-primary mb-2">
-                by Artist {info?.artist_name}
+                by Artist {info?.artist?.name}
               </p>
               <p className="text-xs text-primary leading-tight">{info?.size}</p>
             </div>
