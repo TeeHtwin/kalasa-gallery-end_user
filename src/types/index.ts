@@ -1,4 +1,3 @@
-
 export interface ListPage {
   query: string;
   currentPage: number;
@@ -42,6 +41,7 @@ export interface Artist {
   description: string;
   total_artwork: number;
   sold_artwork: number;
+  artworks: Artwork[];
 }
 
 export interface Blog {
@@ -73,4 +73,3 @@ export interface Home {
   collections: Collection[];
   artworks: Artwork[];
 }
-

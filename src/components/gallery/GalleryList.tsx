@@ -14,11 +14,10 @@ const GalleryList = async ({
   query: string;
   currentPage: number;
 }) => {
-  const artworksData = await fetchData(currentPage, query, 'artwork');
- // console.log(data);
+  const artworksData = await fetchData(currentPage, query, "artwork");
 
   return (
-    <div className="columns-1 xl:columns-3 md:columns-2 sm:columns-2 gap-2 space-y-4 mt-5 lg:mt-10">
+    <div className="columns-2 xl:columns-3 md:columns-2 sm:columns-2 gap-2 space-y-4 mt-5 lg:mt-10">
       {artworksData?.map((gallery: any) => (
         <GalleryCard key={gallery.id} info={gallery} />
       ))}

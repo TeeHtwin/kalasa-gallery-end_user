@@ -38,18 +38,20 @@ export default async function page({ params }: { params: { id: string } }) {
         ]}
       />
       <MainLayout className="grid grid-cols-1 items-center md:grid-cols-2 gap-10">
-        <Image
-          src={eventInfo?.image ?? ""}
-          width={1024}
-          height={1024}
-          alt="Detail image"
-          quality={100}
-          className="w-full h-full object-cover"
-        />
+        <div className="flex items-start h-full">
+          <Image
+            src={eventInfo?.image ?? ""}
+            width={1024}
+            height={1024}
+            alt="Detail image"
+            quality={100}
+            className="w-full h-auto object-cover"
+          />
+        </div>
 
         <div className="text-primary flex flex-col gap-y-[24px] my-auto">
           <Title>{eventInfo?.title}</Title>
-          <p>{eventInfo?.description}</p>
+          <p className=" leading-8 text-lg">{eventInfo?.description}</p>
           <div className="flex flex-col gap-y-[16px]">
             <div className="flex items-center gap-[16px]">
               <CalendarRange />

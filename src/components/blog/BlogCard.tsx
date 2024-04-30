@@ -15,7 +15,7 @@ const BlogCard = (blog: Blog) => {
           height={413}
           src={blog.image}
           alt="blog image"
-          className="aspect-[4/3] h-auto lg:aspect-square bg-cover bg-center w-full"
+          className="aspect-[4/3] h-auto lg:aspect-square bg-cover object-contain bg-center w-full"
         />
         <div className="py-3 px-3">
           {/* <p className="font-sans text-base font-extralight">
@@ -29,7 +29,7 @@ const BlogCard = (blog: Blog) => {
           </p>
           <Link
             href={`blogs/${blog.id.toString()}`}
-            className="pt-5 mt-5 text-lg font-inter text-zinc-800 font-medium"
+            className="pt-5 mt-5 text-lg font-inter text-primary/60 font-medium"
           >
             Read more →
           </Link>
