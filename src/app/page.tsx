@@ -1,5 +1,4 @@
 /* eslint-disable react/no-unescaped-entities */
-"use client";
 import React from "react";
 import Title from "../components/common/Title";
 import LinkBtn from "../components/button/LinkBtn";
@@ -12,23 +11,10 @@ import CollectionCard from "../components/cards/CollectionCard";
 import HeroSection from "../components/home/HeroSection";
 import ExhibitionCard from "@/components/cards/ExhibitionCard";
 import { Event } from "@/types";
-// import { getHomeData } from "@/data/data";
+import { getHomeData } from "@/data/data";
 import GalleryCard from "@/components/cards/GalleryCard";
 
 export default async function page() {
-  async function getHomeData() {
-    try {
-      const response = await fetch(
-        `https://api.kalasa.gallery/api/enduser/home`
-      );
-      const data = await response.json();
-      console.log(data);
-      return data.data;
-    } catch (error) {
-      console.error("API Error:", error);
-      throw new Error("Failed to fetch Home Page");
-    }
-  }
   const homeData = await getHomeData();
   const { artworks } = await homeData;
   return (
