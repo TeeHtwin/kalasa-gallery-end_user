@@ -15,30 +15,33 @@ const GalleryCard = ({ info }: { info: Artwork }) => {
           height={300}
           alt={info?.name}
           priority={true}
+          blurDataURL={info?.image}
+          placeholder="blur"
           className={
             "w-full bg-indigo-100 object-cover object-center flex items-center justify-center mx-auto"
           }
         />
-        <div className="py-8 px-3">
-          <h2 className="text-primary text-xl font-semibold mb-4">
-            {info?.name}
-          </h2>
-          <div className="flex justify-between w-full items-center">
+
+        <div className="flex flex-col-reverse lg:flex-row py-6 px-3 items-start justify-between w-full lg:items-center gap-3">
+          <div>
+            <h2 className="text-primary text-base lg:text-xl font-semibold lg:mb-4">
+              {info?.name}
+            </h2>
             <div>
               <p className="text-xs text-primary mb-2">
                 by Artist {info?.artist?.name}
               </p>
               <p className="text-xs text-primary leading-tight">{info?.size}</p>
             </div>
-            <div
-              className={`py-3 border-[1.5px] px-7 ${
-                info?.status
-                  ? "border-success text-success"
-                  : "border-error text-error"
-              } text-xs tracking-wider`}
-            >
-              {info?.status ? "Available" : "Sold out"}
-            </div>
+          </div>
+          <div
+            className={`py-1 px-2 text-xs lg:py-3 border-[1.5px] lg:px-7 ${
+              info?.status
+                ? "border-success text-success"
+                : "border-error text-error"
+            } text-xs tracking-wider`}
+          >
+            {info?.status ? "Available" : "Sold out"}
           </div>
         </div>
       </div>

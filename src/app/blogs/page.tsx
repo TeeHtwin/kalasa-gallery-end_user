@@ -16,7 +16,7 @@ const page = async ({
 }) => {
   const query = searchParams?.query || "";
   const currentPage = Number(searchParams?.page) || 1;
-  // const totalPages = await fetchTotalData(query, 'artist');
+  const totalPages = await fetchTotalData(query, "blog");
 
   return (
     <>
@@ -31,7 +31,7 @@ const page = async ({
           <BlogList query={query} currentPage={currentPage} />
         </Suspense>
         <div className="mt-5 flex w-full justify-center">
-          <Pagination totalPages={3} />
+          <Pagination totalPages={totalPages} />
         </div>
       </Layout>
     </>

@@ -76,7 +76,7 @@ export default async function page({ params }: { params: { id: string } }) {
           </div>
 
           <p className="max-w-md font-sans text-sm sm:text-base text-[#BA5006] ">
-            {artwork.description}
+            {artwork.description === "undefined" ? "" : artwork.description}
           </p>
 
           {artwork?.status && (
@@ -99,7 +99,7 @@ export default async function page({ params }: { params: { id: string } }) {
       </MainLayout>
 
       <RelativeLayout title="Related Artworks">
-        <div className=" text-primary columns-1 xl:columns-3 md:columns-2 sm:columns-2 gap-2 space-y-4 mt-5 lg:mt-10">
+        <div className=" text-primary columns-2 xl:columns-3 md:columns-2 sm:columns-2 gap-2 space-y-4 mt-5 lg:mt-10">
           {artwork?.related?.map((artwork, index) => (
             <GalleryCard key={artwork.id} info={artwork} />
             // <div

@@ -4,13 +4,7 @@ import Paragraph from "../common/Text/Paragraph";
 import Link from "next/link";
 import { Collection } from "@/types";
 
-const CollectionCard = ({
-  info,
-  index,
-}: {
-  info: Collection;
-  index: number;
-}) => {
+const CollectionCard = ({ info }: { info: Collection }) => {
   const { id, title, image } = info;
   return (
     <div

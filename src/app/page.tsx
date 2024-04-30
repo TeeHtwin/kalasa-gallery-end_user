@@ -6,11 +6,8 @@ import Layout from "../components/common/Layout";
 import Paragraph from "../components/common/Text/Paragraph";
 import Image from "next/image";
 import aboutUs from "@/../public/img/aboutUs.png";
-// import PhotoGallery from "./components/photoLayout/PhotoGallery";
 import ContactUs from "../components/contactUs/ContactUs";
 import CollectionCard from "../components/cards/CollectionCard";
-import Collection from "../components/collection/Collection";
-import GalleryList from "../components/gallery/GalleryList";
 import HeroSection from "../components/home/HeroSection";
 import ExhibitionCard from "@/components/cards/ExhibitionCard";
 import { Event } from "@/types";
@@ -49,7 +46,7 @@ export default async function page() {
             mobileText="See all"
           />
         </div>
-        <div className="columns-1 xl:columns-3 md:columns-2 sm:columns-2 gap-3 space-y-4 mt-5 lg:mt-10">
+        <div className="columns-2 xl:columns-3 md:columns-2 sm:columns-2 gap-3 space-y-4 mt-5 lg:mt-10">
           {homeData &&
             artworks?.map((artwork: any) => (
               <GalleryCard info={artwork} key={artwork.id} />
@@ -109,8 +106,13 @@ export default async function page() {
             mobileText="See all"
           />
         </div>
-
-        {homeData && <Collection data={homeData?.collections} />}
+        {homeData && (
+          <div className="columns-2 lg:columns-3 gap-2 lg:gap-5 mt-5 lg:mt-10 w-full">
+            {homeData?.collections.map((data: any) => (
+              <CollectionCard key={data?.id} info={data} />
+            ))}
+          </div>
+        )}
       </Layout>
       <ContactUs name={null} />
     </>

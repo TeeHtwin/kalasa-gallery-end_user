@@ -1,29 +1,17 @@
-"use client";
-
-import React, { useMemo } from "react";
+import { fetchData } from "@/data/data";
 import CollectionCard from "../cards/CollectionCard";
-import { Collection } from "@/types";
+import { ListPage } from "@/types";
 
-interface CollectionsProps {
-  data: Collection[] | null;
-}
-const Collection = ({ data }: CollectionsProps) => {
-  const getColumnCount = (partition: number) =>
-    data
-      ? data?.length >= partition
-        ? partition
-        : data?.length % partition
-      : 1;
-
-  const columnCount = useMemo(() => getColumnCount(3), [data?.length]);
+const Collection = async ({ query, currentPage }: ListPage) => {
+  const collectionData = await fetchData(currentPage, query, "collection");
 
   return (
     <div
       data-testid="mocked-collection-card"
-      className={`columns-2 lg:columns-${columnCount} gap-2 lg:gap-5 mt-5 lg:mt-10 w-full`}
+      className={`columns-2 lg:columns-3 gap-2 lg:gap-5 mt-5 lg:mt-10 w-full`}
     >
-      {data?.map((singleData: Collection, index: number) => (
-        <CollectionCard key={singleData.id} info={singleData} index={index} />
+      {collectionData?.map((singleData: any) => (
+        <CollectionCard key={singleData.id} info={singleData} />
       ))}
     </div>
   );

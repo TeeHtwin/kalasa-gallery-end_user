@@ -3,11 +3,8 @@ import { unstable_noStore as noStore } from "next/cache";
 import { base_url } from "@/fetchers/api";
 
 export async function getHomeData() {
-  noStore();
   try {
-    const response = await fetch(
-      `https://staging.kalasa.gallery/api/enduser/home`
-    );
+    const response = await fetch(`${base_url}/api/enduser/home`);
     const data = await response.json();
 
     return data.data;
@@ -22,7 +19,6 @@ export async function fetchData(
   query: string,
   page: string
 ) {
-  noStore();
   try {
     const response = await fetch(
       `${base_url}/api/enduser/${page}/list?page=${currentPage}&q=${query}`
@@ -35,7 +31,6 @@ export async function fetchData(
 }
 
 export async function searchData(query: string, page: string) {
-  noStore();
   try {
     const response = await fetch(
       `${base_url}/api/enduser/${page}/search-by-name?q=${query}`
