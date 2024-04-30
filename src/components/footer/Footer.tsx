@@ -102,7 +102,7 @@ const Footer = () => {
               No. 91-93, 1st floor(left),
             </p>
             <p className="text-lime-50 text-sm mt-2 font-medium font-inter">
-              Seikkantha Street (Middle Block),
+              Seikkantha Street (Lower Block),
             </p>
             <p className="text-lime-50 text-sm mt-2 font-medium font-inter">
               Kyauktada Township, Yangon.

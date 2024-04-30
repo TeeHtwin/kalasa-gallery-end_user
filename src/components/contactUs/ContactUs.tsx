@@ -11,12 +11,11 @@ import InputBox from "./InputBox";
 import SocialLink from "./SocialLink";
 import Form from "./Form";
 
-
-
-const ContactUs = ({name}:{name: string | null}) => {
-
+const ContactUs = ({ name }: { name?: string | null }) => {
   const title = name;
-  const message =  title ? `Hi, pls let me know about the "${title}". I'm interested!` : ''
+  const message = title
+    ? `Hi, pls let me know about the "${title}". I'm interested!`
+    : "";
 
   return (
     <Layout className="lg:p-0 p-0 pt-10 grid grid-cols-1 lg:grid-cols-2">
@@ -30,8 +29,7 @@ const ContactUs = ({name}:{name: string | null}) => {
         <Paragraph>
           Feel Free to contact us anytime.
           <span className="block">
-            We will get back to you as soon as
-            we can !
+            We will get back to you as soon as we can !
           </span>
         </Paragraph>
         <Form message={message} />
@@ -41,11 +39,7 @@ const ContactUs = ({name}:{name: string | null}) => {
           <Title className="text-3xl lg:text-5xl text-primary">Info</Title>
         </div>
         <div className="lg:py-[60px] py-10 lg:pl-12 lg:pr-20 bg-primary pl-8 pr-5 flex gap-5 lg:gap-12 flex-col ">
-          <IconText
-            icon={phonIcon}
-            href="phone icon"
-            text="+959 79809 4145"
-          />
+          <IconText icon={phonIcon} href="phone icon" text="+959 79809 4145" />
           <IconText
             icon={mailIcon}
             text="kalasaartspace@gmail.com"
