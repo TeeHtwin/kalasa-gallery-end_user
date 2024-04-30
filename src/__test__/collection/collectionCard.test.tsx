@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import CollectionCard from "../../app/components/cards/CollectionCard";
+import CollectionCard from "../../components/cards/CollectionCard";
 
 test("renders CollectionCard component correctly", () => {
   const testData = {

@@ -1,16 +1,16 @@
-import Title from "@/app/components/common/Title";
+import Title from "@/components/common/Title";
 import { CalendarRange, Clock, Home, MapPin } from "lucide-react";
 import Image from "next/image";
 import React from "react";
-import ExhibitionLayout from "@/app/components/exhibition/ExhibitionLayout";
-import MainLayout from "@/app/components/exhibition/MainLayout";
-import RelativeLayout from "@/app/components/exhibition/RelativeLayout";
-import Breadcrumb from "@/app/components/breadcrumb/Breadcrumb";
+import ExhibitionLayout from "@/components/exhibition/ExhibitionLayout";
+import MainLayout from "@/components/exhibition/MainLayout";
+import RelativeLayout from "@/components/exhibition/RelativeLayout";
+import Breadcrumb from "@/components/breadcrumb/Breadcrumb";
 import Link from "next/link";
 import { API } from "@/utils/domain";
 import { Event } from "@/types";
 import { getEventDate, getEventTime } from "@/utils";
-import ExhibitionCard from "@/app/components/cards/ExhibitionCard";
+import ExhibitionCard from "@/components/cards/ExhibitionCard";
 
 export default async function page({ params }: { params: { id: string } }) {
   let eventInfo: Event | null = null;
@@ -38,18 +38,20 @@ export default async function page({ params }: { params: { id: string } }) {
         ]}
       />
       <MainLayout className="grid grid-cols-1 items-center md:grid-cols-2 gap-10">
-        <Image
-          src={eventInfo?.image ?? ""}
-          width={1024}
-          height={1024}
-          alt="Detail image"
-          quality={100}
-          className="w-full h-full object-cover"
-        />
+        <div className="flex items-start h-full">
+          <Image
+            src={eventInfo?.image ?? ""}
+            width={1024}
+            height={1024}
+            alt="Detail image"
+            quality={100}
+            className="w-full h-auto object-cover"
+          />
+        </div>
 
         <div className="text-primary flex flex-col gap-y-[24px] my-auto">
           <Title>{eventInfo?.title}</Title>
-          <p>{eventInfo?.description}</p>
+          <p className=" leading-8 text-lg">{eventInfo?.description}</p>
           <div className="flex flex-col gap-y-[16px]">
             <div className="flex items-center gap-[16px]">
               <CalendarRange />

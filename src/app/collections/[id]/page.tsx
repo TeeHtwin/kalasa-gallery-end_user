@@ -1,12 +1,12 @@
 import img from "@/app/collections/[id]/collection_poster.png";
-import Breadcrumb from "@/app/components/breadcrumb/Breadcrumb";
+import Breadcrumb from "@/components/breadcrumb/Breadcrumb";
 import Image from "next/image";
-import FullscreenImage from "@/app/components/fullscreenImage/fullscreenImage";
-import Layout from "@/app/components/common/Layout";
-import MainLayout from "@/app/components/exhibition/MainLayout";
-import RelativeLayout from "@/app/components/exhibition/RelativeLayout";
+import FullscreenImage from "@/components/fullscreenImage/fullscreenImage";
+import Layout from "@/components/common/Layout";
+import MainLayout from "@/components/exhibition/MainLayout";
+import RelativeLayout from "@/components/exhibition/RelativeLayout";
 import { API } from "@/utils/domain";
-import Loading from "@/app/components/common/Loading";
+import Loading from "@/components/common/Loading";
 import { Collection } from "@/types";
 
 export default async function page({ params }: { params: { id: string } }) {

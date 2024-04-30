@@ -1,3 +1,7 @@
+export interface ListPage {
+  query: string;
+  currentPage: number;
+}
 interface Rel_Artist {
   name: string;
   id: number;
@@ -37,6 +41,7 @@ export interface Artist {
   description: string;
   total_artwork: number;
   sold_artwork: number;
+  artworks: Artwork[];
 }
 
 export interface Blog {

@@ -2,9 +2,9 @@ import { Metadata } from "next";
 import "./globals.css";
 import { Primary, Cardo_font } from "@/fonts/font";
 import { config } from "@/config/config";
-import Navbar from "@/app/components/Navbar/Navbar";
-import Footer from "@/app/components/footer/Footer";
-import Provider from "./components/common/Provider";
+import Navbar from "@/components/Navbar/Navbar";
+import Footer from "@/components/footer/Footer";
+import Provider from "../components/common/Provider";
 
 export const metadata: Metadata = {
   title: config.META_TITLE,
