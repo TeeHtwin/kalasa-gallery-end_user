@@ -42,12 +42,12 @@ export default async function page() {
             dtText="View All Events &rarr;"
           />
         </div>
-        <div className="mt-5 lg:mt-20 flex justify-between w-full gap-2 flex-col lg:flex-row">
+        {/* <div className="mt-5 lg:mt-20 flex justify-between w-full gap-2 flex-col lg:flex-row">
           {homeData &&
             homeData.events.map((info: Event, index: number) => (
               <ExhibitionCard key={info.id} info={info} />
             ))}
-        </div>
+        </div> */}
       </Layout>
       <Layout>
         <div className="flex justify-between">
@@ -59,10 +59,10 @@ export default async function page() {
           />
         </div>
         <div className="columns-2 xl:columns-3 md:columns-2 sm:columns-2 gap-3 space-y-4 mt-5 lg:mt-10">
-          {homeData &&
+          {/* {homeData &&
             artworks?.map((artwork: any) => (
               <GalleryCard info={artwork} key={artwork.id} />
-            ))}
+            ))} */}
         </div>
       </Layout>
 
