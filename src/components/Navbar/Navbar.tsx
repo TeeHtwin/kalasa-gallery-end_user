@@ -36,6 +36,7 @@ const mobileNav = [
     name: "Artists",
     href: "/artists",
   },
+  { name: "blogs", href: "/blogs" },
   {
     name: "Contact",
     href: "/contact",

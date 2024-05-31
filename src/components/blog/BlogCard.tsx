@@ -8,7 +8,7 @@ const BlogCard = (blog: Blog) => {
     <Link href={`/blogs/${blog?.id}`}>
       <div
         key={blog.id}
-        className="border-solid border-[1.5px] border-[#883B0A29] p-2 h-auto w-[400px]"
+        className="border-solid border-[1.5px] border-[#883B0A29] p-2 h-auto w-full"
       >
         <Image
           width={413}
