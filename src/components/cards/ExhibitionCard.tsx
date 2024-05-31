@@ -23,11 +23,11 @@ const ExhibitionCard = ({ info }: { info: Event }) => {
   return (
     <div className="px-4 pt-2 pb-8 w-full lg:pb-11 border border-opacity-20 border-primary">
       <Image
-        width={421}
-        height={421}
+        width={300}
+        height={300}
         src={image}
         alt={`event ${id}`}
-        className="aspect-[4/3] h-auto lg:aspect-square bg-cover bg-center w-full"
+        className=" h-auto aspect-square object-cover bg-center w-full"
       />
       <TitleInter className="mt-4">{title}</TitleInter>
       <div className="mt-4 flex justify-between">
