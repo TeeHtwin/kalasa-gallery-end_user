@@ -5,6 +5,7 @@ import { config } from "@/config/config";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/footer/Footer";
 import Provider from "../components/common/Provider";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 export const metadata: Metadata = {
   title: config.META_TITLE,
@@ -25,6 +26,7 @@ export default function RootLayout({
           <Footer />
         </Provider>
       </body>
+      <GoogleAnalytics gaId="G-8L19TC1HEV" />
     </html>
   );
 }
