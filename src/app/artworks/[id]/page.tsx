@@ -49,17 +49,17 @@ export default async function page({ params }: { params: { id: string } }) {
             </p>
             <div
               className={`inline-flex items-center text-xs font-medium px-2.5 py-0.5 rounded-full ${clsx(
-                artwork?.status
-                  ? "bg-green-800/70 text-white"
-                  : "bg-red-900 text-red-100"
+                artwork?.sold
+                  ? "bg-red-900 text-red-100"
+                  : "bg-green-800/70 text-white"
               )}  h-5 sm:h-6`}
             >
               <span
                 className={`w-2 h-2 me-1 ${clsx(
-                  artwork?.status ? "bg-green-500" : "bg-red-500"
+                  artwork?.sold ? "bg-red-500" : "bg-green-500"
                 )}  rounded-full `}
               ></span>
-              {clsx(artwork?.status ? "Available" : "Sold Out")}
+              {clsx(artwork?.sold ? "Sold Out" : "Available")}
             </div>
           </div>
           <div className="inline-flex items-center gap-4">
@@ -79,7 +79,7 @@ export default async function page({ params }: { params: { id: string } }) {
             {artwork.description === "undefined" ? "" : artwork.description}
           </p>
 
-          {artwork?.status && (
+          {artwork?.sold ? null : (
             <Link
               href={{
                 pathname: `/artworks/${params.id}/contact`,
@@ -88,7 +88,7 @@ export default async function page({ params }: { params: { id: string } }) {
               <button
                 type="button"
                 className={`text-white bg-primary px-7 py-3 block w-fit ${clsx(
-                  artwork?.status ? "block" : "hidden"
+                  artwork?.sold ? "hidden" : "block"
                 )}`}
               >
                 Inquiry To Buy

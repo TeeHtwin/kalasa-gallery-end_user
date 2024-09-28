@@ -22,6 +22,7 @@ export interface Artwork {
   isAvailable: boolean;
   related: Artwork[];
   artist_name: string;
+  sold: boolean;
 }
 
 export interface Collection {

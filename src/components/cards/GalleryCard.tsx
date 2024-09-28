@@ -36,12 +36,12 @@ const GalleryCard = ({ info }: { info: Artwork }) => {
           </div>
           <div
             className={`py-1 px-2 text-xs lg:py-3 border-[1.5px] lg:px-7 ${
-              info?.status
-                ? "border-success text-success"
-                : "border-error text-error"
+              info?.sold
+                ? "border-error text-error"
+                : "border-success text-success"
             } text-xs tracking-wider`}
           >
-            {info?.status ? "Available" : "Sold out"}
+            {info?.sold ? "Sold out" : "Available"}
           </div>
         </div>
       </div>
