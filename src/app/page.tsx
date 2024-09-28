@@ -16,7 +16,7 @@ import GalleryCard from "@/components/cards/GalleryCard";
 
 export default async function page() {
   const homeData = await getHomeData();
-  const { artworks } = await homeData;
+  // const { artworks } = await homeData;
   return (
     <>
       <HeroSection />
@@ -30,10 +30,11 @@ export default async function page() {
           />
         </div>
         <div className="mt-5 lg:mt-20 flex justify-between w-full gap-2 flex-col lg:flex-row">
-          {homeData &&
-            homeData.events.map((info: Event, index: number) => (
-              <ExhibitionCard key={info.id} info={info} />
-            ))}
+          {homeData
+            ? homeData.events.map((info: Event, index: number) => (
+                <ExhibitionCard key={info.id} info={info} />
+              ))
+            : null}
         </div>
       </Layout>
       <Layout>
@@ -46,10 +47,11 @@ export default async function page() {
           />
         </div>
         <div className="columns-2 xl:columns-3 md:columns-2 sm:columns-2 gap-3 space-y-4 mt-5 lg:mt-10">
-          {homeData &&
-            artworks?.map((artwork: any) => (
-              <GalleryCard info={artwork} key={artwork.id} />
-            ))}
+          {homeData
+            ? homeData.artworks?.map((artwork: any) => (
+                <GalleryCard info={artwork} key={artwork.id} />
+              ))
+            : null}
         </div>
       </Layout>
 
@@ -105,13 +107,13 @@ export default async function page() {
             mobileText="See all"
           />
         </div>
-        {homeData && (
+        {homeData ? (
           <div className="columns-2 lg:columns-3 gap-2 lg:gap-5 mt-5 lg:mt-10 w-full">
             {homeData?.collections.map((data: any) => (
               <CollectionCard key={data?.id} info={data} />
             ))}
           </div>
-        )}
+        ) : null}
       </Layout>
       <ContactUs name={null} />
     </>
