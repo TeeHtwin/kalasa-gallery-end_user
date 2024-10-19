@@ -48,7 +48,7 @@ export default async function page({ params }: { params: { id: string } }) {
         <div className=" mt-3 flex flex-col justify-center">
           <Title className="text-primary">{artistInfo?.name}</Title>
           <p className="text-[#BA5006] text-xs lg:text-lg font-medium ">
-            {/* {artistInfo?.name} */}
+            {/* {artistInfo?.total_artwork} */}
           </p>
           <Paragraph className="text-[#BA5006] text-sm font-normal leading-relaxed mb-10 lg:mt-6 lg:font-base">
             {artistInfo?.description}

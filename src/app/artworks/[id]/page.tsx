@@ -76,8 +76,19 @@ export default async function page({ params }: { params: { id: string } }) {
           </div>
 
           <p className="max-w-md font-sans text-sm sm:text-base text-[#BA5006] ">
-            {artwork.description === "undefined" ? "" : artwork.description}
+            {artwork?.description === "undefined" ? "" : artwork.description}
           </p>
+          <div>
+            <p className="max-w-md font-sans text-sm sm:text-base text-[#BA5006] ">
+              Year: {artwork?.year === "undefined" ? "" : artwork.year}
+            </p>
+            <p className="max-w-md font-sans text-sm sm:text-base text-[#BA5006] ">
+              Medium: {artwork?.medium === "undefined" ? "" : artwork?.medium}
+            </p>
+            <p className="max-w-md font-sans text-sm sm:text-base text-[#BA5006] ">
+              Size: {artwork?.size === "undefined" ? "" : artwork?.size}
+            </p>
+          </div>
 
           {artwork?.sold ? null : (
             <Link
