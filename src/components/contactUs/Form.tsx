@@ -1,3 +1,4 @@
+// @ts-nocheck
 "use client";
 
 import InputBox from "./InputBox";
@@ -7,14 +8,25 @@ import { submitInquire } from "@/app/lib/action";
 import clsx from "clsx";
 import { useRef } from "react";
 import { useEffect } from "react";
+import toast from "react-hot-toast";
 
-const Form = (autoFill: { message: string | undefined }) => {
+const Form = (
+  autoFill: {
+    message: string | undefined;
+    artworkName: string | undefined | null;
+  }
+  // artworkName: string | null | undefined
+) => {
   const formRef = useRef<HTMLFormElement>(null);
-  const initialState = { message: "", errors: {} };
+  const initialState = {
+    message: `Contact for ${autoFill.artworkName}, `,
+    errors: {},
+  };
   const [state, dispatch] = useFormState(submitInquire, initialState);
 
   useEffect(() => {
     if (formRef.current && state.status) {
+      toast.success("Successfully send message");
       formRef.current.reset();
     }
   }, [state.status]);

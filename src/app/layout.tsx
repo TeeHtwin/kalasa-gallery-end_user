@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/footer/Footer";
 import Provider from "../components/common/Provider";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
   title: config.META_TITLE,
@@ -24,6 +25,7 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Footer />
+          <Toaster />
         </Provider>
       </body>
       <GoogleAnalytics gaId="G-8L19TC1HEV" />

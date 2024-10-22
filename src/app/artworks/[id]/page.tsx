@@ -9,6 +9,7 @@ import clsx from "clsx";
 import { API } from "@/utils/domain";
 import { Artwork } from "@/types";
 import GalleryCard from "@/components/cards/GalleryCard";
+import FullscreenImage from "@/components/fullscreenImage/fullscreenImage";
 
 export default async function page({ params }: { params: { id: string } }) {
   const { data: artwork }: { data: Artwork } = await fetch(
@@ -16,8 +17,6 @@ export default async function page({ params }: { params: { id: string } }) {
   )
     .then((res) => res.json())
     .catch((error) => console.log("artwork detail error", error));
-
-  // status for the artwork is available or not
   console.log(artwork);
 
   return (
@@ -34,14 +33,16 @@ export default async function page({ params }: { params: { id: string } }) {
         ]}
       />
 
-      <MainLayout className="flex flex-col lg:flex-row items-starts gap-5 sm:gap-[60px]  text-primary">
-        <Image
+      <MainLayout className="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-[60px]  text-primary">
+        {/* <Image
           src={artwork?.image}
           width={600}
           height={400}
           alt="collection poster"
           className="object-cover w-full"
-        />
+        /> */}
+        <FullscreenImage src={artwork?.image} />
+
         <div className="w-full flex flex-col justify-center content-center gap-7">
           <div className="flex justify-start items-center gap-4">
             <p className="font-serif text-2xl sm:text-5xl font-normal inline-flex">
@@ -76,17 +77,17 @@ export default async function page({ params }: { params: { id: string } }) {
           </div>
 
           <p className="max-w-md font-sans text-sm sm:text-base text-[#BA5006] ">
-            {artwork?.description === "undefined" ? "" : artwork.description}
+            {artwork?.description && artwork.description}
           </p>
           <div>
             <p className="max-w-md font-sans text-sm sm:text-base text-[#BA5006] ">
-              Year: {artwork?.year === "undefined" ? "" : artwork.year}
+              Year: {artwork?.year && artwork.year}
             </p>
             <p className="max-w-md font-sans text-sm sm:text-base text-[#BA5006] ">
-              Medium: {artwork?.medium === "undefined" ? "" : artwork?.medium}
+              Medium: {artwork?.medium && artwork?.medium}
             </p>
             <p className="max-w-md font-sans text-sm sm:text-base text-[#BA5006] ">
-              Size: {artwork?.size === "undefined" ? "" : artwork?.size}
+              Size: {artwork?.size && artwork?.size}
             </p>
           </div>
 

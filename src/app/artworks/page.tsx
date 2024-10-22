@@ -16,7 +16,7 @@ const page = async ({
 }) => {
   const query = searchParams?.query || "";
   const currentPage = Number(searchParams?.page) || 1;
-  const totalPages = await fetchTotalData(query, 'artwork');  
+  const totalPages = await fetchTotalData(query, "artwork");
 
   return (
     <>

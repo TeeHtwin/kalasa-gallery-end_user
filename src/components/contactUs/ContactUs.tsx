@@ -32,7 +32,7 @@ const ContactUs = ({ name }: { name?: string | null }) => {
             We will get back to you as soon as we can !
           </span>
         </Paragraph>
-        <Form message={message} />
+        <Form message={message} artworkName={title} />
       </div>
       <div className="flex pl-4 lg:pl-0 flex-col">
         <div className="h-[83px] lg:h-[230px] flex justify-center items-center ml-auto w-[216px] lg:w-[403px] bg-primary-light">

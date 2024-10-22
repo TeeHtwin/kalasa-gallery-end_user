@@ -12,6 +12,7 @@ export interface Artwork {
   name: string;
   image: string;
   artist_id: number;
+  medium: string;
   year: number;
   category_id: number;
   size: string;

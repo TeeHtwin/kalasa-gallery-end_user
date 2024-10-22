@@ -1,8 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import useKeypress from 'react-use-keypress'
-
+import useKeypress from "react-use-keypress";
 
 function FullscreenImage({ src }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,26 +14,25 @@ function FullscreenImage({ src }) {
     document.body.style.overflow = isOpen ? "hidden" : "unset";
   }, [isOpen]);
 
-  useKeypress('Escape', () => {
-    openPhoto()
-  })
+  useKeypress("Escape", () => {
+    openPhoto();
+  });
 
   return isOpen ? (
     <>
       <Image
         src={src}
         width={728}
-        height={480}
-        alt="collection poster"
-        className="block fixed z-50 inset-0 w-screen h-screen bg-black object-contain"
-
+        height={728}
+        alt="Image"
+        className="block fixed z-50 inset-0 w-screen h-screen bg-black/90 object-contain"
       />
       <Image
         src="/icons/close_arrow.svg"
         width={40}
         height={40}
         alt="zoom arrow"
-        className="block fixed top-3 right-3 z-50"
+        className="block w-8 fixed top-6 right-3 lg:right-6 z-50"
         onClick={openPhoto}
       />
     </>
@@ -42,8 +40,8 @@ function FullscreenImage({ src }) {
     <div className="object-cover w-full relative">
       <Image
         src={src}
-        width={600}
-        height={400}
+        width={350}
+        height={350}
         alt="collection poster"
         className="object-cover w-full"
         onClick={openPhoto}

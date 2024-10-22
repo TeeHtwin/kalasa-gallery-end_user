@@ -41,7 +41,7 @@ const GalleryCard = ({ info }: { info: Artwork }) => {
                 : "border-success text-success"
             } text-xs tracking-wider`}
           >
-            {info?.status ? "Sold out" : "Available"}
+            {info?.sold ? "Sold out" : "Available"}
           </div>
         </div>
       </div>

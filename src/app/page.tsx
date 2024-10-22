@@ -31,7 +31,7 @@ export default async function page() {
         </div>
         <div className="mt-5 lg:mt-20 flex justify-between w-full gap-2 flex-col lg:flex-row">
           {homeData
-            ? homeData.events.map((info: Event, index: number) => (
+            ? homeData?.events?.map((info: Event, index: number) => (
                 <ExhibitionCard key={info.id} info={info} />
               ))
             : null}
@@ -109,7 +109,7 @@ export default async function page() {
         </div>
         {homeData ? (
           <div className="columns-2 lg:columns-3 gap-2 lg:gap-5 mt-5 lg:mt-10 w-full">
-            {homeData?.collections.map((data: any) => (
+            {homeData?.collections?.map((data: any) => (
               <CollectionCard key={data?.id} info={data} />
             ))}
           </div>
