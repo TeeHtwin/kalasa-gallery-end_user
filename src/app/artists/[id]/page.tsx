@@ -12,7 +12,9 @@ import GalleryCard from "@/components/cards/GalleryCard";
 
 export default async function page({ params }: { params: { id: string } }) {
   let artistInfo: Artist | null = null;
-  const response = await fetch(`${API}/api/enduser/artist/${params?.id}`)
+  const response = await fetch(`${API}/api/enduser/artist/${params?.id}`, {
+    next: { revalidate: 3600 },
+  })
     .then((res) => res.json())
     .catch((error) => console.log("artist detail error", error));
 
