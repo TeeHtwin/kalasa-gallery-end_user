@@ -1,3 +1,4 @@
+"use client";
 import Breadcrumb from "@/components/breadcrumb/Breadcrumb";
 import ContactUs from "@/components/contactUs/ContactUs";
 import { useSearchParams } from "next/navigation";
