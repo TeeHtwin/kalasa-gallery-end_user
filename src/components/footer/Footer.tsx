@@ -19,14 +19,17 @@ interface QuickLink {
 const Footer = () => {
   const sociallink = [
     {
+      name: "facebook",
       icon: fbOutlineIcon,
       href: "https://www.facebook.com/KALASAARTSPACE?mibextid=ZbWKwL",
     },
     {
+      name: "instagram",
       icon: igOutlineIcon,
       href: "https://www.instagram.com/kalasa_art_space?igshid=OGQ5ZDc2ODk2ZA==",
     },
     {
+      name: "location",
       icon: locationOutlineIcon,
       href: "https://maps.app.goo.gl/Gvbh15eQSUFA8c4j8",
     },
@@ -62,7 +65,7 @@ const Footer = () => {
             </Paragraph>
             <div className="flex items-center gap-6">
               {sociallink.map((link) => (
-                <Link href={link.href} target="_blank" key={link.icon}>
+                <Link href={link.href} target="_blank" key={link.name}>
                   <Image
                     src={link.icon}
                     className="w-[30px] lg:w-[40px] h-auto"

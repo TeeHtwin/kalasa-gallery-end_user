@@ -3,26 +3,27 @@
 
 import InputBox from "./InputBox";
 import SubmitBtn from "./SubmitBtn";
-import { useFormState } from "react-dom";
+import { useActionState, useRef, useEffect } from "react";
 import { submitInquire } from "@/app/lib/action";
 import clsx from "clsx";
-import { useRef } from "react";
-import { useEffect } from "react";
 import toast from "react-hot-toast";
 
-const Form = (
-  autoFill: {
-    message: string | undefined;
-    artworkName: string | undefined | null;
-  }
-  // artworkName: string | null | undefined
-) => {
+const Form = (autoFill: {
+  message: string | undefined;
+  artworkName: string | undefined | null;
+}) => {
   const formRef = useRef<HTMLFormElement>(null);
   const initialState = {
     message: `Contact for ${autoFill.artworkName}, `,
     errors: {},
   };
-  const [state, dispatch] = useFormState(submitInquire, initialState);
+
+  // 2. Renamed to useActionState.
+  // Added 'isPending' as the 3rd return value.
+  const [state, dispatch, isPending] = useActionState(
+    submitInquire,
+    initialState
+  );
 
   useEffect(() => {
     if (formRef.current && state.status) {
@@ -86,7 +87,11 @@ const Form = (
           <p className="mt-2 text-sm text-red-500">{state.message}</p>
         )}
       </div>
-      <SubmitBtn type="submit">Send Message</SubmitBtn>
+
+      {/* You can now pass isPending to your button if you want to disable it while loading */}
+      <SubmitBtn type="submit" disabled={isPending}>
+        {isPending ? "Sending..." : "Send Message"}
+      </SubmitBtn>
     </form>
   );
 };

@@ -8,14 +8,17 @@ import Link from "next/link";
 const SocialLink = () => {
   const sociallink = [
     {
+      name: "facebook",
       icon: fbLinkIcon,
       href: "https://www.facebook.com/KALASAARTSPACE?mibextid=ZbWKwL",
     },
     {
+      name: "messenger",
       icon: messengerLinkIcon,
       href: "https://www.facebook.com/KALASAARTSPACE?mibextid=ZbWKwL",
     },
     {
+      name: "instagram",
       icon: instaLinkIcon,
       href: "https://www.instagram.com/kalasa_art_space?igshid=OGQ5ZDc2ODk2ZA==",
     },
@@ -23,7 +26,7 @@ const SocialLink = () => {
   return (
     <div className="flex items-center gap-8">
       {sociallink.map((link) => (
-        <Link href={link.href} target="_blank" key={link.icon}>
+        <Link href={link.href} target="_blank" key={link.name}>
           <Image
             src={link.icon}
             className="w-5 h-5 lg:w-8 lg:h-8"
