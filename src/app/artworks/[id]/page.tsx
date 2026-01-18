@@ -10,12 +10,15 @@ import { Artwork } from "@/types";
 import GalleryCard from "@/components/cards/GalleryCard";
 import FullscreenImage from "@/components/fullscreenImage/fullscreenImage";
 
-export default async function page({ params }: { params: { id: string } }) {
-  // 1. Fetching logic separated for safety
+export default async function page({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params; 
+  
   let artwork: Artwork | null = null;
 
   try {
-    const res = await fetch(`${API}/api/enduser/artwork/${params?.id}`);
+    const res = await fetch(`${API}/api/enduser/artwork/${id}`, {
+      cache: 'no-store'
+    });
 
     if (res.ok) {
       const result = await res.json();
