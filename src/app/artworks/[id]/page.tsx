@@ -10,25 +10,29 @@ import { Artwork } from "@/types";
 import GalleryCard from "@/components/cards/GalleryCard";
 import FullscreenImage from "@/components/fullscreenImage/fullscreenImage";
 
-export default async function page({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params; 
-  
+export default async function page({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+
   let artwork: Artwork | null = null;
 
   try {
     const res = await fetch(`${API}/api/enduser/artwork/${id}`, {
-      cache: 'no-store'
+      cache: "no-store",
     });
 
     if (res.ok) {
       const result = await res.json();
       artwork = result.data;
     }
+    console.log(res);
   } catch (error) {
     console.error("artwork detail error", error);
   }
 
-  // 2. Handle the case where artwork is not found
   if (!artwork) {
     return (
       <Layout className="lg:px-20 pb-10">
@@ -69,13 +73,13 @@ export default async function page({ params }: { params: Promise<{ id: string }>
                 "inline-flex items-center text-xs font-medium px-2.5 py-0.5 rounded-full h-5 sm:h-6",
                 artwork.sold
                   ? "bg-red-900 text-red-100"
-                  : "bg-green-800/70 text-white"
+                  : "bg-green-800/70 text-white",
               )}
             >
               <span
                 className={clsx(
                   "w-2 h-2 me-1 rounded-full",
-                  artwork.sold ? "bg-red-500" : "bg-green-500"
+                  artwork.sold ? "bg-red-500" : "bg-green-500",
                 )}
               ></span>
               {artwork.sold ? "Sold Out" : "Available"}
