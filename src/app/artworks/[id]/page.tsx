@@ -54,7 +54,7 @@ export default async function page({
           { name: "Our Artworks", url: "/artworks", active: true },
           {
             name: "Artwork Details",
-            url: `/artworks/${params.id}`,
+            url: `/artworks/${id}`,
             active: false,
           },
         ]}
@@ -118,7 +118,7 @@ export default async function page({
           </div>
 
           {!artwork.sold && (
-            <Link href={`/artworks/${params.id}/contact`}>
+            <Link href={`/artworks/${id}/contact`}>
               <button
                 type="button"
                 className="text-white bg-primary px-7 py-3 block w-fit hover:bg-opacity-90 transition-all"
