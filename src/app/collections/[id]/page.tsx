@@ -8,6 +8,7 @@ import RelativeLayout from "@/components/exhibition/RelativeLayout";
 import { API } from "@/utils/domain";
 import Loading from "@/components/common/Loading";
 import { Collection } from "@/types";
+import { fetchWithTimeout } from "@/utils/fetchWithTimeout";
 
 export default async function page({
   params,
@@ -16,7 +17,7 @@ export default async function page({
 }) {
   let collection: Collection | null = null;
   const { id } = await params;
-  const response = await fetch(`${API}/api/enduser/collection/${id}`)
+  const response = await fetchWithTimeout(`${API}/api/enduser/collection/${id}`)
     .then((res) => res.json())
     .catch((error) => console.log(error));
   if (response?.success) {

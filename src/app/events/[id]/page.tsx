@@ -11,6 +11,7 @@ import { API } from "@/utils/domain";
 import { Event } from "@/types";
 import { getEventDate, getEventTime } from "@/utils";
 import ExhibitionCard from "@/components/cards/ExhibitionCard";
+import { fetchWithTimeout } from "@/utils/fetchWithTimeout";
 
 export default async function page({
   params,
@@ -21,7 +22,7 @@ export default async function page({
   let eventDate = "";
   let eventTime = "";
   const { id } = await params;
-  const response = await fetch(`${API}/api/enduser/event/${id}`)
+  const response = await fetchWithTimeout(`${API}/api/enduser/event/${id}`)
     .then((res) => res.json())
     .catch((error) => console.log("event detail error", error));
   if (response?.success) {

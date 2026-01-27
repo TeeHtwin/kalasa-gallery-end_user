@@ -5,6 +5,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 import { base_url } from "@/fetchers/api";
+import { fetchWithTimeout } from "@/utils/fetchWithTimeout";
 
 const FormSchema = z.object({
   id: z.string(),
@@ -52,7 +53,7 @@ export async function submitInquire(prevState: State, formData: FormData) {
     console.log("email: ", email);
     console.log("inputMessage: ", inputMessage);
 
-    await fetch(`${base_url}/api/enduser/contact`, {
+    await fetchWithTimeout(`${base_url}/api/enduser/contact`, {
       method: "POST",
       headers: {
         Accept: "application/json",

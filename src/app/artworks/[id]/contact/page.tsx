@@ -2,6 +2,7 @@ import Breadcrumb from "@/components/breadcrumb/Breadcrumb";
 import ContactUs from "@/components/contactUs/ContactUs";
 import { API } from "@/utils/domain";
 import { Artwork } from "@/types";
+import { fetchWithTimeout } from "@/utils/fetchWithTimeout";
 
 const Page = async ({
   params,
@@ -9,11 +10,15 @@ const Page = async ({
   params: Promise<{ id: string }>;
 }) => {
   const { id } = await params;
-  const { data: artwork }: { data: Artwork } = await fetch(
-    `${API}/api/enduser/artwork/${id}`
-  )
-    .then((res) => res.json())
-    .catch((error) => console.log("artwork detail error", error));
+  let artwork: Artwork | null = null;
+  try {
+    const result = await fetchWithTimeout(
+      `${API}/api/enduser/artwork/${id}`,
+    ).then((res) => res.json());
+    artwork = result?.data ?? null;
+  } catch (error) {
+    console.log("artwork detail error", error);
+  }
 
   return (
     <>
@@ -31,7 +36,7 @@ const Page = async ({
           ]}
         />
       </div>
-      <ContactUs name={artwork.name} />
+      <ContactUs name={artwork?.name ?? ""} />
     </>
   );
 };

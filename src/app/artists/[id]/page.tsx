@@ -9,6 +9,7 @@ import Breadcrumb from "@/components/breadcrumb/Breadcrumb";
 import { API } from "@/utils/domain";
 import { Artist } from "@/types";
 import GalleryCard from "@/components/cards/GalleryCard";
+import { fetchWithTimeout } from "@/utils/fetchWithTimeout";
 
 export default async function page({
   params,
@@ -17,7 +18,7 @@ export default async function page({
 }) {
   let artistInfo: Artist | null = null;
   const { id } = await params;
-  const response = await fetch(`${API}/api/enduser/artist/${id}`, {
+  const response = await fetchWithTimeout(`${API}/api/enduser/artist/${id}`, {
     next: { revalidate: 3600 },
   })
     .then((res) => res.json())

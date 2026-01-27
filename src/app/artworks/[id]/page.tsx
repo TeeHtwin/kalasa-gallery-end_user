@@ -9,6 +9,7 @@ import { API } from "@/utils/domain";
 import { Artwork } from "@/types";
 import GalleryCard from "@/components/cards/GalleryCard";
 import FullscreenImage from "@/components/fullscreenImage/fullscreenImage";
+import { fetchWithTimeout } from "@/utils/fetchWithTimeout";
 
 export default async function page({
   params,
@@ -20,7 +21,7 @@ export default async function page({
   let artwork: Artwork | null = null;
 
   try {
-    const res = await fetch(`${API}/api/enduser/artwork/${id}`, {
+    const res = await fetchWithTimeout(`${API}/api/enduser/artwork/${id}`, {
       cache: "no-store",
     });
 
