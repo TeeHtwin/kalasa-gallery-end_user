@@ -12,11 +12,16 @@ import { Event } from "@/types";
 import { getEventDate, getEventTime } from "@/utils";
 import ExhibitionCard from "@/components/cards/ExhibitionCard";
 
-export default async function page({ params }: { params: { id: string } }) {
+export default async function page({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
   let eventInfo: Event | null = null;
   let eventDate = "";
   let eventTime = "";
-  const response = await fetch(`${API}/api/enduser/event/${params?.id}`)
+  const { id } = await params;
+  const response = await fetch(`${API}/api/enduser/event/${id}`)
     .then((res) => res.json())
     .catch((error) => console.log("event detail error", error));
   if (response?.success) {
@@ -27,6 +32,13 @@ export default async function page({ params }: { params: { id: string } }) {
       eventTime = getEventTime(opening_datetime, closing_datetime);
     }
   }
+  const imageSrc =
+    eventInfo?.image && eventInfo.image.length > 0
+      ? eventInfo.image
+      : "/img/smallBackground.jpeg";
+  const isApiImage =
+    typeof imageSrc === "string" &&
+    imageSrc.startsWith("https://api.kalasa.gallery/");
 
   return (
     <ExhibitionLayout>
@@ -34,17 +46,19 @@ export default async function page({ params }: { params: { id: string } }) {
         items={[
           { name: "Home", url: "/", active: true },
           { name: "Our Events", url: "/events", active: true },
-          { name: "Event Details", url: `/events/${params.id}`, active: false },
+          { name: "Event Details", url: `/events/${id}`, active: false },
         ]}
       />
       <MainLayout className="grid grid-cols-1 items-center md:grid-cols-2 gap-10">
         <div className="flex items-start h-full">
           <Image
-            src={eventInfo?.image ?? ""}
+            src={imageSrc}
             width={1024}
             height={1024}
             alt="Detail image"
             quality={100}
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            unoptimized={isApiImage}
             className="w-full h-auto object-cover"
           />
         </div>

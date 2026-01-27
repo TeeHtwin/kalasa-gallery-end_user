@@ -18,11 +18,11 @@ export async function getHomeData() {
 export async function fetchData(
   currentPage: number,
   query: string,
-  page: string
+  page: string,
 ) {
   try {
     const response = await fetch(
-      `${base_url}/api/enduser/${page}/list?page=${currentPage}&q=${query}`
+      `${base_url}/api/enduser/${page}/list?page=${currentPage}&q=${query}`,
     );
     const data = await response.json();
     return data.data.data;
@@ -34,7 +34,7 @@ export async function fetchData(
 export async function searchData(query: string, page: string) {
   try {
     const response = await fetch(
-      `${base_url}/api/enduser/${page}/search-by-name?q=${query}`
+      `${base_url}/api/enduser/${page}/search-by-name?q=${query}`,
     );
     const data = await response.json();
     return data.data;
@@ -47,12 +47,12 @@ export async function fetchTotalData(query: string, page: string) {
   noStore();
   try {
     const response = await fetch(
-      `${base_url}/api/enduser/${page}/total?q=${query}`
+      `${base_url}/api/enduser/${page}/total?q=${query}`,
     );
     const data = await response.json();
 
     const totalPage = Math.ceil(
-      Number(data?.data.total / data?.data.item_per_page)
+      Number(data?.data.total / data?.data.item_per_page),
     );
     return totalPage;
   } catch (error) {

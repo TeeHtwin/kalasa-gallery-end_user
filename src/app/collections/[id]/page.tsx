@@ -9,9 +9,14 @@ import { API } from "@/utils/domain";
 import Loading from "@/components/common/Loading";
 import { Collection } from "@/types";
 
-export default async function page({ params }: { params: { id: string } }) {
+export default async function page({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
   let collection: Collection | null = null;
-  const response = await fetch(`${API}/api/enduser/collection/${params?.id}`)
+  const { id } = await params;
+  const response = await fetch(`${API}/api/enduser/collection/${id}`)
     .then((res) => res.json())
     .catch((error) => console.log(error));
   if (response?.success) {
@@ -30,7 +35,7 @@ export default async function page({ params }: { params: { id: string } }) {
           { name: "Collection", url: "/collections", active: true },
           {
             name: "Collection Details",
-            url: `/collection/${params.id}`,
+            url: `/collection/${id}`,
             active: false,
           },
         ]}
@@ -57,23 +62,34 @@ export default async function page({ params }: { params: { id: string } }) {
         title="Related Collections"
       >
         <div className="py-4 sm:py-20 flex items-start flex-wrap gap-4">
-          {collection.related.map((collection) => (
+          {collection.related.map((collection) => {
+            const relatedImageSrc =
+              collection.image && collection.image.length > 0
+                ? collection.image
+                : "/img/smallBackground.jpeg";
+            const isApiImage =
+              typeof relatedImageSrc === "string" &&
+              relatedImageSrc.startsWith("https://api.kalasa.gallery/");
+            return (
             <div
               key={collection.id}
               className="border-solid border-[1.5px] border-[#883B0A29] h-auto bg-neutral-light mb-4 sm:mb-0 grow basis-80"
             >
               <Image
-                src={collection.image}
+                src={relatedImageSrc}
                 alt="collection poster"
                 width={400}
                 height={200}
+                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                unoptimized={isApiImage}
                 className="object-cover w-full h-96 p-1"
               />
               <p className="font-sans px-4 py-8 font-medium text-2xl">
                 {collection.title}
               </p>
             </div>
-          ))}
+          );
+          })}
         </div>
       </RelativeLayout>
       {/* <section className="m-auto text-primary px-4 sm:px-10 lg:px-18 max-w-screen-2xl"> */}

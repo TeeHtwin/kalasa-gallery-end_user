@@ -13,14 +13,23 @@ const ArtistsCard = ({
   total_artwork,
   sold_artwork,
 }: Artist) => {
+  const imageSrc =
+    profile_image && profile_image.length > 0
+      ? profile_image
+      : "/img/smallBackground.jpeg";
+  const isApiImage =
+    typeof imageSrc === "string" &&
+    imageSrc.startsWith("https://api.kalasa.gallery/");
   return (
     <div className="border-solid border-[1.5px] border-[#883B0A29]">
       <Image
-        src={profile_image}
+        src={imageSrc}
         className="aspect-square object-cover"
         alt="artist"
         width={400}
         height={400}
+        sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+        unoptimized={isApiImage}
       />
       <div className="flex text-center flex-col mt-5 sm:mt-4 mb-4 gap-3">
         <Paragraph className="font-semibold lg:text-2xl">{name}</Paragraph>

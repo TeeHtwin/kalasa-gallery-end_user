@@ -20,13 +20,20 @@ const ExhibitionCard = ({ info }: { info: Event }) => {
     related,
   } = info;
   const eventTime = getEventDate(opening_datetime, closing_datetime);
+  const imageSrc =
+    image && image.length > 0 ? image : "/img/smallBackground.jpeg";
+  const isApiImage =
+    typeof imageSrc === "string" &&
+    imageSrc.startsWith("https://api.kalasa.gallery/");
   return (
     <div className="px-4 pt-2 pb-8 w-full lg:pb-11 border border-opacity-20 border-primary">
       <Image
         width={300}
         height={300}
-        src={image}
+        src={imageSrc}
         alt={`event ${id}`}
+        sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+        unoptimized={isApiImage}
         className=" h-auto aspect-square object-cover bg-center w-full"
       />
       <TitleInter className="mt-4">{title}</TitleInter>

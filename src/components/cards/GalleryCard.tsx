@@ -6,17 +6,23 @@ import { Artwork } from "@/types";
 
 const GalleryCard = ({ info }: { info: Artwork }) => {
   const hrefId = info.id;
+  const imageSrc =
+    info?.image && info.image.length > 0
+      ? info.image
+      : "/img/smallBackground.jpeg";
+  const isApiImage =
+    typeof imageSrc === "string" &&
+    imageSrc.startsWith("https://api.kalasa.gallery/");
   return (
     <Link href={`/artworks/${info?.id}`}>
       <div className="relative break-inside-avoid border p-2">
         <Image
-          src={info?.image}
+          src={imageSrc}
           width={300}
           height={300}
           alt={info?.name}
-          priority={true}
-          blurDataURL={info?.image}
-          placeholder="blur"
+          sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
+          unoptimized={isApiImage}
           className={
             "w-full bg-indigo-100 object-cover object-center flex items-center justify-center mx-auto"
           }

@@ -39,6 +39,13 @@ const BlogDetailedPage = ({ blogId }: { blogId: string }) => {
   }
 
   const blogDetailed: Blog = !isError ? response?.data : null;
+  const imageSrc =
+    blogDetailed?.image && blogDetailed.image.length > 0
+      ? blogDetailed.image
+      : "/img/smallBackground.jpeg";
+  const isApiImage =
+    typeof imageSrc === "string" &&
+    imageSrc.startsWith("https://api.kalasa.gallery/");
   return (
     <div>
       <section className="text-primary max-w-screen-2xl lg:px-20 lg:py-12 wrapper">
@@ -52,10 +59,12 @@ const BlogDetailedPage = ({ blogId }: { blogId: string }) => {
         {blogDetailed && (
           <div className="px-4 sm:px-10 lg:px-18">
             <Image
-              src={blogDetailed?.image}
+              src={imageSrc}
               alt={blogDetailed?.title}
               width={700}
               height={475}
+              sizes="(min-width: 1024px) 70vw, 100vw"
+              unoptimized={isApiImage}
               className="m-auto"
             />
             {/* <p className="font-sans text-xs sm:text-lg font-extralight text-left sm:text-center py-4 sm:py-16">

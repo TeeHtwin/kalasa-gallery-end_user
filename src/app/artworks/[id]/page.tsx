@@ -45,6 +45,7 @@ export default async function page({
       </Layout>
     );
   }
+  console.log(artwork);
 
   return (
     <Layout className="lg:px-20 pb-10">
@@ -94,6 +95,10 @@ export default async function page({
                 className="w-10 h-10 rounded-full object-cover"
                 src={artwork.artist.profile_image}
                 alt={artwork.artist.name || "Artist profile"}
+                sizes="40px"
+                unoptimized={artwork.artist.profile_image.startsWith(
+                  "https://api.kalasa.gallery/",
+                )}
               />
             )}
             <p className="font-sans text-xs sm:text-2xl text-[#BA5006]">
