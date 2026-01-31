@@ -11,3 +11,14 @@ export async function fetchWithTimeout(
     clearTimeout(timeoutId);
   }
 }
+
+export async function parseJsonResponse<T>(response: Response): Promise<T> {
+  const contentType = response.headers.get("content-type") ?? "";
+  if (!contentType.includes("application/json")) {
+    const text = await response.text();
+    throw new Error(
+      `Invalid JSON response: ${text.slice(0, 200).replace(/\s+/g, " ")}`,
+    );
+  }
+  return response.json() as Promise<T>;
+}

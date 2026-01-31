@@ -1,53 +1,51 @@
 import React from "react";
 import Image from "next/image";
-import Paragraph from "../common/Text/Paragraph";
 import Link from "next/link";
 import { Artwork } from "@/types";
 
 const GalleryCard = ({ info }: { info: Artwork }) => {
-  const hrefId = info.id;
-  const imageSrc =
-    info?.image && info.image.length > 0
-      ? info.image
-      : "/img/smallBackground.jpeg";
-  const isApiImage =
-    typeof imageSrc === "string" &&
-    imageSrc.startsWith("https://api.kalasa.gallery/");
   return (
-    <Link href={`/artworks/${info?.id}`}>
-      <div className="relative break-inside-avoid border p-2">
-        <Image
-          src={imageSrc}
-          width={300}
-          height={300}
-          alt={info?.name}
-          sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
-          unoptimized={isApiImage}
-          className={
-            "w-full bg-indigo-100 object-cover object-center flex items-center justify-center mx-auto"
-          }
-        />
-
-        <div className="flex flex-col-reverse lg:flex-row py-6 px-3 items-start justify-between w-full lg:items-center gap-3">
-          <div>
-            <h2 className="text-primary text-base lg:text-xl font-semibold lg:mb-4">
-              {info?.name}
-            </h2>
-            <div>
-              <p className="text-xs text-primary mb-2">
-                by Artist {info?.artist?.name}
-              </p>
-              <p className="text-xs text-primary leading-tight">{info?.size}</p>
-            </div>
+    <Link
+      href={`/artworks/${info?.id}`}
+      className="group block focus:outline-none"
+    >
+      <div className="mb-3 break-inside-avoid md:mb-4 lg:mb-6">
+        <div className="overflow-hidden rounded-xl border border-primary/15 bg-white transition group-hover:border-primary/30 group-focus-visible:ring-2 group-focus-visible:ring-primary/40">
+          <div className="overflow-hidden">
+            <Image
+              src={info?.image}
+              width={640}
+              height={800}
+              quality={50}
+              alt={info?.name}
+              blurDataURL={info?.image}
+              placeholder="blur"
+              className="w-full bg-[#efe7d4] object-cover object-center"
+            />
           </div>
-          <div
-            className={`py-1 px-2 text-xs lg:py-3 border-[1.5px] lg:px-7 ${
-              info?.sold
-                ? "border-error text-error"
-                : "border-success text-success"
-            } text-xs tracking-wider`}
-          >
-            {info?.sold ? "Sold out" : "Available"}
+          <div className="border-t bg-primary-light/50 border-primary/10 px-4 py-4">
+            <div className="flex items-start justify-between gap-3">
+              <div className="min-w-0">
+                <h2 className="text-primary text-[17px] font-semibold leading-snug">
+                  {info?.name}
+                </h2>
+                <p className="mt-1 text-[14.5px] font-medium text-primary/90">
+                  {info?.artist?.name ?? "Unknown artist"}
+                </p>
+                <p className="mt-1 text-[12.5px] text-primary/65">
+                  {info?.size}
+                </p>
+              </div>
+              <span
+                className={`inline-flex shrink-0 items-center rounded-full border px-3 py-1 text-[11px] uppercase tracking-[0.16em] ${
+                  info?.sold
+                    ? "border-error/30 bg-error/10 text-error"
+                    : "border-success/30 bg-success/10 text-success"
+                }`}
+              >
+                {info?.sold ? "Sold" : "Available"}
+              </span>
+            </div>
           </div>
         </div>
       </div>

@@ -5,10 +5,6 @@ import useKeypress from "react-use-keypress";
 
 function FullscreenImage({ src }) {
   const [isOpen, setIsOpen] = useState(false);
-  const imageSrc = src && src.length > 0 ? src : "/img/smallBackground.jpeg";
-  const isApiImage =
-    typeof imageSrc === "string" &&
-    imageSrc.startsWith("https://api.kalasa.gallery/");
 
   const openPhoto = () => {
     setIsOpen(!isOpen);
@@ -25,12 +21,10 @@ function FullscreenImage({ src }) {
   return isOpen ? (
     <>
       <Image
-        src={imageSrc}
+        src={src}
         width={728}
         height={728}
         alt="Image"
-        sizes="100vw"
-        unoptimized={isApiImage}
         className="block fixed z-50 inset-0 w-screen h-screen bg-black/90 object-contain"
       />
       <Image
@@ -45,12 +39,10 @@ function FullscreenImage({ src }) {
   ) : (
     <div className="object-cover w-full relative">
       <Image
-        src={imageSrc}
+        src={src}
         width={350}
         height={350}
         alt="collection poster"
-        sizes="(min-width: 1024px) 50vw, 100vw"
-        unoptimized={isApiImage}
         className="object-cover w-full"
         onClick={openPhoto}
       />
