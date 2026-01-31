@@ -21,8 +21,10 @@ export type State = {
     name?: string[];
     email?: string[];
     inputMessage?: string[];
+    recaptcha?: string[];
   };
   message?: string;
+  status?: boolean;
 };
 export async function submitInquire(prevState: State, formData: FormData) {
   // Validate form using Zod
@@ -40,6 +42,52 @@ export async function submitInquire(prevState: State, formData: FormData) {
     };
   }
   console.log(prevState.message?.toString());
+
+  const recaptchaToken = formData.get("recaptchaToken");
+  if (!recaptchaToken || typeof recaptchaToken !== "string") {
+    return {
+      errors: { recaptcha: ["Please verify you are not a robot."] },
+      message: "reCAPTCHA verification is required.",
+    };
+  }
+
+  const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY;
+  if (!recaptchaSecret) {
+    return {
+      errors: { recaptcha: ["reCAPTCHA is not configured."] },
+      message: "reCAPTCHA misconfiguration.",
+    };
+  }
+
+  const recaptchaResponse = await fetch(
+    "https://www.google.com/recaptcha/api/siteverify",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: `secret=${encodeURIComponent(recaptchaSecret)}&response=${encodeURIComponent(
+        recaptchaToken,
+      )}`,
+    },
+  );
+  const recaptchaResult = await recaptchaResponse.json();
+  if (!recaptchaResult?.success) {
+    return {
+      errors: { recaptcha: ["reCAPTCHA verification failed."] },
+      message: "reCAPTCHA verification failed.",
+    };
+  }
+  if (recaptchaResult?.action && recaptchaResult.action !== "contact") {
+    return {
+      errors: { recaptcha: ["reCAPTCHA action mismatch."] },
+      message: "reCAPTCHA verification failed.",
+    };
+  }
+  if (typeof recaptchaResult?.score === "number" && recaptchaResult.score < 0.5) {
+    return {
+      errors: { recaptcha: ["reCAPTCHA score too low."] },
+      message: "reCAPTCHA verification failed.",
+    };
+  }
 
   const { name, email, inputMessage } = validatedFields.data;
   const data = {

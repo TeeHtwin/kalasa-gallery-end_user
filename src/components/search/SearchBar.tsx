@@ -85,15 +85,21 @@ const SearchBar = ({ placeholder, className }: SearchBarProps) => {
     setOpen(true);
   };
 
-  window.addEventListener("click", (e) => {
-    if (!divRef.current?.contains(e.target as Node | null)) {
-      setOpen(false);
-    }
-  });
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      if (!divRef.current?.contains(e.target as Node | null)) {
+        setOpen(false);
+      }
+    };
+
+    window.addEventListener("click", handleClick);
+    return () => window.removeEventListener("click", handleClick);
+  }, []);
 
   return (
     <div className={cn("relative", className)} ref={divRef}>
-      <div className="flex w-[80%] ml-auto py-1 lg:py-[7px] px-5 lg:px-3 border border-0.5 border-primary justify-between items-center">
+      <div className="flex w-full items-center gap-3 rounded-md border border-primary/30 bg-white px-4 py-2 shadow-sm transition focus-within:border-primary/60 focus-within:shadow-[0_0_0_2px_rgba(136,59,10,0.12)]">
+        <Search className="h-4 w-4 text-primary/70" />
         <input
           type="text"
           placeholder={placeholder}
@@ -102,30 +108,30 @@ const SearchBar = ({ placeholder, className }: SearchBarProps) => {
           onChange={onOpenChange}
           onKeyDown={onSuggestChange}
           className={cn(
-            "text-md bg-transparent outline-none text-primary input w-full py-1 placeholder:text-sm"
+            "w-full bg-transparent text-sm text-primary placeholder:text-primary/50 outline-none"
           )}
         />
-        <div className=" ">
-          {open ? (
-            <X
-              className=" text-primary hover:scale-110 transition cursor-pointer duration-200"
-              onClick={onClose}
-            />
-          ) : (
-            <Search className=" text-primary" />
-          )}
-        </div>
+        {open && (
+          <button
+            type="button"
+            className="text-primary/70 transition hover:text-primary"
+            onClick={onClose}
+            aria-label="Clear search"
+          >
+            <X className="h-4 w-4" />
+          </button>
+        )}
       </div>
       {open && (
-        <div className="text-[12px] z-20 bg-neutral-light box-shadow absolute right-0 mt-3 border border-neutral-light md:text-lg w-[80%] mr-auto flex flex-col pt-5 shadow-md">
+        <div className="absolute z-20 mt-2 w-full overflow-hidden rounded-md border border-primary/20 bg-white text-sm shadow-lg">
           {suggested_places.map((place, i) => (
             <button
               type="button"
               onClick={() => onSuggestClick(place)}
               key={place}
               className={cn(
-                " h-[40px] md:h-[70px] flex items-center px-10 text-primary hover:bg-primary-light",
-                selectedItem === i && "bg-primary-light"
+                "flex h-10 items-center px-4 text-primary hover:bg-primary/5",
+                selectedItem === i && "bg-primary/10"
               )}
             >
               {place}
@@ -135,11 +141,11 @@ const SearchBar = ({ placeholder, className }: SearchBarProps) => {
             type="button"
             onClick={() => {}}
             className={cn(
-              "h-[40px] md:h-[70px] border-t-2 border-primary-light flex items-center px-10 text-primary hover:bg-primary-light"
+              "flex h-10 items-center border-t border-primary/10 px-4 text-primary/80 hover:bg-primary/5"
             )}
           >
             {`Search full results for "${value}"`}
-            <span className=" ms-5">{"->"}</span>
+            <span className="ms-2">{"→"}</span>
           </button>
         </div>
       )}

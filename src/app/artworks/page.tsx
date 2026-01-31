@@ -1,5 +1,6 @@
 import Layout from "../../components/common/Layout";
 import { Suspense } from "react";
+import Link from "next/link";
 import HeroSearch from "@/components/HeroSearch/HeroSearch";
 import GalleryList from "@/components/gallery/GalleryList";
 import { fetchTotalData } from "@/data/data";
@@ -9,14 +10,15 @@ import Loading from "@/components/common/Loading";
 const page = async ({
   searchParams,
 }: {
-  searchParams?: {
+  searchParams: Promise<{
     query?: string;
     page?: string;
-  };
+  }>;
 }) => {
-  const query = searchParams?.query || "";
-  const currentPage = Number(searchParams?.page) || 1;
+  const { query = "", page = "1" } = (await searchParams) ?? {};
+  const currentPage = Number(page) || 1;
   const totalPages = await fetchTotalData(query, "artwork");
+  console.log(page);
 
   return (
     <>
@@ -30,9 +32,7 @@ const page = async ({
         <Suspense fallback={<Loading />}>
           <GalleryList query={query} currentPage={currentPage} />
         </Suspense>
-        <div className="mt-5 flex w-full justify-center">
-          <Pagination totalPages={totalPages} />
-        </div>
+        <Pagination totalPages={totalPages} />
       </Layout>
     </>
   );

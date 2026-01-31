@@ -11,14 +11,10 @@ import { Artist } from "@/types";
 import GalleryCard from "@/components/cards/GalleryCard";
 import { fetchWithTimeout } from "@/utils/fetchWithTimeout";
 
-export default async function page({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
+export default async function page({ params }: { params: { id: string } }) {
   let artistInfo: Artist | null = null;
   const { id } = await params;
-  const response = await fetchWithTimeout(`${API}/api/enduser/artist/${id}`, {
+  const response = await fetch(`${API}/api/enduser/artist/${params?.id}`, {
     next: { revalidate: 3600 },
   })
     .then((res) => res.json())
@@ -27,13 +23,6 @@ export default async function page({
   if (response?.success) {
     artistInfo = response?.data;
   }
-  const imageSrc =
-    artistInfo?.profile_image && artistInfo.profile_image.length > 0
-      ? artistInfo.profile_image
-      : "/img/smallBackground.jpeg";
-  const isApiImage =
-    typeof imageSrc === "string" &&
-    imageSrc.startsWith("https://api.kalasa.gallery/");
 
   return (
     <Layout className="">
@@ -43,7 +32,7 @@ export default async function page({
           { name: "Our Artists", url: "/artists", active: true },
           {
             name: "Artist Details",
-            url: `/artist/${id}`,
+            url: `/artist/${params.id}`,
             active: false,
           },
         ]}
@@ -51,12 +40,13 @@ export default async function page({
 
       <MainLayout className="grid grid-cols-1 lg:grid-cols-2 lg:gap-[60px] ">
         <Image
-          src={imageSrc}
+          src={
+            artistInfo?.profile_image ??
+            "https://d38b044pevnwc9.cloudfront.net/cutout-nuxt/enhancer/2.jpg"
+          }
           alt="Profile image"
           width={700}
           height={700}
-          sizes="(min-width: 1024px) 50vw, 100vw"
-          unoptimized={isApiImage}
           className="aspect-square w-1/2 lg:w-full mb-2 border-[0.5px] border-primary object-cover border-opacity-20 p-1"
         />
         <div className=" mt-3 flex flex-col justify-center">
