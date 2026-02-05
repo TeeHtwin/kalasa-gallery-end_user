@@ -16,7 +16,7 @@ import GalleryCard from "@/components/cards/GalleryCard";
 
 export default async function page() {
   const homeData = await getHomeData();
-  // const { artworks } = await homeData;
+
   return (
     <>
       <HeroSection />

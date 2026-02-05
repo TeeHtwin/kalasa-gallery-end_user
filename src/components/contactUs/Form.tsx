@@ -139,14 +139,14 @@ const Form = (autoFill: {
               reCAPTCHA is not configured.
             </p>
           )}
-        {state.errors?.recaptcha &&
-          state.errors?.recaptcha.map((error: string) => (
-            <p className="mt-2 text-sm text-red-500" key={error}>
+          {state.errors?.recaptcha &&
+            state.errors?.recaptcha.map((error: string) => (
+              <p className="mt-2 text-sm text-red-500" key={error}>
                 {error}
               </p>
             ))}
         </div>
-        {captchaReady && <p>Ready C</p>}
+
         {/* You can now pass isPending to your button if you want to disable it while loading */}
         <SubmitBtn type="submit" disabled={isPending || !captchaReady}>
           {isPending ? "Sending..." : "Send Message"}
