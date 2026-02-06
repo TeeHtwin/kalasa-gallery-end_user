@@ -16,7 +16,7 @@ const GalleryCard = ({ info }: { info: Artwork }) => {
               src={info?.image}
               width={640}
               height={800}
-              quality={50}
+              quality={70}
               alt={info?.name}
               blurDataURL={info?.image}
               placeholder="blur"

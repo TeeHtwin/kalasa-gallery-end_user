@@ -14,7 +14,7 @@ import { fetchWithTimeout } from "@/utils/fetchWithTimeout";
 export default async function page({ params }: { params: { id: string } }) {
   let artistInfo: Artist | null = null;
   const { id } = await params;
-  const response = await fetch(`${API}/api/enduser/artist/${params?.id}`, {
+  const response = await fetch(`${API}/api/enduser/artist/${id}`, {
     next: { revalidate: 3600 },
   })
     .then((res) => res.json())
@@ -46,6 +46,7 @@ export default async function page({ params }: { params: { id: string } }) {
           }
           alt="Profile image"
           width={700}
+          quality={80}
           height={700}
           className="aspect-square w-1/2 lg:w-full mb-2 border-[0.5px] border-primary object-cover border-opacity-20 p-1"
         />
