@@ -11,7 +11,7 @@ import { Artist } from "@/types";
 import GalleryCard from "@/components/cards/GalleryCard";
 import { fetchWithTimeout } from "@/utils/fetchWithTimeout";
 
-export default async function page({ params }: { params: { id: string } }) {
+export default async function page({ params }: { params: Promise<{ id: string }> }) {
   let artistInfo: Artist | null = null;
   const { id } = await params;
   const response = await fetch(`${API}/api/enduser/artist/${id}`, {
@@ -32,7 +32,7 @@ export default async function page({ params }: { params: { id: string } }) {
           { name: "Our Artists", url: "/artists", active: true },
           {
             name: "Artist Details",
-            url: `/artist/${params.id}`,
+            url: `/artist/${id}`,
             active: false,
           },
         ]}

@@ -10,9 +10,10 @@ import Loading from "@/components/common/Loading";
 import { Collection } from "@/types";
 import { fetchWithTimeout } from "@/utils/fetchWithTimeout";
 
-export default async function page({ params }: { params: { id: string } }) {
+export default async function page({ params }: { params: Promise<{ id: string }> }) {
   let collection: Collection | null = null;
-  const response = await fetch(`${API}/api/enduser/collection/${params?.id}`)
+  const { id } = await params;
+  const response = await fetch(`${API}/api/enduser/collection/${id}`)
     .then((res) => res.json())
     .catch((error) => console.log(error));
   if (response?.success) {
@@ -31,7 +32,7 @@ export default async function page({ params }: { params: { id: string } }) {
           { name: "Collection", url: "/collections", active: true },
           {
             name: "Collection Details",
-            url: `/collection/${params.id}`,
+            url: `/collection/${id}`,
             active: false,
           },
         ]}

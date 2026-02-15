@@ -1,18 +1,19 @@
-"use client";
 import Breadcrumb from "@/components/breadcrumb/Breadcrumb";
 import ContactUs from "@/components/contactUs/ContactUs";
-import { useSearchParams } from "next/navigation";
 import { API } from "@/utils/domain";
 import { Artwork } from "@/types";
-import data from "@/data";
 
-const Page = async ({ params }: { params: { id: string } }) => {
+const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
-  const { data: artwork }: { data: Artwork } = await fetch(
-    `${API}/api/enduser/artwork/${id}`,
-  )
-    .then((res) => res.json())
-    .catch((error) => console.log("artwork detail error", error));
+  let artwork: Artwork | null = null;
+  try {
+    const response = await fetch(`${API}/api/enduser/artwork/${id}`).then((res) =>
+      res.json(),
+    );
+    artwork = response?.data ?? null;
+  } catch (error) {
+    console.log("artwork detail error", error);
+  }
 
   return (
     <>
@@ -23,7 +24,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
             { name: "Our Artworks", url: "/artworks", active: true },
             {
               name: "Artwork Details",
-              url: `/artworks/${params.id}`,
+              url: `/artworks/${id}`,
               active: true,
             },
             { name: "Contact", url: "", active: false },
