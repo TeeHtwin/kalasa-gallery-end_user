@@ -82,7 +82,10 @@ export async function submitInquire(prevState: State, formData: FormData) {
       message: "reCAPTCHA verification failed.",
     };
   }
-  if (typeof recaptchaResult?.score === "number" && recaptchaResult.score < 0.5) {
+  if (
+    typeof recaptchaResult?.score === "number" &&
+    recaptchaResult.score < 0.5
+  ) {
     return {
       errors: { recaptcha: ["reCAPTCHA score too low."] },
       message: "reCAPTCHA verification failed.",
@@ -93,7 +96,7 @@ export async function submitInquire(prevState: State, formData: FormData) {
   const data = {
     name,
     email,
-    message: `${prevState?.message} ${inputMessage}`,
+    message: `${inputMessage}`,
   };
 
   try {
